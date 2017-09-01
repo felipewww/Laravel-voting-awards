@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@font-face {
+    font-family: 'The Frontman';
+    src: url('./fonts/frontman/TheFrontman.eot');
+    src: url('./fonts/frontman/TheFrontman.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/frontman/TheFrontman.woff2') format('woff2'),
+    url('./fonts/frontman/TheFrontman.woff') format('woff'),
+    url('./fonts/frontman/TheFrontman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --yellow: #ffd300;
+    --lightYellow: #ffe263;
+    --bgGray: #1d1d1d
+}
+
+body{
+    overflow: hidden;
+    margin: 0;  padding: 0;  background-color: var(--bgGray);
+    /*color: var(--bgGray);*/
+}
+main {  padding: 50px;  width: 100%;  height: 100%;  position: absolute;  box-sizing: border-box;  }
+#bg_main { transition: all 1s;  background: #252525;  background-image: url(/site/media/images/dagua.png);  width: 100%;  height: 100%;  border: 3px solid var(--yellow);  background-position: 50%;  background-size: 106%;  position: relative;  }
+
+.button {
+    margin-top: 4vw;
+    /*width: 315px;*/
+    width: 23vw;
+    margin-left: -4vw;
+}
+.button span:first-child {  width: 2vw;  height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left;  }
+.button span:last-child {  width: 20vw; height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left;  margin-left: 5px;  line-height: 4vw;  text-align: center;  font-family: sans-serif;  font-weight: bold;  font-style: normal;  }
+
+.button span:last-child > div {
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+
+.button.light span:last-child{
+    background-color: var(--lightYellow);
+}
+
+/*div#content {  position: absolute;  width: 1050px;  background: var(--bgGray);  height: 300px;  top: 50%;  margin-top: -150px;  left: 50%;  margin-left: -525px;  }*/
+
+div#content {
+    position: absolute;
+    width: 65vw;
+    background: var(--bgGray);
+    height: 18.5vw;
+    top: 50%;
+    margin-top: -9.25vw;
+    left: 50%;
+    margin-left: -32.5vw;
+    visibility: hidden;
+}
+
+.titulo{ margin-top: 10px; }
+/*div#category {  font-family: 'The Frontman';  color: #ffd300;  font-size: 78px; font-size: 5.7vw;  line-height: 5.7vw;  position: absolute;  left: -11.4%;  top: -12%;  }*/
+div#category {  font-family: 'The Frontman';  color: var(--yellow); font-size: 4.5vw;  line-height: 5.5vw;  position: absolute;  left: -7vw;  top: -2.4vw;  }
+
+div#hero {
+    width: 23vw;
+    height: 25vw;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -12.5vw;
+    left: 50%;
+    margin-left: -11.5vw;
+    background-size: 100%;
+    /*transition: all 1s;*/
+}
+
+/*div#form {  position: absolute;  right: -245px;  width: 300px;  margin-right: 150px;  margin-top: 105px;  }*/
+div#form {
+    position: absolute;
+    right: -8vw;
+    width: 20vw;
+    /* margin-right: 150px; */
+    margin-top: 6vw;
+}
+form label:nth-child(2) {  margin-top: 20px;  }
+form label {  display: block;  }
+form input { box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Monttserrat', sans-serif;  font-weight: bold; }
+
+form.black input{
+    border-bottom-color: #000;
+    color: #000;
+    transition: all 0.5s;
+}
+
+form.black .button span{
+    background-color: #000;
+    transition: all 0.5s;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+
+div#pagesBar {
+    position: absolute;
+    top: 50%;
+    right: -1.9vw;
+}
+
+div#pagesBar ul#nav {
+}
+
+ul#nav li.active {
+    border-color: var(--yellow) !important;
+}
+
+ul#nav li:hover {
+    background-color: #252525;
+    border-color: #565656;
+}
+
+ul#nav li {
+    display: block;
+    width: 3.5vw;
+    height: 3.5vw;
+    background: #333333;
+    margin: 10px 0;
+    border-radius: 100px;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: all 0.5s;
+    border: 4px solid rgba(255, 0, 0, 0);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-bottom: 1.5vw;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 1270px) and (max-width: 1366px){
+    div#content {
+        width: 970px;
+        margin-left: -485px;
+    }
+}

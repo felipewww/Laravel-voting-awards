@@ -1,0 +1,42 @@
+img#logo {
+    margin: 0 auto;
+    display: block;
+    margin-top: -115px;
+}
+
+#text {
+    color: var(--lightYellow);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.button span:last-child{
+    width: 12vw;
+}
+
+div#actions {
+    width: 45.5vw;
+    margin: 0 auto;
+    margin-top: 4vw;
+}
+
+div#actions .button {
+    margin-top: 0;
+    width: 15vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+div#actions > div {
+    float: left;
+}
+
+div._ou {
+    margin: 0 1vw;
+    color: #fff;
+    line-height: 4vw;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--lightYellow);
+    font-weight: bold;
+}
