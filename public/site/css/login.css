@@ -15,6 +15,14 @@ img#logo {
     width: 12vw;
 }
 
+.fb-login-button {
+    color: #3B5999;
+}
+
+.fb-login-button span:first-child {
+    background-color: #3B5999;
+}
+
 div#actions {
     width: 45.5vw;
     margin: 0 auto;

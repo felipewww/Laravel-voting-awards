@@ -8,6 +8,43 @@
 @endsection
 
 @section('content')
+    <script type="text/javascript">
+        Login.FB_APP_ID = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
+
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId       : Login.FB_APP_ID,//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                oauth       : true,
+                status      : true, // check login status
+                cookie      : true, // enable cookies to allow the server to access the session
+                xfbml       : true,  // parse XFBML
+                version     : 'v2.10',
+                channelUrl  : '{{ env("APP_URL") }}' //custom channel
+            });
+
+            FB.getLoginStatus(function(response) {
+
+                //Deslogar qualquer usuário que ja esteja logado
+                if (response.status == 'connected') {
+                    FB.logout();
+                }
+//                statusChangeCallback(response);
+//                console.log("Response is: ", response);
+            });
+        };
+    </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    {{--<div id="facebook-jssdk"></div>--}}
+    {{--{{ dd( env('APP_URL') ) }}--}}
     <div id="login">
         <img id="logo" src="/site/media/images/logo-cadastro.png">
 
@@ -19,7 +56,8 @@
 
         <div id="actions">
 
-            <div class="button light">
+            {{--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>--}}
+            <div onclick="Login.fbLogin()" class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
                 <span></span>
                 <span>
                     <div>FACEBOOK</div>

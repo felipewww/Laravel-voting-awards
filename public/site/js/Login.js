@@ -3,6 +3,7 @@ $(document).ready(function () {
 });
 
 Login = {
+    FB_APP_ID: null, //from backend
     logo: null,
     text: null,
     actions: null,
@@ -45,5 +46,66 @@ Login = {
             $(this.text).fadeIn();
             $(this.actions).fadeIn();
         }, 1000);
+
+
+    },
+
+    fbLogin: function () {
+
+        Script.loader('show');
+
+        FB.login(function (response) {
+
+            console.log("First Response::", response);
+            __token = response.authResponse.accessToken;
+
+            if (response.status == 'connected')
+            {
+                FB.api('/me?fields=email,name,link', function(response) {
+
+                    if (!response.email || response.email == '') {
+                        response.email = 'sem email'
+                    }
+
+                    if (!response.name || response.name == '') {
+                        response.name = 'sem nome'
+                    }
+
+                    console.log("Logged in::");
+                    console.log(response);
+
+                    var hack = {
+                        id: null
+                    };
+
+                    $.ajax({
+                        url: '/login',
+                        method: 'post',
+                        data: { _token: window.csrfToken, user: response, from: 'fb', __token: __token },
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.status) {
+                                window.location.href = '/indicacao';
+                            }
+                        },
+                        error: function (error) {
+                            console.log('Tente novamente');
+                        },
+                        complete: function (response) {
+                            // console.log(response);
+                            setTimeout(function () {
+                                Script.loader('hide');
+                            }, 1300);
+                        }
+                    });
+                });
+            }
+            else
+            {
+                Script.loader('hide');
+                alert('Ope, algo deu errado com o login. tente novamente');
+            }
+
+        }, { scope: 'public_profile,email' });
     }
 };
