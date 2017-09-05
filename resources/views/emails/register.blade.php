@@ -12,5 +12,5 @@
     <br>
     Use o link abaixo para votar:
 
-    <a href="{{ env('APP_URL') }}/{{ $link }}"> {{ env('APP_URL') }} </a>
+    <a href="{{ env('APP_URL') }}/login/form/{{ $link }}"> {{ env('APP_URL') }} </a>
 </body>

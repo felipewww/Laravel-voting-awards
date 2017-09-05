@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Nominateds;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class EllectionController extends Controller
 {
@@ -15,35 +18,110 @@ class EllectionController extends Controller
      */
     public function __construct()
     {
-
+        parent::__construct();
+//        dd('cosntruct');
     }
 
-    public function index(Request $request)
+    public function index()
     {
-//        Auth::logout();
-        $user = Auth::user();
-        $nominateds = $user->Nominateds;
+        if (Auth::user()->agreed == "0") {
+            return redirect('/indicacao/termos');
+        }
 
-        $info = new \stdClass();
+        $user = Auth::user();
+        $info = [];
+
+        //Json para falar com JS
         foreach (Categories::all() as $cat)
         {
-            $t = $user->Nominateds()->where('id', $cat->id)->first();
+            $t = $user->Nominateds()->where('categorie_id', $cat->id)->first();
 
-            echo '<pre>';
+            $info[$cat->position] = [];
+            $info[$cat->position]['name']       = $cat->name;
+            $info[$cat->position]['id']         = $cat->id;
+            $info[$cat->position]['nominated']  = null;
 
-            if ($t){
-                echo $t->name;
-            }else{
-                echo 'Nenhum indicado encontrado';
+            if ($t) {
+                $info[$cat->position]['nominated'] = ['name' => $t->name, 'reference' => $t->reference];
             }
-
-            echo '</pre>';
         }
 
         $vars = new \stdClass();
         $vars->cats = Categories::all();
-        $vars->nominateds = $nominateds;
+        $vars->info = $info;
+        $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
 
         return view('ellection', ['v' => $vars ]);
+    }
+
+    public function recebe(Request $request)
+    {
+        $response = [
+            'status' => false
+        ];
+
+        $cat_id = (int)$request->cat;
+
+        $alreadyNominated = Auth::user()->Nominateds()->where('categorie_id', $cat_id)->first();
+        if ($alreadyNominated) {
+            $response['message'] = 'Você já votou nessa categoria';
+            return json_encode($response);
+        }
+
+        $v = Validator::make($request->input(),[
+            'name' => 'not_in:Indicado|required|min:3|max:45',
+            'ref' => 'not_in:Referência|required|min:5|max:255'
+        ]);
+
+        if ( $v->fails() ){
+            $response['message'] = 'Preencha todos os campos corretamente.';
+            return json_encode($response);
+        }
+
+        $new = new Nominateds();
+        $new->name          = $request->name;
+        $new->reference     = $request->ref;
+        $new->categorie_id  = $cat_id;
+        $new->user_id  = Auth::user()->id;
+
+        try{
+            $new->save();
+        }catch (\Exception $e){
+            $response['message'] = 'Erro ao votar. tenta novamente';
+            return json_encode($response);
+        }
+
+        $response['status'] = true;
+        return json_encode($response);
+    }
+
+    public function termos()
+    {
+//        dd('Termos!');
+//        echo 'here!';
+        return view('termos');
+    }
+
+    public function agree()
+    {
+        $response = [
+            'status' => false
+        ];
+
+        try{
+            $response['status'] = true;
+
+//            $user = User::where('id', Auth::user()->id);
+//            $user->agreed = 1;
+//            $user->save();
+
+            Auth::user()->agreed = 1;
+            Auth::user()->save();
+
+        }catch (\Exception $e){
+            $response['status'] = false;
+        }
+
+        return json_encode($response);
     }
 }

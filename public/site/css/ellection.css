@@ -20,6 +20,11 @@ form.black .button span{
     transition: all 0.5s;
 }
 
+form.white input {
+    border-color: #fff;
+    color: #fff;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--yellow);
     font-family: 'Monttserrat', sans-serif;
@@ -39,4 +44,18 @@ form.black .button span{
     color: var(--yellow);
     font-family: 'Monttserrat', sans-serif;
     font-weight: bold;
+}
+
+div#req li {
+    list-style-type: circle;
+    list-style-position: inside;
+    width: 100%;
+}
+
+div#req {
+    position: absolute;
+    bottom: -50px;
+    font-family: 'Montserrat', sans-serif;
+    color: #1d1d1d;
+    font-size: 0.7vw;
 }

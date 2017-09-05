@@ -39,7 +39,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        switch ($request->from)
+//        dd('In login');
+        switch ($request->offsetGet('from'))
         {
             case 'fb':
                 return $this->loginFacebook($request);
@@ -50,9 +51,7 @@ class LoginController extends Controller
                 break;
 
             default:
-                return json_encode([
-                    'status' => false
-                ]);
+                return redirect('/');
                 break;
         }
     }
@@ -125,11 +124,19 @@ class LoginController extends Controller
 
     public function loginForm(Request $request)
     {
-        $response = [
-            'status' => false
-        ];
+        $token = $request->offsetGet('token');
 
-        return json_encode($response);
+        $user = User::where('mail_token', $token)->first();
+
+        if (!$user) {
+            return redirect('/')->withErrors(['notFound' => 'Acesso negado. Verifique o link enviado no seu e-mail ou tente reenviá-lo']);
+        }
+
+        Auth::login($user);
+
+//        $ellection = new EllectionController();
+//        return $ellection->index();
+        return redirect('/indicacao');
     }
 
     public function setAndLogin(Request $request, $fbid) : User
@@ -149,7 +156,6 @@ class LoginController extends Controller
 
             //Registrar no anco se ainda não for registrado...
             if (!$user) {
-
                 $user              = new User();
                 $user->name        = $userRequest['name'];
                 $user->email       = $userRequest['email'];
@@ -166,7 +172,6 @@ class LoginController extends Controller
             $user->save();
         }catch (\Exception $e){
             abort(417, "Something went wrong");
-//            return redirect('/')->withErrors(['regFacebookError' => '']);
         }
 
         Auth::login($user);

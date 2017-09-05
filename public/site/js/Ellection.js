@@ -9,6 +9,7 @@ Ellection = {
     hero: null,
     main: null,
     form: null,
+    inputs: null,
     pagesBar: null,
     hideSize: 50,
     initialTextMargin: null,
@@ -16,8 +17,22 @@ Ellection = {
 
     init: function ()
     {
+        for(var idx in ellectionInfo)
+        {
+            if (ellectionInfo.hasOwnProperty(idx))
+            {
+                var dbinfo      = ellectionInfo[idx];
+                var jsonInfo    = Pages[idx];
+                // console.log('IDX::', idx, Pages[idx]);
+                jsonInfo.db = dbinfo;
+            }
+        }
+
+        console.log(Pages);
+
         this.text = $('#category');
         this.form = $('#mainform');
+        this.inputs = this.form.find('input');
         this.hero = $('#hero');
         this.main = $('#bg_main');
         this.pagesBar = $('#pagesBar');
@@ -55,11 +70,11 @@ Ellection = {
 
     _setPlaceholder: function ()
     {
-        var inputs = this.form.find('input');
+        // var inputs = this.form.find('input');
         var placeholder = ['Indicado','Referência'];
-        console.log(inputs);
+        // console.log(inputs);
 
-        inputs.each(function (i) {
+        this.inputs.each(function (i) {
             var input = $(this);
 
             input.val(placeholder[i]);
@@ -144,6 +159,26 @@ Ellection = {
         var obj = Pages[objectId];
         var paragraphs = obj.text.split('|');
 
+        // var inputs = this.form.find('input');
+        if (obj.db.nominated) {
+
+            this.inputs[0].value = obj.db.nominated.name;
+            this.inputs[1].value = obj.db.nominated.reference;
+
+            // this.inputs.each(function () {
+            //     $(this).attr('disabled','disabled');
+            // });
+            this.setAsBlocked();
+        }
+        else{
+            this.inputs[0].value = 'Indicado';
+            this.inputs[1].value = 'Referência';
+
+            this.inputs.each(function () {
+                $(this).removeAttr('disabled');
+            });
+        }
+
         //Inserir o texto do titulo em sequencia das divs
         for(var idx in paragraphs){
             var pItem = Ellection.text.find('> div')[idx];
@@ -203,6 +238,40 @@ Ellection = {
             $(masker).css('left', width - (speed+1));
             $(main).css('left', currentLeft + speed);
         }
+    },
+
+    send: function ()
+    {
+        var _this = this;
+        var catid = Pages[this.currentPage].db['id'];
+        var data = { cat: catid, name: _this.inputs[0].value, ref: _this.inputs[1].value, _token: window.csrfToken };
+
+        console.log(data);
+
+        $.ajax({
+            url: '/indicacao/envia',
+            data: data,
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                if (data.status) {
+                    Script._modal('Voto computado com sucesso!');
+                    _this.setAsBlocked();
+                }else{
+                    Script._modal(data.message);
+                }
+            },
+            error: function (data) {
+                Script._modal('Erro inesperado. Tente novamente.');
+            }
+        })
+    },
+
+    setAsBlocked: function ()
+    {
+        this.inputs.each(function () {
+            $(this).attr('disabled','disabled');
+        });
     }
 };
 

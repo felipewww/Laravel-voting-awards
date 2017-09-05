@@ -17,12 +17,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        //Obrigar o usuario a se logar toda vez que entrar no site. O facebook é deslogado via JS
-//        if (Auth::check()) {
-//            Auth::logout();
-//        }
-
-//        dd(env('APP_ENV'));
         Controller::$FB_APP_ID = (env('APP_ENV') == 'local') ? '139520189890905' : 'APP_PROD';
         Controller::$FB_APP_SECRET = (env('APP_ENV') == 'local') ? '1f2409a8390689fd3614aef9089e8fdc' : 'APP_SECRET_PROD';
     }

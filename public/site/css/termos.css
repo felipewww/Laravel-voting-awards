@@ -1,0 +1,63 @@
+/*RESET*/
+div#content {
+    visibility: visible;
+}
+
+img#logo {
+    width: 15vw;
+    margin-top: -3vw !important;
+}
+
+#text {
+    color: #545454;
+    font-size: 0.9vw;
+}
+/*RESET*/
+img#logo {
+    margin: 0 auto;
+    display: block;
+}
+
+#text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 50vw;
+}
+
+div#text h1 {
+    color: #edd25d;
+    font-size: 0.8vw;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.button span:last-child{
+    width: 12vw;
+}
+
+.fb-login-button span:last-child {
+    color: #545454 !important;
+}
+
+.fb-login-button span:first-child {
+    background-color: #545454;
+}
+
+div#actions {
+    width: 34vw;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+
+div#actions .button {
+    margin-top: 0;
+    width: 15vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+div#actions > div {
+    float: left;
+}

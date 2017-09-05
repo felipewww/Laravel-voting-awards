@@ -1,4 +1,6 @@
 Pages = {
+    // length: 10,
+
     0: {
         icon : 'aceleradora.png',
         text: 'ACE|LERA|DORA',
@@ -11,8 +13,8 @@ Pages = {
         icon: 'investidor-anjo.png',
         text: 'INVES|TIDOR|ANJO',
         bgColor: "#3b3b3b",
-        mainBorderColor: "#000000",
-        formClass: "black"
+        mainBorderColor: "#FFFFFF",
+        formClass: "white"
     },
 
     2: {
@@ -23,7 +25,7 @@ Pages = {
         formClass: "yellow"
     },
 
-    4: {
+    3: {
         icon : 'aceleradora.png',
         text: 'ACE|LERA|DORA',
         bgColor: "#c40b00",
@@ -31,7 +33,7 @@ Pages = {
         formClass: "yellow"
     },
 
-    5: {
+    4: {
         icon: 'investidor-anjo.png',
         text: 'INVES|TIDOR|ANJO',
         bgColor: "#3b3b3b",
@@ -39,7 +41,7 @@ Pages = {
         formClass: "black"
     },
 
-    6: {
+    5: {
         icon: 'melhor-comunidade.png',
         text: 'MELHOR|COMU|NIDADE',
         bgColor: "#e88c09",
@@ -47,7 +49,7 @@ Pages = {
         formClass: "yellow"
     },
 
-    7: {
+    6: {
         icon : 'aceleradora.png',
         text: 'ACE|LERA|DORA',
         bgColor: "#c40b00",
@@ -55,7 +57,7 @@ Pages = {
         formClass: "yellow"
     },
 
-    8: {
+    7: {
         icon: 'investidor-anjo.png',
         text: 'INVES|TIDOR|ANJO',
         bgColor: "#3b3b3b",
@@ -63,9 +65,33 @@ Pages = {
         formClass: "black"
     },
 
-    9: {
+    8: {
         icon: 'melhor-comunidade.png',
         text: 'MELHOR|COMU|NIDADE',
+        bgColor: "#e88c09",
+        mainBorderColor: "#ffd300",
+        formClass: "yellow"
+    },
+
+    9: {
+        icon: 'melhor-comunidade.png',
+        text: 'MELHOR|COMU|NIDADEX',
+        bgColor: "#e88c09",
+        mainBorderColor: "#ffd300",
+        formClass: "yellow"
+    },
+
+    10: {
+        icon: 'melhor-comunidade.png',
+        text: 'MELHOR|COMU|NIDADEX',
+        bgColor: "#e88c09",
+        mainBorderColor: "#ffd300",
+        formClass: "yellow"
+    },
+
+    11: {
+        icon: 'melhor-comunidade.png',
+        text: 'MELHOR|COMU|NIDADEX',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"

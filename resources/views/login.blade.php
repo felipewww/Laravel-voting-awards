@@ -25,6 +25,14 @@
         </script>
     @endif
 
+    @if($errors->has('notFound'))
+        <script>
+            $(document).ready(function () {
+                Script._modal('{{ $errors->get('notFound')[0] }}');
+            })
+        </script>
+    @endif
+
     <script type="text/javascript">
         Login.FB_APP_ID = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
 

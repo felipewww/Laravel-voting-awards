@@ -4,12 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\RegisterFormMail;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
-use function Psy\sh;
 
 class RegisterController extends Controller
 {
