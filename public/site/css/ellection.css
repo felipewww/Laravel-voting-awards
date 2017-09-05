@@ -1,0 +1,42 @@
+div#form {
+    position: absolute;
+    right: -8vw;
+    width: 20vw;
+    /* margin-right: 150px; */
+    margin-top: 6vw;
+}
+form label:nth-child(2) {  margin-top: 20px;  }
+form label {  display: block;  }
+form input { box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Monttserrat', sans-serif;  font-weight: bold; }
+
+form.black input{
+    border-bottom-color: #000;
+    color: #000;
+    transition: all 0.5s;
+}
+
+form.black .button span{
+    background-color: #000;
+    transition: all 0.5s;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: var(--yellow);
+    font-family: 'Monttserrat', sans-serif;
+    font-weight: bold;
+}

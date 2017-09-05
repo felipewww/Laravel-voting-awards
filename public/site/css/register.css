@@ -1,0 +1,95 @@
+img#logo {
+    margin: 0 auto;
+    display: block;
+    margin-top: -115px;
+}
+
+#text {
+    color: var(--lightYellow);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.3vw;
+    font-weight: bold;
+    font-size: 0.8vw;
+}
+
+.button span:last-child{
+    width: 12vw;
+}
+
+.fb-login-button span:last-child {
+    color: #333 !important;
+}
+
+.fb-login-button span:first-child {
+    background-color: #333;
+}
+
+div#actions {
+    width: 45.5vw;
+    margin: 0 auto;
+    margin-top: 2.3vw;
+}
+
+div#actions .button {
+    margin-top: 0;
+    width: 15vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+div#actions > div {
+    float: left;
+}
+
+div._ou {
+    margin: 0 1vw;
+    color: #fff;
+    line-height: 4vw;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--lightYellow);
+    font-weight: bold;
+}
+
+form label {
+    margin: 0 5vw;
+}
+
+form {
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 3.2vw;
+}
+
+form label span:first-child {
+    width: 1vw;
+    height: 2vw;
+    margin-right: 1vw;
+    background: #ffd300;
+    display: inline-block;
+    float: left;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+}
+
+form label input {
+    width: 15vw;
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid #333;
+    color: var(--lightYellow);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2vw;
+    outline: none;
+    padding-left: 15px;
+    padding-bottom: 0.3vw;
+}
+
+form label {
+    display: block;
+    float: left;
+    width: 20vw;
+}
