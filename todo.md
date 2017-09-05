@@ -1,0 +1,9 @@
+- se tentar logar com facebook alguem que ja tem email cadastrado, apenas completar o cadastro e continuar - OK
+- se tentar se cadastrar de um e-mail que ja veio do facebook, gerar link e enviar e-mail normalmente mantendo o mesmo usuario. - OK 
+- depois que enviar e-mail, popup na tela inicial avisando para olhar a caixa de Spam - OK
+- Ler indicados e inserir dentro do JSON que vai conversar com JS
+- color APP_Id e APP SECRET da API do facebook no .ENv - OK
+
+- Verificar STATUS da aplicação na MAINCONTROLLEr para redirecionar para paginas fixas quando necessário
+- Verificar se ja aceitou termos de contrato no primeiro acesso
+- fazer tela de SHARE para facebook

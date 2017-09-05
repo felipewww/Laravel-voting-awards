@@ -8,6 +8,23 @@
 @endsection
 
 @section('content')
+{{--    {{ dd($errors->all()) }}--}}
+    @if($errors->has('register'))
+        <script>
+            $(document).ready(function () {
+                Script._modal('{{ $errors->get('register')[0] }}');
+            })
+        </script>
+    @endif
+
+    @if($errors->has('regFacebookError'))
+        <script>
+            $(document).ready(function () {
+                Script._modal('{{ $errors->get('regFacebookError')[0] }}');
+            })
+        </script>
+    @endif
+
     <script type="text/javascript">
         Login.FB_APP_ID = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
 
@@ -69,7 +86,7 @@
             <div class="button light">
                 <span></span>
                 <span>
-                    <div>CADASTRE-SE</div>
+                    <div><a href="/registro">CADASTRE-SE</a></div>
                 </span>
             </div>
 

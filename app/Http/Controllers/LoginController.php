@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\WeirdTries;
 use Facebook\Exceptions\FacebookSDKException;
-use Facebook\Facebook;
-use Facebook\FacebookClient;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /*
+     * JS para testar hack de login com facebook, testar no metodo fbLogin() em Login.js
+     *
+    // data: { _token: window.csrfToken, user: response, from: 'fb', __token: __token }, //user editado
+    // data: { _token: window.csrfToken, user: hack, from: 'fb', __token: __token_hack }, //token e user editado
+    // data: { _token: window.csrfToken, user: response, from: 'fb', __token: __token_hack }, //token editado
+     *
+    var __token_hack = "AAABZB5JNbgVkBACpx72bVadC1Jg3ZBI3PDOwkBckcApOUcnghNHnFtqi0JTYTjKUxbl3pEZBx46MjBtZBoQtRnittplhtQAnrHqqRyETJ6bQXfFGEqZCTVVDq2nwZAoG8ZCndcMixsA3WAt5cJalysj7HyTtXJg0vDAazcSS5UKpw43ZBKCCeWZBfzVChPzrrleoI7ipXMSSNkQZDZD";
+    var hack = {
+    id: 158820864253198
+    };
+     */
     public function __construct(Request $request)
     {
         parent::__construct();
@@ -55,8 +65,8 @@ class LoginController extends Controller
 
         //new Facebook()
         $fb = new \Facebook\Facebook([
-            'app_id' => '139520189890905',
-            'app_secret' => '1f2409a8390689fd3614aef9089e8fdc',
+            'app_id'                => Controller::$FB_APP_ID,
+            'app_secret'            => Controller::$FB_APP_SECRET,
             'default_graph_version' => 'v2.10',
             //'default_access_token' => '{access-token}', // optional
         ]);
@@ -65,6 +75,14 @@ class LoginController extends Controller
         try{
             $validateUser = $fb->get('/me?fields=id,name', $request->__token);
         }catch (FacebookSDKException $e){
+            $request->offsetSet('from', 'Not this time! ;)');
+            $request->offsetSet('ip', $request->ip());
+
+            //Salvar ação estranha e dados do request na tabela
+            $weirdAction = new WeirdTries();
+            $weirdAction->info_json = json_encode( $request->all() );
+            $weirdAction->save();
+
             $response['msg'] = 'Not this time! ;)';
             return json_encode($response);
         }
@@ -73,10 +91,32 @@ class LoginController extends Controller
 
         //Verifica se o ID_FACEBOOK do usuario enviado é o mesmo do TOKEN_FACEBOK enviado
         if ( (int)$validateUser->getDecodedBody()['id'] != $fbid ) {
+
+            $info = [
+                'from' => 'nice try! ;)',
+                'ip' => $request->ip(),
+                'request' => json_encode($request->all()), //aqui, as informações editadas enviadas
+                'decode_body' => json_encode($validateUser->getDecodedBody()) //aqui o usuario que realmente esta logado
+            ];
+
+            //Salvar ação estranha e dados do request na tabela
+            $weirdAction = new WeirdTries();
+            $weirdAction->info_json = json_encode($info);
+            $weirdAction->save();
+
             $response['msg'] = 'Nice try! ;)';
         }else{
             $response['status'] = true;
-            $user = $this->setAndLogin($request, $fbid);
+
+            try{
+                $user = $this->setAndLogin($request, $fbid);
+            }catch (\Exception $e){
+//                dd($e);
+                $response['message'] = 'Algo inesperado aconteceu!';
+                $response['status'] = false;
+                //return redirect('/')->withErrors(['regFacebookError' => 'Erro ao cadastrar usuário. Entre em contato conosco.']);
+            }
+
             $response['user'] = $user;
         }
 
@@ -94,31 +134,42 @@ class LoginController extends Controller
 
     public function setAndLogin(Request $request, $fbid) : User
     {
-        $user = User::where('fb_id', $fbid)->first();
+        $userRequest = $request->user;
 
-        if (!$user) {
-            $userRequest = $request->user;
+        //Se o usuario ja se cadastrou via FORM com o mesmo e-mail, atualizar e retornar.
+        $user = User::where('email', $userRequest['email'])->first();
 
-            $user              = new User();
+        if ($user) {
             $user->name        = $userRequest['name'];
-            $user->email       = $userRequest['email'];
-            $user->fb_id       = $fbid;
-            $user->type        = 'usr';
-            $user->password    = 'default';
+            $user->fb_id = $fbid;
             $user->fb_link     = $userRequest['link'];
-            $user->ip          = $request->ip();
-            $user->agreed      = 0;
+//            $user->setError = 'just a test!'; //force error, let it commented
+        }else{
+            $user = User::where('fb_id', $fbid)->first();
 
-//            dd($user);
+            //Registrar no anco se ainda não for registrado...
+            if (!$user) {
+
+                $user              = new User();
+                $user->name        = $userRequest['name'];
+                $user->email       = $userRequest['email'];
+                $user->fb_id       = $fbid;
+                $user->type        = 'usr';
+                $user->password    = 'default';
+                $user->fb_link     = $userRequest['link'];
+                $user->ip          = $request->ip();
+                $user->agreed      = 0;
+            }
+        }
+
+        try{
             $user->save();
+        }catch (\Exception $e){
+            abort(417, "Something went wrong");
+//            return redirect('/')->withErrors(['regFacebookError' => '']);
         }
 
         Auth::login($user);
-
-//        dd('logging', $user);
-//        if ($user) {
-//        }
-
         return $user;
     }
 }

@@ -5,11 +5,13 @@ $(document).ready(function () {
 Script = {
 
     loader_div: null,
+    _modal_div: null,
 
     init: function ()
     {
         this.loader_div = document.getElementById('loader');
-        this.content = $('#content');
+        this.content    = $('#content');
+        this._modal_div = document.getElementById('_modal');
     },
 
     __intro: function () {
@@ -25,5 +27,16 @@ Script = {
         }else if(act == 'hide'){
             $(this.loader_div).fadeOut();
         }
+    },
+
+    _modal: function (text)
+    {
+        var $modal = $(this._modal_div);
+        $modal.html(text);
+        $modal.slideDown();
+
+        setTimeout(function () {
+            $modal.slideUp();
+        }, 5000)
     }
 };

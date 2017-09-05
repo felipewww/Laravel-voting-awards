@@ -26,6 +26,8 @@
 
 </head>
 <body>
+    <div id="_modal"></div>
+
     <div id="loader">
         <img src="/images/Spinner.svg">
     </div>

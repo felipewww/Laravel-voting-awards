@@ -13,6 +13,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public static $FB_APP_ID;
+    public static $FB_APP_SECRET;
 
     public function __construct()
     {
@@ -23,5 +24,6 @@ class Controller extends BaseController
 
 //        dd(env('APP_ENV'));
         Controller::$FB_APP_ID = (env('APP_ENV') == 'local') ? '139520189890905' : 'APP_PROD';
+        Controller::$FB_APP_SECRET = (env('APP_ENV') == 'local') ? '1f2409a8390689fd3614aef9089e8fdc' : 'APP_SECRET_PROD';
     }
 }

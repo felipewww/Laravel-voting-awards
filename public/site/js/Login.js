@@ -56,7 +56,7 @@ Login = {
 
         FB.login(function (response) {
 
-            console.log("First Response::", response);
+            // console.log("First Response::", response);
             __token = response.authResponse.accessToken;
 
             if (response.status == 'connected')
@@ -71,17 +71,14 @@ Login = {
                         response.name = 'sem nome'
                     }
 
-                    console.log("Logged in::");
-                    console.log(response);
-
-                    var hack = {
-                        id: null
-                    };
+                    // console.log("Logged in::");
+                    // console.log(response);
+                    // __token = 'asd';
 
                     $.ajax({
                         url: '/login',
                         method: 'post',
-                        data: { _token: window.csrfToken, user: response, from: 'fb', __token: __token },
+                        data: { _token: window.csrfToken, user: response, from: 'fb', __token: __token }, //ok
                         dataType: 'json',
                         success: function (data) {
                             if (data.status) {
@@ -92,9 +89,12 @@ Login = {
                             console.log('Tente novamente');
                         },
                         complete: function (response) {
-                            // console.log(response);
+                            console.log('Compelte Response', response);
                             setTimeout(function () {
                                 Script.loader('hide');
+                                if (!response.responseJSON.status) {
+                                    Script._modal('Não foi possível fazer login. Entre em contato conosco');
+                                }
                             }, 1300);
                         }
                     });
@@ -103,7 +103,7 @@ Login = {
             else
             {
                 Script.loader('hide');
-                alert('Ope, algo deu errado com o login. tente novamente');
+                alert('Ops, algo deu errado com o login. tente novamente');
             }
 
         }, { scope: 'public_profile,email' });

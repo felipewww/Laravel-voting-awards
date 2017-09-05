@@ -15,8 +15,8 @@ img#logo {
     width: 12vw;
 }
 
-.fb-login-button {
-    color: #3B5999;
+.fb-login-button span:last-child {
+    color: #3B5999 !important;
 }
 
 .fb-login-button span:first-child {

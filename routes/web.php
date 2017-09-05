@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'LoginController@index');
+Route::get('/registro', 'RegisterController@index');
+Route::post('/registro', 'RegisterController@save');
 
 Route::any('/entrar', function(){
 //    $user = \App\User::find(1)->first();
