@@ -127,6 +127,7 @@ class EllectionController extends Controller
         $cat = Categories::where('id', $catid)->first();
 
         return view('share', [
+            'cat_id' => $catid,
             'cat_name' => $cat->name,
             'name' => $name
         ]);

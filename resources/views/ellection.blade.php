@@ -1,11 +1,11 @@
 @extends('index')
 
 @section('scripts')
-    <meta property="og:url"           content="{{ env('APP_URL') }}/share" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Startup Awards {{env("APP_YEAR")}}" />
-    <meta property="og:description"   content="Descrição do share aqui" />
-    <meta property="og:image"         content="{{ env('APP_URL') }}/site/media/images/{{ env('APP_LOGO') }}" />
+    {{--<meta property="og:url"           content="{{ env('APP_URL') }}/share" />--}}
+    {{--<meta property="og:type"          content="website" />--}}
+    {{--<meta property="og:title"         content="Startup Awards {{env("APP_YEAR")}}" />--}}
+    {{--<meta property="og:description"   content="Descrição do share aqui" />--}}
+    {{--<meta property="og:image"         content="{{ env('APP_URL') }}/site/media/images/{{ env('APP_LOGO') }}" />--}}
 
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
