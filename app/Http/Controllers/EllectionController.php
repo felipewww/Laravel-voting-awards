@@ -123,10 +123,10 @@ class EllectionController extends Controller
     }
 
     public function share(Request $request, $catid, $name){
-
         $cat = Categories::where('id', $catid)->first();
 
         return view('share', [
+            'image_name' => $cat->image_name,
             'cat_id' => $catid,
             'cat_name' => $cat->name,
             'name' => $name

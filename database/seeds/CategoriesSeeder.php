@@ -22,12 +22,28 @@ class CategoriesSeeder extends Seeder
             'Melhor comunidade de startups',
             'Melhor universidade para empreendedores',
             'Startup do Ano',
+            'Startup do Ano',
+        ];
+
+        $imgs = [
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
+            'aceleradora.png',
         ];
 
         $i = 0;
         foreach ($arr as $name){
             $cat = new \App\Categories();
             $cat->name = $name;
+            $cat->image_name = $imgs[$i];
             $cat->position = $i;
 
             $cat->save();
