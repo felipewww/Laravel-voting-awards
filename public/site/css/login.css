@@ -1,14 +1,19 @@
-img#logo {
-    margin: 0 auto;
-    display: block;
-    margin-top: -115px;
+#text {
+    color: #fff;
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 0.9vw;
 }
 
-#text {
-    color: var(--lightYellow);
+#text .yellow {
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin-top: 60px;
+    color: var(--lightYellow);
+    font-weight: bold;
+    margin-top: 2vw;
+    display: block;
+    letter-spacing: 3px;
+    font-size: 0.8vw;
 }
 
 .button span:last-child{
@@ -21,12 +26,13 @@ img#logo {
 
 .fb-login-button span:first-child {
     background-color: #3B5999;
+    border-color: #3B5999;
 }
 
 div#actions {
     width: 45.5vw;
     margin: 0 auto;
-    margin-top: 4vw;
+    margin-top: 4.5vw;
 }
 
 div#actions .button {
@@ -34,6 +40,7 @@ div#actions .button {
     width: 15vw;
     margin-left: 3vw;
     margin-right: 3vw;
+    cursor: pointer;
 }
 
 div#actions > div {
@@ -45,6 +52,5 @@ div._ou {
     color: #fff;
     line-height: 4vw;
     font-family: 'Montserrat', sans-serif;
-    color: var(--lightYellow);
     font-weight: bold;
 }

@@ -12,10 +12,12 @@ Register = {
         this.logo = $('#logo');
         this.text = $('#text');
         this.actions = $('#actions');
+        this.form = $('form[name="reg"]');
 
         $(this.logo).css('opacity', 0);
         $(this.text).css('opacity', 0);
         $(this.actions).css('opacity', 0);
+        $(this.form).css('opacity', 0);
 
         Script.__intro();
 
@@ -36,14 +38,15 @@ Register = {
 
             setTimeout(function () {
                 Register.actions.animate({ opacity: 1 }, 1000, "easeInOutQuint").dequeue();
+                Register.form.animate({ opacity: 1 }, 1000, "easeInOutQuint").dequeue();
                 Register.actions.animate({ marginTop: margin }, 900, "easeInOutQuint");
             }, 1000);
-            // this.text.fadeIn(600);
 
             // $(this.logo).fade;
             $(this.logo).fadeIn();
             $(this.text).fadeIn();
             $(this.actions).fadeIn();
+            $(this.form).fadeIn();
         }, 1000);
     },
 

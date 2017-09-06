@@ -8,6 +8,26 @@ img#logo {
     margin-top: -3vw !important;
 }
 
+/*div#sobre{*/
+    /*margin-top: 100px;*/
+/*}*/
+
+.nano {
+    height: 10vw;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8vw;
+    line-height: 1.2vw;
+    letter-spacing: 0.05vw;
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+.nano .nano-content { padding: 10px; }
+.nano > .nano-pane > .nano-slider {
+    background: var(--yellow);
+}
+
 #text {
     color: #545454;
     font-size: 0.9vw;
@@ -22,7 +42,7 @@ img#logo {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 30px;
     width: 50vw;
 }
 

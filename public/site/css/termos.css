@@ -61,3 +61,19 @@ div#actions .button {
 div#actions > div {
     float: left;
 }
+
+.nano {
+    height: 10vw;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8vw;
+    line-height: 1.2vw;
+    letter-spacing: 0.05vw;
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+.nano .nano-content { padding: 10px; }
+.nano > .nano-pane > .nano-slider {
+    background: var(--yellow);
+}

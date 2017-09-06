@@ -88,12 +88,4 @@ Pages = {
         mainBorderColor: "#ffd300",
         formClass: "yellow"
     },
-
-    11: {
-        icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADEX',
-        bgColor: "#e88c09",
-        mainBorderColor: "#ffd300",
-        formClass: "yellow"
-    }
 };

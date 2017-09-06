@@ -25,10 +25,11 @@ img#logo {
 
 .fb-login-button span:first-child {
     background-color: #333;
+    border-color: #333;
 }
 
 div#actions {
-    width: 45.5vw;
+    width: 34vw;
     margin: 0 auto;
     margin-top: 2.3vw;
 }
@@ -36,8 +37,8 @@ div#actions {
 div#actions .button {
     margin-top: 0;
     width: 15vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 div#actions > div {
@@ -92,4 +93,29 @@ form label {
     display: block;
     float: left;
     width: 20vw;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--lightYellow);
+    font-family: 'Monttserrat Alternates', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.9vw;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: var(--lightYellow);
+    font-family: 'Monttserrat Alternates', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.9vw;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: var(--lightYellow);
+    font-family: 'Monttserrat Alternates', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.9vw;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: var(--lightYellow);
+    font-family: 'Monttserrat Alternates', sans-serif;
+    letter-spacing: 2px;
+    font-size: 0.9vw;
 }

@@ -39,9 +39,26 @@
             @yield('bg_main_content')
 
             <div id="content">
-                @yield('content')
+                @yield('content') {{-- conteudo default com animação --}}
             </div>
 
+            <footer>
+                <div class="realiza">
+                    <div class="title">co-realização</div>
+                    <div>
+                        <img src="/site/media/images/abs.svg">
+                        <img src="/site/media/images/logo_blanko.png">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="apoio">
+                    <div class="title">apoio</div>
+                    <div>
+                        <img src="/site/media/images/abs.svg">
+                        <img src="/site/media/images/blanko.svg">
+                    </div>
+                </div>
+            </footer>
         </div>
     </main>
 </body>

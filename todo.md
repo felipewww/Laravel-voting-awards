@@ -8,4 +8,6 @@
 - Verificar se tem algum layout email de cadastro
 - Verificar STATUS da aplicação na MAINCONTROLLEr para redirecionar para paginas fixas quando necessário
 - Verificar se ja aceitou termos de contrato no primeiro acesso - OK
+
 - fazer tela de SHARE para facebook
+- Trazer a indicação de usuario via form como STATUS INVALIDO

@@ -30,6 +30,7 @@ Ellection = {
 
         console.log(Pages);
 
+        this.gaveta = $gaveta = $('#gaveta');
         this.text = $('#category');
         this.form = $('#mainform');
         this.inputs = this.form.find('input');
@@ -54,9 +55,22 @@ Ellection = {
         this._setPlaceholder();
         this._setPageNavigation();
         this._setNavbar();
+        this._gaveta();
 
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
+    },
+
+    _gaveta: function () {
+        Ellection.gaveta.hide();
+
+        $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+            Ellection.gaveta.animate({width:'toggle'},1000,'easeInExpo', function () {
+                Ellection.pagesBar.fadeToggle();
+            });
+
+            $(this).toggleClass('open');
+        });
     },
 
     /*

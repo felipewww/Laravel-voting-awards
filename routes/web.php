@@ -11,10 +11,9 @@ Route::get('/sobre', function (){
     return view('sobre');
 });
 
-//Route::any('/entrar', function(){
-//    return view('login');//'Ir para a tela de login antes!';
+//Route::get('/termos', function (){
+//    return view('termos');
 //});
-
 
 Route::post('/login', 'LoginController@login');
 

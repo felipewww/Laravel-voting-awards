@@ -49,13 +49,10 @@
             });
 
             FB.getLoginStatus(function(response) {
-
                 //Deslogar qualquer usuário que ja esteja logado
                 if (response.status == 'connected') {
                     FB.logout();
                 }
-//                statusChangeCallback(response);
-//                console.log("Response is: ", response);
             });
         };
     </script>
@@ -71,12 +68,13 @@
     {{--<div id="facebook-jssdk"></div>--}}
     {{--{{ dd( env('APP_URL') ) }}--}}
     <div id="login">
-        <img id="logo" src="/site/media/images/logo-cadastro.png">
-
+        <img id="logo" src="/site/media/images/{{env('APP_LOGO')}}">
         <div id="text">
             <span>Feito pela comunidade, para a comunidade, esté é o Startup Awards!</span>
             <br>
-            <span>A premiação que você esperou o ano inteiro. Indique, vote e participe</span>
+            <span>A premiação que você esperou o ano inteiro.</span>
+            <br>
+            <span class="yellow">FAÇA SEU LOGIN, INDIQUE, VOTE, PARTICIPE.</span>
         </div>
 
         <div id="actions">
@@ -93,8 +91,9 @@
 
             <div class="button light">
                 <span></span>
-                <span>
-                    <div><a href="/registro">CADASTRE-SE</a></div>
+                <span class="_link">
+                    <a href="/registro"></a>
+                    <div>CADASTRE-SE</div>
                 </span>
             </div>
 

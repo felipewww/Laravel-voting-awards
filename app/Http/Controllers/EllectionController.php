@@ -19,7 +19,6 @@ class EllectionController extends Controller
     public function __construct()
     {
         parent::__construct();
-//        dd('cosntruct');
     }
 
     public function index()
@@ -84,6 +83,10 @@ class EllectionController extends Controller
         $new->categorie_id  = $cat_id;
         $new->user_id  = Auth::user()->id;
 
+        if (Auth::user()->fb_id) {
+            $new->valid = 1;
+        }
+
         try{
             $new->save();
         }catch (\Exception $e){
@@ -97,8 +100,6 @@ class EllectionController extends Controller
 
     public function termos()
     {
-//        dd('Termos!');
-//        echo 'here!';
         return view('termos');
     }
 
@@ -110,10 +111,6 @@ class EllectionController extends Controller
 
         try{
             $response['status'] = true;
-
-//            $user = User::where('id', Auth::user()->id);
-//            $user->agreed = 1;
-//            $user->save();
 
             Auth::user()->agreed = 1;
             Auth::user()->save();
