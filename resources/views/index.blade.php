@@ -20,6 +20,7 @@
 
     <script type="text/javascript">
         window.csrfToken = '{{ csrf_token() }}';
+        window.APP_URL = '{{ env("APP_URL") }}'
     </script>
 
     @yield('scripts')

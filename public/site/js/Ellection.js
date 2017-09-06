@@ -325,9 +325,7 @@ Ellection = {
             FB.ui({
                 method: 'share',
                 mobile_iframe: true,
-                // href: 'http://www.awards.lumen.dev/share/'+catid+'/'+name,
-                href: 'http://www.imdev.ninja/share/1/asd',
-                // href: 'http://www.imdev.ninja/share/1/asd',
+                href: window.APP_URL+'/share/'+catid+'/'+name,
             }, function(response){});
         };
 
