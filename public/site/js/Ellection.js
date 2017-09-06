@@ -14,6 +14,7 @@ Ellection = {
     hideSize: 50,
     initialTextMargin: null,
     start: true,
+    mainBtn: null,
 
     init: function ()
     {
@@ -23,13 +24,11 @@ Ellection = {
             {
                 var dbinfo      = ellectionInfo[idx];
                 var jsonInfo    = Pages[idx];
-                // console.log('IDX::', idx, Pages[idx]);
                 jsonInfo.db = dbinfo;
             }
         }
 
-        console.log(Pages);
-
+        this.mainBtn = $("#main-btn");
         this.gaveta = $gaveta = $('#gaveta');
         this.text = $('#category');
         this.form = $('#mainform');
@@ -56,9 +55,40 @@ Ellection = {
         this._setPageNavigation();
         this._setNavbar();
         this._gaveta();
+        this._navButtons();
 
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
+    },
+
+    _navButtons: function ()
+    {
+        var prev, next, length;
+
+        length = Script.length(Pages);
+
+        prev = document.getElementById('btn-previous');
+        next = document.getElementById('btn-next');
+
+        $(prev).on('click', function () {
+            var goto;
+            if (Ellection.currentPage == 0) {
+                goto = length-1; //go to last element
+            }else{
+                goto = parseInt(Ellection.currentPage - 1);
+            }
+            $(Ellection.pagesBar).find('li')[goto].click();
+        });
+
+        $(next).on('click', function () {
+            var goto;
+            if (Ellection.currentPage == length-1) {
+                goto = 0;
+            }else{
+                goto = parseInt(Ellection.currentPage + 1);
+            }
+            $(Ellection.pagesBar).find('li')[goto].click();
+        })
     },
 
     _gaveta: function () {
@@ -84,9 +114,7 @@ Ellection = {
 
     _setPlaceholder: function ()
     {
-        // var inputs = this.form.find('input');
         var placeholder = ['Indicado','Referência'];
-        // console.log(inputs);
 
         this.inputs.each(function (i) {
             var input = $(this);
@@ -144,7 +172,6 @@ Ellection = {
      * @Private - accessed from changePage()
      * */
     __hidePage: function () {
-        // $(this.text).fadeOut();
         $(this.text).stop().animate({ top: Ellection.initialTextMargin-100, opacity: 0 }, 700, "easeInOutQuint");
 
         $(this.hero).stop().animate({ marginTop: -10, opacity: 0 }, 700, "easeInOutQuint");
@@ -173,30 +200,30 @@ Ellection = {
         var obj = Pages[objectId];
         var paragraphs = obj.text.split('|');
 
-        // var inputs = this.form.find('input');
         if (obj.db.nominated) {
 
             this.inputs[0].value = obj.db.nominated.name;
             this.inputs[1].value = obj.db.nominated.reference;
 
-            // this.inputs.each(function () {
-            //     $(this).attr('disabled','disabled');
-            // });
-            this.setAsBlocked();
+            this.setAsBlocked(obj.db.id, obj.db.nominated.name);
         }
         else{
             this.inputs[0].value = 'Indicado';
             this.inputs[1].value = 'Referência';
 
-            this.inputs.each(function () {
-                $(this).removeAttr('disabled');
-            });
+            this.setAsEnabled();
         }
 
         //Inserir o texto do titulo em sequencia das divs
-        for(var idx in paragraphs){
-            var pItem = Ellection.text.find('> div')[idx];
-            $(pItem).html(paragraphs[idx]);
+        console.log('Para', paragraphs);
+        var i = 0;
+        while (i < 3){
+            var pItem = Ellection.text.find('> div')[i];
+
+            var str = ( paragraphs[i] ) ? paragraphs[i] : '';
+            $(pItem).html(str);
+
+            i++;
         }
 
         this.form.removeAttr('class');
@@ -212,7 +239,7 @@ Ellection = {
             return false;
         }
 
-        this.currentPage = objectId;
+        this.currentPage = parseInt(objectId);
 
         var _this = this;
         this.__hidePage();
@@ -257,8 +284,13 @@ Ellection = {
     send: function ()
     {
         var _this = this;
-        var catid = Pages[this.currentPage].db['id'];
-        var data = { cat: catid, name: _this.inputs[0].value, ref: _this.inputs[1].value, _token: window.csrfToken };
+        var obj = Pages[this.currentPage];
+        var catid = obj.db['id'];
+
+        var name    = _this.inputs[0].value;
+        var ref     = _this.inputs[1].value;
+
+        var data = { cat: catid, name: name, ref: ref, _token: window.csrfToken };
 
         console.log(data);
 
@@ -270,7 +302,8 @@ Ellection = {
             success: function (data) {
                 if (data.status) {
                     Script._modal('Voto computado com sucesso!');
-                    _this.setAsBlocked();
+                    obj.db['nominated'] = { name: name, reference: ref };
+                    _this.setAsBlocked(catid, name);
                 }else{
                     Script._modal(data.message);
                 }
@@ -281,10 +314,39 @@ Ellection = {
         })
     },
 
-    setAsBlocked: function ()
+    setAsBlocked: function (catid, name)
     {
+        var txt = this.mainBtn.find('span')[1];
+        txt = $(txt).find('div')[0];
+        txt.innerHTML = "COMPARTILHAR";
+
+        this.mainBtn[0].onclick = function () {
+
+            FB.ui({
+                method: 'share',
+                mobile_iframe: true,
+                href: 'http://www.awards.lumen.dev/share/'+catid+'/'+name,
+            }, function(response){});
+        };
+
         this.inputs.each(function () {
             $(this).attr('disabled','disabled');
+        });
+    },
+
+    setAsEnabled: function ()
+    {
+        this.mainBtn[0].onclick = function () {
+            Ellection.send();
+        };
+
+        var txt = this.mainBtn.find('span')[1];
+        txt = $(txt).find('div')[0];
+        console.log('TXT', txt);
+        txt.innerHTML = 'INDICAR';
+
+        this.inputs.each(function () {
+            $(this).removeAttr('disabled');
         });
     }
 };
@@ -294,11 +356,6 @@ function maskInit() {
     var w = parseInt(categ.css("width"));
     var h = parseInt(categ.css("height"));
     var l = parseFloat(categ.css("left"));
-
-    // w = w+10;
-    //l = l-20;
-
-    console.log("W: ",w, "H: ", h, "L: ",l);
 
     var masker = categ.find('.masker')[0];
 
@@ -311,8 +368,6 @@ function maskInit() {
 
     masker.style.position="absolute";
     masker.style.left=w+"px";
-
-    console.log("TOTAL left: ",totalLeft);
 
     setTimeout(function () {
         Ellection.showMask(categ, masker, w, 20, l);

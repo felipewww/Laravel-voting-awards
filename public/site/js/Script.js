@@ -12,6 +12,7 @@ Script = {
         this.loader_div = document.getElementById('loader');
         this.content    = $('#content');
         this._modal_div = document.getElementById('_modal');
+
     },
 
     __intro: function () {
@@ -38,5 +39,13 @@ Script = {
         setTimeout(function () {
             $modal.slideUp();
         }, 5000)
+    },
+
+    length: function (obj) {
+        var i = 0;
+        for (var idx in obj){
+            i++;
+        }
+        return i;
     }
 };

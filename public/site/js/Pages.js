@@ -3,7 +3,8 @@ Pages = {
 
     0: {
         icon : 'aceleradora.png',
-        text: 'ACE|LERA|DORA',
+        // text: 'ACE|LERA|DORA',
+        text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -11,7 +12,7 @@ Pages = {
 
     1: {
         icon: 'investidor-anjo.png',
-        text: 'INVES|TIDOR|ANJO',
+        text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#FFFFFF",
         formClass: "white"
@@ -19,7 +20,7 @@ Pages = {
 
     2: {
         icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADE',
+        text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"

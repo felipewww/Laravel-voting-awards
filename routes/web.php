@@ -11,6 +11,8 @@ Route::get('/sobre', function (){
     return view('sobre');
 });
 
+Route::get('/share/{catid}/{name}', 'EllectionController@share');
+
 //Route::get('/termos', function (){
 //    return view('termos');
 //});

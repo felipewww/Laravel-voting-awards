@@ -121,4 +121,14 @@ class EllectionController extends Controller
 
         return json_encode($response);
     }
+
+    public function share(Request $request, $catid, $name){
+
+        $cat = Categories::where('id', $catid)->first();
+
+        return view('share', [
+            'cat_name' => $cat->name,
+            'name' => $name
+        ]);
+    }
 }
