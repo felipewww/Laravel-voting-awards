@@ -17,7 +17,9 @@ class TableNominateds extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('reference');
-            $table->boolean('valid')->default(0);
+            
+            //0 = aguardar avaliação, 1 = valido, 2 = invalidado via painel
+            $table->tinyInteger('valid')->default(0);
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')

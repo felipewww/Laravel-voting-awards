@@ -7,6 +7,8 @@ use App\WeirdTries;
 use Facebook\Exceptions\FacebookSDKException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -27,6 +29,23 @@ class LoginController extends Controller
         parent::__construct();
     }
 
+    public function adminLogin(Request $request)
+    {
+        $user = User::where('username', $request->u)->first();
+
+        if (!$user) {
+            return redirect('/adm');
+        }
+
+        if ( !Hash::check($request->p, $user->password) ) {
+            return redirect('/adm');
+        }else{
+            //password ok
+            Auth::login($user);
+            return redirect('/panel');
+        }
+    }
+
     public function index(Request $request)
     {
         //Obrigar o usuario a se logar toda vez que entrar no site. O facebook é deslogado via JS
@@ -39,7 +58,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-//        dd('In login');
         switch ($request->offsetGet('from'))
         {
             case 'fb':

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-//use Faker;
 
 class UsersSeeder extends Seeder
 {
@@ -14,10 +13,6 @@ class UsersSeeder extends Seeder
     {
         $arr = [];
         $faker = \Faker\Factory::create();
-//        dd($faker->email);
-//
-//        $f = new Faker\Factory();
-//        $f = new Faker\Factory();
         $i = 0;
         while ($i < 10){
             $user = new \App\User();
@@ -34,7 +29,8 @@ class UsersSeeder extends Seeder
         }
 
         $user = new \App\User();
-        $user->name = 'Felipe Admin';
+        $user->name = 'Blanko';
+        $user->username =  'blankoadm';
         $user->email = 'felipe@blanko.be';
         $user->password = bcrypt('123123');
         $user->ip = '127.0.0.1';

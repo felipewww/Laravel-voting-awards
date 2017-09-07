@@ -26,3 +26,22 @@ Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($req
     Route::post('/envia', 'EllectionController@recebe');
     Route::get('/agree', 'EllectionController@agree');
 });
+
+Route::get('/adm', function (){
+//dd(\Illuminate\Support\Facades\Auth::check());
+    if (\Illuminate\Support\Facades\Auth::check()) {
+        return redirect('/panel');
+    }else{
+        return view('dash.login');
+    }
+});
+
+Route::post('/adm/login', 'LoginController@adminLogin');
+
+Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
+
+
+//    Route::post('/login', 'LoginController@adminLogin');
+
+    Route::get('/', 'DashboardController@index');
+});
