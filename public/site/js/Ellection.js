@@ -329,11 +329,18 @@ Ellection = {
             console.log('Fullurl', window.APP_URL+'/share/'+catid+'/'+shareToken);
             var mframe = Script.isMobile();
 
+            var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
+
+            console.log('displayMethod', displayMethod);
+
             FB.ui({
                 app_id: publicAppId,
                 method: 'share',
-                mobile_iframe: Script.isMobile(),
-                // mobile_iframe: false,
+                // mobile_iframe: mframe,
+                mobile_iframe: true,
+                cookie: true,
+                xfbml: true,
+                display: displayMethod,
                 href: window.APP_URL+'/share/'+catid+'/'+shareToken,
             }, function(response){});
         };
