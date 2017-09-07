@@ -124,6 +124,7 @@ form label {
     div#text {
         font-size: 11px;
         padding: 25px;
+        padding-bottom: 0;
     }
 
     form label input {

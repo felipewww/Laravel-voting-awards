@@ -133,10 +133,20 @@
     </div>
 
     <div id="req">
+        <div class="title">
+            <div class="bg"></div>
+            <div class="req">Requisitos da Categoria</div>
+        </div>
         <ul>
-            <li>Estar ativo</li>
-            <li>Planos específicos para Startups na cidade onde atua</li>
-            <li>Ter sido host de no mínimo 3 eventos</li>
+            <li>
+                <span>Estar ativo</span>
+            </li>
+            {{--<li>--}}
+                {{--<span>Planos específicos para Startups na cidade onde atua</span>--}}
+            {{--</li>--}}
+            <li>
+                <span>Ter sido host de no mínimo 3 eventos</span>
+            </li>
         </ul>
     </div>
 @endsection

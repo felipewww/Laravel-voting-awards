@@ -107,6 +107,6 @@ Login = {
                 alert('Ops, algo deu errado com o login. tente novamente');
             }
 
-        }, { scope: 'public_profile,email' });
+        }, { scope: 'public_profile,email', enable_profile_selector: true });
     }
 };
