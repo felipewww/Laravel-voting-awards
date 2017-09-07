@@ -7,6 +7,7 @@ use App\Nominateds;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 class EllectionController extends Controller
@@ -45,10 +46,13 @@ class EllectionController extends Controller
             }
         }
 
+        $crypt = new Crypt();
+
         $vars = new \stdClass();
         $vars->cats = Categories::all();
         $vars->info = $info;
         $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
+        $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.Auth::user()->email);
 
         return view('ellection', ['v' => $vars ]);
     }
@@ -122,17 +126,26 @@ class EllectionController extends Controller
         return json_encode($response);
     }
 
-    public function share(Request $request, $catid){
+    public function share(Request $request, $catid, $share_token){
 
-        if (!Auth::check()) {
-            return view('index');
+        try{
+            $share_token = explode('|', Crypt::decrypt($share_token));
+        }catch (\Exception $e){
+            return redirect('/');
+        }
+
+        $u_id = (int) $share_token[0];
+        $user = User::where('id', $u_id)->where('email', $share_token[1])->first();
+
+        if (!$user) {
+            return redirect('/');
         }
 
         $cat = Categories::where('id', $catid)->first();
-        $nom = Auth::user()->Nominateds()->where('categorie_id', $catid)->first();
+        $nom = $user->Nominateds()->where('categorie_id', $catid)->first();
 
         if (!$nom){
-            return view('index');
+            return redirect('/');
         };
 
         return view('share', [

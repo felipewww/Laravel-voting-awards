@@ -326,12 +326,14 @@ Ellection = {
         this.mainBtn[0].onclick = function () {
 
             console.log('is mobile?', Script.isMobile());
+            console.log('Fullurl', window.APP_URL+'/share/'+catid+'/'+shareToken);
+            var mframe = Script.isMobile();
 
             FB.ui({
                 method: 'share',
                 // mobile_iframe: Script.isMobile(),
-                mobile_iframe: Script.isMobile(),
-                href: window.APP_URL+'/share/'+catid,
+                // mobile_iframe: false,
+                href: window.APP_URL+'/share/'+catid+'/'+shareToken,
             }, function(response){});
         };
 

@@ -17,6 +17,7 @@
 
     <script type="text/javascript">
         ellectionInfo = JSON.parse('{!! json_encode($v->info) !!}');
+        shareToken = '{{ $v->share_token }}';
     </script>
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
