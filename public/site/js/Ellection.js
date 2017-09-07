@@ -205,7 +205,7 @@ Ellection = {
             this.inputs[0].value = obj.db.nominated.name;
             this.inputs[1].value = obj.db.nominated.reference;
 
-            this.setAsBlocked(obj.db.id, obj.db.nominated.name);
+            this.setAsBlocked(obj.db.id);
         }
         else{
             this.inputs[0].value = 'Indicado';
@@ -303,7 +303,7 @@ Ellection = {
                 if (data.status) {
                     Script._modal('Voto computado com sucesso!');
                     obj.db['nominated'] = { name: name, reference: ref };
-                    _this.setAsBlocked(catid, name);
+                    _this.setAsBlocked(catid);
                 }else{
                     Script._modal(data.message);
                 }
@@ -317,7 +317,7 @@ Ellection = {
         })
     },
 
-    setAsBlocked: function (catid, name)
+    setAsBlocked: function (catid)
     {
         var txt = this.mainBtn.find('span')[1];
         txt = $(txt).find('div')[0];
@@ -331,7 +331,7 @@ Ellection = {
                 method: 'share',
                 // mobile_iframe: Script.isMobile(),
                 mobile_iframe: Script.isMobile(),
-                href: window.APP_URL+'/share/'+catid+'/'+name,
+                href: window.APP_URL+'/share/'+catid,
             }, function(response){});
         };
 

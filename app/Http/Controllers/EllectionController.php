@@ -122,14 +122,24 @@ class EllectionController extends Controller
         return json_encode($response);
     }
 
-    public function share(Request $request, $catid, $name){
+    public function share(Request $request, $catid){
+
+        if (!Auth::check()) {
+            return view('index');
+        }
+
         $cat = Categories::where('id', $catid)->first();
+        $nom = Auth::user()->Nominateds()->where('categorie_id', $catid)->first();
+
+        if (!$nom){
+            return view('index');
+        };
 
         return view('share', [
             'image_name' => $cat->image_name,
             'cat_id' => $catid,
             'cat_name' => $cat->name,
-            'name' => $name
+            'name' => $nom->name
         ]);
     }
 }

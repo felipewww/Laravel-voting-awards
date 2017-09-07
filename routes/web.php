@@ -18,7 +18,7 @@ Route::get('/sobre', function (){
 //});
 
 Route::post('/login', 'LoginController@login');
-Route::any('/share/{catid}/{name}', 'EllectionController@share');
+Route::any('/share/{catid}', 'EllectionController@share');
 
 Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($request){
     Route::get('/', 'EllectionController@index');
