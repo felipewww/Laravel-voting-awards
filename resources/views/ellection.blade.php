@@ -78,7 +78,7 @@
         //        fbShare = null;
         window.fbAsyncInit = function() {
             FB.init({
-                appId       : '139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                appId       : '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
                 oauth       : true,
                 status      : true, // check login status
                 cookie      : true, // enable cookies to allow the server to access the session

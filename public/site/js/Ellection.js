@@ -310,6 +310,9 @@ Ellection = {
             },
             error: function (data) {
                 Script._modal('Erro inesperado. Tente novamente.');
+                setTimeout(function () {
+                    window.location.href="/";
+                }, 400);
             }
         })
     },
@@ -322,10 +325,13 @@ Ellection = {
 
         this.mainBtn[0].onclick = function () {
 
+            console.log('is mobile?', Script.isMobile());
+
             FB.ui({
                 method: 'share',
-                mobile_iframe: true,
-                href: window.APP_URL+'/share/'+catid+'/'+name,
+                // mobile_iframe: Script.isMobile(),
+                mobile_iframe: Script.isMobile(),
+                href: window.APP_URL+'/indicacao/share/'+catid+'/'+name,
             }, function(response){});
         };
 

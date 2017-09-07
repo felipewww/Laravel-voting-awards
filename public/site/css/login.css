@@ -30,7 +30,7 @@
 }
 
 div#actions {
-    width: 45.5vw;
+    width: 46.5vw;
     margin: 0 auto;
     margin-top: 4.5vw;
 }
@@ -53,4 +53,66 @@ div._ou {
     line-height: 4vw;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+}
+
+@media screen and (max-width: 1170px) {
+    div#text {
+        font-size: 11px;
+        padding: 20px;
+        padding-bottom: 0;
+    }
+
+    #text .yellow {
+        font-size: 9px;
+        letter-spacing: 1px;
+        margin-top: 20px;
+    }
+
+    /*div#actions .button {*/
+        /*width: 100%;*/
+    /*}*/
+
+    div#actions {
+        width: 100%;
+        height: 151px;
+        margin-left: 0vw !important;
+    }
+
+    ._ou {
+        clear: both;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    div#actions .button {
+        margin: 15px auto;
+        display: block;
+        width: 100%;
+        position: initial;
+        margin-left: 4.5vw;
+    }
+    .button span:first-child {
+        height: 50px;
+        width: 10%;
+    }
+    .button span:last-child {
+        width: 74%;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #333 !important;
+    }
+
+    footer > div .title {
+        font-size: 7px;
+    }
+
+    footer img {
+        width: 15vw;
+    }
+
+    footer {
+        width: 100%;
+        margin: 0;
+        left: 0;
+    }
 }

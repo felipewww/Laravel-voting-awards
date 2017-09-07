@@ -77,3 +77,9 @@ div#actions > div {
 .nano > .nano-pane > .nano-slider {
     background: var(--yellow);
 }
+
+@media screen and (max-width: 1170px) {
+    .nano {
+        height: 70vw !important;
+    }
+}

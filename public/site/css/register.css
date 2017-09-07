@@ -119,3 +119,36 @@ form label {
     letter-spacing: 2px;
     font-size: 0.9vw;
 }
+
+@media screen and (max-width: 1170px) {
+    div#text {
+        font-size: 11px;
+        padding: 25px;
+    }
+
+    form label input {
+        width: 100%;
+        box-sizing: border-box;
+        height: 20px;
+        margin: 15px 0;
+    }
+
+    form label {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-size: 12px;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        font-size: 12px;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        font-size: 12px;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        font-size: 12px;
+    }
+}

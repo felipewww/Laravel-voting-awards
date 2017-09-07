@@ -36,10 +36,9 @@
     <script type="text/javascript">
         Login.FB_APP_ID = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
 
-
         window.fbAsyncInit = function() {
             FB.init({
-                appId       : Login.FB_APP_ID,//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                appId       : Login.FB_APP_ID,
                 oauth       : true,
                 status      : true, // check login status
                 cookie      : true, // enable cookies to allow the server to access the session
@@ -48,10 +47,19 @@
                 channelUrl  : '{{ env("APP_URL") }}' //custom channel
             });
 
+            function deleteCookie(name) {
+                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            }
+
             FB.getLoginStatus(function(response) {
                 //Deslogar qualquer usuário que ja esteja logado
+                    console.log('login status', response);
                 if (response.status == 'connected') {
-                    FB.logout();
+                    FB.logout(function (response) {
+//                        FB.Auth.setAuthResponse(null, 'unknown');
+//                        console.log('Logout??');
+                        console.log('logout...', response);
+                    });
                 }
             });
         };

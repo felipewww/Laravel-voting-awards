@@ -281,7 +281,93 @@ ul {
     padding: 0;
 }
 
-@media screen and (min-width: 1270px) and (max-width: 1366px){
+@media screen and (max-width: 1170px) {
+    main{
+        padding: 25px;
+    }
+
+    #bg_main{
+        border: 1px solid var(--yellow);  background-position: 50%;
+    }
+
+    div#content {
+        width: 75%;
+        visibility: visible;
+        height: 110vw;
+        margin-top: -65vw;
+    }
+
+    div#content img#logo {
+        width: 50vw;
+        margin-top: -10vw !important;
+    }
+
+    .button span:last-child > div {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .nano {
+        height: 87vw !important;
+        font-size: 10px !important;
+        line-height: 12px !important;
+    }
+
+    /*BUTTONS*/
+    div#actions {
+        width: 100% !important;
+        margin-left: 3vw !important;
+    }
+
+    ._ou {
+        clear: both;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    div#actions .button {
+        margin: 15px auto;
+        display: block;
+        width: 100% !important;
+        position: initial;
+        margin-left: 4.5vw;
+    }
+    .button span:first-child {
+        height: 50px;
+        width: 10% !important;
+    }
+    .button span:last-child {
+        width: 74% !important;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #333 !important;
+    }
+    /*BUTTONS*/
+
+    /*FOOTER*/
+    footer > div .title {
+        font-size: 7px;
+    }
+
+    footer img {
+        width: 15vw;
+    }
+
+    footer {
+        width: 100%;
+        margin: 0;
+        left: 0;
+    }
+    /*FOOTER*/
+}
+
+@media screen and (min-width: 1171px) and (max-width: 1280px){
+    div#content {
+        width: 900px;
+        margin-left: -450px;
+    }
+}
+@media screen and (min-width: 1281px) and (max-width: 1366px){
     div#content {
         width: 970px;
         margin-left: -485px;

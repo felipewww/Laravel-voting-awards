@@ -56,8 +56,13 @@ Login = {
 
         FB.login(function (response) {
 
-            // console.log("First Response::", response);
+            if (!response.authResponse) {
+                Script.loader('hide');
+                console.log('canceled');
+                return;
+            }
             __token = response.authResponse.accessToken;
+
 
             if (response.status == 'connected')
             {
@@ -70,10 +75,6 @@ Login = {
                     if (!response.name || response.name == '') {
                         response.name = 'sem nome'
                     }
-
-                    // console.log("Logged in::");
-                    // console.log(response);
-                    // __token = 'asd';
 
                     $.ajax({
                         url: '/login',

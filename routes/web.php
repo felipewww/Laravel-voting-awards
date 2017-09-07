@@ -11,7 +11,7 @@ Route::get('/sobre', function (){
     return view('sobre');
 });
 
-Route::any('/share/{catid}/{name}', 'EllectionController@share');
+//Route::any('/share/{catid}/{name}', 'EllectionController@share');
 
 //Route::get('/termos', function (){
 //    return view('termos');
@@ -20,6 +20,7 @@ Route::any('/share/{catid}/{name}', 'EllectionController@share');
 Route::post('/login', 'LoginController@login');
 
 Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($request){
+    Route::any('/share/{catid}/{name}', 'EllectionController@share');
     Route::get('/', 'EllectionController@index');
     Route::get('/termos', 'EllectionController@termos');
     Route::post('/envia', 'EllectionController@recebe');

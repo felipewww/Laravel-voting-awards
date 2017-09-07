@@ -9,5 +9,8 @@
 - Verificar STATUS da aplicação na MAINCONTROLLEr para redirecionar para paginas fixas quando necessário
 - Verificar se ja aceitou termos de contrato no primeiro acesso - OK
 
-- fazer tela de SHARE para facebook
+- fazer tela de SHARE para facebook - OK
 - Trazer a indicação de usuario via form como STATUS INVALIDO - OK
+
+- testar share em mobile
+- confirmar frase, titulo e etc do share... ver no antigo
