@@ -331,7 +331,7 @@ Ellection = {
                 method: 'share',
                 // mobile_iframe: Script.isMobile(),
                 mobile_iframe: Script.isMobile(),
-                href: window.APP_URL+'/indicacao/share/'+catid+'/'+name,
+                href: window.APP_URL+'/share/'+catid+'/'+name,
             }, function(response){});
         };
 
