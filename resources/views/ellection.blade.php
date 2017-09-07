@@ -18,6 +18,7 @@
     <script type="text/javascript">
         ellectionInfo = JSON.parse('{!! json_encode($v->info) !!}');
         shareToken = '{{ $v->share_token }}';
+        publicAppId = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
     </script>
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>

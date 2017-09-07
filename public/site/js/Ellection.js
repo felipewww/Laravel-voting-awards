@@ -330,8 +330,9 @@ Ellection = {
             var mframe = Script.isMobile();
 
             FB.ui({
+                app_id: publicAppId,
                 method: 'share',
-                // mobile_iframe: Script.isMobile(),
+                mobile_iframe: Script.isMobile(),
                 // mobile_iframe: false,
                 href: window.APP_URL+'/share/'+catid+'/'+shareToken,
             }, function(response){});
