@@ -197,7 +197,7 @@ Ellection = {
 
         //Criar botão com transform
         var button = document.createElement('div');
-        var btnClass = 'button light '+(allSet) ? 'share' : 'indicar';
+        var btnClass = (allSet) ? 'share' : 'indicar';
 
         if (allSet) {
             button.onclick = function () {
@@ -211,7 +211,7 @@ Ellection = {
             }
         }
 
-        button.setAttribute('class','button light');
+        button.setAttribute('class', 'button light '+btnClass);
 
         var button_span1 = document.createElement('span');
 
@@ -408,7 +408,7 @@ Ellection = {
                 if (data.status) {
                     Script._modal('Voto computado com sucesso!');
                     obj.db['nominated'] = { name: name, reference: ref };
-                    _this.setAsBlocked(catid);
+                    _this.setAsBlocked(catid, obj);
                 }else{
                     Script._modal(data.message);
                 }
@@ -422,7 +422,7 @@ Ellection = {
         })
     },
 
-    setAsBlocked: function (catid)
+    setAsBlocked: function (catid, obj)
     {
         //Encontrar a LI dentro da ul da gaveta
         var liID = 'cat_'+catid;
@@ -437,6 +437,8 @@ Ellection = {
         btn.onclick = function () {
             Ellection.__share(catid);
         };
+
+        $(li).find('.indicado').first().html(obj.db.nominated.name);
         // ./Gaveta
 
         //
@@ -451,20 +453,6 @@ Ellection = {
             var mframe = Script.isMobile();
 
             Ellection.__share(catid);
-            // var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
-            //
-            // console.log('displayMethod', displayMethod);
-            //
-            // FB.ui({
-            //     app_id: publicAppId,
-            //     method: 'share',
-            //     // mobile_iframe: mframe,
-            //     mobile_iframe: true,
-            //     cookie: true,
-            //     xfbml: true,
-            //     display: displayMethod,
-            //     href: window.APP_URL+'/share/'+catid+'/'+shareToken,
-            // }, function(response){});
         };
 
         this.inputs.each(function () {

@@ -556,8 +556,9 @@ div#indicados ul li .title {
     color: #fff;
     font-size: 17px;
     margin-top: -10px;
-    font-family: 'The Frontman';
+    font-family: 'The Frontman', sans-serif;
     line-height: 22px;
+    min-height: 44px;
 }
 
 div#indicados ul li {
@@ -578,6 +579,16 @@ div#indicados .button span:first-child {
     width: 25px;
     background-color: var(--lightYellow);
     border-color: var(--lightYellow);
+}
+
+div#indicados .button.share span:first-child {
+    background: #5F79B4;
+    border-color: #5F79B4;
+}
+
+div#indicados .button.share span:last-child {
+    background: #3B5999;
+    border-color: #3B5999;
 }
 
 div#indicados .button span {
