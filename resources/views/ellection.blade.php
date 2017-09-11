@@ -1,11 +1,8 @@
 @extends('index')
 
 @section('scripts')
-    {{--<meta property="og:url"           content="{{ env('APP_URL') }}/share" />--}}
-    {{--<meta property="og:type"          content="website" />--}}
-    {{--<meta property="og:title"         content="Startup Awards {{env("APP_YEAR")}}" />--}}
-    {{--<meta property="og:description"   content="Descrição do share aqui" />--}}
-    {{--<meta property="og:image"         content="{{ env('APP_URL') }}/site/media/images/{{ env('APP_LOGO') }}" />--}}
+    <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">
 
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -37,7 +34,7 @@
             <ul>
                 <li><a href="/sobre">SOBRE O PRÊMIO</a> </li>
                 <li><a href="/indicacao/termos">REGULAMENTO</a> </li>
-                <li><a href="#">SEGURANÇA</a> </li>
+                <li><a href="/seguranca">SEGURANÇA</a> </li>
             </ul>
 
             <div id="footer">
@@ -59,8 +56,236 @@
             </div>
         </div>
 
-        <div id="indicados">
+        <div id="indicados" class="nano-content">
+            <ul id="ul-gaveta">
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
 
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+                {{--<li>--}}
+                    {{--<div class="title">--}}
+                        {{--<div>Investidor</div>--}}
+                        {{--<div>Anjo</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="indicado">--}}
+                        {{--Indicado--}}
+                    {{--</div>--}}
+
+                    {{--<div class="button light">--}}
+                        {{--<span></span>--}}
+                        {{--<span class="_link">--}}
+                            {{--<a href="#"></a>--}}
+                            {{--<div>INDICAR</div>--}}
+                        {{--</span>--}}
+                    {{--</div>--}}
+
+                {{--</li>--}}
+
+            </ul>
         </div>
     </div>
 

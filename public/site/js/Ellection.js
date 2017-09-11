@@ -9,6 +9,7 @@ Ellection = {
     hero: null,
     main: null,
     form: null,
+    ulGaveta: null,
     inputs: null,
     pagesBar: null,
     hideSize: 50,
@@ -34,6 +35,7 @@ Ellection = {
         this.form = $('#mainform');
         this.inputs = this.form.find('input');
         this.hero = $('#hero');
+        this.ulGaveta = document.getElementById('ul-gaveta');//$('#ul-gaveta');
         this.main = $('#bg_main');
         this.pagesBar = $('#pagesBar');
         this.initialTextMargin = parseInt($(this.text).css('top'));
@@ -94,6 +96,11 @@ Ellection = {
     _gaveta: function () {
         Ellection.gaveta.hide();
 
+        //Se for mobile, não usar class NANO
+        gavetaClass = ( Script.isMobile() ) ? 'with-overflow' : 'nano';
+        $gaveta = $('#gaveta');
+        $gaveta.addClass(gavetaClass);
+
         $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
             Ellection.gaveta.animate({width:'toggle'},1000,'easeInExpo', function () {
                 Ellection.pagesBar.fadeToggle();
@@ -101,6 +108,8 @@ Ellection = {
 
             $(this).toggleClass('open');
         });
+
+        // this.__gavetaItems();
     },
 
     /*
@@ -139,6 +148,97 @@ Ellection = {
         }
     },
 
+    __share: function (catid) {
+        var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
+
+        console.log('displayMethod', displayMethod);
+
+        FB.ui({
+            app_id: publicAppId,
+            method: 'share',
+            // mobile_iframe: mframe,
+            mobile_iframe: true,
+            cookie: true,
+            xfbml: true,
+            display: displayMethod,
+            href: window.APP_URL+'/share/'+catid+'/'+shareToken,
+        }, function(response){});
+    },
+
+    //Criar estrutura de LI da gaveta via JS
+    __gavetaItems: function (item, itemPos)
+    {
+
+        console.log("Page is::", item);
+        var allSet = !!(item.db.nominated);
+
+        var li = document.createElement('li');
+        li.setAttribute('id','cat_'+item.db.id);
+
+        var title = document.createElement('div');
+        title.setAttribute('class','title');
+
+        //TODO - criar spans conforme quantidade de texto
+        var categName = item.text.split('|');
+        for(var idx in categName)
+        {
+            var cname = categName[idx];
+            var cdiv = document.createElement('div');
+            cdiv.innerHTML = cname;
+
+            title.appendChild(cdiv);
+        }
+
+        var indicado = document.createElement('div');
+        indicado.setAttribute('class','indicado');
+
+        //TODO - nome do indicado ou texto padrão
+        indicado.innerHTML = (allSet) ? item.db.nominated.name : 'Indicado';
+
+        //Criar botão com transform
+        var button = document.createElement('div');
+        var btnClass = 'button light '+(allSet) ? 'share' : 'indicar';
+
+        if (allSet) {
+            button.onclick = function () {
+                //alert('share!')
+                Ellection.__share( item.db.id );
+            }
+        }else{
+            button.onclick = function () {
+                $('#nav-icon1').click();
+                Ellection.pagesBar.find('li')[itemPos].click();
+            }
+        }
+
+        button.setAttribute('class','button light');
+
+        var button_span1 = document.createElement('span');
+
+        var button_span2 = document.createElement('span');
+        button_span2.setAttribute('class','_link');
+
+        var button_span2_a = document.createElement('a');
+        button_span2_a.setAttribute('href', '#');
+
+        var button_span2_text = document.createElement('div');
+        button_span2_text.innerHTML = (allSet) ? 'COMPARTILHAR' : 'INDICAR';
+
+        button.appendChild(button_span1);
+
+        button_span2.appendChild(button_span2_a);
+        button_span2.appendChild(button_span2_text);
+
+        button.appendChild(button_span2);
+
+        //Ajustar estrutura da LI
+        li.appendChild(title);
+        li.appendChild(indicado);
+        li.appendChild(button);
+
+        this.ulGaveta.appendChild(li);
+    },
+
     _setPageNavigation: function ()
     {
         var ul = document.createElement('ul');
@@ -146,8 +246,12 @@ Ellection = {
 
         for(var i in Pages)
         {
-            if (Pages.hasOwnProperty(i)) {
+            if (Pages.hasOwnProperty(i))
+            {
                 var page = Pages[i];
+
+                this.__gavetaItems(page, i);
+
                 var li = document.createElement('li');
                 li.style.backgroundImage = "url(/site/media/images/"+page.icon+")";
                 setclick(li, i);
@@ -215,7 +319,7 @@ Ellection = {
         }
 
         //Inserir o texto do titulo em sequencia das divs
-        console.log('Para', paragraphs);
+        // console.log('Para', paragraphs);
         var i = 0;
         while (i < 3){
             var pItem = Ellection.text.find('> div')[i];
@@ -233,7 +337,8 @@ Ellection = {
         this.main.css("borderColor", obj.mainBorderColor);
     },
 
-    changePage: function (objectId) {
+    changePage: function (objectId)
+    {
 
         if (this.currentPage == objectId) {
             return false;
@@ -319,6 +424,22 @@ Ellection = {
 
     setAsBlocked: function (catid)
     {
+        //Encontrar a LI dentro da ul da gaveta
+        var liID = 'cat_'+catid;
+        var li = $(Ellection.ulGaveta).find('li[id="'+liID+'"]');
+
+        var btn = $(li[0]).find('.button')[0];
+
+        $(btn).removeClass('indicar');
+        $(btn).addClass('share');
+        $(btn).find('._link').first().find('div').first().html('COMPARTILHAR');
+
+        btn.onclick = function () {
+            Ellection.__share(catid);
+        };
+        // ./Gaveta
+
+        //
         var txt = this.mainBtn.find('span')[1];
         txt = $(txt).find('div')[0];
         txt.innerHTML = "COMPARTILHAR";
@@ -329,20 +450,21 @@ Ellection = {
             console.log('Fullurl', window.APP_URL+'/share/'+catid+'/'+shareToken);
             var mframe = Script.isMobile();
 
-            var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
-
-            console.log('displayMethod', displayMethod);
-
-            FB.ui({
-                app_id: publicAppId,
-                method: 'share',
-                // mobile_iframe: mframe,
-                mobile_iframe: true,
-                cookie: true,
-                xfbml: true,
-                display: displayMethod,
-                href: window.APP_URL+'/share/'+catid+'/'+shareToken,
-            }, function(response){});
+            Ellection.__share(catid);
+            // var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
+            //
+            // console.log('displayMethod', displayMethod);
+            //
+            // FB.ui({
+            //     app_id: publicAppId,
+            //     method: 'share',
+            //     // mobile_iframe: mframe,
+            //     mobile_iframe: true,
+            //     cookie: true,
+            //     xfbml: true,
+            //     display: displayMethod,
+            //     href: window.APP_URL+'/share/'+catid+'/'+shareToken,
+            // }, function(response){});
         };
 
         this.inputs.each(function () {

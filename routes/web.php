@@ -11,6 +11,10 @@ Route::get('/sobre', function (){
     return view('sobre');
 });
 
+Route::get('/seguranca', function (){
+    return view('seguranca');
+});
+
 //Route::any('/share/{catid}/{name}', 'EllectionController@share');
 
 //Route::get('/termos', function (){

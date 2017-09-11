@@ -28,7 +28,7 @@ Pages = {
 
     3: {
         icon : 'aceleradora.png',
-        text: 'ACE|LERA|DORA',
+        text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -36,7 +36,7 @@ Pages = {
 
     4: {
         icon: 'investidor-anjo.png',
-        text: 'INVES|TIDOR|ANJO',
+        text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#000000",
         formClass: "black"
@@ -44,7 +44,7 @@ Pages = {
 
     5: {
         icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADE',
+        text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -52,7 +52,7 @@ Pages = {
 
     6: {
         icon : 'aceleradora.png',
-        text: 'ACE|LERA|DORA',
+        text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -60,7 +60,7 @@ Pages = {
 
     7: {
         icon: 'investidor-anjo.png',
-        text: 'INVES|TIDOR|ANJO',
+        text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#000000",
         formClass: "black"
@@ -68,7 +68,7 @@ Pages = {
 
     8: {
         icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADE',
+        text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -76,7 +76,7 @@ Pages = {
 
     9: {
         icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADEX',
+        text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"
@@ -84,7 +84,7 @@ Pages = {
 
     10: {
         icon: 'melhor-comunidade.png',
-        text: 'MELHOR|COMU|NIDADEX',
+        text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
         formClass: "yellow"

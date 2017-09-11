@@ -2,31 +2,6 @@
 
 @section('scripts')
     <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".nano").nanoScroller({
-                alwaysVisible: true
-            });
-        });
-        function agree() {
-            $.ajax({
-                url: '/indicacao/agree',
-                data: { _token: window.csrfToken },
-                dataType: 'json',
-                success: function (data) {
-                    if (data.status) {
-                        window.location.href = '/indicacao'
-                    }else{
-                        Script._modal('Houve um erro ao aceitar, tente novamente.');
-                    }
-                },
-                error: function () {
-                    Script._modal('Houve um erro ao aceitar, Entre em contato conosco.');
-                }
-            })
-        }
-    </script>
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">
@@ -44,22 +19,13 @@
         </div>
 
         <div id="actions">
-            <div  class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
-                <span style="border-color: #545454"></span>
-                <span class="_link">
-                    <a href="/"></a>
-                    <div>NÃO ACEITO</div>
-                </span>
-            </div>
-
             <div class="button light">
                 <span></span>
                 <span class="_link">
-                    <a href="javascript:agree();"></a>
-                    <div>EU ACEITO</div>
+                    <a href="/indicacao"></a>
+                    <div>ENTENDI</div>
                 </span>
             </div>
-
         </div>
     </div>
 @endsection
