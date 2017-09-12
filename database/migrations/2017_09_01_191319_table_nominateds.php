@@ -18,6 +18,13 @@ class TableNominateds extends Migration
             $table->string('name');
             $table->string('reference');
 
+            $table->string('why_deny')->nullable();
+
+            $table->integer('user_id_deny')->unsigned()->nullable();
+            $table->foreign('user_id_deny')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
             //0 = aguardar avaliação, 1 = valido, 2 = invalidado via painel
             $table->tinyInteger('valid')->default(0);
 

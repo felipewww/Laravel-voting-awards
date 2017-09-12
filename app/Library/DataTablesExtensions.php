@@ -13,6 +13,7 @@ trait DataTablesExtensions {
     public $dataTables;
     public $data_info;
     public $data_cols;
+    public $methodConfigName = 'dataTablesConfig';
 
     public function __construct()
     {
@@ -21,7 +22,8 @@ trait DataTablesExtensions {
 
     public function dataTablesInit()
     {
-        $this->dataTablesConfig();
+        $methodName = $this->methodConfigName;
+        $this->$methodName();
         $this->setData();
     }
 

@@ -26,6 +26,7 @@
     <link href="/admin/css/template/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="/admin/css/template/colors/default.css" id="theme" rel="stylesheet">
+    <link href="/admin/css/style.css" id="theme" rel="stylesheet">
     {{--TEMPLATE--}}
 
     <!-- ============================================================== -->

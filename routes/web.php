@@ -44,8 +44,11 @@ Route::post('/adm/login', 'LoginController@adminLogin');
 
 Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
 
+    Route::get('/', 'Panel\DashboardController@index');
+    Route::get('/ips', 'Panel\IpsController@index');
+    Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
 
-//    Route::post('/login', 'LoginController@adminLogin');
+    Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
+//    Route::get('/validos', 'Panel\NominatedsController@validos');
 
-    Route::get('/', 'DashboardController@index');
 });

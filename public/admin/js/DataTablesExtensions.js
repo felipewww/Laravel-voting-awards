@@ -36,7 +36,7 @@ DataTablesExtensions = {
             columns: cols,
             keys: true,
             select: true,
-            //language: DataTablesExtensions.__dataTablesLanguage(),
+            language: DataTablesExtensions.__dataTablesLanguage(),
             dom: 'lftip',
             rowCallback: function (TRHtmlCollection, jsArray, i, x) {
                 for(idx in cols)
