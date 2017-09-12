@@ -82,8 +82,8 @@ class LoginController extends Controller
 
         //new Facebook()
         $fb = new \Facebook\Facebook([
-            'app_id'                => Controller::$FB_APP_ID,
-            'app_secret'            => Controller::$FB_APP_SECRET,
+            'app_id'                => env('FB_APP_ID'),
+            'app_secret'            => env('FB_APP_SECRET'),
             'default_graph_version' => 'v2.10',
             //'default_access_token' => '{access-token}', // optional
         ]);
