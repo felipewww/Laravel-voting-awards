@@ -9,15 +9,15 @@
         </div>
         <ul class="nav" id="side-menu">
             <li style="padding: 70px 0 0;">
-                <a href="/panel" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                <a href="/panel" class="waves-effect"><i class="fa fa-slack fa-fw" aria-hidden="true"></i>Dashboard</a>
             </li>
 
             <li>
-                <a href="/panel/ips" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>IPs mais usados</a>
+                <a href="/panel/ips" class="waves-effect"><i class="fa fa-tasks fa-fw" aria-hidden="true"></i>IPs mais usados</a>
             </li>
 
             <li>
-                <a href="/panel/aguardando" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Aguardando</a>
+                <a href="/panel/aguardando" class="waves-effect"><i class="fa fa-circle-o-notch fa-fw fa-spin" aria-hidden="true"></i>Aguardando</a>
             </li>
         </ul>
     </div>

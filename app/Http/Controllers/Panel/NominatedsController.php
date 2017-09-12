@@ -27,29 +27,26 @@ class NominatedsController extends Controller
         return view('dash.nominateds', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
     }
 
-//    public function validos()
-//    {
-//        $this->dataTablesInit();
-//        return view('dash.nominateds', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
-//    }
-
     public function dataTablesAguardando()
     {
         $data = [];
         foreach (Nominateds::where('valid', 0)->get() as $reg)
         {
             $newInfo = [
+                $reg->id,
                 $reg->name,
+                $reg->User->id,
+                $reg->User->name,
                 [
                     'rowActions' =>
                         [
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
+                                'attributes' => ['class' => 'btn btn-success btn-circle fa fa-check m-l-10', 'href' => 'aprovar('.$reg->id.','.$reg->User->id.')']
                             ],
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
+                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-times m-l-10', 'href' => 'reprovar('.$reg->id.','.$reg->User->id.')']
                             ]
                         ]
                 ]
@@ -60,44 +57,11 @@ class NominatedsController extends Controller
 
         $this->data_info = $data;
         $this->data_cols = [
-            ['title' => 'Nome'],
-            ['title' => 'Actions', 'width' => '150px'],
+            ['title' => ' ','width' => '30px'],
+            ['title' => 'Indicado'],
+            ['title' => ' ', 'width' => '30px'],
+            ['title' => 'User'],
+            ['title' => 'Ações', 'width' => '100px'],
         ];
     }
-
-//    public function dataTablesConfig()
-//    {
-//        $data = [];
-//        foreach (Nominateds::where('valid', 1)->get() as $reg)
-//        {
-//            $newInfo = [
-//                $reg->name,
-//                $reg->categorie_name,
-//                $reg->total,
-//                [
-//                    'rowActions' =>
-//                        [
-//                            [
-//                                'html' => '',
-//                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
-//                            ],
-//                            [
-//                                'html' => '',
-//                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
-//                            ]
-//                        ]
-//                ]
-//            ];
-//
-//            array_push($data, $newInfo);
-//        }
-//
-//        $this->data_info = $data;
-//        $this->data_cols = [
-//            ['title' => 'Indicado'],
-//            ['title' => 'Categoria'],
-//            ['title' => 'Votos'],
-//            ['title' => 'Actions', 'width' => '150px'],
-//        ];
-//    }
 }

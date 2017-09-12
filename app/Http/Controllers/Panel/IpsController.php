@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel;
 
 use App\Library\DataTablesExtensions;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +13,8 @@ class IpsController extends Controller
 {
     use DataTablesExtensions;
     public $vars;
+
+    public $ip;
 
     public function __construct()
     {
@@ -28,6 +31,8 @@ class IpsController extends Controller
     public function byUser(Request $request, $ip)
     {
         $this->methodConfigName = 'dataTablesIpByUser';
+        $this->ip = $ip;
+
         $this->dataTablesInit();
         return view('dash.ipsbyuser', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
     }
@@ -35,23 +40,26 @@ class IpsController extends Controller
     public function dataTablesIpByUser()
     {
         $data = [];
-        foreach (User::all() as $reg)
+        foreach (User::where('ip', $this->ip)->get() as $reg)
         {
             $newInfo = [
+                $reg->id,
                 $reg->name,
-                [
-                    'rowActions' =>
-                        [
-                            [
-                                'html' => '',
-                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
-                            ]
-                        ]
-                ]
+                $reg->Nominateds()->count(),
+                Carbon::parse($reg->created_at)->format('d/m/Y H:i:s'),
+//                [
+//                    'rowActions' =>
+//                        [
+//                            [
+//                                'html' => '',
+//                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
+//                            ],
+//                            [
+//                                'html' => '',
+//                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
+//                            ]
+//                        ]
+//                ]
             ];
 
             array_push($data, $newInfo);
@@ -59,38 +67,35 @@ class IpsController extends Controller
 
         $this->data_info = $data;
         $this->data_cols = [
+            ['title' => 'ID', 'width' => '30px'],
             ['title' => 'Nome'],
-            ['title' => 'Actions', 'width' => '150px'],
+            ['title' => 'Votos'],
+            ['title' => 'Data Registro', 'width' => '150px'],
+//            ['title' => 'Actions', 'width' => '150px'],
         ];
     }
 
     public function dataTablesConfig()
     {
         $nominateds = DB::table('nominateds')
-            ->join('categories', 'categories.id', '=', 'nominateds.categorie_id')
-            ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name')
-            ->groupBy('nominateds.name','nominateds.categorie_id')
+            ->select('users.ip', DB::raw('SUM(1) as total'))
+            ->join('users', 'users.id', '=', 'nominateds.user_id')
+            ->groupBy('users.ip')
             ->orderBy(DB::raw('SUM(1)'), 'DESC')
-            ->where('nominateds.valid','1')
             ->get();
 
         $data = [];
         foreach ($nominateds as $reg)
         {
             $newInfo = [
-                $reg->name,
-                $reg->categorie_name,
+                $reg->ip,
                 $reg->total,
                 [
                     'rowActions' =>
                         [
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
+                                'attributes' => ['class' => 'btn btn-primary btn-circle fa fa-users m-l-10', 'href' => '/panel/ips/byuser/'.$reg->ip.'']
                             ]
                         ]
                 ]
@@ -101,10 +106,9 @@ class IpsController extends Controller
 
         $this->data_info = $data;
         $this->data_cols = [
-            ['title' => 'Indicado'],
-            ['title' => 'Categoria'],
-            ['title' => 'Votos'],
-            ['title' => 'Actions', 'width' => '150px'],
+            ['title' => 'IP'],
+            ['title' => 'Total'],
+            ['title' => 'Actions', 'width' => '70px'],
         ];
     }
 }

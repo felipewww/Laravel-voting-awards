@@ -7,3 +7,16 @@ table.setDataTables td {
     font-weight: normal;
     border-color: rgba(0,0,0,0);
 }
+
+div#DataTables_Table_0_length select {
+    background: rgba(0, 0, 0, 0);
+    border-color: #edf1f5;
+    color: #5fb6da;
+    padding: 5px;
+    margin: 0 15px;
+}
+
+div#DataTables_Table_0_length {
+    float: left;
+    margin-bottom: 60px;
+}

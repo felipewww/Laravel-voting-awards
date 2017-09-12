@@ -28,7 +28,7 @@ class Nominateds extends Seeder
             'AVIANCA revista'
         ];
 
-        $total = 400;
+        $total = (\App\User::all()->count() * 10);
         $i = 0;
         while ($i < $total)
         {

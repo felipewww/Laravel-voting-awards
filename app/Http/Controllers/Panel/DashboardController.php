@@ -32,7 +32,7 @@ class DashboardController extends Controller
             ->join('categories', 'categories.id', '=', 'nominateds.categorie_id')
             ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name')
             ->groupBy('nominateds.name','nominateds.categorie_id')
-            ->orderBy(DB::raw('SUM(1)'), 'DESC')
+            ->orderBy(DB::raw('total'), 'DESC')
             ->where('nominateds.valid','1')
             ->get();
 

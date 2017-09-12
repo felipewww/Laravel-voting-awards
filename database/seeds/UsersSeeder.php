@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
         $ips = [];
 
         $ix = 0;
-        while ($ix < 30)
+        while ($ix < 7)
         {
             array_push($ips, $faker->ipv4);
             $ix++;
@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
             $user->email    = $faker->email;
             $user->password = bcrypt('123123');
             $user->type     = 'usr';
-            $user->ip       = $ips[rand(0,count($ips))];
+            $user->ip       = $ips[rand(0,count($ips)-1)];
             $user->agreed   = true;
 
             $user->save();

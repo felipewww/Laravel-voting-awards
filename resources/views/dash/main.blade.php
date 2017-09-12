@@ -75,52 +75,29 @@
 
 </head>
 <body class="fix-header">
-<!-- ============================================================== -->
-<!-- Preloader -->
-<!-- ============================================================== -->
+
 <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
     </svg>
 </div>
-<!-- ============================================================== -->
-<!-- Wrapper -->
-<!-- ============================================================== -->
-<div id="wrapper">
-    @include('dash.partials.top')
 
+<div id="wrapper">
+
+    @include('dash.partials.top')
     @include('dash.partials.menu')
 
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page Content -->
-    <!-- ============================================================== -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">{{ $vars->title }}</h4> </div>
-                    {{--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">--}}
-                        {{--<a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade to Pro</a>--}}
-                        {{--<ol class="breadcrumb">--}}
-                            {{--<li><a href="#">Dashboard</a></li>--}}
-                        {{--</ol>--}}
-                    {{--</div>--}}
-                <!-- /.col-lg-12 -->
+                    <h4 class="page-title">{{ $vars->title }}</h4>
+                </div>
             </div>
             @yield('content')
         </div>
-        <!-- /.container-fluid -->
         <footer class="footer text-center"> 2017 &copy; Startup Awards </footer>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page Content -->
-    <!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
 </body>
 </html>

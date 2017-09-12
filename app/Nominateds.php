@@ -10,4 +10,8 @@ class Nominateds extends Model
     public function Categorie(){
         return $this->belongsTo(Categories::class);
     }
+
+    public function User(){
+        return $this->belongsTo(User::class);
+    }
 }

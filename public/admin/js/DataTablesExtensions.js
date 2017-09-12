@@ -3,6 +3,8 @@ $(document).ready(function () {
 });
 
 DataTablesExtensions = {
+    orderBy: 1,
+
     init: function ()
     {
         var tables = $('.setDataTables');
@@ -13,6 +15,12 @@ DataTablesExtensions = {
             var table = $(this);
             var data = table.find('td.info')[0];
             var columns = table.find('td.columns');
+
+            console.log( $(data).attr('data-orderby') );
+            if ( $(data).attr('data-orderby') ) {
+                DataTablesExtensions.orderBy = $(data).attr('data-orderby');
+            }
+
             //Criar tabela
             DataTablesExtensions.__dataTablesExec(
                 table,
@@ -30,12 +38,15 @@ DataTablesExtensions = {
 
         var colIdPosition = findColId(cols);
 
+        // console.log(cols);
+
         T = $(table).DataTable({
             data: data,
             columnDefs: paramns.columnDefs,
             columns: cols,
             keys: true,
             select: true,
+            order: DataTablesExtensions.orderBy,
             language: DataTablesExtensions.__dataTablesLanguage(),
             dom: 'lftip',
             rowCallback: function (TRHtmlCollection, jsArray, i, x) {
