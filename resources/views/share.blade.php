@@ -1,7 +1,7 @@
 <html lang="pt-br">
 <head>
     <title>Startup Awards {{ env('APP_YEAR') }}</title>
-    <meta property="fb:app_id"        content="{{ \App\Http\Controllers\Controller::$FB_APP_ID }}" />
+    <meta property="fb:app_id"        content="{{ env("FB_APP_ID") }}" />
     <meta property="og:url"           content="{{ env('APP_URL') }}/{{$cat_id}}/{{$name}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Startup Awards {{env("APP_YEAR")}}" />

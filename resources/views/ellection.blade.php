@@ -15,7 +15,7 @@
     <script type="text/javascript">
         ellectionInfo = JSON.parse('{!! json_encode($v->info) !!}');
         shareToken = '{{ $v->share_token }}';
-        publicAppId = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
+        publicAppId = '{{ env("FB_APP_ID") }}';
     </script>
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
@@ -305,7 +305,7 @@
         //        fbShare = null;
         window.fbAsyncInit = function() {
             FB.init({
-                appId       : '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                appId       : '{{ env("FB_APP_ID") }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
                 oauth       : true,
                 status      : true, // check login status
                 cookie      : true, // enable cookies to allow the server to access the session
