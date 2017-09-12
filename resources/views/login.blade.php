@@ -34,7 +34,7 @@
     @endif
 
     <script type="text/javascript">
-        Login.FB_APP_ID = '{{ \App\Http\Controllers\Controller::$FB_APP_ID }}';
+        Login.FB_APP_ID = '{{ env("FB_APP_ID") }}';
 
         window.fbAsyncInit = function() {
             FB.init({
