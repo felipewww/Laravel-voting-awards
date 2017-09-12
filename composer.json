@@ -12,6 +12,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "greggilbert/recaptcha": "dev-master",
+        "fzaninotto/faker": "~1.4"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
