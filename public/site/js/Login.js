@@ -55,7 +55,8 @@ Login = {
         Script.loader('show');
 
         FB.login(function (response) {
-
+// console.log('response is::', response);
+// return;
             if (!response.authResponse) {
                 Script.loader('hide');
                 console.log('canceled');

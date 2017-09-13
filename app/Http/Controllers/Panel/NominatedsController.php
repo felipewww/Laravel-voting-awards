@@ -42,11 +42,11 @@ class NominatedsController extends Controller
                         [
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-success btn-circle fa fa-check m-l-10', 'href' => 'aprovar('.$reg->id.','.$reg->User->id.')']
+                                'attributes' => ['class' => 'btn btn-success btn-circle fa fa-check m-l-10', 'href' => 'javascript:Nominateds.aprovar('.$reg->id.','.$reg->User->id.');']
                             ],
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-times m-l-10', 'href' => 'reprovar('.$reg->id.','.$reg->User->id.')']
+                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-times m-l-10', 'href' => 'javascript:Nominateds.reprovar('.$reg->id.','.$reg->User->id.');']
                             ]
                         ]
                 ]
@@ -57,9 +57,9 @@ class NominatedsController extends Controller
 
         $this->data_info = $data;
         $this->data_cols = [
-            ['title' => ' ','width' => '30px'],
+            ['title' => 'ID','width' => '30px'],
             ['title' => 'Indicado'],
-            ['title' => ' ', 'width' => '30px'],
+            ['title' => ' ID', 'width' => '30px'],
             ['title' => 'User'],
             ['title' => 'Ações', 'width' => '100px'],
         ];
