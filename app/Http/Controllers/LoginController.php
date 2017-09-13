@@ -185,7 +185,7 @@ class LoginController extends Controller
                 $user->agreed      = 0;
             }
         }
-
+dd($user);
         try{
             $user->save();
         }catch (\Exception $e){
