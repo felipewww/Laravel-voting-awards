@@ -103,7 +103,7 @@ class LoginController extends Controller
             $response['msg'] = 'Not this time! ;)';
             return json_encode($response);
         }
-dd($validateUser);
+//dd($validateUser);
         $fbid = (int)$request->user['id'];
 
         //Verifica se o ID_FACEBOOK do usuario enviado é o mesmo do TOKEN_FACEBOK enviado
