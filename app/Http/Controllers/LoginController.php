@@ -103,11 +103,11 @@ class LoginController extends Controller
             $response['msg'] = 'Not this time! ;)';
             return json_encode($response);
         }
-//dd($validateUser);
-        $fbid = (int)$request->user['id'];
+
+        $fbid = $request->user['id'];
 
         //Verifica se o ID_FACEBOOK do usuario enviado é o mesmo do TOKEN_FACEBOK enviado
-        if ( (int)$validateUser->getDecodedBody()['id'] != $fbid ) {
+        if ( $validateUser->getDecodedBody()['id'] != $fbid ) {
 
             $info = [
                 'from' => 'nice try! ;)',
@@ -151,9 +151,7 @@ class LoginController extends Controller
         }
 
         Auth::login($user);
-
-//        $ellection = new EllectionController();
-//        return $ellection->index();
+        
         return redirect('/indicacao');
     }
 
@@ -185,7 +183,7 @@ class LoginController extends Controller
                 $user->agreed      = 0;
             }
         }
-dd($user);
+
         try{
             $user->save();
         }catch (\Exception $e){
