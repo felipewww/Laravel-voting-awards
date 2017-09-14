@@ -139,8 +139,13 @@ div#_modal {
     margin-top: 4vw;
     width: 24vw;
     margin-left: -4vw;
+    cursor: pointer;
+    transition: 0.3s;
 }
-
+.button.disabled{
+    opacity: 0.2;
+    cursor: default;
+}
 .button span:first-child {  width: 2vw;  height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left; border: 4px solid var(--yellow);  box-sizing: border-box;  }
 .button span:last-child {  width: 21vw; height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: #1d1d1d;  float: left;  margin-left: 5px;  line-height: 3.7vw;  text-align: center;  font-family: sans-serif;  font-weight: bold;  font-style: normal;  border: 4px solid var(--yellow);  box-sizing: border-box; color: var(--yellow); }
 

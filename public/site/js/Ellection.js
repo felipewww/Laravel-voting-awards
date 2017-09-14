@@ -73,23 +73,27 @@ Ellection = {
         next = document.getElementById('btn-next');
 
         $(prev).on('click', function () {
-            var goto;
-            if (Ellection.currentPage == 0) {
-                goto = length-1; //go to last element
-            }else{
-                goto = parseInt(Ellection.currentPage - 1);
+            if (!prev.classList.contains('disabled')) {
+                var goto;
+                if (Ellection.currentPage == 0) {
+                    goto = length - 1; //go to last element
+                } else {
+                    goto = parseInt(Ellection.currentPage - 1);
+                }
+                $(Ellection.pagesBar).find('li')[goto].click();
             }
-            $(Ellection.pagesBar).find('li')[goto].click();
         });
 
         $(next).on('click', function () {
-            var goto;
-            if (Ellection.currentPage == length-1) {
-                goto = 0;
-            }else{
-                goto = parseInt(Ellection.currentPage + 1);
+            if (!next.classList.contains('disabled')) {
+                var goto;
+                if (Ellection.currentPage == length - 1) {
+                    goto = 0;
+                } else {
+                    goto = parseInt(Ellection.currentPage + 1);
+                }
+                $(Ellection.pagesBar).find('li')[goto].click();
             }
-            $(Ellection.pagesBar).find('li')[goto].click();
         })
     },
 
@@ -472,6 +476,26 @@ Ellection = {
         this.inputs.each(function () {
             $(this).removeAttr('disabled');
         });
+
+        var prev = document.getElementById('btn-previous');
+        var next = document.getElementById('btn-next');
+
+        prev.disble = false;
+        prev.classList.remove("disabled");
+
+        next.disble = false;
+        next.classList.remove("disabled");
+
+
+        if(Ellection.currentPage == 0){
+            prev.disble = true;
+            prev.classList.add("disabled");
+        }
+
+        if(Ellection.currentPage >= Script.length(Pages) -1){
+            next.disble = true;
+            next.classList.add("disabled");
+        }
     }
 };
 
@@ -495,5 +519,6 @@ function maskInit() {
 
     setTimeout(function () {
         Ellection.showMask(categ, masker, w, 20, l);
+
     }, 500);
 }
