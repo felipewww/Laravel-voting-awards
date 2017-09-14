@@ -39,10 +39,11 @@ class UsersSeeder extends Seeder
         $user = new \App\User();
         $user->name = 'Blanko';
         $user->username =  'blankoadm';
-        $user->email = 'felipe@blanko.be';
+        $user->email = 'admin@blanko.be';
         $user->password = bcrypt('123123');
         $user->ip = '127.0.0.1';
         $user->type = 'adm';
+        $user->photo = '/admin/media/images/big.png';
         $user->agreed = true;
 
         $user->save();

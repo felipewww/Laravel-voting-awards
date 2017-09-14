@@ -20,3 +20,20 @@ div#DataTables_Table_0_length {
     float: left;
     margin-bottom: 60px;
 }
+
+img.logomenu {
+    width: 220px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 29px;
+    display: block;
+}
+
+.top-left-part a{
+    padding-left: 0;
+}
+
+img.img-circle.userimg {
+    width: 36px;
+    height: 36px;
+}

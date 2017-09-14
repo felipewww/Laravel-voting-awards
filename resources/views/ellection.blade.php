@@ -26,8 +26,6 @@
 @endsection
 
 @section('bg_main_content')
-    {{--<div class="fb-share-button" data-href="http://www.awards.lumen.dev/share" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.awards.lumen.dev%2Fshare&amp;src=sdkpreparse">Compartilhar</a></div>--}}
-
     <div id="gaveta">
         <div class="menu">
             <img src="/site/media/images/{{env("APP_LOGO")}}">
@@ -58,233 +56,7 @@
 
         <div id="indicados" class="nano-content">
             <ul id="ul-gaveta">
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
-                {{--<li>--}}
-                    {{--<div class="title">--}}
-                        {{--<div>Investidor</div>--}}
-                        {{--<div>Anjo</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="indicado">--}}
-                        {{--Indicado--}}
-                    {{--</div>--}}
-
-                    {{--<div class="button light">--}}
-                        {{--<span></span>--}}
-                        {{--<span class="_link">--}}
-                            {{--<a href="#"></a>--}}
-                            {{--<div>INDICAR</div>--}}
-                        {{--</span>--}}
-                    {{--</div>--}}
-
-                {{--</li>--}}
-
+                {{-- Montado via JS --}}
             </ul>
         </div>
     </div>
@@ -302,7 +74,6 @@
 
 @section('content')
     <script type="text/javascript">
-        //        fbShare = null;
         window.fbAsyncInit = function() {
             FB.init({
                 appId       : '{{ env("FB_APP_ID") }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
@@ -366,9 +137,6 @@
             <li>
                 <span>Estar ativo</span>
             </li>
-            {{--<li>--}}
-                {{--<span>Planos específicos para Startups na cidade onde atua</span>--}}
-            {{--</li>--}}
             <li>
                 <span>Ter sido host de no mínimo 3 eventos</span>
             </li>
