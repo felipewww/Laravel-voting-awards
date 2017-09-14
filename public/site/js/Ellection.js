@@ -16,6 +16,7 @@ Ellection = {
     initialTextMargin: null,
     start: true,
     mainBtn: null,
+    logo: null,
 
     init: function ()
     {
@@ -35,6 +36,7 @@ Ellection = {
         this.form = $('#mainform');
         this.inputs = this.form.find('input');
         this.hero = $('#hero');
+        this.logo = $('#logo');
         this.ulGaveta = document.getElementById('ul-gaveta');//$('#ul-gaveta');
         this.main = $('#bg_main');
         this.pagesBar = $('#pagesBar');
@@ -336,6 +338,7 @@ Ellection = {
 
         this.form.removeAttr('class');
         this.form.addClass(obj.formClass);
+        this.logo.css("background-image","url(/site/media/images/"+obj.logo+")");
         this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
         this.main.css("background-color", obj.bgColor);
         this.main.css("borderColor", obj.mainBorderColor);

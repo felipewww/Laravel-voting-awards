@@ -5,9 +5,28 @@ div#form {
     /* margin-right: 150px; */
     margin-top: 6vw;
 }
-form label:nth-child(2) {  margin-top: 20px;  }
+form label:nth-child(2) {  margin-top: 20px; position: relative; }
 form label {  display: block;  }
 form input { box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Montserrat Alternates', sans-serif;  font-weight: bold; }
+
+form label .referencia{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.ui-tooltip, .arrow:after {
+    background: #1d1d1d;
+    border: none;
+}
+
+.ui-tooltip {
+    padding: 10px 20px;
+    color: #ffd300;
+    border: none !important;
+    border-radius: 0;
+}
 
 footer{
     display: none;

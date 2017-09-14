@@ -16,7 +16,6 @@
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
 
-
     </script>
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
@@ -92,11 +91,8 @@
             $( "#reference-tooltip" ).tooltip({
                 show: null,
                 position: {
-                    my: "left top",
-                    at: "left bottom"
-                },
-                open: function( event, ui ) {
-                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                    my: "center top",
+                    at: "center bottom"
                 },
                 using: function( position, feedback ) {
                     $( this ).css( position );
@@ -105,7 +101,10 @@
                             .addClass( feedback.vertical )
                             .addClass( feedback.horizontal )
                             .appendTo( this );
-                }
+                },
+                open: function( event, ui ) {
+                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                },
             });
         } );
     </script>
@@ -114,7 +113,7 @@
         <div></div>
         <div></div>
     </div>
-
+    <div id="logo"></div>
     <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
 
     <div id="form">
@@ -125,7 +124,7 @@
 
             <label>
                 <input type="text" name="reference"  maxlength="150">
-                <a href="#" class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></a>
+                <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
             </label>
 
             <div class="button" id="main-btn">
