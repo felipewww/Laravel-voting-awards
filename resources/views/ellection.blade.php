@@ -3,7 +3,6 @@
 @section('scripts')
     <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">
-
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -16,6 +15,8 @@
         ellectionInfo = JSON.parse('{!! json_encode($v->info) !!}');
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
+
+
     </script>
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
@@ -314,6 +315,28 @@
                 channelUrl  : '{{ env("APP_URL") }}' //custom channel
             });
         };
+
+
+        $( function() {
+            $( "#reference-tooltip" ).tooltip({
+                show: null,
+                position: {
+                    my: "left top",
+                    at: "left bottom"
+                },
+                open: function( event, ui ) {
+                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                },
+                using: function( position, feedback ) {
+                    $( this ).css( position );
+                    $( "<div>" )
+                            .addClass( "arrow" )
+                            .addClass( feedback.vertical )
+                            .addClass( feedback.horizontal )
+                            .appendTo( this );
+                }
+            });
+        } );
     </script>
     <div id="category" >
         <div></div>
@@ -321,16 +344,17 @@
         <div></div>
     </div>
 
-    <div id="hero" style="background-image: url(/site/media/images/aceleradora.png)"></div>
+    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
 
     <div id="form">
         <form id="mainform" name="mainform">
             <label>
-                <input type="text" name="indicated">
+                <input type="text" name="indicated" maxlength="50">
             </label>
 
             <label>
-                <input type="text" name="reference">
+                <input type="text" name="reference"  maxlength="150">
+                <a href="#" class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></a>
             </label>
 
             <div class="button" id="main-btn">

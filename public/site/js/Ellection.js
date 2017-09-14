@@ -339,6 +339,26 @@ Ellection = {
         this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
         this.main.css("background-color", obj.bgColor);
         this.main.css("borderColor", obj.mainBorderColor);
+
+        var prev = document.getElementById('btn-previous');
+        var next = document.getElementById('btn-next');
+
+        prev.disble = false;
+        prev.classList.remove("disabled");
+
+        next.disble = false;
+        next.classList.remove("disabled");
+
+        console.log(Ellection.currentPage);
+        if(Ellection.currentPage == 0){
+            prev.disble = true;
+            prev.classList.add("disabled");
+        }
+
+        if(Ellection.currentPage >= Script.length(Pages) -1){
+            next.disble = true;
+            next.classList.add("disabled");
+        }
     },
 
     changePage: function (objectId)
@@ -477,25 +497,7 @@ Ellection = {
             $(this).removeAttr('disabled');
         });
 
-        var prev = document.getElementById('btn-previous');
-        var next = document.getElementById('btn-next');
 
-        prev.disble = false;
-        prev.classList.remove("disabled");
-
-        next.disble = false;
-        next.classList.remove("disabled");
-
-
-        if(Ellection.currentPage == 0){
-            prev.disble = true;
-            prev.classList.add("disabled");
-        }
-
-        if(Ellection.currentPage >= Script.length(Pages) -1){
-            next.disble = true;
-            next.classList.add("disabled");
-        }
     }
 };
 
