@@ -16,6 +16,7 @@ Ellection = {
     initialTextMargin: null,
     start: true,
     mainBtn: null,
+    logo: null,
 
     init: function ()
     {
@@ -35,6 +36,7 @@ Ellection = {
         this.form = $('#mainform');
         this.inputs = this.form.find('input');
         this.hero = $('#hero');
+        this.logo = $('#logo');
         this.ulGaveta = document.getElementById('ul-gaveta');//$('#ul-gaveta');
         this.main = $('#bg_main');
         this.pagesBar = $('#pagesBar');
@@ -106,8 +108,8 @@ Ellection = {
         $gaveta.addClass(gavetaClass);
 
         $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-            Ellection.gaveta.animate({width:'toggle'},1000,'easeInExpo', function () {
-                Ellection.pagesBar.fadeToggle();
+            Ellection.gaveta.toggle( "slide" ,1000,'easeInExpo', function () {
+                Ellection.pagesBar.slideToggle();
             });
 
             $(this).toggleClass('open');
@@ -336,9 +338,30 @@ Ellection = {
 
         this.form.removeAttr('class');
         this.form.addClass(obj.formClass);
+        this.logo.css("background-image","url(/site/media/images/"+obj.logo+")");
         this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
         this.main.css("background-color", obj.bgColor);
         this.main.css("borderColor", obj.mainBorderColor);
+
+        var prev = document.getElementById('btn-previous');
+        var next = document.getElementById('btn-next');
+
+        prev.disble = false;
+        prev.classList.remove("disabled");
+
+        next.disble = false;
+        next.classList.remove("disabled");
+
+        console.log(Ellection.currentPage);
+        if(Ellection.currentPage == 0){
+            prev.disble = true;
+            prev.classList.add("disabled");
+        }
+
+        if(Ellection.currentPage >= Script.length(Pages) -1){
+            next.disble = true;
+            next.classList.add("disabled");
+        }
     },
 
     changePage: function (objectId)
@@ -477,25 +500,7 @@ Ellection = {
             $(this).removeAttr('disabled');
         });
 
-        var prev = document.getElementById('btn-previous');
-        var next = document.getElementById('btn-next');
 
-        prev.disble = false;
-        prev.classList.remove("disabled");
-
-        next.disble = false;
-        next.classList.remove("disabled");
-
-
-        if(Ellection.currentPage == 0){
-            prev.disble = true;
-            prev.classList.add("disabled");
-        }
-
-        if(Ellection.currentPage >= Script.length(Pages) -1){
-            next.disble = true;
-            next.classList.add("disabled");
-        }
     }
 };
 

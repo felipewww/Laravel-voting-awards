@@ -5,9 +5,28 @@ div#form {
     /* margin-right: 150px; */
     margin-top: 6vw;
 }
-form label:nth-child(2) {  margin-top: 20px;  }
+form label:nth-child(2) {  margin-top: 20px; position: relative; }
 form label {  display: block;  }
 form input { box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Montserrat Alternates', sans-serif;  font-weight: bold; }
+
+form label .referencia{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.ui-tooltip, .arrow:after {
+    background: #1d1d1d;
+    border: none;
+}
+
+.ui-tooltip {
+    padding: 10px 20px;
+    color: #ffd300;
+    border: none !important;
+    border-radius: 0;
+}
 
 footer{
     display: none;
@@ -182,7 +201,7 @@ div#abre-gaveta {
     height: 50px;
     background: #1d1d1d;
     position: absolute;
-    left: -26px;
+    left: 26px;
     border-radius: 100px;
     top: 50%;
     margin-top: -26px;
@@ -631,25 +650,37 @@ div#indicados .button {
     }
 
     div#content {
-        height: 90vw;
-        margin-top: -55vw;
+        height: 80vw;
+        margin-top: -47vw;
+    }
+
+    div#logo {
+        width: 25vw;
+        height: 10vw;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0%;
+        margin-left: -12.5vw;
+        margin-top: -28.5vw;
     }
 
     div#hero {
         width: 30vw;
-        height: 32vw;
+        height: 30vw;
         margin-left: -15vw;
-        top: -3vw;
+        top: -1vw;
     }
     div#category {
-        font-size: 6vw;
+        font-size: 5vw;
         left: 50%;
         margin-left: -30vw;
         width: 60vw;
         word-wrap: break-word;
         text-align: center;
-        top: 20vw;
+        top: 18vw;
         line-height: 8vw;
+        text-align: left;
     }
 
     #bg_main{
@@ -657,7 +688,7 @@ div#indicados .button {
     }
 
     div#form {
-        top: 40vw;
+        top: 32vw;
         left: 10%;
         width: 80%;
     }
@@ -716,7 +747,7 @@ div#indicados .button {
     }
 
     div#pagesBar {
-        right: 2.3vw;
+        right: 11.3vw;
         height: 90vw;
         top: 74vw;
     }
@@ -739,7 +770,7 @@ div#indicados .button {
     div#abre-gaveta {
         width: 30px;
         height: 30px;
-        top: 13px;
+        top: 35px;
         border: 1px solid #ffd300;
         left: 50%;
         margin-left: -15px;

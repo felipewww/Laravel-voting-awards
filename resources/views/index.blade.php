@@ -31,6 +31,7 @@
     {{--<img src="/site/media/images/idc_1.png" style="width: 100%; height: 100%; position: absolute; z-index: 999; opacity: 0.3">--}}
     {{--<img src="/site/media/images/idc_2.png" style="width: 100%; height: 100%; position: absolute; z-index: 999; opacity: 0.3">--}}
     <main>
+        @yield('main_content')
         <div id="bg_main">
 
             @yield('bg_main_content')

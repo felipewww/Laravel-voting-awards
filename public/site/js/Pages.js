@@ -7,7 +7,8 @@ Pages = {
         text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     1: {
@@ -15,7 +16,8 @@ Pages = {
         text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#FFFFFF",
-        formClass: "white"
+        formClass: "white",
+        logo: "startup_awards_white.png"
     },
 
     2: {
@@ -23,7 +25,8 @@ Pages = {
         text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     3: {
@@ -31,7 +34,8 @@ Pages = {
         text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     4: {
@@ -39,7 +43,8 @@ Pages = {
         text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#000000",
-        formClass: "black"
+        formClass: "black",
+        logo: "startup_awards.png"
     },
 
     5: {
@@ -47,7 +52,8 @@ Pages = {
         text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     6: {
@@ -55,7 +61,8 @@ Pages = {
         text: 'ACELERADORA',
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     7: {
@@ -63,7 +70,8 @@ Pages = {
         text: 'INVESTIDOR|ANJO',
         bgColor: "#3b3b3b",
         mainBorderColor: "#000000",
-        formClass: "black"
+        formClass: "black",
+        logo: "startup_awards_white.png"
     },
 
     8: {
@@ -71,7 +79,8 @@ Pages = {
         text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     9: {
@@ -79,7 +88,8 @@ Pages = {
         text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 
     10: {
@@ -87,6 +97,7 @@ Pages = {
         text: 'MELHOR|COMUNIDADE',
         bgColor: "#e88c09",
         mainBorderColor: "#ffd300",
-        formClass: "yellow"
+        formClass: "yellow",
+        logo: "startup_awards.png"
     },
 };
