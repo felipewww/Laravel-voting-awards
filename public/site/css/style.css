@@ -213,7 +213,7 @@ div#content {
     top: 50%;
     margin-top: -9.25vw;
     left: 50%;
-    margin-left: -32.5vw;
+    transform: translateX(-50%);
     visibility: hidden;
 }
 
@@ -262,8 +262,10 @@ div#hero {
 div#pagesBar {
     position: absolute;
     top: 51%;
-    right: 1vw;
+    right: 45px;
     z-index: 999;
+    width: 2.7vw;
+    transform: translateX(50%);
 }
 
 div#pagesBar ul#nav {
@@ -311,7 +313,7 @@ ul {
     }
 
     div#content {
-        width: 75%;
+        width: 80%;
         visibility: visible;
         height: 110vw;
         margin-top: -65vw;
