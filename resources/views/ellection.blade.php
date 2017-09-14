@@ -24,7 +24,16 @@
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/site/css/ellection.css?{{ $v->rand }}">
 @endsection
-
+@section('main_content')
+    <div id="abre-gaveta">
+        <div id="nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="pagesBar"></div>
+@endsection
 @section('bg_main_content')
     <div id="gaveta">
         <div class="menu">
@@ -60,19 +69,10 @@
             </ul>
         </div>
     </div>
-
-    <div id="abre-gaveta">
-        <div id="nav-icon1">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-    <div id="pagesBar"></div>
 @endsection
 
 @section('content')
+
     <script type="text/javascript">
         window.fbAsyncInit = function() {
             FB.init({

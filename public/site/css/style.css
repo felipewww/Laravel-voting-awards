@@ -99,7 +99,7 @@ body{
     /*color: var(--bgGray);*/
 }
 main {  padding: 50px;  width: 100%;  height: 100%;  position: absolute;  box-sizing: border-box;  }
-#bg_main { transition: all 1s;  background: #252525;  background-image: url(/site/media/images/dagua.png);  width: 100%;  height: 100%;  border: 3px solid var(--yellow);  background-position: 50%;  background-size: 106%;  position: relative;  }
+#bg_main { transition: all 1s;  background: #252525;  background-image: url(/site/media/images/dagua.png);  width: 100%;  height: 100%;  border: 3px solid var(--yellow);  background-position: 50%;  background-size: 106%;  position: relative; overflow: hidden; }
 
 span._link {
     position: relative;
@@ -141,6 +141,7 @@ div#_modal {
     margin-left: -4vw;
     cursor: pointer;
     transition: 0.3s;
+
 }
 .button.disabled{
     opacity: 0.2;
@@ -260,8 +261,9 @@ div#hero {
 
 div#pagesBar {
     position: absolute;
-    top: 50%;
-    right: -1.4vw;
+    top: 51%;
+    right: 1vw;
+    z-index: 999;
 }
 
 div#pagesBar ul#nav {

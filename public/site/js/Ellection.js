@@ -108,8 +108,8 @@ Ellection = {
         $gaveta.addClass(gavetaClass);
 
         $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-            Ellection.gaveta.animate({width:'toggle'},1000,'easeInExpo', function () {
-                Ellection.pagesBar.fadeToggle();
+            Ellection.gaveta.toggle( "slide" ,1000,'easeInExpo', function () {
+                Ellection.pagesBar.slideToggle();
             });
 
             $(this).toggleClass('open');

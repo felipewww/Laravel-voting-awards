@@ -201,7 +201,7 @@ div#abre-gaveta {
     height: 50px;
     background: #1d1d1d;
     position: absolute;
-    left: -26px;
+    left: 26px;
     border-radius: 100px;
     top: 50%;
     margin-top: -26px;
