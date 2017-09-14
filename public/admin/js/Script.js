@@ -71,6 +71,8 @@ Script = {
                             return reject('O motivo deve ter entre 5 e 255 caracteres.');
                         }
 
+                        data.motivo = motivo;
+
                         setTimeout(function() {
                             $.ajax({
                                 url: '/panel/alter/vote',
@@ -124,7 +126,7 @@ Script = {
             if (!keeptr) {
                 $(parentTR).remove();
             }else{
-                var statusTD = $(parentTR).find('td')[3];
+                var statusTD = $(parentTR).find('td')[keeptr];
                 var newStatus = (alterTo == 1) ? 'Válido' : 'Cancelado';
                 $(statusTD).html(newStatus);
             }

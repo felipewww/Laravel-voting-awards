@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('fb_id')->nullable()->unique();
             $table->string('fb_link')->nullable();
+            $table->string('photo')->nullable();
             $table->string('fb_token')->nullable(); //usado para guardar o ultimo token gerado
             $table->string('mail_token')->nullable();
             $table->string('ip');

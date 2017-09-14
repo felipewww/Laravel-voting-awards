@@ -43,19 +43,35 @@ class IpsController extends Controller
         $data = [];
         foreach (User::where('ip', $this->ip)->get() as $reg)
         {
+            $from = $this->getUserFrom($reg);
+
             $newInfo = [
                 $reg->id,
+                $reg->name,
+                $reg->Nominateds()->count(),
+                $from,
+                Carbon::parse($reg->created_at)->format('d/m/Y H:i:s'),
                 [
-                    'Link' =>
+                    'rowActions' =>
                         [
                             [
-                                'html' => $reg->name,
-                                'attributes' => ['href' => '/panel/user/'.$reg->id]
+                                'html' => '',
+                                'attributes'    => [
+                                    'class'     => 'btn btn-primary btn-circle fa fa-info m-l-10 has-tooltip',
+                                    'href'      => '/panel/user/'.$reg->id,
+                                    'title'     => 'Informações do usuário'
+                                ]
                             ],
-                        ]
-                ],
-                $reg->Nominateds()->count(),
-                Carbon::parse($reg->created_at)->format('d/m/Y H:i:s'),
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-custom btn-circle fa fa-facebook m-l-10',
+                                    'href' => ($reg->fb_link) ? $reg->fb_link : 'javascript:return;',
+                                    'target' => '_blank',
+                                ],
+                            ],
+                        ],
+                ]
             ];
 
             array_push($data, $newInfo);
@@ -66,8 +82,9 @@ class IpsController extends Controller
             ['title' => 'ID', 'width' => '30px'],
             ['title' => 'Nome'],
             ['title' => 'Votos'],
+            ['title' => 'Via'],
             ['title' => 'Data Registro', 'width' => '150px'],
-//            ['title' => 'Actions', 'width' => '150px'],
+            ['title' => 'Ações', 'width' => '150px'],
         ];
     }
 
@@ -91,7 +108,11 @@ class IpsController extends Controller
                         [
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-primary btn-circle fa fa-users m-l-10', 'href' => '/panel/ips/byuser/'.$reg->ip.'']
+                                'attributes'    => [
+                                    'class'     => 'btn btn-primary btn-circle fa fa-users m-l-10 has-tooltip',
+                                    'href'      => '/panel/ips/byuser/'.$reg->ip,
+                                    'title'     => 'Ver usuários'
+                                ]
                             ]
                         ]
                 ]
@@ -104,7 +125,7 @@ class IpsController extends Controller
         $this->data_cols = [
             ['title' => 'IP'],
             ['title' => 'Total'],
-            ['title' => 'Actions', 'width' => '70px'],
+            ['title' => 'Ações', 'width' => '70px'],
         ];
     }
 }

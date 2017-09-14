@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 DataTablesExtensions = {
     orderBy: 1,
+    orderByDirection: "desc",
 
     init: function ()
     {
@@ -18,6 +19,10 @@ DataTablesExtensions = {
 
             if ( $(data).attr('data-orderby') ) {
                 DataTablesExtensions.orderBy = $(data).attr('data-orderby');
+            }
+
+            if ( $(data).attr('data-orderby-direction') ) {
+                DataTablesExtensions.orderByDirection = $(data).attr('data-orderby-direction');
             }
 
             //Criar tabela
@@ -38,7 +43,7 @@ DataTablesExtensions = {
         var colIdPosition = findColId(cols);
 
         // console.log(cols);
-        console.log("ORDER BY", DataTablesExtensions.orderBy);
+        // console.log("ORDER BY", DataTablesExtensions.orderBy);
 
         T = $(table).DataTable({
             data: data,
@@ -46,7 +51,9 @@ DataTablesExtensions = {
             columns: cols,
             keys: true,
             select: true,
-            order: [[DataTablesExtensions.orderBy]],
+            order: [
+                [DataTablesExtensions.orderBy,DataTablesExtensions.orderByDirection]
+            ],
             //ordering: isSorted,
             language: DataTablesExtensions.__dataTablesLanguage(),
             dom: 'lftip',

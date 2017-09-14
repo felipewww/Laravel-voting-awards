@@ -21,16 +21,6 @@ class UserController extends Controller
         $this->model = new User();
     }
 
-    public function vote(Request $request)
-    {
-//        $res = [
-//            'status' => true
-////            'status' => false
-//        ];
-//        return json_encode($res);
-        dd($request->all());
-    }
-
     public function info(Request $request, $id)
     {
         $user = $this->model->where('id', $id)->first();
@@ -54,24 +44,7 @@ class UserController extends Controller
 //        dd($this->user);
         foreach ($this->user->Nominateds as $reg)
         {
-            switch ($reg->valid)
-            {
-                case 0:
-                    $status = 'Aguardando';
-                    break;
-
-                case 1:
-                    $status = 'Válido';
-                    break;
-
-                case 2:
-                    $status = 'Cancelado';
-                    break;
-
-                default:
-                    throw new \Error('Status inválido');
-                    break;
-            }
+            $status = $this->nominatedStatus($reg->valid);
 
             $newInfo = [
                 $reg->id,
@@ -87,9 +60,9 @@ class UserController extends Controller
                                     'class' => 'btn btn-success btn-circle fa fa-check m-l-10 has-tooltip',
                                     'href' => '#',
                                     'data-jslistener-click' => 'Script._alterStatus',
-                                    'data-voteid' => $reg->Categorie->id,
+                                    'data-voteid' => $reg->id,
                                     'data-alterto' => 1,
-                                    'data-keep' => 1, //manter TR e alterar texto
+                                    'data-keep' => 3, //manter TR e alterar texto
                                     'title' => 'Aprovar'
                                 ],
                             ],
@@ -99,9 +72,9 @@ class UserController extends Controller
                                     'class' => 'btn btn-danger btn-circle fa fa-times m-l-10 has-tooltip',
                                     'href' => '#',
                                     'data-jslistener-click' => 'Script._alterStatus',
-                                    'data-voteid' => $reg->Categorie->id,
+                                    'data-voteid' => $reg->id,
                                     'data-alterto' => 2,
-                                    'data-keep' => 1, //manter TR e alterar texto
+                                    'data-keep' => 3, //manter TR e alterar texto
                                     'title' => 'Anular'
                                 ]
                             ]
@@ -118,6 +91,67 @@ class UserController extends Controller
             ['title' => 'Indicado'],
             ['title' => 'Categoria'],
             ['title' => 'Status'],
+            ['title' => 'Ações', 'width' => '100px'],
+        ];
+    }
+
+    public function all(Request $request)
+    {
+        $this->vars->title = 'Participantes';
+        $this->methodConfigName = 'dataTablesAllUsers';
+
+        $this->dataTablesInit();
+
+        return view('dash.allusers', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+    }
+
+    public function dataTablesAllUsers()
+    {
+        $data = [];
+        foreach (User::all() as $reg)
+        {
+//            $status = $this->nominatedStatus($reg->valid);
+            $from = $this->getUserFrom($reg);
+
+            $newInfo = [
+                $reg->id,
+                $reg->name,
+                $reg->Nominateds()->count(),
+                $reg->ip,
+                $from,
+                [
+                    'rowActions' =>
+                        [
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-success btn-circle fa fa-info m-l-10 has-tooltip',
+                                    'href' => '/panel/user/'.$reg->id,
+                                    'title' => 'Informações do usuário'
+                                ],
+                            ],
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-custom btn-circle fa fa-facebook m-l-10 has-tooltip',
+                                    'href' => ($reg->fb_link) ? $reg->fb_link : 'javascript:return;',
+                                    'target' => '_blank'
+                                ],
+                            ],
+                        ]
+                ]
+            ];
+
+            array_push($data, $newInfo);
+        }
+
+        $this->data_info = $data;
+        $this->data_cols = [
+            ['title' => 'ID','width' => '30px'],
+            ['title' => 'Nome'],
+            ['title' => 'Total indicados'],
+            ['title' => 'IP'],
+            ['title' => 'Via'],
             ['title' => 'Ações', 'width' => '100px'],
         ];
     }
