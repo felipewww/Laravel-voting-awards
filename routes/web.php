@@ -11,12 +11,11 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
 
     Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
 
+    Route::get('/users', 'Panel\UserController@all');
     Route::get('/user/{id}', 'Panel\UserController@info');
-    Route::post('/alter/vote', 'Panel\UserController@vote');
 
-//    Route::post('/user/test/vote', function (\Illuminate\Http\Request $request){
-//        dd('$request->all()');
-//    });
+    Route::post('/alter/vote', 'Panel\NominatedsController@alterStatus');
+    Route::get('/users/indicado/{indicado}/{cat_id}', 'Panel\NominatedsController@users');
 });
 
 Route::get('/', 'LoginController@index');

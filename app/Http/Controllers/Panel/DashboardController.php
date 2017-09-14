@@ -47,11 +47,11 @@ class DashboardController extends Controller
                     'rowActions' =>
                         [
                             [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-success btn-circle fa fa-users m-l-10 has-tooltip',
-                                    'href' => '/panel/users/indicado/'.$reg->name.'/'.$reg->categorie_id,
-                                    'title' => 'Ver usuários'
+                                'html'          => '',
+                                'attributes'    => [
+                                    'class'     => 'btn btn-success btn-circle fa fa-users m-l-10 has-tooltip',
+                                    'href'      => '/panel/users/indicado/'.$reg->name.'/'.$reg->categorie_id,
+                                    'title'     => 'Ver usuários'
                                 ]
                             ],
                         ]
@@ -66,7 +66,7 @@ class DashboardController extends Controller
             ['title' => 'Indicado'],
             ['title' => 'Categoria'],
             ['title' => 'Votos'],
-            ['title' => 'Actions', 'width' => '70px'],
+            ['title' => 'Ações', 'width' => '70px'],
         ];
     }
 }
