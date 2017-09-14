@@ -309,7 +309,7 @@ Ellection = {
             this.inputs[0].value = obj.db.nominated.name;
             this.inputs[1].value = obj.db.nominated.reference;
 
-            this.setAsBlocked(obj.db.id);
+            this.setAsBlocked(obj.db.id, obj);
         }
         else{
             this.inputs[0].value = 'Indicado';
@@ -396,8 +396,6 @@ Ellection = {
         var ref     = _this.inputs[1].value;
 
         var data = { cat: catid, name: name, ref: ref, _token: window.csrfToken };
-
-        console.log(data);
 
         $.ajax({
             url: '/indicacao/envia',

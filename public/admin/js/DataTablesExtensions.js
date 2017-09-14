@@ -16,7 +16,6 @@ DataTablesExtensions = {
             var data = table.find('td.info')[0];
             var columns = table.find('td.columns');
 
-            console.log( $(data).attr('data-orderby') );
             if ( $(data).attr('data-orderby') ) {
                 DataTablesExtensions.orderBy = $(data).attr('data-orderby');
             }
@@ -39,6 +38,7 @@ DataTablesExtensions = {
         var colIdPosition = findColId(cols);
 
         // console.log(cols);
+        console.log("ORDER BY", DataTablesExtensions.orderBy);
 
         T = $(table).DataTable({
             data: data,
@@ -46,7 +46,8 @@ DataTablesExtensions = {
             columns: cols,
             keys: true,
             select: true,
-            order: DataTablesExtensions.orderBy,
+            order: [[DataTablesExtensions.orderBy]],
+            //ordering: isSorted,
             language: DataTablesExtensions.__dataTablesLanguage(),
             dom: 'lftip',
             rowCallback: function (TRHtmlCollection, jsArray, i, x) {
@@ -154,6 +155,27 @@ DataTablesExtensions = {
             button.addEventListener('click', function (event) {
                 eval(func+"(event, this, attrs, dataTable, rowRegId, allRowData);");
             });
+        }
+    },
+
+    __objcfg_Link: function (tr, obj, idx, dataTable, rowRegId, allRowData)
+    {
+        //Pode haver mais objetos de configuração dentro do mesmo objeto... pegar exatamente Link.
+        var rowButtons = obj.Link;
+
+        //encontrar a TD e limpar o html
+        var e = $(tr).find('td')[idx];
+        $(e).html('');
+
+        var i = 0;
+        while (i < rowButtons.length)
+        {
+            var btn = rowButtons[i];
+
+            var newBtn = mScript.createElement('a', btn.html, btn.attributes);
+
+            e.appendChild(newBtn);
+            i++;
         }
     },
 

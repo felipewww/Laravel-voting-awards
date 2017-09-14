@@ -30,7 +30,7 @@ class DashboardController extends Controller
     {
         $nominateds = DB::table('nominateds')
             ->join('categories', 'categories.id', '=', 'nominateds.categorie_id')
-            ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name')
+            ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name', 'categories.id AS categorie_id')
             ->groupBy('nominateds.name','nominateds.categorie_id')
             ->orderBy(DB::raw('total'), 'DESC')
             ->where('nominateds.valid','1')
@@ -48,12 +48,12 @@ class DashboardController extends Controller
                         [
                             [
                                 'html' => '',
-                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
+                                'attributes' => [
+                                    'class' => 'btn btn-success btn-circle fa fa-users m-l-10 has-tooltip',
+                                    'href' => '/panel/users/indicado/'.$reg->name.'/'.$reg->categorie_id,
+                                    'title' => 'Ver usuários'
+                                ]
                             ],
-                            [
-                                'html' => '',
-                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
-                            ]
                         ]
                 ]
             ];
@@ -66,7 +66,7 @@ class DashboardController extends Controller
             ['title' => 'Indicado'],
             ['title' => 'Categoria'],
             ['title' => 'Votos'],
-            ['title' => 'Actions', 'width' => '150px'],
+            ['title' => 'Actions', 'width' => '70px'],
         ];
     }
 }

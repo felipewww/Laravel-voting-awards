@@ -16,6 +16,7 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
+//        dd('DD AdminAuthMiddleware');
         if ( !Auth::check() ) {
             return redirect('/adm');
         }

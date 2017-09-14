@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="white-box analytics-info">
-                <h3 class="box-title"><a href="">Aguardando Aprovação</a></h3>
+                <h3 class="box-title"><a href="/panel/aguardando">Aguardando Aprovação</a></h3>
                 <ul class="list-inline two-part">
                     <li>
                         <div id="sparklinedash"></div>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="white-box analytics-info">
-                <h3 class="box-title">Votos Válidos</h3>
+                <h3 class="box-title">Indicações Válidas</h3>
                 <ul class="list-inline two-part">
                     <li>
                         <div id="sparklinedash2"></div>

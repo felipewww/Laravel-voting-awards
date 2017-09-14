@@ -32,6 +32,7 @@ class IpsController extends Controller
     {
         $this->methodConfigName = 'dataTablesIpByUser';
         $this->ip = $ip;
+        $this->vars->title = 'Usuários do IP:  '.$this->ip;
 
         $this->dataTablesInit();
         return view('dash.ipsbyuser', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
@@ -44,22 +45,17 @@ class IpsController extends Controller
         {
             $newInfo = [
                 $reg->id,
-                $reg->name,
+                [
+                    'Link' =>
+                        [
+                            [
+                                'html' => $reg->name,
+                                'attributes' => ['href' => '/panel/user/'.$reg->id]
+                            ],
+                        ]
+                ],
                 $reg->Nominateds()->count(),
                 Carbon::parse($reg->created_at)->format('d/m/Y H:i:s'),
-//                [
-//                    'rowActions' =>
-//                        [
-//                            [
-//                                'html' => '',
-//                                'attributes' => ['class' => 'btn btn-warning btn-circle fa fa-pencil m-l-10', 'href' => '#']
-//                            ],
-//                            [
-//                                'html' => '',
-//                                'attributes' => ['class' => 'btn btn-danger btn-circle fa fa-trash m-l-10 modal-delete', 'data-toggle'=>'modal', 'data-target' => '#modalDelete']
-//                            ]
-//                        ]
-//                ]
             ];
 
             array_push($data, $newInfo);

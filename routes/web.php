@@ -2,6 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
+
+    Route::get('/', 'Panel\DashboardController@index');
+    Route::get('/ips', 'Panel\IpsController@index');
+    Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
+
+    Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
+
+    Route::get('/user/{id}', 'Panel\UserController@info');
+    Route::post('/alter/vote', 'Panel\UserController@vote');
+
+//    Route::post('/user/test/vote', function (\Illuminate\Http\Request $request){
+//        dd('$request->all()');
+//    });
+});
+
 Route::get('/', 'LoginController@index');
 Route::get('/registro', 'RegisterController@index');
 Route::post('/registro', 'RegisterController@save');
@@ -41,14 +58,3 @@ Route::get('/adm', function (){
 });
 
 Route::post('/adm/login', 'LoginController@adminLogin');
-
-Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
-
-    Route::get('/', 'Panel\DashboardController@index');
-    Route::get('/ips', 'Panel\IpsController@index');
-    Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
-
-    Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
-//    Route::get('/validos', 'Panel\NominatedsController@validos');
-
-});

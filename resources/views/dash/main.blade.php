@@ -54,6 +54,13 @@
     <script src="/admin/js/template/dashboard1.js"></script>
     <script src="/admin/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 
+    {{--Sweetalert--}}
+    {{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.7.0/sweetalert2.common.js"></script>--}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.7.0/sweetalert2.min.js"></script>
+    {{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.7.0/sweetalert2.common.min.js.map"></script>--}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.7.0/sweetalert2.min.css">
+    {{--Sweetalert--}}
+
     {{--<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>--}}
     {{--<script type="text/javascript" src="/js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>--}}
     {{--<script type="text/javascript" src="/site/js/Script.js"></script>--}}
@@ -64,6 +71,7 @@
     <script src="/admin/js/DataTablesExtensions.js"></script>
     {{--<script src="/admin/js/DataTablesExtensions.js"></script>--}}
     <script src="/js/mScript.js"></script>
+    <script src="/admin/js/Script.js"></script>
     {{--DATATABLES--}}
 
     <script type="text/javascript">

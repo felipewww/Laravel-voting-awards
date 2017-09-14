@@ -3,73 +3,93 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Library\DataTablesExtensions;
-use App\Nominateds;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NominatedsController extends Controller
+class UserController extends Controller
 {
     use DataTablesExtensions;
     public $vars;
+    public $model;
+    public $user;
 
     public function __construct()
     {
         parent::__construct();
         $this->vars = new \stdClass();
-        $this->vars->title = "Indicados";
+        $this->model = new User();
     }
 
-    public function aguardando()
+    public function vote(Request $request)
     {
-        $this->methodConfigName = 'dataTablesAguardando';
-        $this->dataTablesInit();
-        $this->vars->title = "Aguardando aprovação";
-        return view('dash.nominateds', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+//        $res = [
+//            'status' => true
+////            'status' => false
+//        ];
+//        return json_encode($res);
+        dd($request->all());
     }
 
-    public function dataTablesAguardando()
+    public function info(Request $request, $id)
+    {
+        $user = $this->model->where('id', $id)->first();
+
+        if (!$user) {
+            throw new \Error('User not found');
+        }
+
+        $this->vars->title = 'Votos de '.$user->name;
+        $this->methodConfigName = 'dataTablesUserVotes';
+        $this->user = $user;
+
+        $this->dataTablesInit();
+
+        return view('dash.user', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+    }
+
+    public function dataTablesUserVotes()
     {
         $data = [];
-        foreach (Nominateds::where('valid', 0)->get() as $reg)
+//        dd($this->user);
+        foreach ($this->user->Nominateds as $reg)
         {
+            switch ($reg->valid)
+            {
+                case 0:
+                    $status = 'Aguardando';
+                    break;
+
+                case 1:
+                    $status = 'Válido';
+                    break;
+
+                case 2:
+                    $status = 'Cancelado';
+                    break;
+
+                default:
+                    throw new \Error('Status inválido');
+                    break;
+            }
+
             $newInfo = [
                 $reg->id,
                 $reg->name,
                 $reg->Categorie->name,
-//                [
-//                    'Link' =>
-//                        [
-//                            [
-//                                'html' => $reg->User->name,
-//                                'attributes' => ['href' => '/panel/user/'.$reg->User->id]
-//                            ],
-//                        ]
-//                ],
-                $reg->User->name,
-                $reg->User->ip,
+                $status,
                 [
                     'rowActions' =>
                         [
                             [
                                 'html' => '',
                                 'attributes' => [
-                                    'class' => 'btn btn-custom btn-circle fa fa-eye m-l-10 has-tooltip',
-//                                    'data-jslistener-click' => 'Script._alterStatus',
-                                    'href' => '/panel/user/'.$reg->User->id,
-                                    'title' => 'Todos os votos'
-//                                    'data-voteid' => $reg->Categorie->id,
-//                                    'data-alterto' => 2
-                                ],
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => [
                                     'class' => 'btn btn-success btn-circle fa fa-check m-l-10 has-tooltip',
-                                    'data-jslistener-click' => 'Script._alterStatus',
                                     'href' => '#',
+                                    'data-jslistener-click' => 'Script._alterStatus',
                                     'data-voteid' => $reg->Categorie->id,
                                     'data-alterto' => 1,
+                                    'data-keep' => 1, //manter TR e alterar texto
                                     'title' => 'Aprovar'
                                 ],
                             ],
@@ -77,13 +97,14 @@ class NominatedsController extends Controller
                                 'html' => '',
                                 'attributes' => [
                                     'class' => 'btn btn-danger btn-circle fa fa-times m-l-10 has-tooltip',
-                                    'data-jslistener-click' => 'Script._alterStatus',
                                     'href' => '#',
+                                    'data-jslistener-click' => 'Script._alterStatus',
                                     'data-voteid' => $reg->Categorie->id,
                                     'data-alterto' => 2,
+                                    'data-keep' => 1, //manter TR e alterar texto
                                     'title' => 'Anular'
-                                ],
-                            ],
+                                ]
+                            ]
                         ]
                 ]
             ];
@@ -96,8 +117,7 @@ class NominatedsController extends Controller
             ['title' => 'ID','width' => '30px'],
             ['title' => 'Indicado'],
             ['title' => 'Categoria'],
-            ['title' => 'User'],
-            ['title' => 'IP'],
+            ['title' => 'Status'],
             ['title' => 'Ações', 'width' => '100px'],
         ];
     }

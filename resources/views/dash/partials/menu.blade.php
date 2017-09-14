@@ -17,7 +17,7 @@
             </li>
 
             <li>
-                <a href="/panel/aguardando" class="waves-effect"><i class="fa fa-circle-o-notch fa-fw fa-spin" aria-hidden="true"></i>Aguardando</a>
+                <a href="/panel/aguardando" class="waves-effect"><i class="fa fa-circle-o-notch fa-fw fa-spin" aria-hidden="true"></i>Em aprovação</a>
             </li>
         </ul>
     </div>
