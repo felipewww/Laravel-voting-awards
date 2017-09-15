@@ -104,14 +104,14 @@ div#req {
     height: 30px;
 }
 .nav-buttons .button span:first-child {
-    height: 4.5vh;
+    height: 35px;
     /*width: 1.5vw;*/
 }
 .nav-buttons .button span:last-child {
     background: rgba(255, 255, 255, 0) !important;
     width: 9vw;
-    height: 4.5vh;
-    line-height: 4vh;
+    height: 35px;
+    line-height: 31px;
 }
 
 /*GAVETA*/
@@ -652,7 +652,7 @@ div#indicados .button {
         position: absolute;
         right: -8vw;
         width: 22vw;
-        bottom: -10vh;
+        bottom: -12vh;
     }
 
     .nav-buttons {
