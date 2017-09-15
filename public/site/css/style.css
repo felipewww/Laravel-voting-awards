@@ -15,42 +15,41 @@
 img#logo {
     margin: 0 auto;
     display: block;
-    margin-top: -5vh;
+    margin-top: -10vh;
     width: 25vw;
 }
 
 footer {
-    width: 40vw;
     margin: 0 auto;
     position: absolute;
     bottom: 10px;
+    text-align: center;
     left: 50%;
-    margin-left: -20vw;
+    transform: translateX(-50%);
 }
 
 footer img {
     width: 100px;
     color: #fff;
     margin: 0 1.5vw;
+    display: inline-block;
 }
 
 .apoio {
-    width: 49%;
-    float: left;
+    display: inline-block;
 }
 
 .realiza {
-    width: 48%;
-    float: left;
+    display: inline-block;
 }
 
 footer .divider {
     border: 1.5px solid rgba(84, 84, 84, 0.65);
     width: 0px;
     height: 55px;
-    float: left;
     transform: rotate(20deg);
-    margin-top: 10px;
+    margin: 0 30px;
+    display: inline-block;
 }
 
 footer > div .title {

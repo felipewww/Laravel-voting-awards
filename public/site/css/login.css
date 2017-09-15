@@ -30,27 +30,35 @@
 }
 
 div#actions {
-    width: 46.5vw;
     margin: 0 auto;
-    margin-top: 4.5vw;
+    text-align: center;
+    position: absolute;
+    bottom: -60px;
+    display: inline-flex;
+    height: 70px;
+    vertical-align: middle;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 div#actions .button {
-    margin-top: 0;
     width: 15vw;
     margin-left: 3vw;
     margin-right: 3vw;
-    cursor: pointer;
+    position: relative;
+    margin-top: -25px;
 }
 
 div#actions > div {
-    float: left;
+    display: inline-block;
 }
 
+
 div._ou {
-    margin: 0 1vw;
+    margin: 0 20px;
     color: #fff;
-    line-height: 4vw;
+    line-height: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
