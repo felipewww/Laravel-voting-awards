@@ -15,7 +15,7 @@
 img#logo {
     margin: 0 auto;
     display: block;
-    margin-top: -5vw;
+    margin-top: -5vh;
     width: 25vw;
 }
 
@@ -129,14 +129,14 @@ div#_modal {
     text-align: center;
     color: #fff;
     font-size: 12px;
-    top: 5vw;
+    top: 5vh;
 }
 
 .cleaner{
     clear: both !important;
 }
 .button {
-    margin-top: 4vw;
+    margin-top: 4vh;
     width: 24vw;
     margin-left: -4vw;
     cursor: pointer;
@@ -147,8 +147,8 @@ div#_modal {
     opacity: 0.2;
     cursor: default;
 }
-.button span:first-child {  width: 2vw;  height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left; border: 4px solid var(--yellow);  box-sizing: border-box;  }
-.button span:last-child {  width: 21vw; height: 4vw;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: #1d1d1d;  float: left;  margin-left: 5px;  line-height: 3.7vw;  text-align: center;  font-family: sans-serif;  font-weight: bold;  font-style: normal;  border: 4px solid var(--yellow);  box-sizing: border-box; color: var(--yellow); }
+.button span:first-child {  width: 2vw;  height: 60px;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left; border: 4px solid var(--yellow);  box-sizing: border-box;  }
+.button span:last-child {  width: 21vw; height: 60px;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: #1d1d1d;  float: left;  margin-left: 5px;  line-height: 55px;  text-align: center;  font-family: sans-serif;  font-weight: bold;  font-style: normal;  border: 4px solid var(--yellow);  box-sizing: border-box; color: var(--yellow); }
 
 form.white .button span {
     border-color: #fff;
@@ -209,9 +209,9 @@ div#content {
     position: absolute;
     width: 65vw;
     background: var(--bgGray);
-    height: 18.5vw;
+    height: 35vh;
     top: 50%;
-    margin-top: -9.25vw;
+    margin-top: -17.5vh;
     left: 50%;
     transform: translateX(-50%);
     visibility: hidden;
@@ -224,20 +224,20 @@ div#category {
     font-family: 'The Frontman';
     color: var(--yellow);
     font-size: 3vw;
-    line-height: 4.1vw;
+    line-height: 6.1vh;
     position: absolute;
     left: -8vw;
-    top: 5.4vw;
+    top: 5.4vh;
 }
 
 div#logo {
     width: 10vw;
-    height: 4vw;
+    height: 8vh;
     background-position: 50%;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
-    margin-top: -18.5vw;
+    margin-top: -37.5vh;
     left: 50%;
     margin-left: -5vw;
     background-size: 100%;
@@ -245,23 +245,22 @@ div#logo {
 
 div#hero {
     width: 23vw;
-    height: 25vw;
+    height: 50vh;
     background-position: 50%;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
-    margin-top: -12.5vw;
+    margin-top: -25vh;
     left: 50%;
     margin-left: -11.5vw;
     background-size: 100%;
-    /*transition: all 1s;*/
 }
 
 /*div#form {  position: absolute;  right: -245px;  width: 300px;  margin-right: 150px;  margin-top: 105px;  }*/
 
 div#pagesBar {
     position: absolute;
-    top: 51%;
+    top: 50.5%;
     right: 45px;
     z-index: 999;
     width: 2.7vw;
@@ -282,19 +281,18 @@ ul#nav li:hover {
 
 ul#nav li {
     display: block;
-    width: 2.7vw;
-    height: 2.7vw;
+    width: 2.5vw;
+    height: 5vh;
     background: #333333;
-    margin: 10px 0;
+    margin: 3vh 0;
     border-radius: 100px;
     background-size: 65%;
     background-repeat: no-repeat;
     background-position: 50%;
     transition: all 0.5s;
-    border: 4px solid rgba(255, 0, 0, 0);
+    border: 3px solid rgba(255, 0, 0, 0);
     box-sizing: border-box;
     cursor: pointer;
-    margin-bottom: 1.5vw;
 }
 
 ul {
@@ -302,8 +300,13 @@ ul {
     margin: 0;
     padding: 0;
 }
+@media screen and (max-width: 1024px) {
+    div#content {
+        height: 25vh;
+    }
 
-@media screen and (max-width: 1170px) {
+}
+@media screen and (max-width: 992px) {
     main{
         padding: 25px;
     }
@@ -315,7 +318,7 @@ ul {
     div#content {
         width: 80%;
         visibility: visible;
-        height: 110vw;
+        height: 110vh;
         margin-top: -65vw;
     }
 
@@ -325,12 +328,93 @@ ul {
     }
 
     .button span:last-child > div {
-        font-size: 9px;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+
+
+    .nano {
+        height: 87vh !important;
+        font-size: 10px !important;
+        line-height: 12px !important;
+    }
+
+    /*BUTTONS*/
+    div#actions {
+        width: 100% !important;
+        margin-left: 3vh !important;
+    }
+
+    ._ou {
+        clear: both;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    div#actions .button {
+        margin: 15px auto;
+        display: block;
+        width: 100% !important;
+        position: initial;
+        margin-left: 4.5vw;
+    }
+    .button span:first-child {
+        height: 50px;
+        width: 10% !important;
+    }
+    .button span:last-child {
+        width: 78% !important;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #333 !important;
+    }
+    /*BUTTONS*/
+
+    /*FOOTER*/
+    footer > div .title {
+        font-size: 7px;
+    }
+
+    footer img {
+        width: 15vw;
+    }
+
+    footer {
+        width: 100%;
+        margin: 0;
+        left: 0;
+    }
+    /*FOOTER*/
+}
+
+@media screen and (max-width: 767px) {
+    main{
+        padding: 25px;
+    }
+
+    #bg_main{
+        border: 1px solid var(--yellow);  background-position: 50%;
+    }
+
+    div#content {
+        width: 80%;
+        visibility: visible;
+        height: 110vh;
+        margin-top: -65vw;
+    }
+
+    div#content img#logo {
+        width: 50vw;
+        margin-top: -10vh !important;
+    }
+    .button span:last-child > div {
+        font-size: 15px;
         letter-spacing: 2px;
     }
 
     .nano {
-        height: 87vw !important;
+        height: 87vh !important;
         font-size: 10px !important;
         line-height: 12px !important;
     }
@@ -359,7 +443,7 @@ ul {
         width: 10% !important;
     }
     .button span:last-child {
-        width: 74% !important;
+        width: 78% !important;
         height: 50px;
         line-height: 50px;
         border: 1px solid #333 !important;
@@ -381,17 +465,4 @@ ul {
         left: 0;
     }
     /*FOOTER*/
-}
-
-@media screen and (min-width: 1171px) and (max-width: 1280px){
-    div#content {
-        width: 900px;
-        margin-left: -450px;
-    }
-}
-@media screen and (min-width: 1281px) and (max-width: 1366px){
-    div#content {
-        width: 970px;
-        margin-left: -485px;
-    }
 }
