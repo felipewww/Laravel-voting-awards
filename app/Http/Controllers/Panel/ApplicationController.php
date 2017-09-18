@@ -39,14 +39,12 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $app = $this->model->where('id', 1)->first();
-
         $this->dataTablesInit();
 
         return view(
             'dash.application', [
                 'vars' => $this->vars,
-                'app' => $app,
+                'app' => $this->model,
                 'dataTables' => $this->dataTables
             ]
         );
