@@ -36,9 +36,7 @@
 
             @yield('bg_main_content')
 
-            <div id="content">
-                @yield('content') {{-- conteudo default com animação --}}
-            </div>
+            @yield('content') {{-- conteudo default com animação --}}
 
             <footer>
                 <div class="realiza">

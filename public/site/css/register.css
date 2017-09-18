@@ -1,23 +1,33 @@
-img#logo {
-    margin: 0 auto;
-    display: block;
-    margin-top: -115px;
+#content > div{
+    height:100%;
 }
 
 #text {
-    color: var(--lightYellow);
-    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-align: center;
-    margin-top: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.3vw;
+    margin-top: 0;
+    font-size: 0.9vw;
+    position: relative;
+    display: block;
+    top: 50%;
+    transform: translateY(-35%);
+}
+
+#text .yellow {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--lightYellow);
     font-weight: bold;
+    display: block;
+    letter-spacing: 3px;
     font-size: 0.8vw;
+    text-transform: uppercase;
 }
 
 .button span:last-child{
     width: 12vw;
 }
+
 
 .fb-login-button span:last-child {
     color: #333 !important;
@@ -29,29 +39,39 @@ img#logo {
 }
 
 div#actions {
-    width: 34vw;
     margin: 0 auto;
-    margin-top: 2.3vw;
+    text-align: center;
+    position: absolute;
+    bottom: -30px;
+    display: inline-flex;
+    vertical-align: middle;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 div#actions .button {
-    margin-top: 0;
-    width: 15vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
     float: right;
+    width: 15vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    position: relative;
+    margin-top: -25px;
 }
 
-div#actions > div {
+
+.button.fb-login-button{
     float: left;
 }
 
+div#actions > div {
+    display: inline-block;
+}
+
+
 div._ou {
-    margin: 0 1vw;
+    margin: 0 20px;
     color: #fff;
-    line-height: 4vw;
     font-family: 'Montserrat', sans-serif;
-    color: var(--lightYellow);
     font-weight: bold;
 }
 

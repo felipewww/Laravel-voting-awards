@@ -3,25 +3,19 @@ div#content {
     visibility: visible;
 }
 
-img#logo {
-    width: 15vw;
-    margin-top: -3vw !important;
-}
-
-/*div#sobre{*/
-    /*margin-top: 100px;*/
-/*}*/
-
 .nano {
-    height: 10vw;
+    position: absolute;
+    display: table;
+    height: 60%;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.8vw;
     line-height: 1.2vw;
     letter-spacing: 0.05vw;
     width: 50vw;
-    margin: 0 auto;
-    margin-top: 2vw;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-45%);
 }
 .nano .nano-content { padding: 10px; }
 .nano > .nano-pane > .nano-slider {
@@ -53,31 +47,30 @@ div#text h1 {
     margin-bottom: 25px;
 }
 
+
 .button span:last-child{
     width: 12vw;
 }
 
-.fb-login-button span:last-child {
-    color: #545454 !important;
-}
-
-.fb-login-button span:first-child {
-    background-color: #545454;
-}
-
 div#actions {
-    width: 17vw;
     margin: 0 auto;
-    margin-top: 2vw;
+    position: absolute;
+    bottom: -60px;
+    display: inline-flex;
+    height: 70px;
+    vertical-align: middle;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 div#actions .button {
-    margin-top: 0;
     width: 15vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    position: relative;
+    margin-top: -25px;
 }
 
 div#actions > div {
-    float: left;
+    display: block;
 }

@@ -74,36 +74,38 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     {{--<div id="facebook-jssdk"></div>--}}
     {{--{{ dd( env('APP_URL') ) }}--}}
-    <div id="login">
-        <img id="logo" src="/site/media/images/{{env('APP_LOGO')}}">
-        <div id="text">
-            <span>Feito pela comunidade, para a comunidade, esté é o Startup Awards!</span>
-            <br>
-            <span>A premiação que você esperou o ano inteiro.</span>
-            <br>
-            <span class="yellow">FAÇA SEU LOGIN, INDIQUE, VOTE, PARTICIPE.</span>
-        </div>
-
-        <div id="actions">
-
-            {{--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>--}}
-            <div onclick="Login.fbLogin()" class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
-                <span></span>
-                <span>
-                    <div>FACEBOOK</div>
-                </span>
+    <div id="content">
+        <div>
+            <img id="logo" src="/site/media/images/{{env('APP_LOGO')}}">
+            <div id="text">
+                <span>Feito pela comunidade, para a comunidade, esté é o Startup Awards!</span>
+                <br>
+                <span>A premiação que você esperou o ano inteiro.</span>
+                <br>
+                <span class="yellow">FAÇA SEU LOGIN, INDIQUE, VOTE, PARTICIPE.</span>
             </div>
 
-            <div class="_ou">OU</div>
+            <div id="actions">
 
-            <div class="button light">
-                <span></span>
-                <span class="_link">
-                    <a href="/registro"></a>
-                    <div>CADASTRE-SE</div>
-                </span>
+                {{--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>--}}
+                <div onclick="Login.fbLogin()" class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
+                    <span></span>
+                    <span>
+                        <div>FACEBOOK</div>
+                    </span>
+                </div>
+
+                <div class="_ou">OU</div>
+
+                <div class="button light">
+                    <span></span>
+                    <span class="_link">
+                        <a href="/registro"></a>
+                        <div>CADASTRE-SE</div>
+                    </span>
+                </div>
+
             </div>
-
         </div>
     </div>
 @endsection

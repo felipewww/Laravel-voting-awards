@@ -15,12 +15,19 @@
 img#logo {
     margin: 0 auto;
     display: block;
-    margin-top: -10vh;
     width: 25vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translatey(-55%);
+    top: 0px;
+}
+
+#login{
+    height:100%;
 }
 
 footer {
-    margin: 0 auto;
+    margin: 10px auto;
     position: absolute;
     bottom: 10px;
     text-align: center;
@@ -135,20 +142,48 @@ div#_modal {
 .cleaner{
     clear: both !important;
 }
+
 .button {
-    margin-top: 4vh;
-    width: 24vw;
-    margin-left: -4vw;
+    margin-top: 50px;
+    margin-left: 20%;
     cursor: pointer;
     transition: 0.3s;
-
+    width: 88%;
+    position: relative;
 }
+
 .button.disabled{
     opacity: 0.2;
     cursor: default;
 }
-.button span:first-child {  width: 2vw;  height: 60px;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: var(--yellow);  float: left; border: 4px solid var(--yellow);  box-sizing: border-box;  }
-.button span:last-child {  width: 21vw; height: 60px;  -webkit-transform: skew(-20deg);  -moz-transform: skew(-20deg);  -o-transform: skew(-20deg);  background: #1d1d1d;  float: left;  margin-left: 5px;  line-height: 55px;  text-align: center;  font-family: sans-serif;  font-weight: bold;  font-style: normal;  border: 4px solid var(--yellow);  box-sizing: border-box; color: var(--yellow); }
+.button span:first-child {
+    width: 10%;
+    height: 60px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background: var(--yellow);
+    float: left;
+    border: 4px solid var(--yellow);
+    box-sizing: border-box;
+}
+
+.button span:last-child {
+    width: 73%;
+    height: 60px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    color: #1d1d1d;
+    float: left;  margin-left: 5px;
+    line-height: 55px;  text-align: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    border: 4px solid var(--yellow);
+    box-sizing: border-box;
+    background-color: var(--yellow);
+}
 
 form.white .button span {
     border-color: #fff;
@@ -167,11 +202,10 @@ form.yellow .button span:first-child{
     -moz-transform: skew(20deg);
     -o-transform: skew(20deg);
     font-family: 'Monttserrat', sans-serif;
-    font-weight: bold;
+    font-weight: 900;
     letter-spacing: 3px;
     font-size: 11px;
 }
-
 
 .button.light span:last-child {
     background-color: #222;
@@ -211,10 +245,13 @@ div#content {
     background: var(--bgGray);
     height: 35vh;
     top: 50%;
-    margin-top: -17.5vh;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%);
     visibility: hidden;
+}
+
+div#content.text {
+    height: 50vh;
 }
 
 .titulo{ margin-top: 10px; }
@@ -244,16 +281,16 @@ div#logo {
 }
 
 div#hero {
-    width: 23vw;
-    height: 50vh;
+    width: 20vw;
+    height: 40vh;
     background-position: 50%;
     background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    margin-top: -25vh;
+    top:50%;
     left: 50%;
-    margin-left: -11.5vw;
     background-size: 100%;
+    transform: translateX(-50%);
+    /* border: 1px solid; */
+    position: absolute;
 }
 
 /*div#form {  position: absolute;  right: -245px;  width: 300px;  margin-right: 150px;  margin-top: 105px;  }*/

@@ -1,17 +1,18 @@
 div#form {
     position: absolute;
-    right: -8vw;
-    width: 20vw;
-    bottom: -6vh;
+    right: -145px;
+    width: 34%;
+    bottom: -80px;
 }
+
 form label:nth-child(2) {  margin-top: 20px; position: relative; }
 form label {  display: block;  }
-form input { border-radius: 0; box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Montserrat Alternates', sans-serif;  font-weight: bold; }
+form input {border-radius: 0;box-sizing: border-box;background: rgba(255, 255, 255, 0);color: yellow;border: 0px;border-bottom: 2px solid yellow;padding: 20px 25px 20px 20px;/* padding-left: 20px; */font-family: cursive;font-size: 16px;width: 100%;outline: none;font-family: 'Montserrat Alternates', sans-serif;font-weight: bold;}
 
 form label .referencia{
     position: absolute;
     right: 0;
-    top: 0;
+    top: 20px;
     cursor: pointer;
 }
 
@@ -93,27 +94,28 @@ div#req {
 }
 
 .nav-buttons .button {
-    margin-top: 0.5vw;
-    height: 35px;
+    margin: 15px 0 0 0;
+    height: 40px;
     float: left;
-    width: 16vw;
+    width: 40%;
 }
 .nav-buttons {
-    margin-left: -1.1vw;
-    width: 25vw;
-    height: 30px;
+    width: 98%;
+    margin-left: 62px;
 }
 .nav-buttons .button span:first-child {
-    height: 35px;
-    /*width: 1.5vw;*/
+    height: 45px;
+    width: 15%;
 }
 .nav-buttons .button span:last-child {
     background: rgba(255, 255, 255, 0) !important;
-    width: 9vw;
-    height: 35px;
-    line-height: 31px;
+    width: 73%;
+    height: 45px;
+    line-height: 38px;
 }
-
+.nav-buttons .button > span > div{
+    color: var(--yellow);
+}
 /*GAVETA*/
 div#gaveta .menu img {
     width: 55%;
@@ -502,6 +504,9 @@ div#abre-gaveta {
 
 #nav-icon1 span:nth-child(1){
     top: 13px;
+    width: 75%;
+    left: inherit;
+    right: 0;
 }
 
 #nav-icon1 span:nth-child(2){
@@ -510,6 +515,13 @@ div#abre-gaveta {
 
 #nav-icon1 span:nth-child(3){
     top: 27px;
+    width: 75%;
+    left: inherit;
+    right: 0;
+}
+
+#nav-icon1.open span, #nav-icon3.open span, #nav-icon4.open span {
+    width: 100%;
 }
 /*HAMBURGUER*/
 
@@ -522,6 +534,7 @@ div#req .title .req {
     font-size: 12px;
     font-weight: 600;
     padding-left: 20px;
+    text-transform: uppercase;
 }
 
 div#req ul {

@@ -72,97 +72,98 @@
 @endsection
 
 @section('content')
+    <div id="content">
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId       : '{{ env("FB_APP_ID") }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                    oauth       : true,
+                    status      : true, // check login status
+                    cookie      : true, // enable cookies to allow the server to access the session
+                    xfbml       : true,  // parse XFBML
+                    version     : 'v2.10',
+                    channelUrl  : '{{ env("APP_URL") }}' //custom channel
+                });
+            };
 
-    <script type="text/javascript">
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId       : '{{ env("FB_APP_ID") }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
-                oauth       : true,
-                status      : true, // check login status
-                cookie      : true, // enable cookies to allow the server to access the session
-                xfbml       : true,  // parse XFBML
-                version     : 'v2.10',
-                channelUrl  : '{{ env("APP_URL") }}' //custom channel
-            });
-        };
 
-
-        $( function() {
-            $( "#reference-tooltip" ).tooltip({
-                show: null,
-                position: {
-                    my: "center top",
-                    at: "center bottom"
-                },
-                using: function( position, feedback ) {
-                    $( this ).css( position );
-                    $( "<div>" )
-                            .addClass( "arrow" )
-                            .addClass( feedback.vertical )
-                            .addClass( feedback.horizontal )
-                            .appendTo( this );
-                },
-                open: function( event, ui ) {
-                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
-                },
-            });
-        } );
-    </script>
-    <div id="category" >
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <div id="logo"></div>
-    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
-
-    <div id="form">
-        <form id="mainform" name="mainform">
-            <label>
-                <input type="text" name="indicated" maxlength="50">
-            </label>
-
-            <label>
-                <input type="text" name="reference"  maxlength="150">
-                <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
-            </label>
-
-            <div class="button" id="main-btn">
-                <span></span>
-                <span>
-                    <div >INDICAR</div>
-                </span>
-            </div>
-            <div class="cleaner"></div>
-            <div class="nav-buttons">
-                <div class="button" id="btn-previous">
-                    <span></span>
-                    <span>
-                        <div>ANTERIOR</div>
-                    </span>
-                </div>
-                <div class="button" id="btn-next">
-                    <span></span>
-                    <span>
-                        <div>PRÓXIMA</div>
-                    </span>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <div id="req">
-        <div class="title">
-            <div class="bg"></div>
-            <div class="req">Requisitos da Categoria</div>
+            $( function() {
+                $( "#reference-tooltip" ).tooltip({
+                    show: null,
+                    position: {
+                        my: "center top",
+                        at: "center bottom"
+                    },
+                    using: function( position, feedback ) {
+                        $( this ).css( position );
+                        $( "<div>" )
+                                .addClass( "arrow" )
+                                .addClass( feedback.vertical )
+                                .addClass( feedback.horizontal )
+                                .appendTo( this );
+                    },
+                    open: function( event, ui ) {
+                        ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                    },
+                });
+            } );
+        </script>
+        <div id="category" >
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <ul>
-            <li>
-                <span>Estar ativo</span>
-            </li>
-            <li>
-                <span>Ter sido host de no mínimo 3 eventos</span>
-            </li>
-        </ul>
+        <div id="logo"></div>
+        <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
+
+        <div id="form">
+            <form id="mainform" name="mainform">
+                <label>
+                    <input type="text" name="indicated" maxlength="50">
+                </label>
+
+                <label>
+                    <input type="text" name="reference"  maxlength="150">
+                    <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                </label>
+
+                <div class="button" id="main-btn">
+                    <span></span>
+                    <span>
+                        <div >INDICAR</div>
+                    </span>
+                </div>
+                <div class="cleaner"></div>
+                <div class="nav-buttons">
+                    <div class="button" id="btn-previous">
+                        <span></span>
+                        <span>
+                            <div>ANTERIOR</div>
+                        </span>
+                    </div>
+                    <div class="button" id="btn-next">
+                        <span></span>
+                        <span>
+                            <div>PRÓXIMA</div>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="req">
+            <div class="title">
+                <div class="bg"></div>
+                <div class="req">Requisitos da Categoria</div>
+            </div>
+            <ul>
+                <li>
+                    <span>Estar ativo</span>
+                </li>
+                <li>
+                    <span>Ter sido host de no mínimo 3 eventos</span>
+                </li>
+            </ul>
+        </div>
     </div>
 @endsection
