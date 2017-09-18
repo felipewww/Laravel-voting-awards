@@ -2,12 +2,11 @@ div#form {
     position: absolute;
     right: -8vw;
     width: 20vw;
-    /* margin-right: 150px; */
-    margin-top: 6vw;
+    bottom: -6vh;
 }
 form label:nth-child(2) {  margin-top: 20px; position: relative; }
 form label {  display: block;  }
-form input { box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Montserrat Alternates', sans-serif;  font-weight: bold; }
+form input { border-radius: 0; box-sizing: border-box;  background: rgba(255, 255, 255, 0);  color: yellow;  border: 0px;  border-bottom: 2px solid yellow;  padding: 10px;  padding-left: 20px;  font-family: cursive;  font-size: 16px;  width: 100%;  outline: none; font-family: 'Montserrat Alternates', sans-serif;  font-weight: bold; }
 
 form label .referencia{
     position: absolute;
@@ -85,9 +84,11 @@ div#req li {
 
 div#req {
     position: absolute;
-    bottom: -150px;
+    top: 100%;
     font-family: 'Montserrat', sans-serif;
     color: #1d1d1d;
+    margin-top: -20px;
+    left: -8vw;
     font-size: 0.7vw;
 }
 
@@ -98,27 +99,27 @@ div#req {
     width: 16vw;
 }
 .nav-buttons {
-    margin-left: -1.5vw;
+    margin-left: -1.1vw;
     width: 25vw;
     height: 30px;
 }
 .nav-buttons .button span:first-child {
-    height: 3vw;
+    height: 35px;
     /*width: 1.5vw;*/
 }
 .nav-buttons .button span:last-child {
     background: rgba(255, 255, 255, 0) !important;
     width: 9vw;
-    height: 3vw;
-    line-height: 2.8vw;
+    height: 35px;
+    line-height: 31px;
 }
 
 /*GAVETA*/
 div#gaveta .menu img {
     width: 55%;
     display: block;
-    margin: 0 auto;
-    padding-top: 3vw;
+    margin: 20px auto 10px;
+    padding-top: 3vh;
 }
 
 div#gaveta .menu {
@@ -150,23 +151,22 @@ div#gaveta .menu ul li {
 div#gaveta .menu ul {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.7vw;
+    font-size: 1vw;
     font-weight: bold;
     text-align: center;
-    padding-top: 4vw;
+    padding-top: 4vh;
 }
 
 #footer .realiza-gaveta div {
     margin: 0 auto;
-    width: 80%;
     height: 35px;
+    text-align: center;
 }
 
 #footer .realiza-gaveta div img {
     padding: 0;
     width: 100px;
-    float: left;
-    display: block;
+    display: inline-block;
     margin: 0 20px;
 }
 div#gaveta .title {
@@ -184,15 +184,14 @@ div#gaveta .title {
 
 #footer .apoio-gaveta div {
     margin: 0 auto;
-    width: 67%;
-    height: 35px;
+    height: 25px;
+    text-align: center;
 }
 
 #footer .apoio-gaveta div img {
     padding: 0;
     width: 100px;
-    float: left;
-    display: block;
+    display: inline-block;
     margin: 0 20px;
 }
 
@@ -256,7 +255,7 @@ div#abre-gaveta {
 }
 
 #nav-icon1 span:nth-child(1) {
-    top: 0px;
+    top: 0;
 }
 
 #nav-icon1 span:nth-child(2) {
@@ -316,12 +315,12 @@ div#abre-gaveta {
 }
 
 #nav-icon2 span:nth-child(odd) {
-    left:0px;
+    left:0;
     border-radius: 9px 0 0 9px;
 }
 
 #nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
-    top: 0px;
+    top: 0;
 }
 
 #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
@@ -379,7 +378,7 @@ div#abre-gaveta {
 /* Icon 3 */
 
 #nav-icon3 span:nth-child(1) {
-    top: 0px;
+    top: 0;
 }
 
 #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
@@ -392,7 +391,7 @@ div#abre-gaveta {
 
 #nav-icon3.open span:nth-child(1) {
     top: 18px;
-    width: 0%;
+    width: 0;
     left: 50%;
 }
 
@@ -412,7 +411,7 @@ div#abre-gaveta {
 
 #nav-icon3.open span:nth-child(4) {
     top: 18px;
-    width: 0%;
+    width: 0;
     left: 50%;
 }
 
@@ -422,7 +421,7 @@ div#abre-gaveta {
 }
 
 #nav-icon4 span:nth-child(1) {
-    top: 0px;
+    top: 0;
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -455,7 +454,7 @@ div#abre-gaveta {
 }
 
 #nav-icon4.open span:nth-child(2) {
-    width: 0%;
+    width: 0;
     opacity: 0;
 }
 
@@ -516,16 +515,22 @@ div#abre-gaveta {
 
 div#req .title .req {
     position: absolute;
-    text-align: center;
+    text-align: left;
     width: 100%;
     height: 100%;
     line-height: 30px;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 20px;
+}
+
+div#req ul {
+    padding-left: 15px;
 }
 
 div#req .title {
     position: relative;
-    width: 184px;
+    width: 214px;
     box-sizing: border-box;
     height: 32px;
     margin-bottom: 15px;
@@ -589,13 +594,13 @@ div#indicados ul li {
 }
 
 div#indicados .button span:last-child {
-    width: 200px;
+    width: 86% !important;
     background-color: var(--yellow);
     border-color: var(--yellow);
 }
 
 div#indicados .button span:first-child {
-    width: 25px;
+    width: 10%;
     background-color: var(--lightYellow);
     border-color: var(--lightYellow);
 }
@@ -617,15 +622,292 @@ div#indicados .button span {
 }
 
 div#indicados .button {
-    margin-top: 20px;
     height: 35px;
-    width: 230px;
-    margin: 0 auto;
-    margin-top: 25px;
-    margin-bottom: -15px;
+    width: 100%;
+    margin: 25px auto -15px;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1024px) {
+    div#pagesBar {
+        position: absolute;
+        top: 50%;
+        right: 46px;
+        z-index: 999;
+        transform: translateX(50%);
+        width: 3.7vw;
+    }
+    ul#nav li {
+        width: 3.7vw;
+        height: 3.7vw;
+        margin: 2vh 0;
+        border-radius: 100px;
+        background-repeat: no-repeat;
+        border: 3px solid rgba(255, 0, 0, 0);
+        cursor: pointer;
+    }
+    .nav-buttons .button span:last-child > div {
+        font-size: 9px;
+    }
+    div#form {
+        position: absolute;
+        right: -8vw;
+        width: 22vw;
+        bottom: -12vh;
+    }
+
+    .nav-buttons {
+        margin-left: -1.7vw;
+    }
+
+    div#req .title .req {
+        font-size: 12px;
+    }
+
+    div#logo {
+        width: 15vw;
+        height: 10vh;
+        top: 50%;
+        margin-top: -30vh;
+        margin-left: -7.5vw;
+    }
+    #footer .realiza-gaveta div img {
+        width: 81px;
+        margin: 0 10px;
+    }
+    #footer .apoio-gaveta div img {
+        width: 80px;
+        margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    div#gaveta {
+        height: 100% !important;
+        overflow: auto;
+    }
+    div#gaveta .menu {
+        width: 100%;
+        height: 55%;
+    }
+    div#gaveta .menu ul {
+        padding-top: 2vh;
+        padding-bottom: 2.2vh;
+    }
+
+    div#gaveta .menu img {
+        width: 45%;
+        padding-top: 4vh;
+    }
+
+    div#indicados {
+        width: 100%;
+        display: block;
+        float: none;
+        position: relative;
+        left: 0;
+    }
+
+    div#indicados ul li {
+        float: left;
+        width: 45%;
+        margin: 10px 16px;
+    }
+
+
+
+    div#abre-gaveta {
+        top: 35px;
+        left: 50%;
+        margin-left: -25px;
+    }
+
+    /*GAVETA*/
+
+    div#gaveta .menu ul {
+        font-size: 12px;
+    }
+    #footer .realiza-gaveta div {
+        height: 45px;
+    }
+    div#gaveta #footer > div .title {
+        font-size: 12px;
+        height: 25px;
+    }
+
+    div#gaveta #footer img {
+        width: 15vw;
+        padding: 0px;
+    }
+
+    div#gaveta #footer {
+        width: 100%;
+        margin: 0;
+        left: 0;
+        position: initial;
+    }
+
+    #footer .apoio-gaveta {
+        margin: 20px 0;
+    }
+
+    /*GAVETA*/
+
+
+    div#req li {
+        padding: 1px;
+        line-height: 20px;
+    }
+
+    div#req li span {
+        font-size: 12px;
+    }
+
+    div#content {
+        height: 47.7vh;
+        margin-top: -24vh;
+    }
+
+    div#logo {
+        width: 160px;
+        height: 60px;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        margin-left: -80px;
+        margin-top: -180px;
+    }
+
+    div#hero {
+        width: 25vw;
+        height: 18vh;
+        margin-left: -12.5vw;
+        top: 0;
+    }
+    div#category {
+        font-size: 4vw;
+        left: 0;
+        margin-left: 7%;
+        width: 86%;
+        word-wrap: break-word;
+        top: 10vh;
+        line-height: 5vh;
+        text-align: left;
+    }
+
+    #bg_main{
+        background-size: 120%;
+    }
+
+    div#form {
+        top: 22.5vh;
+        left: 7%;
+        width: 86%;
+    }
+
+
+    form input {
+        font-size: 18px;
+        border-bottom-width: 1px;
+    }
+    div#req {
+        margin-top: 70px;
+        left: 8px;
+    }
+
+    div#req .title {
+        width: 224px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+
+    div#req .title .req {
+        font-size: 15px;
+        padding-left: 20px;
+        text-align: left;
+        line-height: 40px;
+    }
+
+    div#req ul {
+        padding-left: 20px;
+    }
+
+
+
+    /*div#actions .button {*/
+    /*margin: 15px auto;*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*position: initial;*/
+    /*margin-left: 4.5vw;*/
+    /*}*/
+    .button span:first-child {
+        height: 70px;
+        width: 10%;
+    }
+    .button span:last-child {
+        width: 78%;
+        height: 70px;
+        line-height: 70px;
+        border: 1px solid #333 !important;
+    }
+
+    .nav-buttons .button span:first-child{
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .nav-buttons .button span:last-child{
+        height: 50px;
+        line-height: 50px;
+        width: 84%;
+        background: #1d1d1d !important;
+    }
+
+    .button {
+        width: 100%;
+        margin-left: 4%;
+        margin-top: 40px;
+    }
+
+    .nav-buttons {
+        width: 103%;
+        margin: 0 0 0 -5px;
+    }
+
+    .nav-buttons .button {
+        width: 45%;
+        margin: 1.5vh 0 0 0;
+    }
+    .nav-buttons .button span:last-child > div {
+        font-size: 12px;
+    }
+
+    div#pagesBar {
+        right: 7vw;
+        top: 50vh;
+    }
+
+    ul#nav li:last-child {
+        margin-bottom: 0;
+    }
+    ul#nav li:first-child {
+        margin-top: 0;
+    }
+
+    ul#nav li {
+        height: 1.5vh;
+        width: 2vw;
+        margin: 2.8vh 0;
+        background-image: none !important;
+        border: 3px solid rgba(255, 0, 0, 0);
+    }
+
+
+}
+
+@media screen and (max-width: 767px) {
 
     div#gaveta{
         overflow: scroll;
@@ -638,38 +920,38 @@ div#indicados .button {
     div#indicados ul li {
         float: none;
         width: 100%;
+        margin: 10px 0;
     }
-
     div#req li {
         padding: 1px;
         font-size: 11px;
     }
 
     div#req li span {
-        font-size: 9px;
+        font-size: 8px;
     }
 
     div#content {
-        height: 80vw;
-        margin-top: -47vw;
+        height: 47.7vh;
+        margin-top: -25vh;
     }
 
     div#logo {
-        width: 25vw;
-        height: 10vw;
+        width: 100px;
+        height: 37px;
         background-position: 50%;
         background-repeat: no-repeat;
         position: absolute;
-        top: 0%;
-        margin-left: -12.5vw;
-        margin-top: -28.5vw;
+        top: 0;
+        margin-left: -50px;
+        margin-top: -115px;
     }
 
     div#hero {
-        width: 30vw;
-        height: 30vw;
-        margin-left: -15vw;
-        top: -1vw;
+        width: 25vw;
+        height: 18vh;
+        margin-left: -12.5vw;
+        top: -2vh;
     }
     div#category {
         font-size: 5vw;
@@ -677,9 +959,8 @@ div#indicados .button {
         margin-left: -30vw;
         width: 60vw;
         word-wrap: break-word;
-        text-align: center;
-        top: 18vw;
-        line-height: 8vw;
+        top: 7vh;
+        line-height: 8vh;
         text-align: left;
     }
 
@@ -688,9 +969,9 @@ div#indicados .button {
     }
 
     div#form {
-        top: 32vw;
-        left: 10%;
-        width: 80%;
+        top: 21.5vh;
+        left: 7%;
+        width: 86%;
     }
 
     form input {
@@ -698,21 +979,28 @@ div#indicados .button {
         border-bottom-width: 1px;
     }
 
-    /*div#actions .button {*/
-        /*margin: 15px auto;*/
-        /*display: block;*/
-        /*width: 100%;*/
-        /*position: initial;*/
-        /*margin-left: 4.5vw;*/
-    /*}*/
+    div#req {
+        margin-top: 40px;
+        left: 10px;
+    }
+
+    div#req .title .req {
+        font-size: 10px;
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    div#req ul {
+        padding-left: 20px;
+    }
     .button span:first-child {
-        height: 50px;
+        height: 40px;
         width: 10%;
     }
     .button span:last-child {
-        width: 74%;
-        height: 50px;
-        line-height: 50px;
+        width: 78%;
+        height: 40px;
+        line-height: 40px;
         border: 1px solid #333 !important;
     }
 
@@ -730,26 +1018,27 @@ div#indicados .button {
 
     .button {
         width: 100%;
-        margin-left: 3vw;
+        margin-left: 4%;
+        margin-top: 15px;
     }
 
     .nav-buttons {
-        width: 120%;
-        margin: 0;
-        margin-left: -3vw;
+        width: 103%;
+        margin: 0 0 0 -5px;
     }
 
     .nav-buttons .button {
-        width: 44%;
-        margin: 0vw;
-        margin-top: 2vw;
-        margin-right: 1vw;
+        width: 45%;
+        margin: 1.5vh 0 0 0;
+    }
+
+    .nav-buttons .button span:last-child > div {
+        font-size: 10px;
     }
 
     div#pagesBar {
-        right: 11.3vw;
-        height: 90vw;
-        top: 74vw;
+        right: 10vw;
+        top: 49vh;
     }
 
     ul#nav li:last-child {
@@ -760,9 +1049,9 @@ div#indicados .button {
     }
 
     ul#nav li {
-        height: 2vw;
+        height: 0.8vh;
         width: 2vw;
-        margin: 6.2vw 0;
+        margin: 3.2vh 0;
         background-image: none !important;
         border: 4px solid rgba(255, 0, 0, 0);
     }
@@ -807,7 +1096,7 @@ div#indicados .button {
 
     div#gaveta .menu {
         width: 100%;
-        height: 60%;
+        height: 65%;
     }
 
     div#gaveta #footer > div .title {
@@ -825,6 +1114,8 @@ div#indicados .button {
         position: initial;
     }
 
+
+
     #footer .apoio-gaveta{
         margin: 0;
     }
@@ -832,6 +1123,51 @@ div#indicados .button {
     #footer .realiza-gaveta div {
         height: 25px;
     }
-    /*GAVETA*/
+}
 
+@media screen and (max-width: 320px) {
+    div#hero {
+        width: 22vw;
+        height: 13vh;
+        margin-left: -11vw;
+        top: -1vh;
+    }
+    div#logo {
+        top: 23px;
+    }
+    div#category {
+        font-size: 5vw;
+        left: 7%;
+        width: 90%;
+        word-wrap: break-word;
+        top: 8vh;
+        line-height: 4vh;
+        text-align: left;
+        margin-left: 0;
+    }
+
+    div#pagesBar {
+        right: 11.3vw;
+        top: 52vh;
+        height: 50vh;
+    }
+
+    div#form {
+        top: 22vh;
+        left: 7%;
+        width: 86%;
+    }
+    div#content {
+        height: 51.2vh;
+    }
+    div#req {
+        top: 100%;
+        margin-top: 45px;
+    }
+    div#req .title {
+        margin-bottom: 5px;
+    }
+    .nav-buttons .button span:last-child > div {
+        font-size: 7px;
+    }
 }
