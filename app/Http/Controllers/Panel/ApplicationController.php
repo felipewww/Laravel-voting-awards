@@ -27,7 +27,7 @@ class ApplicationController extends Controller
         $this->vars->title = "Finalistas";
         $this->vars->status = $this->status;
         $this->model = new Application();
-        $this->model = $this->model->where('id',1)->first();
+        $this->model = $this->model->first();
     }
 
     public function changeStatus(Request $request)
