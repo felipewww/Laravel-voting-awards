@@ -27,7 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function Nominateds(){
+    public function Nominateds()
+    {
         return $this->hasMany(Nominateds::class);
+    }
+
+    public function Votes()
+    {
+        return $this->hasMany(FinalistVotes::class);
     }
 }

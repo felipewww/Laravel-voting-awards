@@ -10,14 +10,12 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     use DataTablesExtensions;
-    public $vars;
     public $model;
     public $user;
 
     public function __construct()
     {
         parent::__construct();
-        $this->vars = new \stdClass();
         $this->model = new User();
     }
 
@@ -29,8 +27,8 @@ class UserController extends Controller
             throw new \Error('User not found');
         }
 
-        $this->vars->title = 'Votos de '.$user->name;
-        $this->methodConfigName = 'dataTablesUserVotes';
+        $this->vars->title = 'Nomeações de '.$user->name;
+        $this->methodConfigName = 'dataTablesUserNominateds';
         $this->user = $user;
 
         $this->dataTablesInit();
@@ -38,7 +36,8 @@ class UserController extends Controller
         return view('dash.user', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
     }
 
-    public function dataTablesUserVotes()
+    //Indicados na primeira etapa
+    public function dataTablesUserNominateds()
     {
         $data = [];
 //        dd($this->user);
@@ -152,6 +151,54 @@ class UserController extends Controller
             ['title' => 'Total indicados'],
             ['title' => 'IP'],
             ['title' => 'Via'],
+            ['title' => 'Ações', 'width' => '100px'],
+        ];
+    }
+
+    public function votes(Request $request, $id)
+    {
+        $this->methodConfigName = 'dataTablesUserVotes';
+
+        $this->user = $this->model->where("id", $id)->first();
+        $this->vars->title = 'Votos de '.$this->user->name;
+
+        $this->dataTablesInit();
+
+        return view('dash.allusers', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+    }
+
+    //Votos finais
+    public function dataTablesUserVotes()
+    {
+        $data = [];
+        foreach ($this->user->Votes as $reg)
+        {
+            $newInfo = [
+                $reg->Finalist->name,
+                $reg->Finalist->Categorie->name,
+                [
+                    'rowActions' =>
+                        [
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-success btn-circle fa fa-flag m-l-10 has-tooltip',
+                                    'href' =>  '/panel/finalista/'.$reg->Finalist->id.'/users',
+                                    'title' => 'Informações do Finalista'
+                                ],
+                            ],
+                        ]
+                ]
+            ];
+
+            array_push($data, $newInfo);
+        }
+
+        $this->data_info = $data;
+        $this->data_cols = [
+//            ['title' => 'ID','width' => '30px'],
+            ['title' => 'Nome'],
+            ['title' => 'Categoria'],
             ['title' => 'Ações', 'width' => '100px'],
         ];
     }

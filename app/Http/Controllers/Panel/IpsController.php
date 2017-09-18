@@ -12,13 +12,12 @@ use Illuminate\Support\Facades\DB;
 class IpsController extends Controller
 {
     use DataTablesExtensions;
-    public $vars;
 
     public $ip;
 
     public function __construct()
     {
-        $this->vars = new \stdClass();
+        parent::__construct();
         $this->vars->title = "Informações sobre IPs";
     }
 

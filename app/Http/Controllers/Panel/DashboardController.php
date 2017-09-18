@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
 use App\Library\DataTablesExtensions;
+use App\Nominateds;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -22,6 +23,8 @@ class DashboardController extends Controller
         $this->dataTablesInit();
 
         $this->vars->title = "Dashboard";
+        $this->vars->rejeitados = Nominateds::where('valid',2)->get();
+//        dd($this->vars->rejeitados);
 
         return view('dash.home', ['vars' => $this->vars,'dataTables' => $this->dataTables]);
     }

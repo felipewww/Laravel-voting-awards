@@ -6,16 +6,32 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
 
     Route::get('/', 'Panel\DashboardController@index');
+
+    Route::post('/app/status', 'Panel\ApplicationController@changeStatus');
+
     Route::get('/ips', 'Panel\IpsController@index');
     Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
 
     Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
+    Route::get('/rejeitados', 'Panel\NominatedsController@rejeitados');
 
     Route::get('/users', 'Panel\UserController@all');
     Route::get('/user/{id}', 'Panel\UserController@info');
 
     Route::post('/alter/vote', 'Panel\NominatedsController@alterStatus');
     Route::get('/users/indicado/{indicado}/{cat_id}', 'Panel\NominatedsController@users');
+
+    //finalistas
+    Route::get('/finalistas', 'Panel\FinalistsController@index');
+    Route::post('/finalista/store', 'Panel\FinalistsController@store');
+
+    Route::get('/finalista/{id}/users', 'Panel\FinalistsController@users');
+//    Route::get('/finalista/{id}/votos', 'Panel\FinalistsController@votes');
+
+    Route::get('/finalistas/user/{id}/votos', 'Panel\UserController@votes');
+
+
+    Route::get('/app', 'Panel\ApplicationController@index');
 });
 
 Route::get('/', 'LoginController@index');
@@ -31,12 +47,6 @@ Route::get('/seguranca', function (){
     return view('seguranca');
 });
 
-//Route::any('/share/{catid}/{name}', 'EllectionController@share');
-
-//Route::get('/termos', function (){
-//    return view('termos');
-//});
-
 Route::post('/login', 'LoginController@login');
 Route::any('/share/{catid}/{email_token}', 'EllectionController@share');
 
@@ -48,7 +58,6 @@ Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($req
 });
 
 Route::get('/adm', function (){
-//dd(\Illuminate\Support\Facades\Auth::check());
     if (\Illuminate\Support\Facades\Auth::check()) {
         return redirect('/panel');
     }else{

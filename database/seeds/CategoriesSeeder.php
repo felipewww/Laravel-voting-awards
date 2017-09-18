@@ -12,17 +12,17 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $arr = [
-            'Aceleradora',
-            'Assessoria de Imprensa',
-            'Assessoria Jurídica',
-            'Coworking',
-            'Equipe Fundadora',
-            'Fundo de Investimento',
             'Investidor Anjo',
-            'Melhor comunidade de startups',
-            'Melhor universidade para empreendedores',
+            'Profissional de Imprensa',
+            'Universidade',
+            'Coworking',
+            'Aceleradora',
+            'Impacto',
+            'Mentor',
+            'Corporate',
+            'Heroi ou Heroina do Ano',
             'Startup do Ano',
-            'Startup do Ano',
+            'Comunidade',
         ];
 
         $imgs = [

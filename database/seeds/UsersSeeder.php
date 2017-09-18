@@ -11,29 +11,32 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create();
-        $ips = [];
-
-        $ix = 0;
-        while ($ix < 7)
+        if (env('APP_ENV') == 'local')
         {
-            array_push($ips, $faker->ipv4);
-            $ix++;
-        }
+            $faker = \Faker\Factory::create();
+            $ips = [];
 
-        $i = 0;
-        while ($i < 10){
-            $user = new \App\User();
-            $user->name     = $faker->name;
-            $user->email    = $faker->email;
-            $user->password = bcrypt('123123');
-            $user->type     = 'usr';
-            $user->ip       = $ips[rand(0,count($ips)-1)];
-            $user->agreed   = true;
+            $ix = 0;
+            while ($ix < 7)
+            {
+                array_push($ips, $faker->ipv4);
+                $ix++;
+            }
 
-            $user->save();
+            $i = 0;
+            while ($i < 10){
+                $user = new \App\User();
+                $user->name     = $faker->name;
+                $user->email    = $faker->email;
+                $user->password = bcrypt('123123');
+                $user->type     = 'usr';
+                $user->ip       = $ips[rand(0,count($ips)-1)];
+                $user->agreed   = true;
 
-            $i++;
+                $user->save();
+
+                $i++;
+            }
         }
 
         $user = new \App\User();

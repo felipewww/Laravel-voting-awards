@@ -37,3 +37,7 @@ img.img-circle.userimg {
     width: 36px;
     height: 36px;
 }
+
+[class*="col-"].label-spacer {
+    margin-top: 25px;
+}
