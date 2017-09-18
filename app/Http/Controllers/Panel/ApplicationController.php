@@ -12,7 +12,6 @@ class ApplicationController extends Controller
 {
     use DataTablesExtensions;
 
-    public $vars;
     public $model;
     public $status = [
         'ellection' => 'Indicação',
@@ -23,7 +22,6 @@ class ApplicationController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->vars = new \stdClass();
         $this->vars->title = "Finalistas";
         $this->vars->status = $this->status;
         $this->model = new Application();

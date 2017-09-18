@@ -25,7 +25,7 @@
             </li>
 
             <li>
-                <a href="/panel/rejeitados" class="waves-effect"><i class="fa fa-bomb fa-fw" aria-hidden="true"></i>Rejeitados</a>
+                <a href="/panel/rejeitados" class="waves-effect"><i class="fa fa-bomb fa-fw" aria-hidden="true"></i>Rejeitados <span class="btn btn-danger" style="height: 25px;line-height: 14px;">{{ $vars->rejeitados->count() }}</span></a>
             </li>
             <li>
                 <hr>

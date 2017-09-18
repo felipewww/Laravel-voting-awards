@@ -10,14 +10,12 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     use DataTablesExtensions;
-    public $vars;
     public $model;
     public $user;
 
     public function __construct()
     {
         parent::__construct();
-        $this->vars = new \stdClass();
         $this->model = new User();
     }
 

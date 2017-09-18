@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class NominatedsController extends Controller
 {
     use DataTablesExtensions;
-    public $vars;
     public $nominatedsByUser;
     public $model;
 
@@ -21,7 +20,6 @@ class NominatedsController extends Controller
     {
         parent::__construct();
         $this->model = new Nominateds();
-        $this->vars = new \stdClass();
         $this->vars->title = "Indicados";
     }
 

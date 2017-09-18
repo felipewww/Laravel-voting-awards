@@ -11,13 +11,11 @@ use App\Http\Controllers\Controller;
 class FinalistsController extends Controller
 {
     use DataTablesExtensions;
-    public $vars;
     public $model;
 
     public function __construct()
     {
         parent::__construct();
-        $this->vars = new \stdClass();
         $this->vars->title = "Finalistas";
         $this->model = new Finalists();
     }
