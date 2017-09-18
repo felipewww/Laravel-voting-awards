@@ -39,6 +39,7 @@ div#actions .button {
     width: 15vw;
     margin-left: 1vw;
     margin-right: 1vw;
+    float: right;
 }
 
 div#actions > div {
@@ -120,7 +121,7 @@ form label {
     font-size: 0.9vw;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1024px) {
     div#text {
         font-size: 11px;
         padding: 25px;
@@ -151,5 +152,14 @@ form label {
     }
     :-moz-placeholder { /* Firefox 18- */
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div#text {
+        margin-top: 10px;
+    }
+    div#actions .button {
+        float: left;
     }
 }

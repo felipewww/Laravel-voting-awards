@@ -224,7 +224,7 @@ div#category {
     font-family: 'The Frontman';
     color: var(--yellow);
     font-size: 3vw;
-    line-height: 6.1vh;
+    line-height: 1.5em;
     position: absolute;
     left: -8vw;
     top: 5.4vh;
@@ -385,10 +385,10 @@ ul {
         margin: 0;
         left: 0;
     }
-    /*FOOTER*/
 }
 
 @media screen and (max-width: 767px) {
+
     main{
         padding: 25px;
     }
@@ -400,8 +400,8 @@ ul {
     div#content {
         width: 80%;
         visibility: visible;
-        height: 110vh;
-        margin-top: -65vw;
+        height: 40vh;
+        margin-top: -30vh;
     }
 
     div#content img#logo {
@@ -409,7 +409,7 @@ ul {
         margin-top: -10vh !important;
     }
     .button span:last-child > div {
-        font-size: 15px;
+        font-size: 10px;
         letter-spacing: 2px;
     }
 
@@ -439,13 +439,13 @@ ul {
         margin-left: 4.5vw;
     }
     .button span:first-child {
-        height: 50px;
+        height: 40px;
         width: 10% !important;
     }
     .button span:last-child {
         width: 78% !important;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         border: 1px solid #333 !important;
     }
     /*BUTTONS*/
@@ -465,4 +465,31 @@ ul {
         left: 0;
     }
     /*FOOTER*/
+    footer {
+        width: 100%;
+        margin: 0;
+        left: 0;
+        transform: none;
+    }
+    footer div {
+        margin-bottom: 5px;
+        display: block;
+        width: 100%;
+    }
+
+    footer > div .title {
+        margin-bottom: 10px;
+    }
+
+    footer img {
+        width: 25vw;
+    }
+
+    footer .divider{
+        display: none;
+    }
+
+    footer .apoio {
+        margin-bottom: 0px;
+    }
 }

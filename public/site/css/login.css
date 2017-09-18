@@ -108,3 +108,41 @@ div._ou {
         border: 1px solid #333 !important;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .button span:last-child > div {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    div#actions {
+        display: block;
+        width: 100%;
+        margin-left: 0vw !important;
+        height: auto;
+        bottom: -50px;
+    }
+
+    div#actions > div {
+        display: block;
+        width: 100%;
+        height: inherit;
+    }
+
+    .button span:first-child {
+        height: 40px;
+    }
+    .button span:last-child {
+        height: 40px;
+        line-height: 40px;
+    }
+    div._ou {
+        margin: -15px 15px 30px;
+        color: #fff;
+        line-height: 25px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        height: 25px !important;
+        font-size: 12px;
+    }
+
+}

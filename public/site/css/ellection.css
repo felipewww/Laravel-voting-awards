@@ -630,7 +630,7 @@ div#indicados .button {
 @media screen and (max-width: 1024px) {
     div#pagesBar {
         position: absolute;
-        top: 50%;
+        top: 50.5%;
         right: 46px;
         z-index: 999;
         transform: translateX(50%);
@@ -960,7 +960,7 @@ div#indicados .button {
         width: 60vw;
         word-wrap: break-word;
         top: 7vh;
-        line-height: 8vh;
+        line-height: 2em;
         text-align: left;
     }
 
