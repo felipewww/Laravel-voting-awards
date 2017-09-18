@@ -13,7 +13,7 @@
 {{--                                {{ dd($vars) }}--}}
                             <select class="form-control" name="categoria">
                                 @foreach($vars->status as $status => $v)
-                                    <option value="{{ $status }}" {{ ($status == $app->status) ? 'selected="selected"' : '' }}>{{ $v }}</option>
+                                    <option value="{{ $status }}" {{ ($status == $app['status']) ? 'selected="selected"' : '' }}>{{ $v }}</option>
                                 @endforeach
                             </select>
                         </div>
