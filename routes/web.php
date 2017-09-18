@@ -6,10 +6,14 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
 
     Route::get('/', 'Panel\DashboardController@index');
+
+    Route::post('/app/status', 'Panel\ApplicationController@changeStatus');
+
     Route::get('/ips', 'Panel\IpsController@index');
     Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
 
     Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
+    Route::get('/rejeitados', 'Panel\NominatedsController@rejeitados');
 
     Route::get('/users', 'Panel\UserController@all');
     Route::get('/user/{id}', 'Panel\UserController@info');

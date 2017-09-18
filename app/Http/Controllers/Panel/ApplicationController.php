@@ -15,7 +15,7 @@ class ApplicationController extends Controller
     public $vars;
     public $model;
     public $status = [
-        'ellection' => 'Eleição',
+        'ellection' => 'Indicação',
         'voting' => 'Votação',
         'finished' => 'Finalizada'
     ];
@@ -27,6 +27,14 @@ class ApplicationController extends Controller
         $this->vars->title = "Finalistas";
         $this->vars->status = $this->status;
         $this->model = new Application();
+        $this->model = $this->model->where('id',1)->first();
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $this->model->status = $request->status;
+        $this->model->save();
+        return redirect('/panel/app');
     }
 
     public function index()
@@ -47,8 +55,6 @@ class ApplicationController extends Controller
     public function dataTablesConfig()
     {
         $usersModel = new User();
-//        $u = $usersModel->first();
-//        dd($u->Votes);
 
         $data = [];
         foreach ($usersModel->where('voteable',1)->get() as $reg)

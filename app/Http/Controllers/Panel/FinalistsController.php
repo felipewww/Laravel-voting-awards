@@ -85,7 +85,12 @@ class FinalistsController extends Controller
 
     public function store(Request $request)
     {
-        dd('TODO', $request->all());
+        //dd('TODO', $request->all());
+        $this->model->name = $request->name;
+        $this->model->categorie_id = $request->categorie;
+        $this->model->save();
+
+        return redirect('/panel/finalistas');
     }
 
     public function vote(Request $request, $id)

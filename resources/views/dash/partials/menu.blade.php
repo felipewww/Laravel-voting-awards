@@ -23,6 +23,10 @@
             <li>
                 <a href="/panel/aguardando" class="waves-effect"><i class="fa fa-circle-o-notch fa-fw fa-spin" aria-hidden="true"></i>Em aprovação</a>
             </li>
+
+            <li>
+                <a href="/panel/rejeitados" class="waves-effect"><i class="fa fa-bomb fa-fw" aria-hidden="true"></i>Rejeitados</a>
+            </li>
             <li>
                 <hr>
                 <h4 style="font-family: Rubik,sans-serif; font-size: 12px; text-align: center; font-weight: bold; text-transform: uppercase">Aplicação</h4>

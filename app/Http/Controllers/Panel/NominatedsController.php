@@ -217,4 +217,57 @@ class NominatedsController extends Controller
         ];
     }
 
+    public function rejeitados()
+    {
+        $this->methodConfigName = 'dataTablesRejeitados';
+        $this->dataTablesInit();
+        $this->vars->title = "Votos rejeitados";
+
+        return view('dash.rejeitados', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+    }
+
+    public function dataTablesRejeitados()
+    {
+        $data = [];
+        foreach (Nominateds::where('valid', 2)->get() as $reg)
+        {
+            $newInfo = [
+                $reg->id,
+                $reg->name,
+                $reg->why_deny,
+                $reg->userDeny->name,
+                $reg->Categorie->name,
+                $reg->User->name,
+                $reg->User->ip,
+                [
+                    'rowActions' =>
+                        [
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-custom btn-circle fa fa-eye m-l-10 has-tooltip',
+                                    'href' => '/panel/user/'.$reg->User->id,
+                                    'title' => 'Indicações do usuário'
+                                ],
+                            ],
+                        ]
+                ]
+            ];
+
+            array_push($data, $newInfo);
+        }
+
+        $this->data_info = $data;
+        $this->data_cols = [
+            ['title' => 'ID','width' => '30px'],
+            ['title' => 'Indicado'],
+            ['title' => 'Motivo'],
+            ['title' => 'Quem'],
+            ['title' => 'Categoria'],
+            ['title' => 'User'],
+            ['title' => 'IP'],
+            ['title' => 'Ações', 'width' => '50px'],
+        ];
+    }
+
 }
