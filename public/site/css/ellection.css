@@ -1,7 +1,7 @@
 div#form {
     position: absolute;
-    right: -145px;
-    width: 34%;
+    right: -120px;
+    width: 340px;
     bottom: -80px;
 }
 
@@ -93,19 +93,42 @@ div#req {
     font-size: 0.7vw;
 }
 
+form .button:hover span:last-child{
+    background-color: #222222;
+}
+form .button:hover span:first-child{
+    border-color: transparent;
+}
+form.white .button span {
+    border-color: #fff;
+}
+
+form.white .button span:first-child{
+    background-color: #fff;
+}
+
+form.yellow .button span:first-child{
+    background-color: var(--yellow);
+}
+
+form.yellow .button:hover span:last-child{
+    color: var(--yellow);
+}
+
 .nav-buttons .button {
-    margin: 15px 0 0 0;
+    margin: 15px 16px 0 -9px;
     height: 40px;
     float: left;
-    width: 40%;
+    width: 130px;
+    font-size: 9px;
 }
 .nav-buttons {
-    width: 98%;
-    margin-left: 62px;
+    float: right;
+    margin-right: 0px;
 }
 .nav-buttons .button span:first-child {
     height: 45px;
-    width: 15%;
+    width: 30px;
 }
 .nav-buttons .button span:last-child {
     background: rgba(255, 255, 255, 0) !important;
@@ -113,14 +136,30 @@ div#req {
     height: 45px;
     line-height: 38px;
 }
-.nav-buttons .button > span > div{
+.nav-buttons .button span:last-child > div {
+    font-size: 9px;
+}
+form.yellow .nav-buttons .button > span:first-child{
+    background-color: var(--yellow);
+}
+form.yellow .nav-buttons .button > span:last-child{
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+form.yellow .nav-buttons .button:hover > span:last-child{
+    background-color: var(--yellow) !important;
+    color: #222222;
+}
+form.yellow .nav-buttons .button.disabled:hover > span:last-child{
+    background-color: transparent !important;
     color: var(--yellow);
 }
 /*GAVETA*/
 div#gaveta .menu img {
     width: 55%;
     display: block;
-    margin: 20px auto 10px;
+    margin: 15% auto;
     padding-top: 3vh;
 }
 
@@ -132,9 +171,18 @@ div#gaveta .menu {
     float: left;
 }
 
+div#abre-gaveta:hover{
+    background-color: #ffd300;
+}
+
+div#abre-gaveta:hover span{
+    background-color: #1d1d1d;
+    width: 100%
+}
+
 div#footer {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     width: 100%;
 }
 
@@ -147,16 +195,26 @@ div#gaveta {
 }
 
 div#gaveta .menu ul li {
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 div#gaveta .menu ul {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1vw;
+
     font-weight: bold;
     text-align: center;
     padding-top: 4vh;
+}
+
+div#gaveta .menu ul a{
+    font-size: 0.7vw;
+    letter-spacing: 0.2em;
+    transition: 0.3s;
+}
+
+div#gaveta .menu ul a:hover{
+    color: var(--yellow);
 }
 
 #footer .realiza-gaveta div {
@@ -561,22 +619,14 @@ div#req .bg {
     -o-transform: skew(-20deg);
 }
 
-div#indicados ul li .title {
-    color: #fff;
-    font-size: 17px;
-    margin-top: -10px;
-    font-family: 'The Frontman', sans-serif;
-    line-height: 22px;
-}
-
 div#indicados {
     float: left;
     width: 75%;
     left: 25%;
+    text-align: center;
 }
 
 div#indicados .indicado {
-    border-bottom: 2px solid #fff;
     width: 110%;
     margin: 0 auto;
     display: block;
@@ -589,6 +639,19 @@ div#indicados .indicado {
     padding-bottom: 10px;
 }
 
+
+div#indicados ul{
+    text-align: left;
+}
+div#indicados ul li {
+    display: inline-block;
+    width: 30%;
+    box-sizing: border-box;
+    background: #1d1d1d;
+    border: 2.1em solid #333333;
+    margin: 5px 1.6%;
+}
+
 div#indicados ul li .title {
     color: #fff;
     font-size: 17px;
@@ -598,24 +661,43 @@ div#indicados ul li .title {
     min-height: 44px;
 }
 
-div#indicados ul li {
-    float: left;
-    width: 33%;
-    box-sizing: border-box;
-    background: #1d1d1d;
-    border: 2.1em solid #333333;
+div#indicados .button {
+    height: 40px;
+    width: 60%;
+    margin: 25px auto -15px;
+    float: none;
+    left: 10px;
+}
+
+div#indicados .button span {
+    height: 40px;
+    line-height: 35px;
+    color: #000;
+}
+
+
+
+div#indicados .button span:first-child {
+    width: 30px;
+    background-color: var(--lightYellow);
+    border-color: var(--lightYellow);
+    left: -30px;
 }
 
 div#indicados .button span:last-child {
-    width: 86% !important;
+    width: 100%;
     background-color: var(--yellow);
     border-color: var(--yellow);
 }
 
-div#indicados .button span:first-child {
-    width: 10%;
-    background-color: var(--lightYellow);
-    border-color: var(--lightYellow);
+
+div#indicados .button:hover span:first-child {
+}
+
+div#indicados .button:hover span:last-child {
+    background-color: #222222;
+    border-color: var(--yellow);
+    color: var(--yellow);
 }
 
 div#indicados .button.share span:first-child {
@@ -628,16 +710,13 @@ div#indicados .button.share span:last-child {
     border-color: #3B5999;
 }
 
-div#indicados .button span {
-    height: 35px;
-    line-height: 32px;
-    color: #000;
+div#indicados .button.share:hover span:first-child {
 }
 
-div#indicados .button {
-    height: 35px;
-    width: 100%;
-    margin: 25px auto -15px;
+div#indicados .button.share:hover span:last-child {
+    background: #222222;
+    border-color: #3B5999;
+    color: #3B5999;
 }
 
 @media screen and (max-width: 1024px) {
@@ -652,29 +731,95 @@ div#indicados .button {
     ul#nav li {
         width: 3.7vw;
         height: 3.7vw;
-        margin: 2vh 0;
+        margin: 3vh 0;
         border-radius: 100px;
         background-repeat: no-repeat;
         border: 3px solid rgba(255, 0, 0, 0);
         cursor: pointer;
     }
     .nav-buttons .button span:last-child > div {
-        font-size: 9px;
+        font-size: 7px;
     }
     div#form {
         position: absolute;
-        right: -8vw;
-        width: 22vw;
-        bottom: -12vh;
+        right: -80px;
+        width: 260px;
+    }
+    .button {
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 190px;
+        position: relative;
+        float: right;
+        margin-right: 20px;
+    }
+
+    .button span:first-child {
+        width: 20px;
+        height: 45px;
+        left: -20px;
+    }
+    .button span:last-child {
+        height: 45px;
+        line-height: 38px;
+    }
+    .button span:last-child > div {
+        font-size: 13px;
     }
 
     .nav-buttons {
         margin-left: -1.7vw;
     }
 
+    .nav-buttons .button {
+        margin: 10px 6px 0 -3px;
+        height: 40px;
+        float: left;
+        width: 110px;
+    }
+
+    .nav-buttons .button span:first-child {
+        height: 35px;
+        width: 20px;
+    }
+
+    .nav-buttons .button span:last-child {
+        background: rgba(255, 255, 255, 0) !important;
+        width: 73%;
+        height: 35px;
+        line-height: 29px;
+        font-size: 7px;
+    }
+    div#gaveta .menu ul li {
+        padding: 10px 0;
+    }
+
+    div#gaveta .menu ul a {
+        font-size: 0.8vw;
+    }
+
     div#req .title .req {
         font-size: 12px;
     }
+
+    div#indicados ul li {
+        display: inline-block;
+        width: 33%;
+        box-sizing: border-box;
+        background: #1d1d1d;
+        border: 1.1em solid #333333;
+        margin: 3% 0.1%;
+    }
+
+    div#indicados .button span:first-child {
+        width: 20px;
+        left: -20px;
+    }
+    div#indicados .button span:last-child > div {
+        font-size: 10px;
+    }
+
 
     div#logo {
         width: 15vw;
@@ -778,7 +923,7 @@ div#indicados .button {
 
     div#content {
         height: 47.7vh;
-        margin-top: -24vh;
+        margin-top: 0;
     }
 
     div#logo {
@@ -795,7 +940,6 @@ div#indicados .button {
     div#hero {
         width: 25vw;
         height: 18vh;
-        margin-left: -12.5vw;
         top: 0;
     }
     div#category {

@@ -29,11 +29,11 @@
             </div>
 
             <div id="actions">
-                <div  class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
+                <div  class="button light">
                     <span style="border-color: #545454;"></span>
                     <span class="_link">
                         <a href="/indicacao"></a>
-                        <div>ENTENDI</div>
+                        <div>VOLTAR</div>
                     </span>
                 </div>
 

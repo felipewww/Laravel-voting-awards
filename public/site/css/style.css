@@ -142,22 +142,29 @@ div#_modal {
 .cleaner{
     clear: both !important;
 }
+div#actions > div.button{
+    cursor: pointer;
+}
 
 .button {
     margin-top: 50px;
-    margin-left: 20%;
     cursor: pointer;
     transition: 0.3s;
-    width: 88%;
+    width: 230px;
     position: relative;
+    float: right;
+    margin-right: 30px;
 }
 
 .button.disabled{
     opacity: 0.2;
     cursor: default;
 }
+.button span{
+    transition: 0.3s;
+}
 .button span:first-child {
-    width: 10%;
+    width: 30px;
     height: 60px;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
@@ -166,10 +173,12 @@ div#_modal {
     float: left;
     border: 4px solid var(--yellow);
     box-sizing: border-box;
+    position: absolute;
+    left: -30px;
 }
 
 .button span:last-child {
-    width: 73%;
+    width: 100%;
     height: 60px;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
@@ -185,17 +194,6 @@ div#_modal {
     background-color: var(--yellow);
 }
 
-form.white .button span {
-    border-color: #fff;
-}
-
-form.white .button span:first-child{
-    background-color: #fff;
-}
-
-form.yellow .button span:first-child{
-    background-color: var(--yellow);
-}
 
 .button span:last-child > div {
     -webkit-transform: skew(20deg);
@@ -204,7 +202,7 @@ form.yellow .button span:first-child{
     font-family: 'Monttserrat', sans-serif;
     font-weight: 900;
     letter-spacing: 3px;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .button.light span:last-child {
@@ -214,9 +212,54 @@ form.yellow .button span:first-child{
     color: var(--lightYellow);
 }
 
-div#actions > div.button{
-    cursor: pointer;
+.button:hover span:first-child{
+    background-color: #222222;
+    border-color: #222222;
+
 }
+.button:hover span:last-child{
+    background-color: var(--yellow);
+    color:#222222;
+
+}
+
+.button.fb-login-button span:last-child {
+    color: #3B5999;
+}
+
+.button.fb-login-button span:first-child {
+    background-color: #3B5999;
+    border-color: #3B5999;
+}
+
+.button.fb-login-button:hover span:first-child {
+    background-color: #222222;
+    border-color: #222222;
+}
+
+.button.fb-login-button:hover span:last-child {
+    background-color: #3B5999;
+    color: #222222 !important;
+}
+
+
+.button.btn-cancel span:last-child {
+    color: #333;
+}
+
+.button.btn-cancel span:first-child {
+    background-color: #333;
+    border-color: #333;
+}
+.button.btn-cancel:hover span:first-child {
+    background-color: #222222;
+    border-color: #222222;
+}
+.button.btn-cancel:hover span:last-child {
+    background-color: #353535;
+    color: #222222;
+}
+
 
 div#loader img {
     display: block;
@@ -300,7 +343,7 @@ div#pagesBar {
     top: 50.5%;
     right: 45px;
     z-index: 999;
-    width: 2.7vw;
+    width: 5vh;
     transform: translateX(50%);
 }
 
@@ -318,7 +361,7 @@ ul#nav li:hover {
 
 ul#nav li {
     display: block;
-    width: 2.5vw;
+    width: 5vh;
     height: 5vh;
     background: #333333;
     margin: 3vh 0;
@@ -341,7 +384,6 @@ ul {
     div#content {
         height: 25vh;
     }
-
 }
 @media screen and (max-width: 992px) {
     main{
@@ -355,13 +397,10 @@ ul {
     div#content {
         width: 80%;
         visibility: visible;
-        height: 110vh;
-        margin-top: -65vw;
     }
 
     div#content img#logo {
-        width: 50vw;
-        margin-top: -10vw !important;
+        width: 35vw;
     }
 
     .button span:last-child > div {
@@ -379,29 +418,15 @@ ul {
 
     /*BUTTONS*/
     div#actions {
-        width: 100% !important;
-        margin-left: 3vh !important;
+        width: 90% !important;
     }
 
-    ._ou {
-        clear: both;
-        text-align: center;
-        display: block;
-        width: 100%;
-    }
-    div#actions .button {
-        margin: 15px auto;
-        display: block;
-        width: 100% !important;
-        position: initial;
-        margin-left: 4.5vw;
-    }
+
     .button span:first-child {
         height: 50px;
-        width: 10% !important;
     }
     .button span:last-child {
-        width: 78% !important;
+        width: 100%;
         height: 50px;
         line-height: 50px;
         border: 1px solid #333 !important;
@@ -420,7 +445,7 @@ ul {
     footer {
         width: 100%;
         margin: 0;
-        left: 0;
+        left: 50%;
     }
 }
 

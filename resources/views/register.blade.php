@@ -44,7 +44,7 @@
                     </span>
                 </div>
 
-                <div class="button light fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email">
+                <div class="button light btn-cancel">
                     <span></span>
                     <span class="_link">
                         <a href="/"></a>
