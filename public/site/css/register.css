@@ -1,59 +1,59 @@
-img#logo {
-    margin: 0 auto;
-    display: block;
-    margin-top: -115px;
+#content > div{
+    height:100%;
 }
 
 #text {
-    color: var(--lightYellow);
-    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-align: center;
-    margin-top: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.3vw;
+    margin-top: 0;
+    font-size: 0.9vw;
+    position: relative;
+    display: block;
+    top: 50%;
+    transform: translateY(-35%);
+}
+
+#text .yellow {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--lightYellow);
     font-weight: bold;
+    display: block;
+    letter-spacing: 3px;
     font-size: 0.8vw;
+    text-transform: uppercase;
 }
 
-.button span:last-child{
-    width: 12vw;
+.button span:last-child {
+    width: 180px;
 }
 
-.fb-login-button span:last-child {
-    color: #333 !important;
-}
-
-.fb-login-button span:first-child {
-    background-color: #333;
-    border-color: #333;
-}
 
 div#actions {
-    width: 34vw;
     margin: 0 auto;
-    margin-top: 2.3vw;
-}
-
-div#actions .button {
-    margin-top: 0;
-    width: 15vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    float: right;
+    text-align: center;
+    position: absolute;
+    bottom: -30px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    vertical-align: middle;
+    display: inline-flex;
 }
 
 div#actions > div {
-    float: left;
+    margin: 0px 110px 0 153px;
+    width: auto;
 }
 
-div._ou {
-    margin: 0 1vw;
+div#actions > div._ou {
+    margin: 20px 60px 0 70px;
     color: #fff;
-    line-height: 4vw;
     font-family: 'Montserrat', sans-serif;
-    color: var(--lightYellow);
     font-weight: bold;
+    height: 30px;
 }
+
 
 form label {
     margin: 0 5vw;
@@ -122,23 +122,52 @@ form label {
 }
 
 @media screen and (max-width: 1024px) {
+
     div#text {
         font-size: 11px;
-        padding: 25px;
-        padding-bottom: 0;
+        padding: 5px 25px 0;
+    }
+
+    form {
+        width: 60vw;
+        margin: 1.1vw auto;
+    }
+
+    form label {
+        width: 50%;
+        margin: 0;
     }
 
     form label input {
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
         height: 20px;
         margin: 15px 0;
     }
 
-    form label {
-        float: none;
-        width: 100%;
-        margin: 0;
+    .button span:last-child {
+        width: 150px;
+    }
+
+    .button span:last-child > div {
+        font-size: 12px;
+    }
+
+    #text .yellow {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--lightYellow);
+        font-weight: bold;
+        display: block;
+        letter-spacing: 3px;
+        font-size: 1vw;
+        text-transform: uppercase;
+        line-height: 1.2em;
+    }
+
+
+    div#actions > div {
+        margin: 0px 45px 0 73px;
+        width: auto;
     }
 
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -154,8 +183,23 @@ form label {
         font-size: 12px;
     }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+    #text .yellow {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--lightYellow);
+        font-weight: bold;
+        display: block;
+        letter-spacing: 3px;
+        font-size: 1.8vw;
+        text-transform: uppercase;
+        line-height: 2em;
+    }
+    div#actions > div {
+        margin: 0px 118px 0 40px;
+        width: auto;
+    }
+}
+@media screen and (max-width: 767px) {
     div#text {
         margin-top: 10px;
     }

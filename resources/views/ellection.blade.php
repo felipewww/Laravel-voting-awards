@@ -17,10 +17,6 @@
         finalistsInfo = JSON.parse('{!! json_encode($v->infoFinalists) !!}');
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
-
-//        console.log(ellectionInfo);
-        console.log(finalistsInfo);
-
     </script>
     @if($v->appStatus == 'voting')
         <script type="text/javascript" src="/site/js/Voting.js?{{ $v->rand }}"></script>
@@ -81,20 +77,19 @@
 @endsection
 
 @section('content')
-
+<div id="content">
     <script type="text/javascript">
         window.fbAsyncInit = function() {
             FB.init({
-                appId       : '{{ env("FB_APP_ID") }}',//'139520189890905',//'139520189890905', // Set YOUR APP ID - produçao azure  1685282121713164
+                appId       : '{{ env("FB_APP_ID") }}',
                 oauth       : true,
-                status      : true, // check login status
-                cookie      : true, // enable cookies to allow the server to access the session
-                xfbml       : true,  // parse XFBML
+                status      : true,
+                cookie      : true,
+                xfbml       : true,
                 version     : 'v2.10',
-                channelUrl  : '{{ env("APP_URL") }}' //custom channel
+                channelUrl  : '{{ env("APP_URL") }}'
             });
         };
-
 
         $( function() {
             $( "#reference-tooltip" ).tooltip({
@@ -147,40 +142,48 @@
     <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
 
     @if(\App\Application::Info()->status == 'ellection')
+        <div id="category" >
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="logo"></div>
+        <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
+
         <div id="form">
             <form id="mainform" name="mainform">
                 <label>
                     <input type="text" name="indicated" maxlength="50">
                 </label>
 
-            <label>
-                <input type="text" name="reference"  maxlength="150">
-                <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
-            </label>
+                <label>
+                    <input type="text" name="reference"  maxlength="150">
+                    <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                </label>
 
-            <div class="button" id="main-btn">
-                <span></span>
-                <span>
-                    <div >INDICAR</div>
-                </span>
-            </div>
-            <div class="cleaner"></div>
-            <div class="nav-buttons">
-                <div class="button" id="btn-previous">
+                <div class="button" id="main-btn">
                     <span></span>
                     <span>
-                        <div>ANTERIOR</div>
+                        <div >INDICAR</div>
                     </span>
                 </div>
-                <div class="button" id="btn-next">
-                    <span></span>
-                    <span>
-                        <div>PRÓXIMA</div>
-                    </span>
+                <div class="cleaner"></div>
+                <div class="nav-buttons">
+                    <div class="button" id="btn-previous">
+                        <span></span>
+                        <span>
+                            <div>ANTERIOR</div>
+                        </span>
+                    </div>
+                    <div class="button" id="btn-next">
+                        <span></span>
+                        <span>
+                            <div>PRÓXIMA</div>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
         <div id="req">
             <div class="title">
@@ -255,5 +258,5 @@
             </form>
         </div>
     @endif
-
+</div>
 @endsection
