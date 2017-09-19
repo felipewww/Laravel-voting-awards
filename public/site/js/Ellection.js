@@ -30,6 +30,32 @@ Ellection = {
             }
         }
 
+        if (appStatus == 'voting')
+        {
+            // console.log('init');
+            // console.log('Pages', Pages);
+            // console.log('finalistsInfo', finalistsInfo);
+
+            for(var f_idx in finalistsInfo)
+            {
+                var f_obj = finalistsInfo[f_idx];
+                /* Rodar toda vez o objeto e encontrar pelo ID da categoria para não ficar preso na query,
+                *  já que o objeto Pages ja foi montade por categoria no for anterior
+                *  sendo obrigado sempre a ler do banco com order by identico.
+                */
+                for(var p_idx in Pages)
+                {
+                    var p_obj = Pages[p_idx];
+
+                    if (p_obj.db.id == f_obj.id) {
+                        p_obj.db.voted = f_obj.voted;
+                        p_obj.db.finalists = f_obj.nominateds;
+                    }
+                }
+            }
+            // console.log('\n endinit');
+        }
+
         this.mainBtn = $("#main-btn");
         this.gaveta = $gaveta = $('#gaveta');
         this.text = $('#category');
@@ -174,8 +200,6 @@ Ellection = {
     //Criar estrutura de LI da gaveta via JS
     __gavetaItems: function (item, itemPos)
     {
-
-        console.log("Page is::", item);
         var allSet = !!(item.db.nominated);
 
         var li = document.createElement('li');
@@ -198,8 +222,12 @@ Ellection = {
         var indicado = document.createElement('div');
         indicado.setAttribute('class','indicado');
 
-        //TODO - nome do indicado ou texto padrão
-        indicado.innerHTML = (allSet) ? item.db.nominated.name : 'Indicado';
+        if (appStatus == 'ellection') {
+            indicado.innerHTML = (allSet) ? item.db.nominated.name : 'Indicado';
+        }else if(appStatus == 'voting'){
+            // indicado.innerHTML = 'Teste!';
+            Voting._gavetaName(indicado, item);
+        }
 
         //Criar botão com transform
         var button = document.createElement('div');
@@ -228,7 +256,14 @@ Ellection = {
         button_span2_a.setAttribute('href', '#');
 
         var button_span2_text = document.createElement('div');
-        button_span2_text.innerHTML = (allSet) ? 'COMPARTILHAR' : 'INDICAR';
+
+        if (appStatus == 'ellection') {
+            ButtonText = (allSet) ? 'COMPARTILHAR' : 'INDICAR';
+        }else if (appStatus == 'voting'){
+            ButtonText = Voting._gavetaButtonText(item);
+        }
+
+        button_span2_text.innerHTML = ButtonText;
 
         button.appendChild(button_span1);
 
@@ -324,24 +359,7 @@ Ellection = {
             this.setAsEnabled();
         }
 
-        //Inserir o texto do titulo em sequencia das divs
-        // console.log('Para', paragraphs);
-        var i = 0;
-        while (i < 3){
-            var pItem = Ellection.text.find('> div')[i];
-
-            var str = ( paragraphs[i] ) ? paragraphs[i] : '';
-            $(pItem).html(str);
-
-            i++;
-        }
-
-        this.form.removeAttr('class');
-        this.form.addClass(obj.formClass);
-        this.logo.css("background-image","url(/site/media/images/"+obj.logo+")");
-        this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
-        this.main.css("background-color", obj.bgColor);
-        this.main.css("borderColor", obj.mainBorderColor);
+        Ellection.__setTitleAndColors(paragraphs, obj);
 
         var prev = document.getElementById('btn-previous');
         var next = document.getElementById('btn-next');
@@ -352,7 +370,6 @@ Ellection = {
         next.disble = false;
         next.classList.remove("disabled");
 
-        console.log(Ellection.currentPage);
         if(Ellection.currentPage == 0){
             prev.disble = true;
             prev.classList.add("disabled");
@@ -364,9 +381,33 @@ Ellection = {
         }
     },
 
+    /*
+    * Método também é usado em Voting.js para alterar a tela identicamente a ELEIÇÃO
+    * */
+    __setTitleAndColors: function (paragraphs, obj)
+    {
+        //Inserir o texto do titulo em sequencia das divs
+        var i = 0;
+        while (i < 3){
+            var pItem = Ellection.text.find('> div')[i];
+
+            var str = ( paragraphs[i] ) ? paragraphs[i] : '';
+            $(pItem).html(str);
+
+            i++;
+        }
+
+        //Alterar as cores de bordas e etc.
+        this.form.removeAttr('class');
+        this.form.addClass(obj.formClass);
+        this.logo.css("background-image","url(/site/media/images/"+obj.logo+")");
+        this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
+        this.main.css("background-color", obj.bgColor);
+        this.main.css("borderColor", obj.mainBorderColor);
+    },
+
     changePage: function (objectId)
     {
-
         if (this.currentPage == objectId) {
             return false;
         }
@@ -377,7 +418,12 @@ Ellection = {
         this.__hidePage();
 
         setTimeout(function () {
-            _this.__setPage(objectId);
+
+            if (appStatus == 'ellection') {
+                _this.__setPage(objectId);
+            }else{
+                Voting.__setPage(objectId);
+            }
         }, 700);
 
         setTimeout(function () {
@@ -472,11 +518,6 @@ Ellection = {
         txt.innerHTML = "COMPARTILHAR";
 
         this.mainBtn[0].onclick = function () {
-
-            console.log('is mobile?', Script.isMobile());
-            console.log('Fullurl', window.APP_URL+'/share/'+catid+'/'+shareToken);
-            var mframe = Script.isMobile();
-
             Ellection.__share(catid);
         };
 
@@ -493,14 +534,11 @@ Ellection = {
 
         var txt = this.mainBtn.find('span')[1];
         txt = $(txt).find('div')[0];
-        console.log('TXT', txt);
-        txt.innerHTML = 'INDICAR';
+        txt.innerHTML = (appStatus == 'ellection') ? 'INDICAR': 'VOTAR';
 
         this.inputs.each(function () {
             $(this).removeAttr('disabled');
         });
-
-
     }
 };
 

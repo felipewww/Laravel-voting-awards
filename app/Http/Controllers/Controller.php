@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Application;
 use App\Nominateds;
 use App\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -14,11 +15,14 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public $vars;
+    public $app;
 
     public function __construct()
     {
         $this->vars = new \stdClass();
         $this->vars->rejeitados = Nominateds::where('valid',2)->get();
+
+        $this->app = Application::Info();
     }
 
     public function nominatedStatus($dbstatus)

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Finalists;
+use App\FinalistVotes;
 use App\Nominateds;
 use App\User;
+use App\WeirdTries;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
@@ -30,6 +33,7 @@ class EllectionController extends Controller
 
         $user = Auth::user();
         $info = [];
+        $infoFinalistas = [];
 
         //Json para falar com JS
         foreach (Categories::all() as $cat)
@@ -53,8 +57,45 @@ class EllectionController extends Controller
         $vars->info = $info;
         $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
         $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.Auth::user()->email);
+        $vars->appStatus = $this->app->status;
+        $vars->infoFinalists = json_encode($infoFinalistas);
 
-        return view('ellection', ['v' => $vars ]);
+        if($this->app->status == 'finished')
+        {
+            dd('Aplicação finalizada! Fazer tela do fim.');
+        }
+
+        if ($this->app->status == 'voting' && !Auth::user()->voteable)
+        {
+            return view('ellection_end', ['v' => $vars ]);
+        }
+        else
+        {
+            foreach (Categories::all() as $cat)
+            {
+                $infoFinalistas[$cat->position] = [];
+                $infoFinalistas[$cat->position]['name']       = $cat->name;
+                $infoFinalistas[$cat->position]['id']         = $cat->id;
+                $infoFinalistas[$cat->position]['voted']      = null;
+                $infoFinalistas[$cat->position]['nominateds'] = [];
+                foreach ($cat->Finalists as $finalistCat)
+                {
+                    if (Auth::user()->Votes()->where('finalist_id', $finalistCat->id)->first()){
+                        $infoFinalistas[$cat->position]['voted'] = $finalistCat->id;
+                    }
+
+                    array_push($infoFinalistas[$cat->position]['nominateds'], [
+                        'id' => $finalistCat->id,
+                        'name' => $finalistCat->name,
+                        'categorie_id' => $finalistCat->categorie_id,
+                    ]);
+                }
+            }
+
+            $vars->infoFinalists = $infoFinalistas;
+
+            return view('ellection', ['v' => $vars ]);
+        }
     }
 
     public function recebe(Request $request)
@@ -99,6 +140,7 @@ class EllectionController extends Controller
         }
 
         $response['status'] = true;
+        $response['totalVotes'] = Auth::user()->Nominateds()->count();
         return json_encode($response);
     }
 
@@ -154,5 +196,54 @@ class EllectionController extends Controller
             'cat_name' => $cat->name,
             'name' => $nom->name
         ]);
+    }
+
+    public function vote(Request $request)
+    {
+        $response = [
+            'status' => false
+        ];
+
+        if (!$request->id) {
+            $response['message'] = 'Por favor, Selecione um indicado';
+            return json_encode($response);
+        }
+
+        $voted = Finalists::where('id', $request->id)->first();
+        $userVote = Auth::user()->Votes;
+
+        foreach ($userVote as $nominated)
+        {
+            $finalist = $nominated->Finalist;
+            if ($finalist->categorie_id == $voted->categorie_id)
+            {
+                $response['message'] = 'Vocẽ já votou nessa categoria';
+                $response['nice_try'] = '=*';
+
+                WeirdTries::makeAndSave([
+                    'user'      => Auth::user()->id,
+                    'from'      => 'voting',
+                    'message'   => 'Tentando votar em categoria ja votada',
+                    'request'   => json_encode($request->all())
+                ]);
+
+                return json_encode($response);
+            }
+        }
+
+        try{
+            $newvote = new FinalistVotes();
+            $newvote->finalist_id = $voted->id;
+            $newvote->user_id = Auth::user()->id;
+            $newvote->save();
+
+            $response['status'] = true;
+            $response['voted_id'] = $voted->id;
+        }catch (\Exception $e){
+            $response['message'] = "Erro inesperado. Tente novamente.";
+            $response['error'] = $e->getMessage();
+        }
+
+        return json_encode($response);
     }
 }

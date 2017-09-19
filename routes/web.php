@@ -55,6 +55,8 @@ Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($req
     Route::get('/termos', 'EllectionController@termos');
     Route::post('/envia', 'EllectionController@recebe');
     Route::get('/agree', 'EllectionController@agree');
+
+    Route::post('/vote', 'EllectionController@vote');
 });
 
 Route::get('/adm', function (){

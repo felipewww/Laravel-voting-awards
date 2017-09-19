@@ -128,10 +128,8 @@ class LoginController extends Controller
             try{
                 $user = $this->setAndLogin($request, $fbid);
             }catch (\Exception $e){
-//                dd($e);
                 $response['message'] = 'Algo inesperado aconteceu!';
                 $response['status'] = false;
-                //return redirect('/')->withErrors(['regFacebookError' => 'Erro ao cadastrar usuário. Entre em contato conosco.']);
             }
 
             $response['user'] = $user;

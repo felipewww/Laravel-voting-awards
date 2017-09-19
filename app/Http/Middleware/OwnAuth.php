@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Application;
 use App\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,6 @@ class OwnAuth
     {
         if (!Auth::check())
         {
-//            dd(Auth::check());
             //Se a rota ja for "ENTRAR", nao redirecionar, apenas continua.
             if ( $request->route()->uri != '' ) {
                 return redirect('/');
@@ -29,10 +29,13 @@ class OwnAuth
         }
         else
         {
+            if (Application::Info()->status == 'voting' && !Auth::user()->voteable)
+            {
+                dd('Action not allowed');
+            }
+
             //Se a rota ja for "INDICAÇÃO", nao redirecionar, apenas continua.
             if ( $request->route()->uri != 'indicacao' ) {
-//                dd($request->route());
-//                return redirect('/indicacao');
                 return $next($request);
             }else{
                 return $next($request);

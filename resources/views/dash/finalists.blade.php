@@ -49,7 +49,7 @@
                     <tbody>
                     <tr>
                         <td class="columns">{!! $dataTables['columns'] !!}</td>
-                        <td class="info" data-orderby="1">{!! $dataTables['info'] !!}</td>
+                        <td class="info" data-orderby="2" data-orderby-direction="asc">{!! $dataTables['info'] !!}</td>
                     </tr>
                     </tbody>
                 </table>
