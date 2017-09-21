@@ -555,3 +555,28 @@ ul {
         margin-bottom: 0px;
     }
 }
+
+div#landscape {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bgGray);
+    z-index: 9999999999999;
+    text-align: center;
+}
+
+#landscape img {
+    width: 300px;
+}
+
+div#landscape > div {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: var(--lightYellow);
+    margin-bottom: 10vh;
+    margin-top: 20vh;
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+    div#landscape { display: block; }
+}

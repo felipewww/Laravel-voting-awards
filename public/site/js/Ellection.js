@@ -129,7 +129,8 @@ Ellection = {
         Ellection.gaveta.hide();
 
         //Se for mobile, não usar class NANO
-        gavetaClass = ( Script.isMobile() ) ? 'nano' : 'with-overflow';
+        // gavetaClass = ( Script.isMobile() ) ? 'nano' : 'with-overflow';
+        gavetaClass = 'nano';
         $gaveta = $('#gaveta');
         $gaveta.addClass(gavetaClass);
 

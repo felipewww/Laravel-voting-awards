@@ -636,7 +636,7 @@ div#indicados .indicado {
     color: #fff;
     font-size: 13px;
     margin-top: 25px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 
@@ -649,7 +649,7 @@ div#indicados ul li {
     box-sizing: border-box;
     background: #1d1d1d;
     border: 2.1em solid #333333;
-    margin: 5px 1.6%;
+    margin: 0 1.6%;
 }
 
 div#indicados ul li .title {

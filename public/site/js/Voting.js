@@ -26,7 +26,7 @@ Voting = {
     {
         // console.log("INDICADO!", indicado);
         var parent = $(indicado).closest('li');
-        console.log("INDICADO!", parent);
+        // console.log("INDICADO!", parent);
         var votedHTML = 'Não encontrado';
 
         if (item.db.voted) {
@@ -46,7 +46,7 @@ Voting = {
 
     setAsBlocked: function (catid, obj)
     {
-        console.log(obj);
+        // console.log(obj);
         var voted = this.findCategoryFinalistById(obj, obj.db.voted);
 
         var liID = 'cat_'+catid;
@@ -116,7 +116,7 @@ Voting = {
         var paragraphs = obj.text.split('|');
 
         if (!obj.db.voted) {
-            console.log('setting as enabled...');
+            // console.log('setting as enabled...');
             Voting.setAsEnabled();
         }
 
@@ -133,7 +133,7 @@ Voting = {
             };
 
             if (obj.db.voted == finalistInfo.id) {
-                console.log('setting as BLOCKED...');
+                // console.log('setting as BLOCKED...');
                 Voting.setAsBlocked(obj.db.id, obj);
                 $(this).addClass('voted');
             }

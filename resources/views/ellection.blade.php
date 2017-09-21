@@ -133,13 +133,13 @@
             });
         } );
     </script>
-    <div id="category" >
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <div id="logo"></div>
-    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
+    {{--<div id="category" >--}}
+        {{--<div></div>--}}
+        {{--<div></div>--}}
+        {{--<div></div>--}}
+    {{--</div>--}}
+    {{--<div id="logo"></div>--}}
+    {{--<div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>--}}
 
     @if(\App\Application::Info()->status == 'ellection')
         <div id="category" >

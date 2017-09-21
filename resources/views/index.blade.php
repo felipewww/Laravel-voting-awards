@@ -17,12 +17,25 @@
     <script type="text/javascript">
         window.csrfToken = '{{ csrf_token() }}';
         window.APP_URL = '{{ env("APP_URL") }}'
+
+        $( window ).on( "orientationchange", function( event ) {
+//            $('#bg_main').fadeOut(function () {
+//                window.location.reload();
+//            });
+            $('#bg_main').animate({ opacity: 0 }, 100, function () {
+                window.location.reload();
+            });
+        });
     </script>
 
     @yield('scripts')
 
 </head>
 <body>
+    <div id="landscape">
+        <div>Aproveite melhor a visualização do site em modo Retrato</div>
+        <img src="/site/media/images/{{env("APP_LOGO")}}" />
+    </div>
     <div id="_modal"></div>
 
     <div id="loader">
