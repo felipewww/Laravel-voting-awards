@@ -26,6 +26,9 @@ Ellection = {
             {
                 var dbinfo      = ellectionInfo[idx];
                 var jsonInfo    = Pages[idx];
+                // console.log(ellectionInfo);
+                jsonInfo.icon = dbinfo.icon;
+                jsonInfo.text = dbinfo.name;
                 jsonInfo.db = dbinfo;
             }
         }
@@ -127,6 +130,7 @@ Ellection = {
 
     _gaveta: function () {
         Ellection.gaveta.hide();
+        var _this = this;
 
         //Se for mobile, não usar class NANO
         // gavetaClass = ( Script.isMobile() ) ? 'nano' : 'with-overflow';
@@ -135,14 +139,30 @@ Ellection = {
         $gaveta.addClass(gavetaClass);
 
         $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-            Ellection.gaveta.toggle( "slide" ,1000,'easeInExpo', function () {
-                Ellection.pagesBar.slideToggle();
-            });
+
+            $(this).dequeue();
+            $parent = $(this);
 
             $(this).toggleClass('open');
-        });
 
-        // this.__gavetaItems();
+            function asd() {
+                alert("asd");
+            }
+
+            // Ellection.gaveta.toggle( "slide" ,1000,'easeInExpo', function () {
+
+            // }).dequeue();
+
+            Ellection.gaveta.toggle('slide', {
+                duration: 700,
+                easing: 'easeInExpo',
+                complete: function () {
+                    $parent.toggleClass('open');
+                    _this.pagesBar.fadeToggle();
+                }
+            });
+
+        });
     },
 
     /*
@@ -296,6 +316,7 @@ Ellection = {
 
                 var li = document.createElement('li');
                 li.style.backgroundImage = "url(/site/media/images/"+page.icon+")";
+
                 setclick(li, i);
 
                 ul.appendChild(li);
@@ -398,11 +419,21 @@ Ellection = {
             i++;
         }
 
+        Script.main.setAttribute('class', obj.colorClass);
         //Alterar as cores de bordas e etc.
         this.form.removeAttr('class');
-        this.form.addClass(obj.formClass);
+        // this.form.addClass(obj.formClass);
         this.logo.css("background-image","url(/site/media/images/"+obj.logo+")");
+
+        // obj.styleHero = ( obj.styleHero ) ? obj.styleHero : false;
+
+        this.hero.removeAttr('style');
+        if (obj.styleHero) {
+            this.hero.css(obj.styleHero);
+        }
+
         this.hero.css("background-image","url(/site/media/images/"+obj.icon+")");
+
         this.main.css("background-color", obj.bgColor);
         this.main.css("borderColor", obj.mainBorderColor);
     },

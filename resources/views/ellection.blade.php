@@ -133,23 +133,16 @@
             });
         } );
     </script>
-    {{--<div id="category" >--}}
-        {{--<div></div>--}}
-        {{--<div></div>--}}
-        {{--<div></div>--}}
-    {{--</div>--}}
-    {{--<div id="logo"></div>--}}
-    {{--<div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>--}}
+
+    <div id="category" >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="logo"></div>
+    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
 
     @if(\App\Application::Info()->status == 'ellection')
-        <div id="category" >
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="logo"></div>
-        <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
-
         <div id="form">
             <form id="mainform" name="mainform">
                 <label>
@@ -161,28 +154,30 @@
                     <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
                 </label>
 
-                <div class="button" id="main-btn">
-                    <span></span>
-                    <span>
-                        <div >INDICAR</div>
+                <div id="main-btn">
+                    <span class="bar"></span>
+                    <span class="btnbody">
+                        <div class="btn-text">INDICAR</div>
                     </span>
                 </div>
+
                 <div class="cleaner"></div>
-                <div class="nav-buttons">
-                    <div class="button" id="btn-previous">
-                        <span></span>
-                        <span>
-                            <div>ANTERIOR</div>
-                        </span>
-                    </div>
-                    <div class="button" id="btn-next">
-                        <span></span>
-                        <span>
-                            <div>PRÓXIMA</div>
-                        </span>
-                    </div>
-                </div>
             </form>
+        </div>
+
+        <div class="nav-block">
+            <div class="btn" id="btn-previous">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">ANTERIOR</div>
+                </span>
+            </div>
+            <div class="btn" id="btn-next">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">PRÓXIMO</div>
+                </span>
+            </div>
         </div>
 
         <div id="req">
@@ -234,28 +229,29 @@
                     </div>
                 </div>
 
-                <div class="button" id="main-btn">
-                    <span></span>
-                    <span>
-                        <div>VOTAR</div>
+                <div id="main-btn">
+                    <span class="bar"></span>
+                    <span class="btnbody">
+                        <div class="btn-text">VOTAR</div>
                     </span>
                 </div>
                 <div class="cleaner"></div>
-                <div class="nav-buttons">
-                    <div class="button" id="btn-previous">
-                        <span></span>
-                        <span>
-                            <div>ANTERIOR</div>
-                        </span>
-                    </div>
-                    <div class="button" id="btn-next">
-                        <span></span>
-                        <span>
-                            <div>PRÓXIMA</div>
-                        </span>
-                    </div>
-                </div>
             </form>
+        </div>
+
+        <div class="nav-block">
+            <div class="btn" id="btn-previous">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">ANTERIOR</div>
+                </span>
+            </div>
+            <div class="btn" id="btn-next">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">PRÓXIMO</div>
+                </span>
+            </div>
         </div>
     @endif
 </div>

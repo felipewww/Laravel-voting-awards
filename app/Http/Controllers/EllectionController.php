@@ -36,12 +36,13 @@ class EllectionController extends Controller
         $infoFinalistas = [];
 
         //Json para falar com JS
-        foreach (Categories::all() as $cat)
+        foreach (Categories::orderBy('position')->get() as $cat)
         {
             $t = $user->Nominateds()->where('categorie_id', $cat->id)->first();
 
             $info[$cat->position] = [];
             $info[$cat->position]['name']       = $cat->name;
+            $info[$cat->position]['icon']       = $cat->image_name;
             $info[$cat->position]['id']         = $cat->id;
             $info[$cat->position]['nominated']  = null;
 
@@ -75,7 +76,7 @@ class EllectionController extends Controller
             {
                 $infoFinalistas[$cat->position] = [];
                 $infoFinalistas[$cat->position]['name']       = $cat->name;
-                $infoFinalistas[$cat->position]['id']         = $cat->id;
+                $infoFinalistas[$cat->position]['id']         = $cat->id;;
                 $infoFinalistas[$cat->position]['voted']      = null;
                 $infoFinalistas[$cat->position]['nominateds'] = [];
                 foreach ($cat->Finalists as $finalistCat)

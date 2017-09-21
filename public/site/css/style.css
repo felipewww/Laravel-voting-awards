@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
 
+:root{
+    --yellow: #ffd300;
+    --lightYellow: #ffe263;
+    --bgGray: #1d1d1d;
+    --color1: #ffd300;
+    --color2: #ffffff;
+    --color3: #ffd300;
+    --color4: green;
+    --color5: blue;
+    --color6: pink;
+    --color7: purple;
+    --color8: gray;
+    --color9: brown;
+    --color10: #3b4abb;
+    --color11: #b8ff7e;
+}
+
 @font-face {
     font-family: 'The Frontman';
     src: url('./fonts/frontman/TheFrontman.eot');
@@ -72,28 +89,6 @@ footer > div .title {
     letter-spacing: 2px;
 }
 
-/*.nano {*/
-    /*height: 10vw;*/
-    /*color: #fff;*/
-    /*font-family: 'Montserrat', sans-serif;*/
-    /*font-size: 0.8vw;*/
-    /*line-height: 1.2vw;*/
-    /*letter-spacing: 0.05vw;*/
-    /*width: 50vw;*/
-    /*margin: 0 auto;*/
-    /*margin-top: 2vw;*/
-/*}*/
-/*.nano .nano-content { padding: 10px; }*/
-/*.nano > .nano-pane > .nano-slider {*/
-    /*background: var(--yellow);*/
-/*}*/
-
-:root{
-    --yellow: #ffd300;
-    --lightYellow: #ffe263;
-    --bgGray: #1d1d1d
-}
-
 a{
     color: inherit;
     text-decoration: none;
@@ -147,13 +142,11 @@ div#actions > div.button{
 }
 
 .button {
-    margin-top: 50px;
     cursor: pointer;
     transition: 0.3s;
-    width: 230px;
     position: relative;
     float: right;
-    margin-right: 30px;
+    margin-right: -5px;
 }
 
 .button.disabled{
@@ -164,8 +157,8 @@ div#actions > div.button{
     transition: 0.3s;
 }
 .button span:first-child {
-    width: 30px;
-    height: 60px;
+    width: 2vw;
+    height: 7vh;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
     -o-transform: skew(-20deg);
@@ -178,14 +171,16 @@ div#actions > div.button{
 }
 
 .button span:last-child {
-    width: 100%;
-    height: 60px;
+    width: 298px;
+    /* height: 100%; */
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
     -o-transform: skew(-20deg);
     color: #1d1d1d;
-    float: left;  margin-left: 5px;
-    line-height: 55px;  text-align: center;
+    float: left;
+    margin-left: 0.5vw;
+    line-height: 6vh;
+    text-align: center;
     font-family: sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -193,7 +188,6 @@ div#actions > div.button{
     box-sizing: border-box;
     background-color: var(--yellow);
 }
-
 
 .button span:last-child > div {
     -webkit-transform: skew(20deg);
@@ -351,7 +345,7 @@ div#pagesBar ul#nav {
 }
 
 ul#nav li.active {
-    border-color: var(--yellow) !important;
+    border-color: var(--yellow);
 }
 
 ul#nav li:hover {
@@ -423,7 +417,7 @@ ul {
 
 
     .button span:first-child {
-        height: 50px;
+        /*height: 50px;*/
     }
     .button span:last-child {
         width: 100%;

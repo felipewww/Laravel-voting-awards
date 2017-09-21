@@ -1,8 +1,115 @@
 div#form {
     position: absolute;
     right: -120px;
-    width: 340px;
-    bottom: -80px;
+    width: 415px;
+    bottom: -30px;
+}
+
+.nav-block {
+    position: absolute;
+    bottom: -9vh;
+    right: -55px;
+    width: 300px;
+}
+
+.nav-block .btn:first-child {
+    margin-right: 48px;
+}
+
+.nav-block .btn {
+    float: left;
+    box-sizing: border-box;
+    width: 42%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    font-weight: bold;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    right: 7px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.nav-block .bar {
+    position: absolute;
+    background: #ffd300;
+    left: 0;
+    height: 100%;
+    width: 35px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+}
+
+span.btnbody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -38px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    border: 3px solid #ffd300;
+    box-sizing: border-box;
+    color: #ffd300;
+}
+
+.btn-text {
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+}
+
+div.btn.disabled {
+    opacity: 0.3;
+}
+
+div#main-btn {
+    height: 55px;
+    margin: 0 auto;
+    width: 72%;
+    right: -5px;
+    position: relative;
+    text-align: center;
+    line-height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 50px;
+}
+
+div#main-btn .bar {
+    position: absolute;
+    background: #ffd300;
+    left: 0;
+    height: 100%;
+    width: 35px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+}
+
+div#main-btn span.btnbody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -38px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    border: 3px solid #ffd300;
+    box-sizing: border-box;
+    background-color: #ffd300;
+    color: #000;
+    transition: all 0.3s;
+}
+
+#main-btn:hover span.btnbody {
+    background-color: #222222 !important;
+    color: var(--lightYellow) !important;
 }
 
 form label:nth-child(2) {  margin-top: 20px; position: relative; }
@@ -36,6 +143,10 @@ form.black input{
     border-bottom-color: #000;
     color: #000;
     transition: all 0.5s;
+}
+
+.button.indicar {
+    margin-top: 60px;
 }
 
 form.black .button span{
@@ -115,46 +226,6 @@ form.yellow .button:hover span:last-child{
     color: var(--yellow);
 }
 
-.nav-buttons .button {
-    margin: 15px 16px 0 -9px;
-    height: 40px;
-    float: left;
-    width: 130px;
-    font-size: 9px;
-}
-.nav-buttons {
-    float: right;
-    margin-right: 0px;
-}
-.nav-buttons .button span:first-child {
-    height: 45px;
-    width: 30px;
-}
-.nav-buttons .button span:last-child {
-    background: rgba(255, 255, 255, 0) !important;
-    width: 73%;
-    height: 45px;
-    line-height: 38px;
-}
-.nav-buttons .button span:last-child > div {
-    font-size: 9px;
-}
-form.yellow .nav-buttons .button > span:first-child{
-    background-color: var(--yellow);
-}
-form.yellow .nav-buttons .button > span:last-child{
-    border-color: var(--yellow);
-    color: var(--yellow);
-}
-
-form.yellow .nav-buttons .button:hover > span:last-child{
-    background-color: var(--yellow) !important;
-    color: #222222;
-}
-form.yellow .nav-buttons .button.disabled:hover > span:last-child{
-    background-color: transparent !important;
-    color: var(--yellow);
-}
 /*GAVETA*/
 div#gaveta .menu img {
     width: 55%;
@@ -719,7 +790,21 @@ div#indicados .button.share:hover span:last-child {
     color: #3B5999;
 }
 
+@media screen and (max-width: 1366px){
+    div#main-btn {
+        margin-bottom: 20px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
+
+    div#main-btn {
+        width: 29.2vw;
+        right: 35px;
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+
     div#pagesBar {
         position: absolute;
         top: 50.5%;
@@ -737,9 +822,7 @@ div#indicados .button.share:hover span:last-child {
         border: 3px solid rgba(255, 0, 0, 0);
         cursor: pointer;
     }
-    .nav-buttons .button span:last-child > div {
-        font-size: 7px;
-    }
+
     div#form {
         position: absolute;
         right: -80px;
@@ -756,41 +839,20 @@ div#indicados .button.share:hover span:last-child {
     }
 
     .button span:first-child {
-        width: 20px;
-        height: 45px;
-        left: -20px;
+        width: 4vw;
+        height: 6.8vh;
+        /*left: -20px;*/
     }
     .button span:last-child {
-        height: 45px;
-        line-height: 38px;
+        /*width: 30vw;*/
+        /*height: 6.8vh;*/
+        /*line-height: 6.8vh;*/
+        border: 1px solid #333 !important;
     }
     .button span:last-child > div {
         font-size: 13px;
     }
 
-    .nav-buttons {
-        margin-left: -1.7vw;
-    }
-
-    .nav-buttons .button {
-        margin: 10px 6px 0 -3px;
-        height: 40px;
-        float: left;
-        width: 110px;
-    }
-
-    .nav-buttons .button span:first-child {
-        height: 35px;
-        width: 20px;
-    }
-
-    .nav-buttons .button span:last-child {
-        background: rgba(255, 255, 255, 0) !important;
-        width: 73%;
-        height: 35px;
-        line-height: 29px;
-        font-size: 7px;
-    }
     div#gaveta .menu ul li {
         padding: 10px 0;
     }
@@ -839,6 +901,18 @@ div#indicados .button.share:hover span:last-child {
 }
 
 @media screen and (max-width: 992px) {
+
+    .nav-block {
+        position: absolute;
+        left: 50%;
+        margin-left: -165px;
+        bottom: -49px;
+    }
+
+    div#main-btn {
+        width: 60%;
+        right: 1px;
+    }
 
     div#gaveta {
         height: 100% !important;
@@ -991,56 +1065,6 @@ div#indicados .button.share:hover span:last-child {
     }
 
 
-
-    /*div#actions .button {*/
-    /*margin: 15px auto;*/
-    /*display: block;*/
-    /*width: 100%;*/
-    /*position: initial;*/
-    /*margin-left: 4.5vw;*/
-    /*}*/
-    .button span:first-child {
-        height: 70px;
-        width: 10%;
-    }
-    .button span:last-child {
-        width: 78%;
-        height: 70px;
-        line-height: 70px;
-        border: 1px solid #333 !important;
-    }
-
-    .nav-buttons .button span:first-child{
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .nav-buttons .button span:last-child{
-        height: 50px;
-        line-height: 50px;
-        width: 84%;
-        background: #1d1d1d !important;
-    }
-
-    .button {
-        width: 100%;
-        margin-left: 4%;
-        margin-top: 40px;
-    }
-
-    .nav-buttons {
-        width: 103%;
-        margin: 0 0 0 -5px;
-    }
-
-    .nav-buttons .button {
-        width: 45%;
-        margin: 1.5vh 0 0 0;
-    }
-    .nav-buttons .button span:last-child > div {
-        font-size: 12px;
-    }
-
     div#pagesBar {
         right: 7vw;
         top: 50vh;
@@ -1149,48 +1173,6 @@ div#indicados .button.share:hover span:last-child {
 
     div#req ul {
         padding-left: 20px;
-    }
-    .button span:first-child {
-        height: 40px;
-        width: 10%;
-    }
-    .button span:last-child {
-        width: 78%;
-        height: 40px;
-        line-height: 40px;
-        border: 1px solid #333 !important;
-    }
-
-    .nav-buttons .button span:first-child{
-        height: 30px;
-        line-height: 30px;
-    }
-
-    .nav-buttons .button span:last-child{
-        height: 30px;
-        line-height: 30px;
-        width: 84%;
-        background: #1d1d1d !important;
-    }
-
-    .button {
-        width: 100%;
-        margin-left: 4%;
-        margin-top: 15px;
-    }
-
-    .nav-buttons {
-        width: 103%;
-        margin: 0 0 0 -5px;
-    }
-
-    .nav-buttons .button {
-        width: 45%;
-        margin: 1.5vh 0 0 0;
-    }
-
-    .nav-buttons .button span:last-child > div {
-        font-size: 10px;
     }
 
     div#pagesBar {
@@ -1324,7 +1306,94 @@ div#indicados .button.share:hover span:last-child {
     div#req .title {
         margin-bottom: 5px;
     }
-    .nav-buttons .button span:last-child > div {
-        font-size: 7px;
-    }
 }
+
+/*
+ * CUSTOM COLORS
+ */
+
+main.color1 ul#nav li.active,
+main.color1 div#_modal,
+main.color1 div#abre-gaveta{  border-color: var(--color1);  }
+
+main.color1 div#category, main.color1 div#req li{  color: var(--color1);  }
+
+main.color1 span.btnbody,
+main.color1 form input{  color: var(--color1);  border-color: var(--color1);  }
+
+main.color1 div#main-btn span.btnbody{  border-color: var(--color1);  background-color: var(--color1);  }
+
+main.color1 #nav-icon1 span,
+main.color1 .bar,
+main.color1 div#req .bg,
+main.color1 div#main-btn .bar{ background-color: var(--color1);  }
+
+
+main.color1 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color2 ul#nav li.active,
+main.color1 div#_modal,
+main.color2 div#abre-gaveta{  border-color: var(--color2);  }
+
+main.color2 div#category, main.color2 div#req li{  color: var(--color2);  }
+
+main.color2 span.btnbody,
+main.color2 form input{  color: var(--color2);  border-color: var(--color2);  }
+
+main.color2 div#main-btn span.btnbody{  border-color: var(--color2);  background-color: var(--color2);  }
+
+main.color2 #nav-icon1 span,
+main.color2 .bar,
+main.color2 div#req .bg,
+main.color2 div#main-btn .bar{ background-color: var(--color2);  }
+
+
+main.color2 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color3 ul#nav li.active,
+main.color1 div#_modal,
+main.color3 div#abre-gaveta{  border-color: var(--color3);  }
+
+main.color3 div#category, main.color3 div#req li{  color: var(--color3);  }
+
+main.color3 span.btnbody,
+main.color3 form input{  color: var(--color3);  border-color: var(--color3);  }
+
+main.color3 div#main-btn span.btnbody{  border-color: var(--color3);  background-color: var(--color3);  }
+
+main.color3 #nav-icon1 span,
+main.color3 .bar,
+main.color3 div#req .bg,
+main.color3 div#main-btn .bar{ background-color: var(--color3);  }
+
+
+main.color3 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color4 ul#nav li.active,
+main.color4 div#abre-gaveta{  border-color: var(--color4);  }
+
+main.color4 div#category, main.color4 div#req li{  color: var(--color4);  }
+
+main.color4 span.btnbody,
+main.color4 form input{  color: var(--color4);  border-color: var(--color4);  }
+
+main.color4 div#main-btn span.btnbody{  border-color: var(--color4);  background-color: var(--color4);  }
+
+main.color4 #nav-icon1 span,
+main.color4 .bar,
+main.color4 div#req .bg,
+main.color4 div#main-btn .bar{ background-color: var(--color4);  }
+
+
+main.color4 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+/*
+ * CUSTOM COLORS
+ */

@@ -6,13 +6,14 @@ Script = {
 
     loader_div: null,
     _modal_div: null,
+    main: null,
 
     init: function ()
     {
         this.loader_div = document.getElementById('loader');
         this.content    = $('#content');
         this._modal_div = document.getElementById('_modal');
-
+        this.main = document.getElementsByTagName('main')[0];
     },
 
     __intro: function () {
