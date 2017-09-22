@@ -46,7 +46,7 @@ class IpsController extends Controller
 
             $newInfo = [
                 $reg->id,
-                $reg->name,
+                $this->JSONparse($reg->name),
                 $reg->Nominateds()->count(),
                 $from,
                 Carbon::parse($reg->created_at)->format('d/m/Y H:i:s'),

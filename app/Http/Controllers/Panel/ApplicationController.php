@@ -58,7 +58,7 @@ class ApplicationController extends Controller
             $newInfo =
                 [
                     $reg->id,
-                    $reg->name,
+                    $this->JSONparse($reg->name),
                     $reg->Votes->count(),
                     [
                         'rowActions' =>

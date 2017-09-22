@@ -47,7 +47,7 @@ class UserController extends Controller
 
             $newInfo = [
                 $reg->id,
-                $reg->name,
+                $this->JSONparse($reg->name),
                 $reg->Categorie->name,
                 $status,
                 [
@@ -114,7 +114,7 @@ class UserController extends Controller
 
             $newInfo = [
                 $reg->id,
-                $reg->name,
+                $this->JSONparse($reg->name),
                 $reg->Nominateds()->count(),
                 $reg->ip,
                 $from,
@@ -196,7 +196,6 @@ class UserController extends Controller
 
         $this->data_info = $data;
         $this->data_cols = [
-//            ['title' => 'ID','width' => '30px'],
             ['title' => 'Nome'],
             ['title' => 'Categoria'],
             ['title' => 'Ações', 'width' => '100px'],

@@ -575,3 +575,30 @@ div#landscape > div {
 @media (max-width: 767px) and (orientation: landscape) {
     div#landscape { display: block; }
 }
+
+@media screen and (max-width: 639px) {
+    div#content {
+        margin-top: -8vh;
+    }
+
+    #content > div {
+        height: 45% !important;
+    }
+
+    div#actions {
+        left: 68% !important;
+        bottom: -5vh !important;
+    }
+
+    div#actions > div.button {
+        margin-bottom: -3px;
+    }
+
+    div#actions .button div {
+        font-size: 9px !important;
+    }
+
+    div#actions > div._ou{
+        display: none;
+    }
+}

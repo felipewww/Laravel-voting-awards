@@ -14,10 +14,6 @@
     <script type="text/javascript">
         appStatus = '{{  $v->appStatus }}';
         ellectionInfo = JSON.parse('<?= $v->info ?>');
-        //finalistsInfo = JSON.parse('{!! json_encode($v->infoFinalists, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) !!}');
-
-        {{--        finalistsInfo = $.parseJSON('{!! $v->infoFinalists !!}');--}}
-{{--        finalistsInfo = JSON.parse('{!! $v->infoFinalists !!}');--}}
         finalistsInfo = JSON.parse('<?= $v->infoFinalists ?>');
 
         shareToken = '{{ $v->share_token }}';
@@ -211,7 +207,7 @@
                             <div class="checked"></div>
                         </div>
                         <div class="name">{{--Nome do Indicado via JS--}}</div>
-                        <span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                        {{--<span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>--}}
                         <div class="cleaner"></div>
                     </div>
 
@@ -220,7 +216,7 @@
                             <div class="checked"></div>
                         </div>
                         <div class="name">{{--Nome do Indicado via JS--}}</div>
-                        <span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                        {{--<span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>--}}
                         <div class="cleaner"></div>
                     </div>
 
@@ -229,7 +225,7 @@
                             <div class="checked"></div>
                         </div>
                         <div class="name">{{--Nome do Indicado via JS--}}</div>
-                        <span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                        {{--<span class="ref-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>--}}
                         <div class="cleaner"></div>
                     </div>
                 </div>

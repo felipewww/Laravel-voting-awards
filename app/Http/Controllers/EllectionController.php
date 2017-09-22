@@ -99,9 +99,6 @@ class EllectionController extends Controller
             }
 
             $vars->infoFinalists = json_encode($infoFinalistas, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
-//            $vars->infoFinalists = json_encode($infoFinalistas);
-//            $j = new Json();
-//            $vars->infoFinalists = $j->encode($infoFinalistas)->get();
 
             return view('ellection', ['v' => $vars ]);
         }
@@ -122,8 +119,8 @@ class EllectionController extends Controller
         }
 
         $v = Validator::make($request->input(),[
-            'name' => 'not_in:Indicado|required|min:3|max:45',
-            'ref' => 'not_in:Referência|required|min:5|max:255'
+            'name' => 'not_in:Indicado|required|min:1|max:45',
+            'ref' => 'not_in:Referência|required|min:1|max:255'
         ]);
 
         if ( $v->fails() ){
@@ -132,8 +129,8 @@ class EllectionController extends Controller
         }
 
         $new = new Nominateds();
-        $new->name          = $request->name;
-        $new->reference     = $request->ref;
+        $new->name          = $this->JSONparse($request->name);
+        $new->reference     = $this->JSONparse($request->ref);
         $new->categorie_id  = $cat_id;
         $new->user_id  = Auth::user()->id;
 
@@ -144,7 +141,7 @@ class EllectionController extends Controller
         try{
             $new->save();
         }catch (\Exception $e){
-            $response['message'] = 'Erro ao votar. tenta novamente';
+            $response['message'] = 'Erro ao votar. tente novamente';
             return json_encode($response);
         }
 

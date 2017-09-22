@@ -19,7 +19,7 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
     Route::get('/user/{id}', 'Panel\UserController@info');
 
     Route::post('/alter/vote', 'Panel\NominatedsController@alterStatus');
-    Route::get('/users/indicado/{indicado}/{cat_id}', 'Panel\NominatedsController@users');
+    Route::get('/users/indicado/{nominated_id}/{cat_id}', 'Panel\NominatedsController@users');
 
     //finalistas
     Route::get('/finalistas', 'Panel\FinalistsController@index');

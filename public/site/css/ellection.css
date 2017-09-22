@@ -25,8 +25,8 @@ div#form {
     position: relative;
     font-weight: bold;
     font-size: 12px;
-    height: 40px;
-    line-height: 40px;
+    height: 37px;
+    line-height: 33px;
     right: 7px;
     letter-spacing: 2px;
     cursor: pointer;
@@ -74,7 +74,7 @@ div#main-btn {
     right: -5px;
     position: relative;
     text-align: center;
-    line-height: 55px;
+    line-height: 49px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 13px;
@@ -911,8 +911,10 @@ div#indicados .button.share:hover span:last-child {
     }
 
     div#main-btn {
-        width: 60%;
-        right: 1px;
+        /*width: 60%;*/
+        /*right: 1px;*/
+        width: 75%;
+        left: -20px;
     }
 
     div#gaveta {
@@ -1270,13 +1272,47 @@ div#indicados .button.share:hover span:last-child {
 }
 
 @media screen and (max-width: 639px){
+    div#logo {
+        margin-top: -160px !important;
+    }
+
     div#content {
         height: 47.7vh;
         margin-top: 0;
     }
 
     .nav-block {
-        bottom: -12vh;
+        width: 220px;
+        left: 50%;
+        margin-left: -116.5px;
+        bottom: -23vh;
+    }
+
+    .nav-block .btn:first-child {
+        margin-right: 28px;
+    }
+
+    .nav-block .btn {
+        font-size: 8px;
+        width: 35%;
+    }
+
+    .nav-block .btn .btnbody {
+        border: 1px solid;
+    }
+
+    .nav-block .btn .bar {
+        width: 18px;
+    }
+
+    span.btnbody {
+        right: -21px;
+    }
+
+    div#form {
+         top: 18vh;
+        /* left: 7%; */
+        /* width: 86%; */
     }
 }
 
@@ -1307,11 +1343,11 @@ div#indicados .button.share:hover span:last-child {
         height: 50vh;
     }
 
-    div#form {
-        top: 22vh;
-        left: 7%;
-        width: 86%;
-    }
+    /*div#form {*/
+        /*top: 22vh;*/
+        /*left: 7%;*/
+        /*width: 86%;*/
+    /*}*/
     div#content {
         height: 51.2vh;
     }

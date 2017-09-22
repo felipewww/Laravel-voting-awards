@@ -33,7 +33,7 @@ class DashboardController extends Controller
     {
         $nominateds = DB::table('nominateds')
             ->join('categories', 'categories.id', '=', 'nominateds.categorie_id')
-            ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name', 'categories.id AS categorie_id')
+            ->select('nominateds.name', DB::raw('SUM(1) as total'), 'categories.name AS categorie_name', 'categories.id AS categorie_id', 'nominateds.id')
             ->groupBy('nominateds.name','nominateds.categorie_id')
             ->orderBy(DB::raw('total'), 'DESC')
             ->where('nominateds.valid','1')
@@ -42,8 +42,9 @@ class DashboardController extends Controller
         $data = [];
         foreach ($nominateds as $reg)
         {
+//            dd($reg);
             $newInfo = [
-                $reg->name,
+                $this->JSONparse($reg->name),
                 $reg->categorie_name,
                 $reg->total,
                 [
@@ -53,7 +54,7 @@ class DashboardController extends Controller
                                 'html'          => '',
                                 'attributes'    => [
                                     'class'     => 'btn btn-success btn-circle fa fa-users m-l-10 has-tooltip',
-                                    'href'      => '/panel/users/indicado/'.$reg->name.'/'.$reg->categorie_id,
+                                    'href'      => '/panel/users/indicado/'.$reg->id.'/'.$reg->categorie_id,
                                     'title'     => 'Ver usuários'
                                 ]
                             ],

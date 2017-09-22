@@ -207,3 +207,35 @@ form label {
         float: left;
     }
 }
+
+@media screen and (max-width: 639px) {
+    form label {
+        width: 100%;
+    }
+
+    div#actions .button{
+        /*margin-left: 0;*/
+    }
+
+    div#actions {
+        width: 235px !important;
+        left: 57% !important;
+    }
+
+    div#actions > div.button span:first-child {
+        width: 15px !important;
+        left: -16px !important;
+    }
+
+    div#actions > div.button {
+        position: relative;
+        margin: 24px;
+        margin-right: 0px;
+        margin-left: -11px;
+    }
+
+    #text .yellow {
+        font-size: 10px;
+        margin-bottom: 32px;
+    }
+}

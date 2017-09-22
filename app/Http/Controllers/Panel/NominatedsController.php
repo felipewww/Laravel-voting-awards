@@ -129,11 +129,13 @@ class NominatedsController extends Controller
 
     public function users(Request $request, $nominated, $cat_id)
     {
+        $nominated = Nominateds::where('id', $nominated)->first();
+
         $this->methodConfigName = 'dataTablesUsers';
 
         $cat = Categories::where('id', $cat_id)->first();
 
-        $this->vars->title = $nominated." | ".$cat->name;
+        $this->vars->title = $nominated->name." | ".$cat->name;
         $this->nominatedsByUser = Nominateds::where('name', 'LIKE', $nominated)->where('categorie_id', $cat->id)->get();
 
         $this->dataTablesInit();
@@ -150,7 +152,7 @@ class NominatedsController extends Controller
 
             $newInfo = [
                 $reg->id,
-                $reg->User->name,
+                $this->JSONparse($reg->User->name),
                 $reg->User->ip,
                 $status,
                 $from,
@@ -231,11 +233,11 @@ class NominatedsController extends Controller
         {
             $newInfo = [
                 $reg->id,
-                $reg->name,
-                $reg->why_deny,
-                $reg->userDeny->name,
+                $this->JSONparse($reg->name),
+                $this->JSONparse($reg->why_deny),
+                $this->JSONparse($reg->userDeny->name),
                 $reg->Categorie->name,
-                $reg->User->name,
+                $this->JSONparse($reg->User->name),
                 $reg->User->ip,
                 [
                     'rowActions' =>

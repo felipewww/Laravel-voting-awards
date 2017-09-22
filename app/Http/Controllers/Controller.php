@@ -65,7 +65,8 @@ class Controller extends BaseController
 
     public function JSONparse($str)
     {
-        $str = str_replace('\\', '/', $str);
+//        $str = str_replace('\\', '/', $str);
+        $str = str_replace('\\', '', $str);
         $str = str_replace('"', '', $str);
         return htmlspecialchars($str);
     }

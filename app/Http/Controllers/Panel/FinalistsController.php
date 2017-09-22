@@ -35,7 +35,6 @@ class FinalistsController extends Controller
         $this->vars->categories = $enabled;
 
         //Todos os Finalistas
-//        $f =
         $this->vars->finalists = Finalists::all();
         $this->dataTablesInit();
 
@@ -50,7 +49,7 @@ class FinalistsController extends Controller
             $newInfo =
                 [
                 $reg->id,
-                $reg->name,
+                $this->JSONparse($reg->name),
                 $reg->Categorie->name,
                 $reg->Votes()->count(),
                 [
@@ -84,7 +83,7 @@ class FinalistsController extends Controller
     public function store(Request $request)
     {
         //dd('TODO', $request->all());
-        $this->model->name = $request->name;
+        $this->model->name = $this->JSONparse($request->name);
         $this->model->categorie_id = $request->categorie;
         $this->model->save();
 
@@ -113,7 +112,7 @@ class FinalistsController extends Controller
         {
             $newInfo = [
                 $reg->User->id,
-                $reg->User->name,
+                $this->JSONparse($reg->User->name),
                 [
                     'rowActions' =>
                         [

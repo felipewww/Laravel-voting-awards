@@ -1,4 +1,4 @@
-div#finalists {  margin-bottom: -40px;  }
+div#finalists {    }
 
 .finalist {  color: var(--yellow);  position: relative;  border-bottom: 3px solid var(--yellow);  margin-bottom: 45px;  font-family: 'Montserrat Alternates', sans-serif;  cursor: pointer;  padding-bottom: 10px;  }
 
@@ -11,3 +11,38 @@ div#finalists {  margin-bottom: -40px;  }
 .finalist.voted .checked {  width: 15px;  height: 15px;  background: var(--yellow);  border-radius: 100px;  margin: 2px auto;  }
 
 .button.voted {  opacity: 0.2;  cursor: not-allowed;  }
+
+@media screen and (max-width: 639px){
+
+    .finalist .name{
+        font-size: 12px;
+    }
+
+    .finalist .check {
+        width: 15px;
+        height: 15px;
+        border: 2px solid var(--yellow);
+        margin-top: -13px;
+    }
+
+    .finalist:last-child {
+        margin-bottom: 0;
+    }
+
+    .finalist.voted .checked {
+        width: 8px;
+        height: 8px;
+        margin: auto;
+    }
+
+    .nav-block {
+        bottom: -17vh;
+    }
+
+    .nav-block {
+        /*width: 185px;*/
+        /*left: 50%;*/
+        /*margin-left: -100.5px;*/
+        bottom: -31vh;
+    }
+}
