@@ -247,4 +247,9 @@ class EllectionController extends Controller
 
         return json_encode($response);
     }
+
+    public function end(Request $request)
+    {
+        return view('ellection_end');
+    }
 }

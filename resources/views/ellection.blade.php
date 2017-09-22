@@ -185,7 +185,7 @@
                 <div class="bg"></div>
                 <div class="req">Requisitos da Categoria</div>
             </div>
-            <ul>
+            <ul id="requl">
                 <li>
                     <span>Estar ativo</span>
                 </li>

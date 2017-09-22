@@ -5,7 +5,11 @@ Pages = {
         bgColor: "#3b3b3b",
         mainBorderColor: "#FFFFFF",
         colorClass: "color2",
-        logo: "startup_awards_white.png"
+        logo: "startup_awards_white.png",
+        requireds: {
+            0: 'Estar ativa',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+        }
     },
 
     1: {
@@ -15,6 +19,10 @@ Pages = {
         logo: "startup_awards_white.png",
         styleHero: {
             backgroundSize: '79%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
         }
     },
 
@@ -25,6 +33,11 @@ Pages = {
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '88%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 
@@ -35,7 +48,13 @@ Pages = {
         logo: "startup_awards.png",
         styleHero: {
             width: '23vw',
+            marginLeft: '-11.5vw',
             backgroundSize: '105%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 
@@ -44,6 +63,11 @@ Pages = {
         mainBorderColor: "#ffd300",
         colorClass: "color1",
         logo: "startup_awards.png",
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+        }
     },
 
     5: {
@@ -53,7 +77,13 @@ Pages = {
         logo: "startup_awards.png",
         styleHero: {
             width: '21vw',
+            marginLeft: '-10.5vw',
             backgroundSize: '54%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 
@@ -61,14 +91,24 @@ Pages = {
         bgColor: "#c40b00",
         mainBorderColor: "#ffd300",
         colorClass: "color7",
-        logo: "startup_awards.png"
+        logo: "startup_awards.png",
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+        }
     },
 
     7: {
         bgColor: "#3b3b3b",
         mainBorderColor: "#000000",
         colorClass: "color8",
-        logo: "startup_awards_white.png"
+        logo: "startup_awards_white.png",
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+        }
     },
 
     8: {
@@ -78,6 +118,11 @@ Pages = {
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '87%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 
@@ -88,6 +133,11 @@ Pages = {
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '86%'
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 
@@ -97,7 +147,13 @@ Pages = {
         colorClass: "color11",
         logo: "startup_awards.png",
         styleHero: {
-            width: '28vw'
+            width: '28vw',
+            marginLeft: '-14vw',
+        },
+        requireds: {
+            0: 'Estar ativa',
+            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
         }
     },
 };

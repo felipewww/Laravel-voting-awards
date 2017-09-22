@@ -67,6 +67,7 @@ div.btn.disabled {
 }
 
 div#main-btn {
+    cursor: pointer;
     height: 55px;
     margin: 0 auto;
     width: 72%;

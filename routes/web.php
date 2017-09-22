@@ -35,6 +35,7 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
 });
 
 Route::get('/', 'LoginController@index');
+Route::get('/fim', 'EllectionController@end');
 Route::get('/registro', 'RegisterController@index');
 Route::post('/registro', 'RegisterController@save');
 

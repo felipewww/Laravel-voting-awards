@@ -31,7 +31,10 @@ class OwnAuth
         {
             if (Application::Info()->status == 'voting' && !Auth::user()->voteable)
             {
-                dd('Action not allowed');
+                return redirect('/fim');
+//                return view('ellection_end');
+
+//                dd('Action not allowed');
             }
 
             //Se a rota ja for "INDICAÇÃO", nao redirecionar, apenas continua.

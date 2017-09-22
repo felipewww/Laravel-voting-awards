@@ -17,6 +17,7 @@ Ellection = {
     start: true,
     mainBtn: null,
     logo: null,
+    reqUL: null,
 
     init: function ()
     {
@@ -70,6 +71,7 @@ Ellection = {
         this.main = $('#bg_main');
         this.pagesBar = $('#pagesBar');
         this.initialTextMargin = parseInt($(this.text).css('top'));
+        this.reqUL = document.getElementById("requl");
 
         //Primeiro acesso, clicar no primeiro item para carregar tela e efeitos.
         if (this.start) {
@@ -436,6 +438,22 @@ Ellection = {
 
         this.main.css("background-color", obj.bgColor);
         this.main.css("borderColor", obj.mainBorderColor);
+
+        //Set requirements
+        this.reqUL.innerHTML = '';
+        for(var idx in obj.requireds)
+        {
+            if (obj.requireds.hasOwnProperty(idx))
+            {
+                var req = obj.requireds[idx];
+                var li      = document.createElement('li');
+                var span    = document.createElement('span');
+                li.appendChild(span);
+
+                span.innerHTML = req;
+                this.reqUL.appendChild(li);
+            }
+        }
     },
 
     changePage: function (objectId)
