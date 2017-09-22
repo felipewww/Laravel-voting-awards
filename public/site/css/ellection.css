@@ -1090,6 +1090,10 @@ div#indicados .button.share:hover span:last-child {
 
 @media screen and (max-width: 767px) {
 
+    div#req{
+        display: none;
+    }
+
     div#gaveta{
         overflow: scroll;
     }
@@ -1261,6 +1265,17 @@ div#indicados .button.share:hover span:last-child {
 
     #footer .realiza-gaveta div {
         height: 25px;
+    }
+}
+
+@media screen and (max-width: 639px){
+    div#content {
+        height: 47.7vh;
+        margin-top: 0;
+    }
+
+    .nav-block {
+        bottom: -12vh;
     }
 }
 

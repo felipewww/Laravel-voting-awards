@@ -325,9 +325,10 @@ div#hero {
     top:50%;
     left: 50%;
     background-size: 100%;
-    transform: translateX(-50%);
+    /*transform: translateX(-50%);*/
     /* border: 1px solid; */
     position: absolute;
+    margin-left: -12.5vw;
 }
 
 /*div#form {  position: absolute;  right: -245px;  width: 300px;  margin-right: 150px;  margin-top: 105px;  }*/
