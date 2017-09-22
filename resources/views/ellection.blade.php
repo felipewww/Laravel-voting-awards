@@ -13,8 +13,13 @@
 
     <script type="text/javascript">
         appStatus = '{{  $v->appStatus }}';
-        ellectionInfo = JSON.parse('{!! json_encode($v->info) !!}');
-        finalistsInfo = JSON.parse('{!! json_encode($v->infoFinalists) !!}');
+        ellectionInfo = JSON.parse('<?= $v->info ?>');
+        //finalistsInfo = JSON.parse('{!! json_encode($v->infoFinalists, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) !!}');
+
+        {{--        finalistsInfo = $.parseJSON('{!! $v->infoFinalists !!}');--}}
+{{--        finalistsInfo = JSON.parse('{!! $v->infoFinalists !!}');--}}
+        finalistsInfo = JSON.parse('<?= $v->infoFinalists ?>');
+
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
     </script>

@@ -8,10 +8,12 @@ use App\FinalistVotes;
 use App\Nominateds;
 use App\User;
 use App\WeirdTries;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
+use Psy\Util\Json;
 
 class EllectionController extends Controller
 {
@@ -47,7 +49,10 @@ class EllectionController extends Controller
             $info[$cat->position]['nominated']  = null;
 
             if ($t) {
-                $info[$cat->position]['nominated'] = ['name' => $t->name, 'reference' => $t->reference];
+                $info[$cat->position]['nominated'] = [
+                    'name' => $this->JSONparse($t->name),
+                    'reference' => $this->JSONparse($t->reference)
+                ];
             }
         }
 
@@ -55,7 +60,7 @@ class EllectionController extends Controller
 
         $vars = new \stdClass();
         $vars->cats = Categories::all();
-        $vars->info = $info;
+        $vars->info = json_encode($info, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
         $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
         $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.Auth::user()->email);
         $vars->appStatus = $this->app->status;
@@ -76,7 +81,7 @@ class EllectionController extends Controller
             {
                 $infoFinalistas[$cat->position] = [];
                 $infoFinalistas[$cat->position]['name']       = $cat->name;
-                $infoFinalistas[$cat->position]['id']         = $cat->id;;
+                $infoFinalistas[$cat->position]['id']         = $cat->id;
                 $infoFinalistas[$cat->position]['voted']      = null;
                 $infoFinalistas[$cat->position]['nominateds'] = [];
                 foreach ($cat->Finalists as $finalistCat)
@@ -87,13 +92,16 @@ class EllectionController extends Controller
 
                     array_push($infoFinalistas[$cat->position]['nominateds'], [
                         'id' => $finalistCat->id,
-                        'name' => $finalistCat->name,
+                        'name' => $this->JSONparse($finalistCat->name),
                         'categorie_id' => $finalistCat->categorie_id,
                     ]);
                 }
             }
 
-            $vars->infoFinalists = $infoFinalistas;
+            $vars->infoFinalists = json_encode($infoFinalistas, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+//            $vars->infoFinalists = json_encode($infoFinalistas);
+//            $j = new Json();
+//            $vars->infoFinalists = $j->encode($infoFinalistas)->get();
 
             return view('ellection', ['v' => $vars ]);
         }

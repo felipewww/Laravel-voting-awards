@@ -440,18 +440,21 @@ Ellection = {
         this.main.css("borderColor", obj.mainBorderColor);
 
         //Set requirements
-        this.reqUL.innerHTML = '';
-        for(var idx in obj.requireds)
+        if (this.reqUL)
         {
-            if (obj.requireds.hasOwnProperty(idx))
+            this.reqUL.innerHTML = '';
+            for(var idx in obj.requireds)
             {
-                var req = obj.requireds[idx];
-                var li      = document.createElement('li');
-                var span    = document.createElement('span');
-                li.appendChild(span);
+                if (obj.requireds.hasOwnProperty(idx))
+                {
+                    var req = obj.requireds[idx];
+                    var li      = document.createElement('li');
+                    var span    = document.createElement('span');
+                    li.appendChild(span);
 
-                span.innerHTML = req;
-                this.reqUL.appendChild(li);
+                    span.innerHTML = req;
+                    this.reqUL.appendChild(li);
+                }
             }
         }
     },

@@ -62,4 +62,11 @@ class Controller extends BaseController
 
         return $from;
     }
+
+    public function JSONparse($str)
+    {
+        $str = str_replace('\\', '/', $str);
+        $str = str_replace('"', '', $str);
+        return htmlspecialchars($str);
+    }
 }
