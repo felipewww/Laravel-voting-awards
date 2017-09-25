@@ -1386,8 +1386,8 @@ div#indicados .button.share:hover span:last-child {
         word-wrap: break-word;
         top: 8vh;
         line-height: 4vh;
-        text-align: left;
         margin-left: 0;
+        text-align: center;
     }
 
     div#pagesBar {

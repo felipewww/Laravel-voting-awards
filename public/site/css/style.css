@@ -572,7 +572,8 @@ div#landscape > div {
     margin-top: 20vh;
 }
 
-@media (max-width: 767px) and (orientation: landscape) {
+/*@media (max-width: 767px) and (orientation: landscape) {*/
+@media (max-width: 767px) and (min-aspect-ratio: 13/9){
     div#landscape { display: block; }
 }
 

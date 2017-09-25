@@ -18,8 +18,8 @@
     <div id="content">
         <div>
             <img id="logo" src="/site/media/images/{{ env('APP_LOGO') }}">
+            <span class="yellow">Cadastre-se e receba no e-mail o link para começar a indicar.</span>
             <div id="text">
-                <span class="yellow">Cadastre-se e receba no e-mail o link para começar a indicar.</span>
                     <form name="reg" method="post" action="/registro">
                     {{ csrf_field() }}
         {{--            {!! Recaptcha::render() !!}--}}
