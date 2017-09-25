@@ -95,10 +95,11 @@ Ellection = {
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
 
-        if (Script.isMobile())
-        {
+        // if (Script.isMobile())
+        // {
+        //     console.log('is mobile...');
+        // }
             this.mobileReq();
-        }
     },
 
     mobileReq: function ()

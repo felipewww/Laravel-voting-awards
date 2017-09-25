@@ -1413,6 +1413,28 @@ div#indicados .button.share:hover span:last-child {
     }
 }
 
+@media screen and (max-width: 320px) and (max-height: 500px){
+    div#logo {
+        margin-top: -127px !important;
+    }
+
+    form input {
+        padding: 9px;
+    }
+
+    form label .referencia {
+        top: 0;
+    }
+
+    .nav-block {
+        bottom: -21vh;
+    }
+
+    div#pagesBar {
+        top: 50vh;
+    }
+}
+
 /*
  * CUSTOM COLORS
  */
