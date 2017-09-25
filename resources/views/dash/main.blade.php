@@ -74,9 +74,13 @@
     <script src="/admin/js/Script.js"></script>
     {{--DATATABLES--}}
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <script type="text/javascript">
-        window.csrfToken = '{{ csrf_token() }}';
-        window.APP_URL = '{{ env("APP_URL") }}'
+        $(document).ready(function () {
+            window.csrfToken = '{{ csrf_token() }}';
+            window.APP_URL = '{{ env("APP_URL") }}'
+        })
     </script>
 
     @yield('scripts')

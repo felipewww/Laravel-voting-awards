@@ -36,7 +36,7 @@ class CategoriesSeeder extends Seeder
             'corp.png',
             'heroi.png',
             'startup.png',
-            'melhor-comunidade.png',
+            'comunidade.png',
         ];
 
         $i = 0;

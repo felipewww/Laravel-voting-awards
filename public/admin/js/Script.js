@@ -7,6 +7,62 @@ Script = {
     init: function () {
         console.log(window.csrfToken);
         this._token = window.csrfToken;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    },
+
+    /*
+     * Chamado via BACKEND em data-jslistener - UserController Datatables
+     * */
+    _delete: function (event, element, params, window)
+    {
+        console.log(params);
+        swal({
+            title: 'Tem certeza?',
+            text: "Deletar o voto é irreversível",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, deletar!',
+            cancelButtonText: 'cancelar'
+        }).then(function () {
+
+            $.ajax({
+                url: '/panel/user/deletevoto/'+params['data-voteid'],
+                method: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status) {
+                        $(element).closest('tr').first().remove();
+                        swal(
+                            'Feito!',
+                            'Voto deletado',
+                            'success'
+                        )
+                    }else{
+                        console.log(data);
+                        swal(
+                            'Ops!',
+                            'Algo de errado, entre em contato com o administrador do sistema',
+                            'error'
+                        )
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                    swal(
+                        'Ops!',
+                        'Algo de errado, entre em contato com o administrador do sistema',
+                        'error'
+                    )
+                }
+            });
+        })
     },
 
     /*
@@ -16,7 +72,7 @@ Script = {
     {
         var id = element.getAttribute('data-voteid');
         var alterTo = element.getAttribute('data-alterto');
-        var data = { vote: id, to: alterTo, _token: Script._token };
+        var data = { vote: id, to: alterTo };
 
         if (parseInt(alterTo) == 1)
         {

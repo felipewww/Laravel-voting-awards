@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'admin@blanko.be'),
-        'name' => env('MAIL_FROM_NAME', 'Blanko mail tests2'),
+        'name' => env('MAIL_FROM_NAME', 'Startup Awards 2017'),
     ],
 
     /*

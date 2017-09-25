@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Nominateds extends Model
 {
+    use SoftDeletes;
+
     //public $fillable = [];
     public function Categorie(){
         return $this->belongsTo(Categories::class);

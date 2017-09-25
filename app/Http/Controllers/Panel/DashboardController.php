@@ -37,12 +37,12 @@ class DashboardController extends Controller
             ->groupBy('nominateds.name','nominateds.categorie_id')
             ->orderBy(DB::raw('total'), 'DESC')
             ->where('nominateds.valid','1')
+            ->where('nominateds.deleted_at',null)
             ->get();
 
         $data = [];
         foreach ($nominateds as $reg)
         {
-//            dd($reg);
             $newInfo = [
                 $this->JSONparse($reg->name),
                 $reg->categorie_name,

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Library\DataTablesExtensions;
+use App\Nominateds;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -17,6 +20,34 @@ class UserController extends Controller
     {
         parent::__construct();
         $this->model = new User();
+    }
+
+    public function deleteVoto(Request $request, $id)
+    {
+        $response = [
+            'status' => false
+        ];
+
+        try{
+            $nominated = Nominateds::where('id', $id)->first();
+//            dd($nominated);
+            DB::beginTransaction();
+
+            $nominated->user_id_delete = Auth::user()->id;
+            $nominated->save();
+
+            $nominated->delete();
+
+            DB::commit();
+            $response['status'] = true;
+        }catch (\Exception $e){
+
+            DB::rollBack();
+            $response['message'] = 'Impossível deletar';
+        }
+
+
+        return json_encode($response);
     }
 
     public function info(Request $request, $id)
@@ -76,6 +107,16 @@ class UserController extends Controller
                                     'data-keep' => 3, //manter TR e alterar texto
                                     'title' => 'Anular'
                                 ]
+                            ],
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-warning btn-circle fa fa-fire m-l-10 has-tooltip',
+                                    'href' => '#',
+                                    'data-jslistener-click' => 'Script._delete',
+                                    'data-voteid' => $reg->id,
+                                    'title' => 'Deletar'
+                                ]
                             ]
                         ]
                 ]
@@ -117,6 +158,7 @@ class UserController extends Controller
                 $this->JSONparse($reg->name),
                 $reg->Nominateds()->count(),
                 $reg->ip,
+                $reg->email,
                 $from,
                 [
                     'rowActions' =>
@@ -150,6 +192,7 @@ class UserController extends Controller
             ['title' => 'Nome'],
             ['title' => 'Total indicados'],
             ['title' => 'IP'],
+            ['title' => 'email'],
             ['title' => 'Via'],
             ['title' => 'Ações', 'width' => '100px'],
         ];

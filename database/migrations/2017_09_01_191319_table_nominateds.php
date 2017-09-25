@@ -1,4 +1,4 @@
-<?php
+-<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,6 +20,11 @@ class TableNominateds extends Migration
 
             $table->string('why_deny')->nullable();
 
+            $table->integer('user_id_delete')->unsigned()->nullable();
+            $table->foreign('user_id_delete')
+                ->references('id')->on('users')
+                ->onDelete('restrict');
+
             $table->integer('user_id_deny')->unsigned()->nullable();
             $table->foreign('user_id_deny')
                 ->references('id')->on('users')
@@ -39,6 +44,8 @@ class TableNominateds extends Migration
                 ->onDelete('restrict');
 
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

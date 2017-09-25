@@ -18,6 +18,8 @@ class RegisterFormMail extends Mailable
      * @return void
      */
 
+    public $subject = 'Startup Awards 2017';
+
     protected $User;
 
     public function __construct($user)

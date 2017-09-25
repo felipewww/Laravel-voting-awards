@@ -17,6 +17,7 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
 
     Route::get('/users', 'Panel\UserController@all');
     Route::get('/user/{id}', 'Panel\UserController@info');
+    Route::post('/user/deletevoto/{id}', 'Panel\UserController@deletevoto');
 
     Route::post('/alter/vote', 'Panel\NominatedsController@alterStatus');
     Route::get('/users/indicado/{nominated_id}/{cat_id}', 'Panel\NominatedsController@users');
