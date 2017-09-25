@@ -136,7 +136,7 @@ class NominatedsController extends Controller
         $cat = Categories::where('id', $cat_id)->first();
 
         $this->vars->title = $nominated->name." | ".$cat->name;
-        $this->nominatedsByUser = Nominateds::where('name', 'LIKE', $nominated)->where('categorie_id', $cat->id)->get();
+        $this->nominatedsByUser = Nominateds::where('id', $nominated->id)->where('categorie_id', $cat->id)->get();
 
         $this->dataTablesInit();
 

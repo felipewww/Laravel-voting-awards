@@ -39,10 +39,11 @@ div#finalists {    }
         bottom: -17vh;
     }
 
+    .finalist {
+        margin-bottom: 10px;
+    }
+
     .nav-block {
-        /*width: 185px;*/
-        /*left: 50%;*/
-        /*margin-left: -100.5px;*/
         bottom: -31vh;
     }
 }

@@ -94,6 +94,37 @@ Ellection = {
 
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
+
+        if (Script.isMobile())
+        {
+            this.mobileReq();
+        }
+    },
+
+    mobileReq: function ()
+    {
+        var btn = document.getElementById('mobile_req');
+        console.log(btn);
+        var modal = document.getElementById('modal_req_mobile');
+
+        var reqs = document.getElementById('req');
+
+        var reqsClone = reqs.cloneNode(true);
+        reqsClone.setAttribute('id','clone_mobile');
+
+        modal.appendChild(reqsClone);
+
+        btn.onclick = function ()
+        {
+            if (this.getAttribute('data-status') == 'opened') {
+                this.setAttribute('data-status','closed');
+                this.innerHTML = 'Requisitos da Categoria'
+            }else{
+                this.setAttribute('data-status','opened');
+                this.innerHTML = 'Fechar'
+            }
+            $(modal).fadeToggle();
+        }
     },
 
     _navButtons: function ()

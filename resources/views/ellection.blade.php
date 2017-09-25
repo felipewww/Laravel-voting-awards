@@ -2,6 +2,7 @@
 
 @section('scripts')
     <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">
     <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -75,6 +76,15 @@
             </ul>
         </div>
     </div>
+
+    <div id="mobile_req">
+        Requisitos da Categoria
+    </div>
+
+        <div id="modal_req_mobile">
+
+    </div>
+
 @endsection
 
 @section('content')
