@@ -1521,6 +1521,151 @@ main.color4 div#main-btn .bar{ background-color: var(--color4);  }
 main.color4 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
+
+
+main.color5 ul#nav li.active,
+main.color5 div#abre-gaveta{  border-color: var(--color5);  }
+
+main.color5 div#category, main.color5 div#req li{  color: var(--color5);  }
+
+main.color5 span.btnbody,
+main.color5 form input{  color: var(--color5);  border-color: var(--color5);  }
+
+main.color5 div#main-btn span.btnbody{  border-color: var(--color5);  background-color: var(--color5);  }
+
+main.color5 #nav-icon1 span,
+main.color5 .bar,
+main.color5 div#req .bg,
+main.color5 div#main-btn .bar{ background-color: var(--color5);  }
+
+
+main.color5 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color6 ul#nav li.active,
+main.color6 div#abre-gaveta{  border-color: var(--color6);  }
+
+main.color6 div#category, main.color6 div#req li{  color: var(--color6);  }
+
+main.color6 span.btnbody,
+main.color6 form input{  color: var(--color6);  border-color: var(--color6);  }
+
+main.color6 div#main-btn span.btnbody{  border-color: var(--color6);  background-color: var(--color6);  }
+
+main.color6 #nav-icon1 span,
+main.color6 .bar,
+main.color6 div#req .bg,
+main.color6 div#main-btn .bar{ background-color: var(--color6);  }
+
+
+main.color6 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color7 ul#nav li.active,
+main.color7 div#abre-gaveta{  border-color: var(--color7);  }
+
+main.color7 div#category, main.color7 div#req li{  color: #ffffff;  }
+
+main.color7 span.btnbody,
+main.color7 form input{  color: var(--color7);  border-color: var(--color7);  }
+
+main.color7 div#main-btn span.btnbody{  border-color: var(--color7);  background-color: var(--color7); color: #fff; }
+
+main.color7 #nav-icon1 span,
+main.color7 .bar,
+main.color7 div#req .bg,
+main.color7 div#main-btn .bar{ background-color: var(--color7);  }
+
+main.color7 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color7 div#req{
+    color: #fff;
+}
+
+/*main.color8 ul#nav li.active,*/
+/*main.color8 div#abre-gaveta{  border-color: var(--color8);  }*/
+
+/*main.color8 div#category, main.color8 div#req li{  color: var(--color8);  }*/
+
+/*main.color8 span.btnbody,*/
+/*main.color8 form input{  color: var(--color8);  border-color: var(--color8);  }*/
+
+/*main.color8 div#main-btn span.btnbody{  border-color: var(--color8);  background-color: var(--color8);  }*/
+
+/*main.color8 #nav-icon1 span,*/
+/*main.color8 .bar,*/
+/*main.color8 div#req .bg,*/
+/*main.color8 div#main-btn .bar{ background-color: var(--color8);  }*/
+
+
+/*main.color8 div#abre-gaveta:hover{*/
+    /*background-color: #1d1d1d;*/
+/*}*/
+
+/*main.color9 ul#nav li.active,*/
+/*main.color9 div#abre-gaveta{  border-color: var(--color9);  }*/
+
+/*main.color9 div#category, main.color9 div#req li{  color: var(--color9);  }*/
+
+/*main.color9 span.btnbody,*/
+/*main.color9 form input{  color: var(--color9);  border-color: var(--color9);  }*/
+
+/*main.color9 div#main-btn span.btnbody{  border-color: var(--color9);  background-color: var(--color9);  }*/
+
+/*main.color9 #nav-icon1 span,*/
+/*main.color9 .bar,*/
+/*main.color9 div#req .bg,*/
+/*main.color9 div#main-btn .bar{ background-color: var(--color9);  }*/
+
+
+/*main.color9 div#abre-gaveta:hover{*/
+    /*background-color: #1d1d1d;*/
+/*}*/
+
+/*main.color10 ul#nav li.active,*/
+/*main.color10 div#abre-gaveta{  border-color: var(--color10);  }*/
+
+/*main.color10 div#category, main.color10 div#req li{  color: var(--color10);  }*/
+
+/*main.color10 span.btnbody,*/
+/*main.color10 form input{  color: var(--color10);  border-color: var(--color10);  }*/
+
+/*main.color10 div#main-btn span.btnbody{  border-color: var(--color10);  background-color: var(--color10);  }*/
+
+/*main.color10 #nav-icon1 span,*/
+/*main.color10 .bar,*/
+/*main.color10 div#req .bg,*/
+/*main.color10 div#main-btn .bar{ background-color: var(--color10);  }*/
+
+
+/*main.color10 div#abre-gaveta:hover{*/
+    /*background-color: #1d1d1d;*/
+/*}*/
+
+/*main.color11 ul#nav li.active,*/
+/*main.color11 div#abre-gaveta{  border-color: var(--color11);  }*/
+
+/*main.color11 div#category, main.color11 div#req li{  color: var(--color11);  }*/
+
+/*main.color11 span.btnbody,*/
+/*main.color11 form input{  color: var(--color11);  border-color: var(--color11);  }*/
+
+/*main.color11 div#main-btn span.btnbody{  border-color: var(--color11);  background-color: var(--color11);  }*/
+
+/*main.color11 #nav-icon1 span,*/
+/*main.color11 .bar,*/
+/*main.color11 div#req .bg,*/
+/*main.color11 div#main-btn .bar{ background-color: var(--color11);  }*/
+
+
+/*main.color11 div#abre-gaveta:hover{*/
+    /*background-color: #1d1d1d;*/
+/*}*/
+
 /*
  * CUSTOM COLORS
  */

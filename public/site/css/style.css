@@ -5,17 +5,17 @@
     --yellow: #ffd300;
     --lightYellow: #ffe263;
     --bgGray: #1d1d1d;
-    --color1: #ffd300;
-    --color2: #ffffff;
-    --color3: #ffd300;
-    --color4: green;
-    --color5: blue;
-    --color6: pink;
-    --color7: purple;
-    --color8: gray;
-    --color9: brown;
-    --color10: #3b4abb;
-    --color11: #b8ff7e;
+    --color1: #ffffff;
+    --color2: #c72026;
+    --color3: #5d91da;
+    --color4: #ffd300;
+    --color5: #c188ea;
+    --color6: #b8ff7e;
+    --color7: #000000;
+    /*--color8: gray;*/
+    /*--color9: brown;*/
+    /*--color10: #3b4abb;*/
+    /*--color11: #b8ff7e;*/
 }
 
 @font-face {

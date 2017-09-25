@@ -4,7 +4,7 @@ Pages = {
     0: {
         bgColor: "#3b3b3b",
         mainBorderColor: "#FFFFFF",
-        colorClass: "color2",
+        colorClass: "color1",
         logo: "startup_awards_white.png",
         requireds: {
             0: 'Estar ativa',
@@ -13,8 +13,8 @@ Pages = {
     },
 
     1: {
-        bgColor: "#c40b00",
-        mainBorderColor: "#ffd300",
+        bgColor: "#3187c8",
+        mainBorderColor: "#c72026",
         colorClass: "color2",
         logo: "startup_awards_white.png",
         styleHero: {
@@ -27,10 +27,10 @@ Pages = {
     },
 
     2: {
-        bgColor: "#e88c09",
-        mainBorderColor: "#ffd300",
+        bgColor: "#22334a",
+        mainBorderColor: "#5d91da",
         colorClass: "color3",
-        logo: "startup_awards.png",
+        logo: "startup_awards_white.png",
         styleHero: {
             backgroundSize: '88%'
         },
@@ -42,10 +42,10 @@ Pages = {
     },
 
     3: {
-        bgColor: "#003344",
-        mainBorderColor: "#8eff90",
+        bgColor: "#a0a0a0",
+        mainBorderColor: "#ffd300",
         colorClass: "color4",
-        logo: "startup_awards.png",
+        logo: "startup_awards_white.png",
         styleHero: {
             width: '23vw',
             marginLeft: '-11.5vw',
@@ -59,9 +59,9 @@ Pages = {
     },
 
     4: {
-        bgColor: "#c40b00",
+        bgColor: "#fe111b",
         mainBorderColor: "#ffd300",
-        colorClass: "color1",
+        colorClass: "color4",
         logo: "startup_awards.png",
         requireds: {
             0: 'Estar ativa',
@@ -71,10 +71,10 @@ Pages = {
     },
 
     5: {
-        bgColor: "#e88c09",
-        mainBorderColor: "#ffd300",
-        colorClass: "color6",
-        logo: "startup_awards.png",
+        bgColor: "#289446",
+        mainBorderColor: "#c188ea",
+        colorClass: "color5",
+        logo: "startup_awards_white.png",
         styleHero: {
             width: '21vw',
             marginLeft: '-10.5vw',
@@ -88,9 +88,9 @@ Pages = {
     },
 
     6: {
-        bgColor: "#c40b00",
-        mainBorderColor: "#ffd300",
-        colorClass: "color7",
+        bgColor: "#c76f58",
+        mainBorderColor: "#b8ff7e",
+        colorClass: "color6",
         logo: "startup_awards.png",
         requireds: {
             0: 'Estar ativa',
@@ -100,9 +100,9 @@ Pages = {
     },
 
     7: {
-        bgColor: "#3b3b3b",
-        mainBorderColor: "#000000",
-        colorClass: "color8",
+        bgColor: "#614293",
+        mainBorderColor: "#b8ff7e",
+        colorClass: "color6",
         logo: "startup_awards_white.png",
         requireds: {
             0: 'Estar ativa',
@@ -112,9 +112,9 @@ Pages = {
     },
 
     8: {
-        bgColor: "#e88c09",
+        bgColor: "#1f5ba9",
         mainBorderColor: "#ffd300",
-        colorClass: "color9",
+        colorClass: "color4",
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '87%'
@@ -127,9 +127,9 @@ Pages = {
     },
 
     9: {
-        bgColor: "#e88c09",
+        bgColor: "#fe111b",
         mainBorderColor: "#ffd300",
-        colorClass: "color10",
+        colorClass: "color4",
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '86%'
@@ -142,10 +142,10 @@ Pages = {
     },
 
     10: {
-        bgColor: "#e88c09",
-        mainBorderColor: "#ffd300",
-        colorClass: "color11",
-        logo: "startup_awards.png",
+        bgColor: "#ce62a4",
+        mainBorderColor: "#000000",
+        colorClass: "color7",
+        logo: "startup_awards_white.png",
         styleHero: {
             width: '28vw',
             marginLeft: '-14vw',
