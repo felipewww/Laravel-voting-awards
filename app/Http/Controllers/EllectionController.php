@@ -199,6 +199,7 @@ class EllectionController extends Controller
         return view('share', [
             'image_name' => $cat->image_name,
             'cat_id' => $catid,
+//            'cat_name' => str_replace('|', " ", $cat->name),
             'cat_name' => $cat->name,
             'name' => $nom->name
         ]);
