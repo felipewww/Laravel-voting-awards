@@ -5,7 +5,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12">
             <div class="white-box col s12">
                 {{--Aqui vem um form para cadastrar Finalista na categoria via ajax--}}
-                <form class="form-vertical form-material" method="post" action="/panel/finalista/store">
+                <form class="form-vertical form-material" method="post" action="/panel/prefinalista/store">
                     {{ csrf_field() }}
                     <div class="form-group col-md-5">
                         <label class="col-md-12">Nome do Finalista</label>

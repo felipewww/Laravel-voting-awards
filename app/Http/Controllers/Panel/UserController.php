@@ -79,7 +79,7 @@ class UserController extends Controller
             $newInfo = [
                 $reg->id,
                 $this->JSONparse($reg->name),
-                $reg->Categorie->name,
+                $this->categorieName($reg->Categorie->name),
                 $status,
                 [
                     'rowActions' =>
@@ -218,7 +218,7 @@ class UserController extends Controller
         {
             $newInfo = [
                 $reg->Finalist->name,
-                $reg->Finalist->Categorie->name,
+                $this->categorieName($reg->Finalist->Categorie->name),
                 [
                     'rowActions' =>
                         [

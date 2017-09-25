@@ -33,7 +33,6 @@ class NominatedsController extends Controller
 
     public function alterStatus(Request $request)
     {
-//        dd($request->all());
         $res = [
             'status' => false
         ];
@@ -73,7 +72,7 @@ class NominatedsController extends Controller
             $newInfo = [
                 $reg->id,
                 $reg->name,
-                $reg->Categorie->name,
+                $this->categorieName($reg->Categorie->name),
                 $reg->User->name,
                 $reg->User->ip,
                 [
@@ -236,7 +235,7 @@ class NominatedsController extends Controller
                 $this->JSONparse($reg->name),
                 $this->JSONparse($reg->why_deny),
                 $this->JSONparse($reg->userDeny->name),
-                $reg->Categorie->name,
+                $this->categorieName($reg->Categorie->name),
                 $this->JSONparse($reg->User->name),
                 $reg->User->ip,
                 [

@@ -70,4 +70,9 @@ class Controller extends BaseController
         $str = str_replace('"', '', $str);
         return htmlspecialchars($str);
     }
+
+    public function categorieName($name)
+    {
+        return str_replace('|', " ", $name);
+    }
 }

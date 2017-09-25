@@ -5,31 +5,32 @@ namespace App\Http\Controllers\Panel;
 use App\Categories;
 use App\Finalists;
 use App\Library\DataTablesExtensions;
+use App\PreFinalists;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FinalistsController extends Controller
+class PreFinalistsController extends Controller
 {
     use DataTablesExtensions;
     public $model;
 
-    public $total = 3;
+    public $total = 10;
 
     public function __construct()
     {
         parent::__construct();
-        $this->vars->title = "Finalistas";
-        $this->model = new Finalists();
+        $this->vars->title = "Pré Finalistas";
+        $this->model = new PreFinalists();
     }
 
     public function index()
     {
         //Habilitar apenas categoiras que ainda não tenham 3 indicados
-        $t = Categories::with(['Finalists'])->get();
+        $t = Categories::with(['PreFinalists'])->get();
 
         $enabled = [];
         foreach ($t as $cat){
-            if ($cat->Finalists()->count() < $this->total) {
+            if ($cat->PreFinalists()->count() < $this->total) {
                 array_push($enabled, $cat);
             }
         }
@@ -37,16 +38,16 @@ class FinalistsController extends Controller
         $this->vars->categories = $enabled;
 
         //Todos os Finalistas
-        $this->vars->finalists = Finalists::all();
+        $this->vars->prefinalists = PreFinalists::all();
         $this->dataTablesInit();
 
-        return view('dash.finalists', ['vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+        return view('dash.prefinalists', ['vars' => $this->vars, 'dataTables' => $this->dataTables ]);
     }
 
     public function dataTablesConfig()
     {
         $data = [];
-        foreach ($this->vars->finalists as $reg)
+        foreach ($this->vars->prefinalists as $reg)
         {
             $newInfo =
                 [
@@ -89,7 +90,7 @@ class FinalistsController extends Controller
         $this->model->categorie_id = $request->categorie;
         $this->model->save();
 
-        return redirect('/panel/finalistas');
+        return redirect('/panel/prefinalistas');
     }
 
     public function vote(Request $request, $id)

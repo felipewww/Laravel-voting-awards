@@ -45,7 +45,7 @@ class DashboardController extends Controller
         {
             $newInfo = [
                 $this->JSONparse($reg->name),
-                $reg->categorie_name,
+                $this->categorieName($reg->categorie_name),
                 $reg->total,
                 [
                     'rowActions' =>

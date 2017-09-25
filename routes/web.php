@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
 
+    Route::get('/error', function (\Illuminate\Http\Request $request){
+        return view('unable');
+    });
+
     Route::get('/', 'Panel\DashboardController@index');
 
     Route::post('/app/status', 'Panel\ApplicationController@changeStatus');
@@ -21,6 +25,10 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
 
     Route::post('/alter/vote', 'Panel\NominatedsController@alterStatus');
     Route::get('/users/indicado/{nominated_id}/{cat_id}', 'Panel\NominatedsController@users');
+
+    //Pré Finalistas
+    Route::get('/prefinalistas', 'Panel\PreFinalistsController@index');
+    Route::post('/prefinalista/store', 'Panel\PreFinalistsController@store');
 
     //finalistas
     Route::get('/finalistas', 'Panel\FinalistsController@index');

@@ -12,4 +12,9 @@ class Categories extends Model
     {
         return $this->hasMany(Finalists::class, 'categorie_id');
     }
+
+    public function PreFinalists()
+    {
+        return $this->hasMany(PreFinalists::class, 'categorie_id');
+    }
 }

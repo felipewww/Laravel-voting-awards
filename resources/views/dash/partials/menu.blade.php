@@ -35,6 +35,9 @@
                 {{--<a href="/panel/todo" class="waves-effect"><i class="fa fa-male fa-fw" aria-hidden="true"></i>Usuário Finalista</a>--}}
             {{--</li>--}}
             <li>
+                <a href="/panel/prefinalistas" class="waves-effect"><i class="fa fa-child fa-fw" aria-hidden="true"></i>Pré Finalistas</a>
+            </li>
+            <li>
                 <a href="/panel/finalistas" class="waves-effect"><i class="fa fa-flag fa-fw" aria-hidden="true"></i>Finalistas</a>
             </li>
             <li>

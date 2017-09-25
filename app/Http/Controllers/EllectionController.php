@@ -70,8 +70,8 @@ class EllectionController extends Controller
         {
             dd('Aplicação finalizada! Fazer tela do fim.');
         }
-
-        if ($this->app->status == 'voting' && !Auth::user()->voteable)
+//        dd(($this->app->status == 'voting' || $this->app->status == 'prevote'));
+        if ( ($this->app->status == 'voting' || $this->app->status == 'prevote') && !Auth::user()->voteable)
         {
             return view('ellection_end', ['v' => $vars ]);
         }
@@ -200,7 +200,6 @@ class EllectionController extends Controller
             'image_name' => $cat->image_name,
             'cat_id' => $catid,
             'cat_name' => str_replace('|', " ", $cat->name),
-//            'cat_name' => $cat->name,
             'name' => $nom->name
         ]);
     }

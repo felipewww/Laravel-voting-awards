@@ -95,19 +95,15 @@ Ellection = {
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
 
-        // if (Script.isMobile())
-        // {
-        //     console.log('is mobile...');
-        // }
+        if (appStatus == 'ellection') {
             this.mobileReq();
+        }
     },
 
     mobileReq: function ()
     {
         var btn = document.getElementById('mobile_req');
-        console.log(btn);
         var modal = document.getElementById('modal_req_mobile');
-
         var reqs = document.getElementById('req');
 
         var reqsClone = reqs.cloneNode(true);
@@ -279,6 +275,9 @@ Ellection = {
 
         if (appStatus == 'ellection') {
             indicado.innerHTML = (allSet) ? item.db.nominated.name : 'Indicado';
+        }else if(appStatus == 'prevote'){
+
+
         }else if(appStatus == 'voting'){
             // indicado.innerHTML = 'Teste!';
             Voting._gavetaName(indicado, item);
@@ -314,6 +313,9 @@ Ellection = {
 
         if (appStatus == 'ellection') {
             ButtonText = (allSet) ? 'COMPARTILHAR' : 'INDICAR';
+        }else if (appStatus == 'prevote'){
+            // ButtonText = Voting._gavetaButtonText(item);
+            ButtonText = 'TODO';
         }else if (appStatus == 'voting'){
             ButtonText = Voting._gavetaButtonText(item);
         }
@@ -506,7 +508,9 @@ Ellection = {
 
             if (appStatus == 'ellection') {
                 _this.__setPage(objectId);
-            }else{
+            }else if(appStatus == 'prevote'){
+
+            }else if(appStatus == 'voting'){
                 Voting.__setPage(objectId);
             }
         }, 700);

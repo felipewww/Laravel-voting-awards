@@ -21,6 +21,11 @@
         publicAppId = '{{ env("FB_APP_ID") }}';
     </script>
     @if($v->appStatus == 'voting')
+        <script type="text/javascript" src="/site/js/PreVote.js?{{ $v->rand }}"></script>
+        <link rel="stylesheet" type="text/css" href="/site/css/prevote.css?{{ $v->rand }}">
+    @endif
+
+    @if($v->appStatus == 'voting')
         <script type="text/javascript" src="/site/js/Voting.js?{{ $v->rand }}"></script>
         <link rel="stylesheet" type="text/css" href="/site/css/voting.css?{{ $v->rand }}">
     @endif
@@ -204,6 +209,40 @@
                     <span>Ter sido host de no mínimo 3 eventos</span>
                 </li>
             </ul>
+        </div>
+    @endif
+
+    @if(\App\Application::Info()->status == 'prevote')
+        <div id="form">
+            <form id="mainform" name="mainform">
+
+                <div id="pre_finalists">
+                    {{-- TODO --}}
+                </div>
+
+                <div id="main-btn">
+                    <span class="bar"></span>
+                    <span class="btnbody">
+                        <div class="btn-text">VOTAR</div>
+                    </span>
+                </div>
+                <div class="cleaner"></div>
+            </form>
+        </div>
+
+        <div class="nav-block">
+            <div class="btn" id="btn-previous">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">ANTERIOR</div>
+                </span>
+            </div>
+            <div class="btn" id="btn-next">
+                <span class="bar"></span>
+                <span class="btnbody">
+                    <div class="btn-text">PRÓXIMO</div>
+                </span>
+            </div>
         </div>
     @endif
 

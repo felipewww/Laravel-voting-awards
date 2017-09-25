@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Application;
+use App\Categories;
+use App\Finalists;
 use App\Library\DataTablesExtensions;
+use App\PreFinalists;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +18,7 @@ class ApplicationController extends Controller
     public $model;
     public $status = [
         'ellection' => 'Indicação',
+        'prevote' => '10 finalistas',
         'voting' => 'Votação',
         'finished' => 'Finalizada'
     ];
@@ -30,9 +34,85 @@ class ApplicationController extends Controller
 
     public function changeStatus(Request $request)
     {
+        $go = [
+            'error'     => false,
+            'message'   => ''
+        ];
+
+        switch ($request->status)
+        {
+            case 'prevote':
+                $go = $this->__toPreVote();
+                break;
+
+            case 'voting':
+                $go = $this->__toVoting();
+                break;
+        }
+
+        if ($go['error']) {
+            $this->vars->title = 'Ação não permitida';
+
+            return view('dash.unable', [
+                'vars' => $this->vars,
+                'message' => $go['message']
+            ]);
+        }
+
         $this->model->status = $request->status;
+
         $this->model->save();
         return redirect('/panel/app');
+    }
+
+    protected function __toPreVote()
+    {
+        $res = [
+            'error'     => false,
+            'message'   => ''
+        ];
+
+        if (env('APP_ENV') == 'production')
+        {
+            $ctrl = new PreFinalistsController();
+            $required = ($ctrl->total * Categories::all()->count());
+
+            if ( PreFinalists::all()->count() < $required )
+            {
+                $res['error'] = true;
+                $res['message'] = 'Cadastre os '.$required.' pré finalistas necessários antes de alterar o status.';
+            }
+        }
+
+        return $res;
+    }
+
+    protected function __toVoting()
+    {
+        $res = [
+            'error'     => false,
+            'message'   => ''
+        ];
+
+        if (env('APP_ENV') == 'production')
+        {
+            $ctrl = new FinalistsController();
+            $required = ($ctrl->total * Categories::all()->count());
+
+            if ( Application::Info()->status != 'prevote' )
+            {
+                $res['error'] = true;
+                $res['message'] = 'Não é permitido ir para FINALISTAS antes da PRÉ VOTAÇÃO de finalistas.';
+            }
+
+            if ( Finalists::all()->count() < $required )
+            {
+                $res['error'] = true;
+                $res['message'] = 'Cadastre os '.$required.' finalistas necessários antes de alterar o status.';
+            }
+        }
+
+        return $res;
     }
 
     public function index()
