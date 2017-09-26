@@ -95,9 +95,28 @@ Ellection = {
         //click no primeiro item
         this.pagesBar.find('li')[0].click();
 
-        if (appStatus == 'ellection') {
+        if (appStatus == 'ellection')
+        {
             this.mobileReq();
         }
+
+        window.onresize = function(event) {
+            check_mobile();
+        };
+
+        function check_mobile(){
+            var md = new MobileDetect(window.navigator.userAgent);
+
+            if(md.phone()){
+                if(window.innerHeight > window.innerWidth){
+                    $("#landscape").hide();
+                }else{
+                    $("#landscape").show();
+                }
+            }
+        }
+
+        check_mobile();
     },
 
     mobileReq: function ()
@@ -117,14 +136,6 @@ Ellection = {
 
         btn.onclick = function ()
         {
-            // if (this.getAttribute('data-status') == 'opened') {
-            //     this.setAttribute('data-status','closed');
-            //     this.innerHTML = 'Requisitos da Categoria'
-            // }else{
-            //     this.setAttribute('data-status','opened');
-            //     this.innerHTML = 'Fechar'
-            // }
-            // $(modal).fadeToggle();
             $(modal).fadeIn();
         }
     },
@@ -352,11 +363,40 @@ Ellection = {
             if (Pages.hasOwnProperty(i))
             {
                 var page = Pages[i];
+                var name = page.db.name.replace('|'," ");
 
                 this.__gavetaItems(page, i);
 
                 var li = document.createElement('li');
                 li.style.backgroundImage = "url(/site/media/images/"+page.icon+")";
+                console.log(page);
+
+                var tooltip = document.createElement('span');
+                tooltip.setAttribute('class','ref-tooltip');
+                tooltip.setAttribute('title', name );
+
+                $( tooltip ).tooltip({
+                    show: null,
+                    position: {
+                        // my: "center top",
+                        // at: "center bottom"
+                        my: "center",
+                        at: "center"
+                    },
+                    using: function( position, feedback ) {
+                        $( this ).css( position );
+                        $( "<div>" )
+                            .addClass( "arrow" )
+                            .addClass( feedback.vertical )
+                            .addClass( feedback.horizontal )
+                            .appendTo( this );
+                    },
+                    open: function( event, ui ) {
+                        ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
+                    },
+                });
+
+                li.appendChild(tooltip);
 
                 setclick(li, i);
 

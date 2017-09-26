@@ -99,7 +99,7 @@ Pages = {
         },
         styleHero: {
             width: '24vw',
-            marginLeft: '-10.5vw',
+            marginLeft: '-12vw',
             backgroundSize: '100%'
         },
     },
@@ -153,7 +153,7 @@ Pages = {
         logo: "startup_awards_white.png",
         styleHero: {
             width: '24vw',
-            marginLeft: '-14vw',
+            marginLeft: '-12vw',
         },
         requireds: {
             0: 'Estar ativa',
