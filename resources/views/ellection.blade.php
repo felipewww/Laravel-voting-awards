@@ -57,7 +57,7 @@
             <img src="/site/media/images/{{env("APP_LOGO")}}">
             <ul>
                 <li><a href="/sobre">SOBRE O PRÊMIO</a> </li>
-                <li><a href="/indicacao/termos">REGULAMENTO</a> </li>
+                <li><a href="/regulamento">REGULAMENTO</a> </li>
                 <li><a href="/seguranca">SEGURANÇA</a> </li>
             </ul>
 

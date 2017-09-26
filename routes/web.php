@@ -57,6 +57,10 @@ Route::get('/seguranca', function (){
     return view('seguranca');
 });
 
+Route::get('/regulamento', function (){
+    return view('regulamento');
+});
+
 Route::post('/login', 'LoginController@login');
 Route::any('/share/{catid}/{email_token}', 'EllectionController@share');
 
