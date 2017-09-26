@@ -353,32 +353,38 @@ Ellection = {
                 li.style.backgroundImage = "url(/site/media/images/"+page.icon+")";
                 console.log(page);
 
-                var tooltip = document.createElement('span');
-                tooltip.setAttribute('class','ref-tooltip');
-                tooltip.setAttribute('title', name );
+                // console.log(Script._isMobile().phone());
 
-                $( tooltip ).tooltip({
-                    show: null,
-                    position: {
-                        // my: "center top",
-                        // at: "center bottom"
-                        my: "center",
-                        at: "center"
-                    },
-                    using: function( position, feedback ) {
-                        $( this ).css( position );
-                        $( "<div>" )
-                            .addClass( "arrow" )
-                            .addClass( feedback.vertical )
-                            .addClass( feedback.horizontal )
-                            .appendTo( this );
-                    },
-                    open: function( event, ui ) {
-                        ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
-                    },
-                });
+                // if (!Script._isMobile().phone())
+                if (!Script.isMobile())
+                {
+                    var tooltip = document.createElement('span');
+                    tooltip.setAttribute('class','ref-tooltip');
+                    tooltip.setAttribute('title', name );
 
-                li.appendChild(tooltip);
+                    $( tooltip ).tooltip({
+                        show: null,
+                        position: {
+                            // my: "center top",
+                            // at: "center bottom"
+                            my: "center",
+                            at: "center"
+                        },
+                        using: function( position, feedback ) {
+                            $( this ).css( position );
+                            $( "<div>" )
+                                .addClass( "arrow" )
+                                .addClass( feedback.vertical )
+                                .addClass( feedback.horizontal )
+                                .appendTo( this );
+                        },
+                        open: function( event, ui ) {
+                            ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
+                        },
+                    });
+
+                    li.appendChild(tooltip);
+                }
 
                 setclick(li, i);
 

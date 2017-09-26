@@ -16,22 +16,30 @@ Script = {
         this.main = document.getElementsByTagName('main')[0];
 
         window.onresize = function(event) {
-            check_mobile();
+            Script._blockScreenMobile();
         };
 
-        function check_mobile(){
-            var md = new MobileDetect(window.navigator.userAgent);
+        this._blockScreenMobile();
+    },
 
-            if(md.phone()){
-                if(window.innerHeight > window.innerWidth){
-                    $("#landscape").hide();
-                }else{
-                    $("#landscape").show();
-                }
+
+    _isMobile: function ()
+    {
+        return new MobileDetect(window.navigator.userAgent);
+    },
+
+    _blockScreenMobile: function ()
+    {
+        console.log('here/1');
+        if(this._isMobile().phone()){
+        // if(this.isMobile()){
+            if(window.innerHeight > window.innerWidth){
+                $("#landscape").hide();
+            }else{
+                console.log('show...');
+                $("#landscape").show();
             }
         }
-
-        check_mobile();
     },
 
     __intro: function () {

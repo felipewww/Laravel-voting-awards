@@ -18,14 +18,14 @@
         window.csrfToken = '{{ csrf_token() }}';
         window.APP_URL = '{{ env("APP_URL") }}'
 
-        $( window ).on( "orientationchange", function( event ) {
-//            $('#bg_main').fadeOut(function () {
+//        $( window ).on( "orientationchange", function( event ) {
+////            $('#bg_main').fadeOut(function () {
+////                window.location.reload();
+////            });
+//            $('#bg_main').animate({ opacity: 0 }, 100, function () {
 //                window.location.reload();
 //            });
-            $('#bg_main').animate({ opacity: 0 }, 100, function () {
-                window.location.reload();
-            });
-        });
+//        });
     </script>
 
     @yield('scripts')
