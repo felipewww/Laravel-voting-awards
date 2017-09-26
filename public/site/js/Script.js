@@ -30,15 +30,14 @@ Script = {
 
     _blockScreenMobile: function ()
     {
-        console.log('here/1');
+        // console.log('here/1');
         if(this._isMobile().phone()){
-        // if(this.isMobile()){
-            if(window.innerHeight > window.innerWidth){
-                $("#landscape").hide();
-            }else{
-                console.log('show...');
-                $("#landscape").show();
-            }
+            // if(window.innerHeight > window.innerWidth){
+            //     $("#landscape").hide();
+            // }else{
+            //     console.log('show...');
+            //     $("#landscape").show();
+            // }
         }
     },
 
