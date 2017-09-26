@@ -1,24 +1,23 @@
 div#mobile_req {
     display: none;
-    position: absolute;
-    bottom: 10px;
     text-align: center;
     width: 160px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
     color: var(--yellow);
     background: #272727;
-    left: 50%;
-    margin-left: -80px;
     padding: 10px;
     border-radius: 4px;
     box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
 div#modal_req_mobile {
     display: none;
     position: absolute;
     top: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0.85);
     width: 100%;
     height: 100%;
@@ -871,11 +870,16 @@ div#indicados .button.share:hover span:last-child {
         cursor: pointer;
     }
 
+    /*div#form {*/
+        /*position: absolute;*/
+        /*right: -80px;*/
+        /*width: 260px;*/
+    /*}*/
     div#form {
-        position: absolute;
-        right: -80px;
-        width: 260px;
+        position: initial;
+        margin: 0 auto;
     }
+
     .button {
         margin-top: 20px;
         cursor: pointer;
@@ -951,10 +955,10 @@ div#indicados .button.share:hover span:last-child {
 @media screen and (max-width: 992px) {
 
     .nav-block {
-        position: absolute;
-        left: 50%;
-        margin-left: -165px;
-        bottom: -49px;
+        position: initial;
+        margin: 0 auto;
+        height: 40px;
+        margin-left: 53px;
     }
 
     div#main-btn {
@@ -1141,6 +1145,13 @@ div#indicados .button.share:hover span:last-child {
 
 @media screen and (max-width: 767px) {
 
+    form label .referencia {
+        position: absolute;
+        right: 0;
+        top: -5px;
+        cursor: pointer;
+    }
+
     div#req{
         display: none;
     }
@@ -1172,6 +1183,13 @@ div#indicados .button.share:hover span:last-child {
         margin-top: -25vh;
     }
 
+    /*div#logo {*/
+        /*position: initial;*/
+        /*height: 96px;*/
+        /*margin: 0 auto;*/
+        /*margin-top: 5px;*/
+        /*margin-bottom: 25px;*/
+    /*}*/
     div#logo {
         width: 100px;
         height: 37px;
@@ -1181,27 +1199,45 @@ div#indicados .button.share:hover span:last-child {
         top: 0;
         margin-left: -50px;
         margin-top: -115px;
+        display: none;
     }
 
     div#hero {
-        width: 25vw;
-        height: 18vh;
-        margin-left: -12.5vw;
-        top: -2vh;
+        position: initial;
+        margin: 0 auto;
+        padding-top: 20px;
     }
+
+    /*div#hero {*/
+        /*width: 25vw;*/
+        /*height: 18vh;*/
+        /*margin-left: -12.5vw;*/
+        /*top: -2vh;*/
+    /*}*/
+
     div#category {
-        font-size: 5vw;
-        left: 50%;
-        margin-left: -30vw;
-        width: 60vw;
-        word-wrap: break-word;
-        top: 7vh;
-        line-height: 2em;
-        text-align: left;
+        position: initial;
+        margin: 0 auto;
+        text-align: center;
+        height: 70px !important;
+        line-height: 30px;
     }
+
+    /*div#category {*/
+        /*font-size: 5vw;*/
+        /*left: 50%;*/
+        /*margin-left: -30vw;*/
+        /*width: 60vw;*/
+        /*word-wrap: break-word;*/
+        /*top: 7vh;*/
+        /*line-height: 2em;*/
+        /*text-align: left;*/
+    /*}*/
 
     #bg_main{
         background-size: 120%;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     div#form {
@@ -1326,20 +1362,43 @@ div#indicados .button.share:hover span:last-child {
         z-index: 9999;
     }
 
+    /*div#logo {*/
+        /*position: initial;*/
+        /*margin: 0 auto;*/
+        /*height: 60px;*/
+        /*margin-top: -60px;*/
+    /*}*/
+
     div#logo {
-        margin-top: -100px !important;
+        position: initial;
+        height: 127px;
+        margin: 0 auto;
     }
 
+
+
+    /*div#logo {*/
+        /*margin-top: -100px !important;*/
+    /*}*/
+
     div#content {
-        height: 47.7vh;
+        /*height: 90%;*/
         margin-top: 0;
     }
 
+    /*.nav-block {*/
+        /*width: 280px;*/
+        /*left: 50%;*/
+        /*margin-left: -116.5px;*/
+        /*bottom: -23vh;*/
+    /*}*/
+
     .nav-block {
-        width: 280px;
-        left: 50%;
-        margin-left: -116.5px;
-        bottom: -23vh;
+        position: initial;
+        margin: 0 auto;
+        margin-left: 5vw;
+        width: 100%;
+        height: 38px;
     }
 
     .nav-block .btn:first-child {
@@ -1364,19 +1423,38 @@ div#indicados .button.share:hover span:last-child {
     }
 
     div#form {
-         top: 18vh;
-        /* left: 7%; */
-        /* width: 86%; */
+        position: initial;
+        margin: 0 auto;
+        height: 165px !important;
+    }
+
+    /*div#form {*/
+         /*top: 18vh;*/
+        /*!* left: 7%; *!*/
+        /*!* width: 86%; *!*/
+    /*}*/
+}
+
+@media screen and (max-height: 590px){
+    div#content {
+        height: 70%;
     }
 }
 
-@media screen and (max-width: 320px) {
-    div#hero {
-        width: 22vw;
-        height: 13vh;
-        margin-left: -11vw;
-        top: -1vh;
+@media screen and (max-height: 480px){
+    div#content {
+         height: 90%;
     }
+
+}
+
+@media screen and (max-width: 320px) {
+    /*div#hero {*/
+        /*width: 22vw;*/
+        /*height: 13vh;*/
+        /*margin-left: -11vw;*/
+        /*top: -1vh;*/
+    /*}*/
     div#logo {
         top: 23px;
     }
@@ -1402,9 +1480,9 @@ div#indicados .button.share:hover span:last-child {
         /*left: 7%;*/
         /*width: 86%;*/
     /*}*/
-    div#content {
-        height: 51.2vh;
-    }
+    /*div#content {*/
+        /*height: 51.2vh;*/
+    /*}*/
     div#req {
         top: 100%;
         margin-top: 45px;
@@ -1433,6 +1511,13 @@ div#indicados .button.share:hover span:last-child {
 
     div#pagesBar {
         top: 50vh;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 779px) and (orientation: landscape){
+    div#content {
+        height: 100%;
+        margin-top: 0;
     }
 }
 

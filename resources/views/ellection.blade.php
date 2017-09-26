@@ -45,8 +45,10 @@
         </div>
     </div>
     <div id="pagesBar"></div>
+    <div id="modal_req_mobile"></div>
 @endsection
 @section('bg_main_content')
+
     <div id="gaveta" class="{{ \App\Application::Info()->status }}">
         <div class="menu">
             <img src="/site/media/images/{{env("APP_LOGO")}}">
@@ -80,14 +82,6 @@
                 {{-- Montado via JS --}}
             </ul>
         </div>
-    </div>
-
-    <div id="mobile_req">
-        Requisitos da Categoria
-    </div>
-
-        <div id="modal_req_mobile">
-
     </div>
 
 @endsection
@@ -150,13 +144,13 @@
         } );
     </script>
 
+    <div id="logo"></div>
+    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
     <div id="category" >
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <div id="logo"></div>
-    <div id="hero" style="background-image: url('/site/media/images/aceleradora.png')"></div>
 
     @if(\App\Application::Info()->status == 'ellection')
         <div id="form">
@@ -304,5 +298,6 @@
             </div>
         </div>
     @endif
+    <div id="mobile_req">Requisitos da Categoria</div>
 </div>
 @endsection

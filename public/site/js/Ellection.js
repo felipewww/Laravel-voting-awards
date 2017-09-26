@@ -109,18 +109,23 @@ Ellection = {
         var reqsClone = reqs.cloneNode(true);
         reqsClone.setAttribute('id','clone_mobile');
 
+        modal.onclick = function () {
+            $(this).fadeOut();
+        };
+
         modal.appendChild(reqsClone);
 
         btn.onclick = function ()
         {
-            if (this.getAttribute('data-status') == 'opened') {
-                this.setAttribute('data-status','closed');
-                this.innerHTML = 'Requisitos da Categoria'
-            }else{
-                this.setAttribute('data-status','opened');
-                this.innerHTML = 'Fechar'
-            }
-            $(modal).fadeToggle();
+            // if (this.getAttribute('data-status') == 'opened') {
+            //     this.setAttribute('data-status','closed');
+            //     this.innerHTML = 'Requisitos da Categoria'
+            // }else{
+            //     this.setAttribute('data-status','opened');
+            //     this.innerHTML = 'Fechar'
+            // }
+            // $(modal).fadeToggle();
+            $(modal).fadeIn();
         }
     },
 

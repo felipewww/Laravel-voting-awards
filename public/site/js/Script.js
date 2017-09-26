@@ -17,7 +17,12 @@ Script = {
     },
 
     __intro: function () {
-        var containerWidth = $(this.content).width();
+        var containerWidth  = $(this.content).width();
+        var containerHeight = $(this.content).height();
+
+        this.content.css('margin-left', ((containerWidth / 2) * -1));
+        this.content.css('margin-top', ((containerHeight / 2) * -1));
+
         $(this.content).width('0');
         $(this.content).css('visibility','visible');
         $(this.content).animate({width: containerWidth}, 700, "easeInCirc");
