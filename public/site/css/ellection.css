@@ -4,13 +4,21 @@ div#mobile_req {
     width: 160px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
-    color: var(--yellow);
+    color: #fff;
     background: #272727;
     padding: 10px;
-    border-radius: 4px;
     box-sizing: border-box;
     margin: 0 auto;
     margin-top: 20px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+}
+
+div#mobile_req > div {
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
 }
 
 div#modal_req_mobile {
@@ -1070,6 +1078,7 @@ div#indicados .button.share:hover span:last-child {
         width: 25vw;
         height: 18vh;
         top: 0;
+        margin-left: -11.5vw;
     }
     div#category {
         font-size: 4vw;
@@ -1183,13 +1192,6 @@ div#indicados .button.share:hover span:last-child {
         margin-top: -25vh;
     }
 
-    /*div#logo {*/
-        /*position: initial;*/
-        /*height: 96px;*/
-        /*margin: 0 auto;*/
-        /*margin-top: 5px;*/
-        /*margin-bottom: 25px;*/
-    /*}*/
     div#logo {
         width: 100px;
         height: 37px;
@@ -1203,17 +1205,9 @@ div#indicados .button.share:hover span:last-child {
     }
 
     div#hero {
-        position: initial;
-        margin: 0 auto;
         padding-top: 20px;
     }
 
-    /*div#hero {*/
-        /*width: 25vw;*/
-        /*height: 18vh;*/
-        /*margin-left: -12.5vw;*/
-        /*top: -2vh;*/
-    /*}*/
 
     div#category {
         position: initial;
@@ -1221,18 +1215,8 @@ div#indicados .button.share:hover span:last-child {
         text-align: center;
         height: 70px !important;
         line-height: 30px;
+        margin-top: 60px;
     }
-
-    /*div#category {*/
-        /*font-size: 5vw;*/
-        /*left: 50%;*/
-        /*margin-left: -30vw;*/
-        /*width: 60vw;*/
-        /*word-wrap: break-word;*/
-        /*top: 7vh;*/
-        /*line-height: 2em;*/
-        /*text-align: left;*/
-    /*}*/
 
     #bg_main{
         background-size: 120%;
@@ -1546,6 +1530,11 @@ main.color1 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
 
+main.color1 div#mobile_req{
+    background-color: var(--color1);
+    color: #000;
+}
+
 main.color2 ul#nav li.active,
 main.color1 div#_modal,
 main.color2 div#abre-gaveta{  border-color: var(--color2);  }
@@ -1565,6 +1554,11 @@ main.color2 div#main-btn .bar{ background-color: var(--color2);  }
 
 main.color2 div#abre-gaveta:hover{
     background-color: #1d1d1d;
+}
+
+main.color2 div#mobile_req{
+    background-color: var(--color2);
+    color: #fff;
 }
 
 main.color3 ul#nav li.active,
@@ -1588,6 +1582,11 @@ main.color3 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
 
+main.color3 div#mobile_req{
+    background-color: var(--color3);
+    color: #fff;
+}
+
 main.color4 ul#nav li.active,
 main.color4 div#abre-gaveta{  border-color: var(--color4);  }
 
@@ -1607,6 +1606,12 @@ main.color4 div#main-btn .bar{ background-color: var(--color4);  }
 main.color4 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
+
+main.color4 div#mobile_req{
+    background-color: var(--color4);
+    color: #000;
+}
+/*helabs*/
 
 
 main.color5 ul#nav li.active,
@@ -1629,6 +1634,11 @@ main.color5 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
 
+main.color5 div#mobile_req{
+    background-color: var(--color5);
+    color: #000;
+}
+
 main.color6 ul#nav li.active,
 main.color6 div#abre-gaveta{  border-color: var(--color6);  }
 
@@ -1649,13 +1659,18 @@ main.color6 div#abre-gaveta:hover{
     background-color: #1d1d1d;
 }
 
+main.color6 div#mobile_req{
+    background-color: var(--color6);
+    color: #000;
+}
+
 main.color7 ul#nav li.active,
 main.color7 div#abre-gaveta{  border-color: var(--color7);  }
 
 main.color7 div#category, main.color7 div#req li{  color: #ffffff;  }
 
 main.color7 span.btnbody,
-main.color7 form input{  color: var(--color7);  border-color: var(--color7);  }
+main.color7 form input{  color: #fff;  border-color: var(--color7);  }
 
 main.color7 div#main-btn span.btnbody{  border-color: var(--color7);  background-color: var(--color7); color: #fff; }
 
@@ -1669,6 +1684,10 @@ main.color7 div#abre-gaveta:hover{
 }
 
 main.color7 div#req{
+    color: #fff;
+}
+main.color7 div#mobile_req{
+    background-color: var(--color7);
     color: #fff;
 }
 

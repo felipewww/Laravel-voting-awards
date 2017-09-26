@@ -48,7 +48,7 @@ Pages = {
         logo: "startup_awards_white.png",
         styleHero: {
             width: '23vw',
-            marginLeft: '-11.5vw',
+            marginLeft: '-11.5vw !important',
             backgroundSize: '105%'
         },
         requireds: {
@@ -78,7 +78,7 @@ Pages = {
         styleHero: {
             width: '21vw',
             marginLeft: '-10.5vw',
-            backgroundSize: '54%'
+            backgroundSize: '64%'
         },
         requireds: {
             0: 'Estar ativa',
@@ -96,7 +96,12 @@ Pages = {
             0: 'Estar ativa',
             1: 'Ter feito pelo menos 3 eventos para startups em 2017',
             2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
-        }
+        },
+        styleHero: {
+            width: '24vw',
+            marginLeft: '-10.5vw',
+            backgroundSize: '100%'
+        },
     },
 
     7: {
@@ -147,7 +152,7 @@ Pages = {
         colorClass: "color7",
         logo: "startup_awards_white.png",
         styleHero: {
-            width: '28vw',
+            width: '24vw',
             marginLeft: '-14vw',
         },
         requireds: {

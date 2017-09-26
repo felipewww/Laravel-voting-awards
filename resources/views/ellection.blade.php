@@ -298,6 +298,10 @@
             </div>
         </div>
     @endif
-    <div id="mobile_req">Requisitos da Categoria</div>
+    <div id="mobile_req">
+        <div>
+            Requisitos da Categoria
+        </div>
+    </div>
 </div>
 @endsection
