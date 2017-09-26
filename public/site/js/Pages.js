@@ -13,7 +13,7 @@ Pages = {
     },
 
     1: {
-        bgColor: "#3187c8",
+        bgColor: "#1d1e5d",
         mainBorderColor: "#c72026",
         colorClass: "color2",
         logo: "startup_awards_white.png",
