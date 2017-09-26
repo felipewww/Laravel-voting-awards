@@ -99,24 +99,6 @@ Ellection = {
         {
             this.mobileReq();
         }
-
-        window.onresize = function(event) {
-            check_mobile();
-        };
-
-        function check_mobile(){
-            var md = new MobileDetect(window.navigator.userAgent);
-
-            if(md.phone()){
-                if(window.innerHeight > window.innerWidth){
-                    $("#landscape").hide();
-                }else{
-                    $("#landscape").show();
-                }
-            }
-        }
-
-        check_mobile();
     },
 
     mobileReq: function ()

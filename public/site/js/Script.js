@@ -14,6 +14,24 @@ Script = {
         this.content    = $('#content');
         this._modal_div = document.getElementById('_modal');
         this.main = document.getElementsByTagName('main')[0];
+
+        window.onresize = function(event) {
+            check_mobile();
+        };
+
+        function check_mobile(){
+            var md = new MobileDetect(window.navigator.userAgent);
+
+            if(md.phone()){
+                if(window.innerHeight > window.innerWidth){
+                    $("#landscape").hide();
+                }else{
+                    $("#landscape").show();
+                }
+            }
+        }
+
+        check_mobile();
     },
 
     __intro: function () {
