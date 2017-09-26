@@ -1213,6 +1213,7 @@ div#indicados .button.share:hover span:last-child {
     form input {
         font-size: 12px;
         border-bottom-width: 1px;
+        padding: 5px;
     }
 
     div#req {
@@ -1326,7 +1327,7 @@ div#indicados .button.share:hover span:last-child {
     }
 
     div#logo {
-        margin-top: -160px !important;
+        margin-top: -100px !important;
     }
 
     div#content {
