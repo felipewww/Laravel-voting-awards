@@ -35,8 +35,8 @@ img#logo {
     width: 25vw;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translatey(-55%);
-    top: 0px;
+    margin-left: -12.5vw;
+    top: -5vw;
 }
 
 #login{
@@ -48,8 +48,8 @@ footer {
     position: absolute;
     bottom: 10px;
     text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     width: 100%;
 }
 
@@ -452,6 +452,7 @@ ul {
 
     #bg_main{
         border: 1px solid var(--yellow);  background-position: 50%;
+        overflow-y: scroll;
     }
 
     div#content {
@@ -464,6 +465,7 @@ ul {
     div#content img#logo {
         width: 50vw;
         margin-top: -10vh !important;
+        margin-left: -25vw;
     }
     .button span:last-child > div {
         font-size: 10px;
@@ -527,6 +529,8 @@ ul {
         margin: 0;
         left: 0;
         transform: none;
+        position: initial;
+        margin-top: 130px;
     }
     footer div {
         margin-bottom: 5px;
