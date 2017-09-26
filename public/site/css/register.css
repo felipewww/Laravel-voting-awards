@@ -217,7 +217,7 @@ form label {
 @media screen and (max-width: 639px) {
     footer {
         position: absolute;
-        bottom: 8px;
+        bottom: -30px;
     }
 
     div#content {
