@@ -17,26 +17,23 @@ div#content {
     left: 50%;
     transform: translateX(-50%) translateY(-45%);
 }
+
 .nano .nano-content { padding: 10px; }
 .nano > .nano-pane > .nano-slider {
     background: var(--yellow);
 }
 
+
 #text {
     color: #545454;
     font-size: 0.9vw;
-}
-/*RESET*/
-img#logo {
-    margin: 0 auto;
-    display: block;
 }
 
 #text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 60px;
     width: 50vw;
 }
 
@@ -46,7 +43,6 @@ div#text h1 {
     letter-spacing: 3px;
     margin-bottom: 25px;
 }
-
 
 .button span:last-child{
     width: 12vw;
@@ -73,4 +69,26 @@ div#actions .button {
 
 div#actions > div {
     display: block;
+}
+
+div#content {
+    width: 65vw;
+    background-color: #1d1d1d;
+    margin: 0 auto;
+    margin-top: 17vh;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 767px){
+    div#actions {
+        position: absolute;
+        bottom: -110px !important;
+        left: 130px !important;
+    }
+    .nano {
+        height: 77% !important;
+        top: 125px;
+    }
 }

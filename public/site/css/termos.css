@@ -70,3 +70,35 @@ div#actions .button {
 div#actions > div {
     display: block;
 }
+
+div#content {
+    width: 65vw;
+    background-color: #1d1d1d;
+    margin: 0 auto;
+    margin-top: 17vh;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 767px){
+
+    div#actions {
+        position: absolute;
+        bottom: -110px !important;
+        left: 130px !important;
+    }
+
+    .nano {
+        height: 77% !important;
+        top: 125px;
+    }
+
+    div#actions{
+        display: block;
+    }
+    
+    div#actions .button{
+        height: 75px;
+    }
+}
