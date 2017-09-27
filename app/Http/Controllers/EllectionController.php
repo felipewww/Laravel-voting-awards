@@ -6,6 +6,8 @@ use App\Categories;
 use App\Finalists;
 use App\FinalistVotes;
 use App\Nominateds;
+use App\PreFinalists;
+use App\PreFinalistVotes;
 use App\User;
 use App\WeirdTries;
 use Carbon\Carbon;
@@ -36,6 +38,7 @@ class EllectionController extends Controller
         $user = Auth::user();
         $info = [];
         $infoFinalistas = [];
+        $infoPreFinalistas = [];
 
         //Json para falar com JS
         foreach (Categories::orderBy('position')->get() as $cat)
@@ -65,6 +68,7 @@ class EllectionController extends Controller
         $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.Auth::user()->email);
         $vars->appStatus = $this->app->status;
         $vars->infoFinalists = json_encode($infoFinalistas);
+        $vars->infoPreFinalists = json_encode($infoPreFinalistas);
 
         if($this->app->status == 'finished')
         {
@@ -99,6 +103,31 @@ class EllectionController extends Controller
             }
 
             $vars->infoFinalists = json_encode($infoFinalistas, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+
+            //Pré finalistas
+            foreach (Categories::all() as $cat)
+            {
+                $infoPreFinalistas[$cat->position] = [];
+                $infoPreFinalistas[$cat->position]['name']       = $cat->name;
+                $infoPreFinalistas[$cat->position]['id']         = $cat->id;
+                $infoPreFinalistas[$cat->position]['voted']      = null;
+                $infoPreFinalistas[$cat->position]['prefinalists'] = [];
+
+                foreach ($cat->PreFinalists as $PrefinalistCat)
+                {
+                    if (Auth::user()->PreVotes()->where('pre_finalist_id', $PrefinalistCat->id)->first()){
+                        $infoPreFinalistas[$cat->position]['voted'] = $PrefinalistCat->id;
+                    }
+
+                    array_push($infoPreFinalistas[$cat->position]['prefinalists'], [
+                        'id' => $PrefinalistCat->id,
+                        'name' => $this->JSONparse($PrefinalistCat->name),
+                        'categorie_id' => $PrefinalistCat->categorie_id,
+                    ]);
+                }
+            }
+
+            $vars->infoPreFinalists = json_encode($infoPreFinalistas, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 
             return view('ellection', ['v' => $vars ]);
         }
@@ -202,6 +231,59 @@ class EllectionController extends Controller
             'cat_name' => str_replace('|', " ", $cat->name),
             'name' => $nom->name
         ]);
+    }
+
+    public function prevote(Request $request)
+    {
+        $response = [
+            'status' => false
+        ];
+
+        if (!$request->f_id) {
+            $response['message'] = 'Por favor, Selecione um pré-finalista';
+            return json_encode($response);
+        }
+
+        $voted = PreFinalists::where('id', $request->f_id)->first();
+        $userVote = Auth::user()->PreVotes;
+
+//        dd($userVote);
+
+        foreach ($userVote as $preVoted)
+        {
+//            dd($preVoted);
+            $finalist = $preVoted->Finalist;
+//            dd($finalist);
+            if ($finalist->categorie_id == $voted->categorie_id)
+            {
+                $response['message'] = 'Vocẽ já votou nessa categoria';
+                $response['nice_try'] = '=*';
+
+                WeirdTries::makeAndSave([
+                    'user'      => Auth::user()->id,
+                    'from'      => 'voting',
+                    'message'   => 'Tentando votar em categoria ja votada',
+                    'request'   => json_encode($request->all())
+                ]);
+
+                return json_encode($response);
+            }
+        }
+
+        try{
+            $newvote = new PreFinalistVotes();
+            $newvote->pre_finalist_id = $voted->id;
+            $newvote->user_id = Auth::user()->id;
+            $newvote->save();
+
+            $response['status'] = true;
+            $response['voted_id'] = $voted->id;
+        }catch (\Exception $e){
+            $response['message'] = "Erro inesperado. Tente novamente.";
+            $response['error'] = $e->getMessage();
+        }
+
+        return json_encode($response);
     }
 
     public function vote(Request $request)

@@ -19,6 +19,7 @@
         appStatus = '{{  $v->appStatus }}';
         ellectionInfo = JSON.parse('<?= $v->info ?>');
         finalistsInfo = JSON.parse('<?= $v->infoFinalists ?>');
+        PrefinalistsInfo = JSON.parse('<?= $v->infoPreFinalists ?>');
 
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
@@ -28,9 +29,9 @@
         <link rel="stylesheet" type="text/css" href="/site/css/prevote.css?{{ $v->rand }}">
     @endif
 
-    @if($v->appStatus == 'voting')
-        <script type="text/javascript" src="/site/js/Voting.js?{{ $v->rand }}"></script>
-        <link rel="stylesheet" type="text/css" href="/site/css/voting.css?{{ $v->rand }}">
+    @if($v->appStatus == 'prevote')
+        <script type="text/javascript" src="/site/js/PreVote.js?{{ $v->rand }}"></script>
+        <link rel="stylesheet" type="text/css" href="/site/css/prevote.css?{{ $v->rand }}">
     @endif
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
@@ -164,7 +165,7 @@
 
                 <label>
                     <input type="text" name="reference"  maxlength="150">
-                    <span class="referencia" id="reference-tooltip" title="Aqui vai a referência"><img src="/site/media/images/icon_referencia.png"></span>
+                    <span class="referencia" id="reference-tooltip" title="Neste campo você deve digitar alguma referência para validarmos a sua indicação. Pode ser um link de um site, link de um perfil de LinkedIn, nome da empresa ou instituição relacionada."><img src="/site/media/images/icon_referencia.png"></span>
                 </label>
 
                 <div id="main-btn">
@@ -214,7 +215,18 @@
             <form id="mainform" name="mainform">
 
                 <div id="pre_finalists">
-                    {{-- TODO --}}
+                    <select id="prefinalists" name="prefinalists">
+                        <option value="1">asd</option>
+                        <option value="1">zxc</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                        <option value="1">qwe</option>
+                    </select>
                 </div>
 
                 <div id="main-btn">
