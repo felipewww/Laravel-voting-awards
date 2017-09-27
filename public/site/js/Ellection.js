@@ -265,6 +265,9 @@ Ellection = {
     //Criar estrutura de LI da gaveta via JS
     __gavetaItems: function (item, itemPos)
     {
+        var ButtonText;
+        var ButtonClass;
+
         var allSet = !!(item.db.nominated);
 
         var li = document.createElement('li');
@@ -620,6 +623,8 @@ Ellection = {
 
     setAsBlocked: function (catid, obj)
     {
+        this.mainBtn.addClass('btnshare');
+
         //Encontrar a LI dentro da ul da gaveta
         var liID = 'cat_'+catid;
         var li = $(Ellection.ulGaveta).find('li[id="'+liID+'"]');
@@ -653,6 +658,8 @@ Ellection = {
 
     setAsEnabled: function ()
     {
+        this.mainBtn.removeClass('btnshare');
+
         this.mainBtn[0].onclick = function () {
             Ellection.send();
         };
