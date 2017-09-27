@@ -69,12 +69,10 @@
                         <img src="/site/media/images/logo_blanko.png">
                     </div>
                 </div>
-                <div class="cleaner"></div>
                 <div class="apoio-gaveta">
-                    <div class="title">apoio</div>
+                    <div class="title">patrocinio</div>
                     <div>
-                        <img src="/site/media/images/abs.svg">
-                        <img src="/site/media/images/blanko.svg">
+                        <img src="/site/media/images/logo_aws.png">
                     </div>
                 </div>
             </div>

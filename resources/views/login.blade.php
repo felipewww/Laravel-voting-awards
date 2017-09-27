@@ -79,7 +79,6 @@
             <img id="logo" src="/site/media/images/{{env('APP_LOGO')}}">
             <div id="text">
                 <span>Feito pela comunidade, para a comunidade, esté é o Startup Awards!</span>
-                <br>
                 <span>A premiação que você esperou o ano inteiro.</span>
                 <br>
                 <span class="yellow">FAÇA SEU LOGIN, INDIQUE, VOTE, PARTICIPE.</span>

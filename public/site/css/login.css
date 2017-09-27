@@ -87,7 +87,13 @@ div#actions > div._ou {
         margin: 0;
     }
 }
-
+footer {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    transform: none;
+    position: absolute;
+}
 @media screen and (max-width: 992px) {
     div#actions > div._ou {
         margin: 20px 30px 0 35px;
@@ -99,16 +105,18 @@ div#actions > div._ou {
         width: 90%;
         margin: 0 auto !important;
         display: block;
-        height: 28vh;
-        margin-top: 20vh !important;
-        top: 0;
+        height: 265px;
+        margin-top: -22vh !important;
+        /* top: 0; */
         left: 0;
     }
 
     div#text {
         position: initial;
-        margin: 0 !important;
-        padding: 12px;
+        margin: 0 auto !important;
+        padding: 12px 17px;
+        padding-top: 55px;
+        width: 200px;
     }
 
     .button span:last-child > div {
@@ -116,18 +124,10 @@ div#actions > div._ou {
         letter-spacing: 2px;
     }
 
-    div#actions {
-
-        /*width: 100%;*/
-        /*margin-left: 0vw !important;*/
-        /*height: auto;*/
-        /*bottom: -50px;*/
-    }
-
     /*div#actions > div {*/
-        /*display: block;*/
-        /*width: 100%;*/
-        /*!*height: inherit;*!*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*!*height: inherit;*!*/
     /*}*/
 
     .button span:first-child {
@@ -154,8 +154,8 @@ div#actions > div._ou {
         position: relative;
         margin: 0 auto;
         height: 98px;
-        width: 100% !important;
-        left: 9vw !important;
+        width: 80% !important;
+        left: 20% !important;
     }
 
     div#actions > div.button {
@@ -164,5 +164,9 @@ div#actions > div._ou {
         margin-bottom: 10px;
         width: 100% !important;
     }
-
+}
+@media screen and (max-width: 767px) and (max-height: 600px) {
+    div#content {
+        margin-top: -32vh !important;
+    }
 }
