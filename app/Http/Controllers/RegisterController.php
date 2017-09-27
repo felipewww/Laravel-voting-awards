@@ -6,6 +6,7 @@ use App\Mail\RegisterFormMail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -21,6 +22,15 @@ class RegisterController extends Controller
 
     public function save(Request $request)
     {
+        $v = Validator::make($request->input(),[
+            'email' => 'required|min:1|max:255|email',
+            'name' => 'required|min:1|max:255'
+        ]);
+
+        if ( $v->fails() ){
+            return redirect()->back()->withErrors(['userError' => 'Preencha todos os campos corretamente']);
+        }
+
         $user = User::where('email', $request->email)->first();
 
         $a = substr(sha1($request->email), 0, 20);

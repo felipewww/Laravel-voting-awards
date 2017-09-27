@@ -70,7 +70,7 @@ Login = {
                 FB.api('/me?fields=email,name,link', function(response) {
 
                     if (!response.email || response.email == '') {
-                        response.email = 'sem email'
+                        // response.email = 'sem email'
                     }
 
                     if (!response.name || response.name == '') {
