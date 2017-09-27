@@ -811,7 +811,6 @@ div#indicados .button span {
 }
 
 
-
 div#indicados .button span:first-child {
     width: 30px;
     background-color: var(--lightYellow);
@@ -857,6 +856,21 @@ div#indicados .button.share:hover span:last-child {
 @media screen and (max-width: 1366px){
     div#main-btn {
         margin-bottom: 20px;
+    }
+    div#indicados .button {
+        width: 70%;
+    }
+    div#indicados .button span:last-child > div{
+        font-size: 11px;
+    }
+    div#gaveta .menu ul {
+        padding-top: 0;
+    }
+    div#gaveta .menu img {
+        margin: 7% auto;
+    }
+    div#footer {
+        bottom: 30px;
     }
 }
 
@@ -1170,6 +1184,23 @@ div#indicados .button.share:hover span:last-child {
 
 @media screen and (max-width: 767px) {
 
+    div#indicados ul li .title{
+        font-size: 15px;
+    }
+
+    div#gaveta{
+        overflow: scroll;
+    }
+
+    div#gaveta .title{
+        font-weight: normal;
+    }
+    div#gaveta .title div{
+        float: inherit;
+        display: inline-block;
+        margin: 0 3px
+    }
+
     form label .referencia {
         position: absolute;
         right: 0;
@@ -1181,9 +1212,6 @@ div#indicados .button.share:hover span:last-child {
         display: none;
     }
 
-    div#gaveta{
-        overflow: scroll;
-    }
 
     div#indicados {
         width: 100%;
@@ -1192,7 +1220,7 @@ div#indicados .button.share:hover span:last-child {
     div#indicados ul li {
         float: none;
         width: 100%;
-        margin: 10px 0;
+        margin: 30px 0;
     }
     div#req li {
         padding: 1px;
@@ -1294,6 +1322,9 @@ div#indicados .button.share:hover span:last-child {
         border: 1px solid #ffd300;
         left: 50%;
         margin-left: -15px;
+        -ms-transform: rotate(90deg); /* IE 9 */
+        -webkit-transform: rotate(90deg); /* Safari */
+        transform: rotate(90deg);
     }
 
     #nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4{
@@ -1321,6 +1352,18 @@ div#indicados .button.share:hover span:last-child {
 
     /*GAVETA*/
 
+    #nav-icon1:hover span:nth-child(1){
+        width: 75%;
+    }
+
+    #nav-icon1:hover span:nth-child(3){
+        width: 75%;
+    }
+
+    #nav-icon1.open span:nth-child(1),#nav-icon1.open span:nth-child(2),#nav-icon1.open span:nth-child(3){
+        width: 100%;
+    }
+
     div#gaveta .menu ul {
         font-size: 10px;
     }
@@ -1328,14 +1371,23 @@ div#indicados .button.share:hover span:last-child {
     div#gaveta .menu {
         width: 100%;
         height: 65%;
+        margin-bottom: 20px;
     }
 
     div#gaveta #footer > div .title {
         font-size: 7px;
     }
 
+    div#gaveta #footer > div .title {
+        font-size: 12px;
+        height: inherit;
+        margin: 12px;
+    }
+
     div#gaveta #footer img {
-        width: 15vw;
+        width: 17vw;
+        padding: 0px;
+        margin: 0 10px;
     }
 
     div#gaveta #footer {
@@ -1344,8 +1396,9 @@ div#indicados .button.share:hover span:last-child {
         left: 0;
         position: initial;
     }
-
-
+    div#gaveta div#indicados .button span:last-child{
+        width: 100% !important;
+    }
 
     #footer .apoio-gaveta{
         margin: 0;
