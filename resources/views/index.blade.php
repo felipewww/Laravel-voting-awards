@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <title>Startup Awards {{ env('APP_YEAR') }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -18,14 +18,20 @@
         window.csrfToken = '{{ csrf_token() }}';
         window.APP_URL = '{{ env("APP_URL") }}'
 
-//        $( window ).on( "orientationchange", function( event ) {
-////            $('#bg_main').fadeOut(function () {
-////                window.location.reload();
-////            });
+        $(window).resize(function () {
+            console.log($(window).width(), $(window).height())
+
+        });
+
+        $( window ).on( "orientationchange", function( event ) {
+//            console.log($(window).width(), $(window).height())
+//            $('#bg_main').fadeOut(function () {
+//                window.location.reload();
+//            });
 //            $('#bg_main').animate({ opacity: 0 }, 100, function () {
 //                window.location.reload();
 //            });
-//        });
+        });
     </script>
 
     @yield('scripts')

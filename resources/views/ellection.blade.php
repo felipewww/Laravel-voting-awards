@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('scripts')
-    <script type="text/javascript" src="/site/js/mobile-detect.min.js"></script>
+    {{--<script type="text/javascript" src="/site/js/mobile-detect.min.js"></script>--}}
     <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
     <script type="text/javascript" src="/js/jquery.nanoscroller.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">

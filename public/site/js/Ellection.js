@@ -359,30 +359,8 @@ Ellection = {
                 if (!Script.isMobile())
                 {
                     var tooltip = document.createElement('span');
-                    tooltip.setAttribute('class','ref-tooltip');
+                    tooltip.setAttribute('class','ref-tooltip2');
                     tooltip.setAttribute('title', name );
-
-                    $( tooltip ).tooltip({
-                        show: null,
-                        position: {
-                            // my: "center top",
-                            // at: "center bottom"
-                            my: "center",
-                            at: "center"
-                        },
-                        using: function( position, feedback ) {
-                            $( this ).css( position );
-                            $( "<div>" )
-                                .addClass( "arrow" )
-                                .addClass( feedback.vertical )
-                                .addClass( feedback.horizontal )
-                                .appendTo( this );
-                        },
-                        open: function( event, ui ) {
-                            ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
-                        },
-                    });
-
                     li.appendChild(tooltip);
                 }
 
@@ -402,6 +380,32 @@ Ellection = {
 
         this.pagesBar[0].appendChild(ul);
 
+        var tooltips = $('.ref-tooltip2');
+        console.log(tooltips);
+
+        $('.ref-tooltip2').tooltip({
+            show: null,
+            position: {
+                // my: "center top",
+                // at: "center bottom"
+                // my: "center bottom-20",
+                at: "right+20 top-15",
+                using: function( position, feedback ) {
+                    console.log('using');
+                    $( this ).css( position );
+                    $( "<div>" )
+                        .addClass( "arrow" )
+                        .addClass( feedback.vertical )
+                        .addClass( feedback.horizontal )
+                        .css('left', '-40px')
+                        .appendTo( this );
+                },
+            },
+            // open: function( event, ui ) {
+            //     console.log('position', ui.tooltip.position());
+            //     ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
+            // },
+        });
     },
 
     /**

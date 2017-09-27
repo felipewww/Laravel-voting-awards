@@ -455,8 +455,10 @@ ul {
     }
 
     #bg_main{
-        border: 1px solid var(--yellow);  background-position: 50%;
+        border: 1px solid var(--yellow);
+        background-position: 50%;
         overflow-y: scroll;
+        /*min-height: 312px;*/
     }
 
     div#content {

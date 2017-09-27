@@ -7,6 +7,7 @@ Script = {
     loader_div: null,
     _modal_div: null,
     main: null,
+    textFocus: false,
 
     init: function ()
     {
@@ -15,6 +16,15 @@ Script = {
         this._modal_div = document.getElementById('_modal');
         this.main = document.getElementsByTagName('main')[0];
 
+        //Bloquear LANDSCAPE
+        $('input').on('click', function () {
+            Script.textFocus = true;
+        });
+
+        $('input').on('blur', function () {
+            Script.textFocus = false;
+        });
+
         window.onresize = function(event) {
             Script._blockScreenMobile();
         };
@@ -22,22 +32,18 @@ Script = {
         this._blockScreenMobile();
     },
 
-
-    _isMobile: function ()
-    {
-        return new MobileDetect(window.navigator.userAgent);
-    },
-
     _blockScreenMobile: function ()
     {
-        // console.log('here/1');
-        if(this._isMobile().phone()){
-            // if(window.innerHeight > window.innerWidth){
-            //     $("#landscape").hide();
-            // }else{
-            //     console.log('show...');
-            //     $("#landscape").show();
-            // }
+        if (Script.textFocus) {
+            return false;
+        }
+
+        if(this.isMobile()){
+            if(window.innerHeight > window.innerWidth){
+                $("#landscape").hide();
+            }else{
+                $("#landscape").show();
+            }
         }
     },
 

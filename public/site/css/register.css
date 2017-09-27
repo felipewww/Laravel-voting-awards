@@ -89,7 +89,7 @@ form label input {
     border-bottom: 3px solid #333;
     color: var(--lightYellow);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2vw;
+    font-size: 12px;
     outline: none;
     padding-left: 15px;
     padding-bottom: 0.3vw;
@@ -212,19 +212,24 @@ form label {
     div#actions .button {
         float: left;
     }
-}
-
-@media screen and (max-width: 639px) {
-    footer {
-        position: absolute;
-        bottom: -30px;
-    }
 
     div#content {
         height: 43vh;
         top: 90px;
         margin-top: 0 !important;
+        min-height: 244px;
     }
+}
+
+
+@media screen and (max-width: 639px) {
+
+    footer {
+        position: absolute;
+        bottom: -30px;
+    }
+
+
 
     div#content img#logo {
         margin-top: -7vh !important;
@@ -276,5 +281,23 @@ form label {
     .yellow {
         font-size: 10px;
         margin-bottom: 32px;
+    }
+
+    @media (orientation: landscape) {
+        img#logo {
+            top: -56px;
+        }
+
+        div#text {
+            margin-top: 20vh;
+        }
+
+        footer {
+            display: none;
+        }
+
+        main {
+            min-height: 300px;
+        }
     }
 }
