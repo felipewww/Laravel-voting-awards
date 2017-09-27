@@ -1,0 +1,58 @@
+select {
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    border: 0;
+    border-bottom: 2px solid #fff;
+    padding: 22px;
+    width: 100%;
+    outline: none;
+}
+
+select option:hover {
+    background: red;
+}
+
+select option {
+    background-color: #1d1d1d;
+    outline: none;
+    border: none;
+}
+
+div#pre_finalists{
+    float: right;
+    width: 83%;
+    margin-bottom: 90px;
+}
+
+div#main-btn{
+    clear: both;
+}
+
+@media screen and (max-width: 767px){
+    div#pre_finalists {
+        margin-bottom: 30px;
+    }
+
+    div#pre_finalists {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    select {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    div#main-btn {
+        clear: both;
+        position: absolute;
+        bottom: 23px;
+        left: -3px;
+    }
+}
+
+div#main-btn.voted {
+    opacity: 0.2;
+}

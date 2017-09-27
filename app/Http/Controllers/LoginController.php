@@ -155,15 +155,18 @@ class LoginController extends Controller
 
     public function setAndLogin(Request $request, $fbid) : User
     {
-        $userRequest = $request->user;
+        $user = false;
 
-        //Se o usuario ja se cadastrou via FORM com o mesmo e-mail, atualizar e retornar.
-        $user = User::where('email', $userRequest['email'])->first();
+        $userRequest = $request->user;
+        if ( isset($userRequest['email']) ) {
+            //Se o usuario ja se cadastrou via FORM com o mesmo e-mail, atualizar e retornar.
+            $user = User::where('email', $userRequest['email'])->first();
+        }
 
         if ($user) {
-            $user->name        = $userRequest['name'];
-            $user->fb_id = $fbid;
-            $user->fb_link     = $userRequest['link'];
+            $user->name         = $userRequest['name'];
+            $user->fb_id        = $fbid;
+            $user->fb_link      = $userRequest['link'];
 //            $user->setError = 'just a test!'; //force error, let it commented
         }else{
             $user = User::where('fb_id', $fbid)->first();
@@ -172,7 +175,7 @@ class LoginController extends Controller
             if (!$user) {
                 $user              = new User();
                 $user->name        = $userRequest['name'];
-                $user->email       = $userRequest['email'];
+                $user->email       = ( isset($userRequest['email']) ) ? $userRequest['email'] : null;
                 $user->fb_id       = $fbid;
                 $user->type        = 'usr';
                 $user->password    = 'default';

@@ -36,10 +36,6 @@ Ellection = {
 
         if (appStatus == 'voting')
         {
-            // console.log('init');
-            // console.log('Pages', Pages);
-            // console.log('finalistsInfo', finalistsInfo);
-
             for(var f_idx in finalistsInfo)
             {
                 var f_obj = finalistsInfo[f_idx];
@@ -57,7 +53,27 @@ Ellection = {
                     }
                 }
             }
-            // console.log('\n endinit');
+        }
+
+        if (appStatus == 'prevote')
+        {
+            for(var f_idx in PrefinalistsInfo)
+            {
+                var f_obj = PrefinalistsInfo[f_idx];
+                /* Rodar toda vez o objeto e encontrar pelo ID da categoria para não ficar preso na query,
+                 *  já que o objeto Pages ja foi montade por categoria no for anterior
+                 *  sendo obrigado sempre a ler do banco com order by identico.
+                 */
+                for(var p_idx in Pages)
+                {
+                    var p_obj = Pages[p_idx];
+
+                    if (p_obj.db.id == f_obj.id) {
+                        p_obj.db.voted = f_obj.voted;
+                        p_obj.db.prefinalists = f_obj.prefinalists;
+                    }
+                }
+            }
         }
 
         this.mainBtn = $("#main-btn");
@@ -99,6 +115,8 @@ Ellection = {
         {
             this.mobileReq();
         }
+
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
     },
 
     mobileReq: function ()
@@ -232,8 +250,6 @@ Ellection = {
     __share: function (catid) {
         var displayMethod = (Script.isMobile()) ? 'iframe' : 'popup';
 
-        console.log('displayMethod', displayMethod);
-
         FB.ui({
             app_id: publicAppId,
             method: 'share',
@@ -274,10 +290,8 @@ Ellection = {
         if (appStatus == 'ellection') {
             indicado.innerHTML = (allSet) ? item.db.nominated.name : 'Indicado';
         }else if(appStatus == 'prevote'){
-
-
+            PreVote._gavetaName(indicado, item);
         }else if(appStatus == 'voting'){
-            // indicado.innerHTML = 'Teste!';
             Voting._gavetaName(indicado, item);
         }
 
@@ -313,7 +327,7 @@ Ellection = {
             ButtonText = (allSet) ? 'COMPARTILHAR' : 'INDICAR';
         }else if (appStatus == 'prevote'){
             // ButtonText = Voting._gavetaButtonText(item);
-            ButtonText = 'TODO';
+            ButtonText = PreVote._gavetaButtonText(item);
         }else if (appStatus == 'voting'){
             ButtonText = Voting._gavetaButtonText(item);
         }
@@ -351,11 +365,7 @@ Ellection = {
 
                 var li = document.createElement('li');
                 li.style.backgroundImage = "url(/site/media/images/"+page.icon+")";
-                console.log(page);
 
-                // console.log(Script._isMobile().phone());
-
-                // if (!Script._isMobile().phone())
                 if (!Script.isMobile())
                 {
                     var tooltip = document.createElement('span');
@@ -380,18 +390,11 @@ Ellection = {
 
         this.pagesBar[0].appendChild(ul);
 
-        var tooltips = $('.ref-tooltip2');
-        console.log(tooltips);
-
         $('.ref-tooltip2').tooltip({
             show: null,
             position: {
-                // my: "center top",
-                // at: "center bottom"
-                // my: "center bottom-20",
                 at: "right+20 top-15",
                 using: function( position, feedback ) {
-                    console.log('using');
                     $( this ).css( position );
                     $( "<div>" )
                         .addClass( "arrow" )
@@ -401,10 +404,6 @@ Ellection = {
                         .appendTo( this );
                 },
             },
-            // open: function( event, ui ) {
-            //     console.log('position', ui.tooltip.position());
-            //     ui.tooltip.animate({ top: ui.tooltip.position().top }, "fast" );
-            // },
         });
     },
 
@@ -546,7 +545,7 @@ Ellection = {
             if (appStatus == 'ellection') {
                 _this.__setPage(objectId);
             }else if(appStatus == 'prevote'){
-
+                PreVote.__setPage(objectId);
             }else if(appStatus == 'voting'){
                 Voting.__setPage(objectId);
             }
@@ -603,7 +602,7 @@ Ellection = {
             dataType: 'json',
             success: function (data) {
                 if (data.status) {
-                    Script._modal('Voto computado com sucesso!');
+                    Script._modal('Indicação computada com sucesso!');
                     obj.db['nominated'] = { name: name, reference: ref };
                     _this.setAsBlocked(catid, obj);
                 }else{
