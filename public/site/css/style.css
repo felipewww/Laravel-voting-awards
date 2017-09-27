@@ -157,8 +157,8 @@ div#actions > div.button{
     transition: 0.3s;
 }
 .button span:first-child {
-    width: 2vw;
-    height: 6.5vh;
+    width: 35px;
+    height: 58px;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
     -o-transform: skew(-20deg);
@@ -178,7 +178,7 @@ div#actions > div.button{
     -o-transform: skew(-20deg);
     color: #1d1d1d;
     float: left;
-    margin-left: 0.5vw;
+    margin-left: 10px;
     line-height: 6vh;
     text-align: center;
     font-family: sans-serif;
@@ -503,7 +503,7 @@ ul {
     }
     .button span:first-child {
         height: 40px;
-        width: 10% !important;
+        width: 22px;
     }
     .button span:last-child {
         width: 78% !important;

@@ -267,7 +267,6 @@ form label {
     }
 
     div#actions > div.button span:first-child {
-        width: 15px !important;
         left: -16px !important;
     }
 

@@ -24,7 +24,9 @@
 }
 
 .button span:last-child{
-    width: 12vw;
+    width: 223px;
+    height: 58px;
+    line-height: 52px;
 }
 
 
@@ -35,8 +37,8 @@ div#actions {
     position: absolute;
     bottom: -30px;
     left: 50%;
-    width: 600px;
-    margin-left: -338px;
+    width: 725px;
+    margin-left: -362.5px;
     vertical-align: middle;
     display: inline-flex;
 }
@@ -82,6 +84,7 @@ div#actions > div._ou {
         width: 100%;
         height: 50px;
         line-height: 45px;
+        margin: 0;
     }
 }
 

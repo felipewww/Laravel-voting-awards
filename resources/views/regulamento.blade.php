@@ -30,7 +30,7 @@
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/js/nanoscroller.css">
-    <link rel="stylesheet" type="text/css" href="/site/css/termos.css">
+    <link rel="stylesheet" type="text/css" href="/site/css/sobre.css">
 @endsection
 
 @section('content')

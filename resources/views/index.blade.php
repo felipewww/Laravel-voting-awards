@@ -24,13 +24,7 @@
         });
 
         $( window ).on( "orientationchange", function( event ) {
-//            console.log($(window).width(), $(window).height())
-//            $('#bg_main').fadeOut(function () {
-//                window.location.reload();
-//            });
-//            $('#bg_main').animate({ opacity: 0 }, 100, function () {
-//                window.location.reload();
-//            });
+            window.location.reload();
         });
     </script>
 
