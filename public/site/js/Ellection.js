@@ -185,7 +185,7 @@ Ellection = {
                 duration: 700,
                 easing: 'easeInExpo',
                 complete: function () {
-                    $parent.toggleClass('open');
+                   // $parent.toggleClass('open');
                     _this.pagesBar.fadeToggle();
                 }
             });
