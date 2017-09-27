@@ -7,8 +7,7 @@ Pages = {
         colorClass: "color1",
         logo: "startup_awards_white.png",
         requireds: {
-            0: 'Estar ativa',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ter investido pelo menos em 2 (dois) startups nos últimos 2 (dois) anos na pessoa física.'
         }
     },
 
@@ -21,8 +20,7 @@ Pages = {
             backgroundSize: '79%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
+            0: 'Ter publicado pelo menos 3 (três) matérias/conteúdos no último ano.',
         }
     },
 
@@ -35,9 +33,8 @@ Pages = {
             backgroundSize: '88%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ter realizado no último ano algum projeto de fomento à criação e/ou desenvolvimento de startups',
+            1: 'Ter iniciativas voltadas para educação empreendedora e ser uma universidade de capital nacional'
         }
     },
 
@@ -52,9 +49,8 @@ Pages = {
             backgroundSize: '105%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ações específicas para startups na cidade onde atua, tem que estar ativo',
+            1: 'Ter sido host de no mínimo 3 (três) eventos para empreendedores no último ano'
         }
     },
 
@@ -64,9 +60,9 @@ Pages = {
         colorClass: "color4",
         logo: "startup_awards.png",
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Aceleração de no mínimo 3 (três)  batchs',
+            1: 'Ter acelerado no mínimo 10 (dez) startups nos últimos 2 (dois) anos',
+            2: 'Aceleradora tem que estar ativa'
         }
     },
 
@@ -81,9 +77,9 @@ Pages = {
             backgroundSize: '64%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Projetos focados no público de baixa renda',
+            1: 'Impacto social deve ser a atividade principal da startup',
+            2: 'Em que ser uma empresa e não uma ONG ter impactado pelo menos 100 pessoas nacionalmente'
         }
     },
 
@@ -93,9 +89,7 @@ Pages = {
         colorClass: "color6",
         logo: "startup_awards.png",
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ter participado como mentor/a em pelo menos 5 oportunidades no último ano'
         },
         styleHero: {
             width: '24vw',
@@ -110,9 +104,8 @@ Pages = {
         colorClass: "color6",
         logo: "startup_awards_white.png",
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ter pelo menos uma startup nacional como fornecedora',
+            1: 'Ter pessoas dedicadas exclusivamente para o mercado de startup nacional'
         }
     },
 
@@ -125,9 +118,7 @@ Pages = {
             backgroundSize: '87%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Pessoa com o mindset #giveback #givefirst'
         }
     },
 
@@ -140,9 +131,11 @@ Pages = {
             backgroundSize: '86%'
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Tem que ser brasileira(o) e tem que ter CNPJ',
+            1: 'Ser uma startup digital (soluções que sejam baseadas em web, mobile, hardware)',
+            2: 'Não ser uma empresa prestadora de serviços (software house, desenvolvedora de aplicativos, games e consultoria)',
+            3: 'Ter uma solução inovadora, ou seja trazendo uma solução para um problema existente que ninguém pensou antes.'
+
         }
     },
 
@@ -156,9 +149,10 @@ Pages = {
             marginLeft: '-12vw',
         },
         requireds: {
-            0: 'Estar ativa',
-            1: 'Ter feito pelo menos 3 eventos para startups em 2017',
-            2: 'Ter pelo menos 15 funcionários contratados no Brasil e no Exterior'
+            0: 'Ter no mínimo 10 startups participantes',
+            1: 'Ter realizado no mínimo 5 eventos para o ecossistema local no último ano (reuniões, meetups, palestras, startup weekend, eventos open source, etc)',
+            2: 'Ter parcerias com no mínimo um dos agentes do ecossistema local (empresas, governo e universidade)',
+            3: 'Ter atuação em apenas uma cidade ou estado'
         }
     },
 };
