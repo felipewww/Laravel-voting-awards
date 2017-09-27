@@ -62,7 +62,7 @@ class PreFinalistsController extends Controller
                                 'html' => '',
                                 'attributes' => [
                                     'class' => 'btn btn-custom btn-circle fa fa-users m-l-10 has-tooltip',
-                                    'href' => '/panel/finalista/'.$reg->id.'/users',
+                                    'href' => '/panel/prefinalista/'.$reg->id.'/users',
                                     'title' => 'Todos os votos'
                                 ],
                             ],
@@ -123,7 +123,7 @@ class PreFinalistsController extends Controller
                                 'html' => '',
                                 'attributes' => [
                                     'class' => 'btn btn-custom btn-circle fa fa-info m-l-10 has-tooltip',
-                                    'href' => '/panel/finalistas/user/'.$reg->User->id.'/votos',
+                                    'href' => '/panel/prefinalistas/user/'.$reg->User->id.'/votos',
                                     'title' => 'Todos os votos'
                                 ],
                             ],

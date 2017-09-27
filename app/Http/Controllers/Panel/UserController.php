@@ -244,4 +244,51 @@ class UserController extends Controller
             ['title' => 'Ações', 'width' => '100px'],
         ];
     }
+
+    public function prevotes(Request $request, $id)
+    {
+        $this->methodConfigName = 'dataTablesUserPreVotes';
+
+        $this->user = $this->model->where("id", $id)->first();
+        $this->vars->title = 'Votos de '.$this->user->name;
+
+        $this->dataTablesInit();
+
+        return view('dash.allusers', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+    }
+
+    //Votos finais
+    public function dataTablesUserPreVotes()
+    {
+        $data = [];
+        foreach ($this->user->PreVotes as $reg)
+        {
+            $newInfo = [
+                $reg->Finalist->name,
+                $this->categorieName($reg->Finalist->Categorie->name),
+                [
+                    'rowActions' =>
+                        [
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => 'btn btn-success btn-circle fa fa-flag m-l-10 has-tooltip',
+                                    'href' =>  '/panel/prefinalista/'.$reg->Finalist->id.'/users',
+                                    'title' => 'Informações do Finalista'
+                                ],
+                            ],
+                        ]
+                ]
+            ];
+
+            array_push($data, $newInfo);
+        }
+
+        $this->data_info = $data;
+        $this->data_cols = [
+            ['title' => 'Nome'],
+            ['title' => 'Categoria'],
+            ['title' => 'Ações', 'width' => '100px'],
+        ];
+    }
 }

@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(FinalistVotes::class);
     }
+
+    public function PreVotes()
+    {
+        return $this->hasMany(PreFinalistVotes::class);
+    }
 }

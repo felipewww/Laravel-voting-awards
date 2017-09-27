@@ -29,14 +29,14 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
     //Pré Finalistas
     Route::get('/prefinalistas', 'Panel\PreFinalistsController@index');
     Route::post('/prefinalista/store', 'Panel\PreFinalistsController@store');
+    Route::get('/prefinalista/{id}/users', 'Panel\PreFinalistsController@users');
+    Route::get('/prefinalistas/user/{id}/votos', 'Panel\UserController@prevotes');
 
     //finalistas
     Route::get('/finalistas', 'Panel\FinalistsController@index');
     Route::post('/finalista/store', 'Panel\FinalistsController@store');
 
     Route::get('/finalista/{id}/users', 'Panel\FinalistsController@users');
-//    Route::get('/finalista/{id}/votos', 'Panel\FinalistsController@votes');
-
     Route::get('/finalistas/user/{id}/votos', 'Panel\UserController@votes');
 
 
