@@ -34,7 +34,7 @@
 
     <script type="text/javascript">
         window.csrfToken = '{{ csrf_token() }}';
-        window.APP_URL = '{{ env("APP_URL") }}'
+        window.APP_URL = '{{ env("APP_URL") }}';
 
         $(window).resize(function () {
             console.log($(window).width(), $(window).height())
@@ -47,7 +47,7 @@
     </script>
 
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src=“https://www.googletagmanager.com/gtag/js?id=UA-42895350-7“></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42895350-7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments)};

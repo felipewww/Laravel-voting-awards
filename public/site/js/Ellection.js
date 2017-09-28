@@ -119,6 +119,11 @@ Ellection = {
         $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
     },
 
+    _tooltip: function ()
+    {
+
+    },
+
     mobileReq: function ()
     {
         //Remover estado hover dos botões
