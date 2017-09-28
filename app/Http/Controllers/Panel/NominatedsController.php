@@ -72,6 +72,7 @@ class NominatedsController extends Controller
             $newInfo = [
                 $reg->id,
                 $reg->name,
+                $reg->reference,
                 $this->categorieName($reg->Categorie->name),
                 $reg->User->name,
                 $reg->User->ip,
@@ -119,6 +120,7 @@ class NominatedsController extends Controller
         $this->data_cols = [
             ['title' => 'ID','width' => '30px'],
             ['title' => 'Indicado'],
+            ['title' => 'Referência'],
             ['title' => 'Categoria'],
             ['title' => 'User'],
             ['title' => 'IP'],
@@ -154,6 +156,7 @@ class NominatedsController extends Controller
             $newInfo = [
                 $reg->id,
                 $this->JSONparse($reg->User->name),
+                $reg->reference,
                 $reg->User->ip,
                 $status,
                 $from,
@@ -211,6 +214,7 @@ class NominatedsController extends Controller
         $this->data_cols = [
             ['title' => 'ID','width' => '30px'],
             ['title' => 'User'],
+            ['title' => 'Referência'],
             ['title' => 'IP'],
             ['title' => 'status'],
             ['title' => 'via'],

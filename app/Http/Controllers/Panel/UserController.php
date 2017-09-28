@@ -80,6 +80,7 @@ class UserController extends Controller
                 $reg->id,
                 $this->JSONparse($reg->name),
                 $this->categorieName($reg->Categorie->name),
+                $reg->reference,
                 $status,
                 [
                     'rowActions' =>
@@ -130,6 +131,7 @@ class UserController extends Controller
             ['title' => 'ID','width' => '30px'],
             ['title' => 'Indicado'],
             ['title' => 'Categoria'],
+            ['title' => 'Referência'],
             ['title' => 'Status'],
             ['title' => 'Ações', 'width' => '100px'],
         ];

@@ -30,7 +30,7 @@ Pages = {
         colorClass: "color3",
         logo: "startup_awards_white.png",
         styleHero: {
-            backgroundSize: '88%'
+            backgroundSize: '75%'
         },
         requireds: {
             0: 'Ter realizado no último ano algum projeto de fomento à criação e/ou desenvolvimento de startups',
