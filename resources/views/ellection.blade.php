@@ -104,47 +104,7 @@
             });
         };
 
-        $( function() {
-            $( "#reference-tooltip" ).tooltip({
-                show: null,
-                position: {
-                    my: "center top",
-                    at: "center bottom"
-                },
-                using: function( position, feedback ) {
-                    $( this ).css( position );
-                    $( "<div>" )
-                            .addClass( "arrow" )
-                            .addClass( feedback.vertical )
-                            .addClass( feedback.horizontal )
-                            .appendTo( this );
-                },
-                open: function( event, ui ) {
-                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
-                },
-            });
-        } );
 
-        $( function() {
-            $( ".ref-tooltip" ).tooltip({
-                show: null,
-                position: {
-                    my: "center top",
-                    at: "center bottom"
-                },
-                using: function( position, feedback ) {
-                    $( this ).css( position );
-                    $( "<div>" )
-                        .addClass( "arrow" )
-                        .addClass( feedback.vertical )
-                        .addClass( feedback.horizontal )
-                        .appendTo( this );
-                },
-                open: function( event, ui ) {
-                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
-                },
-            });
-        } );
     </script>
 
     <div id="logo"></div>
