@@ -12,7 +12,7 @@ div#content {
     font-size: 0.8vw;
     line-height: 1.2vw;
     letter-spacing: 0.05vw;
-    width: 50vw;
+    width: 45vw;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-45%);
@@ -44,10 +44,9 @@ div#text h1 {
     margin-bottom: 25px;
 }
 
-.button span:last-child{
-    width: 12vw;
+.button span:last-child {
+    width: 90%;
 }
-
 div#actions {
     margin: 0 auto;
     position: absolute;
@@ -56,7 +55,10 @@ div#actions {
     height: 70px;
     vertical-align: middle;
     left: 50%;
-    transform: translateX(-50%);
+    /*transform: translateX(-50%);*/
+    /*-webkit-transform: translateX(-50%);*/
+    width: 285px;
+    margin-left: -142.5px;
 }
 
 div#actions .button {
@@ -75,20 +77,48 @@ div#content {
     width: 65vw;
     background-color: #1d1d1d;
     margin: 0 auto;
-    margin-top: 17vh;
+    margin-top: 12vh;
     position: relative;
     top: 0;
     left: 0;
 }
 
 @media screen and (max-width: 767px){
+    div#content {
+        height: 245px !important;
+        top: 50% !important;
+        margin-top: -160.5px !important;
+    }
+
+
+    footer{
+        position: absolute;
+        bottom: 0;
+    }
+
+    span._link {
+        margin-left: 0 !important;
+    }
+
+    .nano{
+        width: 60vw;
+    }
+
     div#actions {
         position: absolute;
-        bottom: -110px !important;
+        bottom: -105px !important;
         left: 140px !important;
+        margin-left: -50% !important;
     }
+
+    /*.nano {*/
+        /*height: 65% !important;*/
+        /*top: 115px;*/
+        /*!*top: 45vw;*!*/
+    /*}*/
+
     .nano {
-        height: 77% !important;
-        top: 125px;
+        height: 175px !important;
+        top: 130px;
     }
 }

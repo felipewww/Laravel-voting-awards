@@ -20,7 +20,7 @@ class CategoriesSeeder extends Seeder
             'Impacto',
             'Mentor',
             'Corporate',
-            'Heroi ou |Heroina do Ano',
+            'Heroina ou |Heroi do Ano',
             'Startup|do Ano',
             'Comunidade',
         ];

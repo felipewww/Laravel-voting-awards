@@ -158,7 +158,9 @@ div#actions > div.button{
 }
 .button span:first-child {
     width: 35px;
-    height: 100%;
+    /*height: 58px;*/
+    /*height: 54%;*/
+    height: 6.4vh;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
     -o-transform: skew(-20deg);
@@ -254,6 +256,10 @@ div#actions > div.button{
     color: #222222;
 }
 
+ul#ul-gaveta .button span:last-child > div {
+    font-size: 11px;
+    letter-spacing: 1px;
+}
 
 div#loader img {
     display: block;
@@ -534,7 +540,7 @@ ul {
         left: 0;
         transform: none;
         position: initial;
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     footer div {

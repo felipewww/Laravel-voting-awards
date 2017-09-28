@@ -39,6 +39,7 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/site/css/ellection.css?{{ $v->rand }}">
+    <link rel="stylesheet" type="text/css" href="/site/css/fonts/icon/flaticon.css?{{ $v->rand }}">
 @endsection
 @section('main_content')
     <div id="abre-gaveta">
@@ -163,7 +164,10 @@
 
                 <label>
                     <input type="text" name="reference"  maxlength="150">
-                    <span class="referencia" id="reference-tooltip" title="Neste campo você deve digitar alguma referência para validarmos a sua indicação. Pode ser um link de um site, link de um perfil de LinkedIn, nome da empresa ou instituição relacionada."><img src="/site/media/images/icon_referencia.png"></span>
+                    <span class="referencia" id="reference-tooltip" title="Neste campo você deve digitar alguma referência para validarmos a sua indicação. Pode ser um link de um site, link de um perfil de LinkedIn, nome da empresa ou instituição relacionada.">
+                        <div class="questionicon flaticon-question-mark-on-a-circular-black-background"></div>
+                        {{--<img src="/site/media/images/icon_referencia.png">--}}
+                    </span>
                 </label>
 
                 <div id="main-btn">

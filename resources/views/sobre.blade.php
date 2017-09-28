@@ -23,9 +23,18 @@
 
             <div class="nano">
                 <div class="nano-content">
-                    Curabitur molestie, velit id dignissim luctus, eros ante pellentesque orci, ac pharetra dolor risus vitae lectus. Sed libero ante, imperdiet ut elit vestibulum, convallis commodo turpis. Nullam dapibus, mi eget egestas egestas, ligula risus fringilla lorem, vel fringilla quam mi vitae magna. Nullam finibus pharetra aliquam. Vestibulum nec turpis imperdiet, porta diam ut, auctor justo. Suspendisse potenti. Morbi sit amet nibh sed tellus lacinia egestas vitae vitae mi. Pellentesque lobortis diam augue, euismod gravida turpis vulputate mollis. Proin tortor nisi, pretium et iaculis nec, faucibus eget magna. Donec finibus pharetra ligula, eget consectetur ligula venenatis sed. Etiam feugiat leo ut auctor vestibulum. Praesent egestas nunc ac congue hendrerit. Aenean purus dui, rhoncus iaculis elit non, elementum vestibulum mi. Vivamus consequat urna at posuere malesuada. Praesent dapibus sollicitudin eros, elementum interdum tellus malesuada eu. Sed ut purus at magna imperdiet pharetra.
+                    O Startup Awards é uma cerimônia de premiação para prestigiar os mais influentes agentes do cenário do empreendedorismo digital brasileiro através da entrega do prêmio Startup Awards, em 11 (onze) categorias, através de indicação e votação da Academia ABStartups.
                     <br>
-                    Curabitur molestie, velit id dignissim luctus, eros ante pellentesque orci, ac pharetra dolor risus vitae lectus. Sed libero ante, imperdiet ut elit vestibulum, convallis commodo turpis. Nullam dapibus, mi eget egestas egestas, ligula risus fringilla lorem, vel fringilla quam mi vitae magna. Nullam finibus pharetra aliquam. Vestibulum nec turpis imperdiet, porta diam ut, auctor justo. Suspendisse potenti. Morbi sit amet nibh sed tellus lacinia egestas vitae vitae mi. Pellentesque lobortis diam augue, euismod gravida turpis vulputate mollis. Proin tortor nisi, pretium et iaculis nec, faucibus eget magna. Donec finibus pharetra ligula, eget consectetur ligula venenatis sed. Etiam feugiat leo ut auctor vestibulum. Praesent egestas nunc ac congue hendrerit. Aenean purus dui, rhoncus iaculis elit non, elementum vestibulum mi. Vivamus consequat urna at posuere malesuada. Praesent dapibus sollicitudin eros, elementum interdum tellus malesuada eu. Sed ut purus at magna imperdiet pharetra.
+                    <br>
+                    O prêmio será entregue aos vencedores de cada categoria no dia 27 de outubro de 2017 durante o CASE – Conferência Anual de Startups e Empreendedorismo, no Espaço Pró-Magno, em São Paulo.
+                    <br>
+                    <br>
+                    Consulte o regulamento.
+                    <br>
+                    <br>
+                    Duvidas?
+                    <br>
+                    contato@abstartups.com.br
                 </div>
             </div>
             <div id="actions">

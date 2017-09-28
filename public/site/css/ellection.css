@@ -822,6 +822,7 @@ div#indicados .button span:last-child {
     width: 100%;
     background-color: var(--yellow);
     border-color: var(--yellow);
+    margin-left: 3px;
 }
 
 
@@ -1725,9 +1726,13 @@ main.color1 div#mobile_req{
     color: #000;
 }
 
+main.color1 .btn-text {  color: #1d1d1d;  }
+main.color1 .btn-text:hover {  color: var(--color1);;  }
 main.color1 .nav-block .btn-text {  color: var(--color1);  }
 main.color1 .btn:hover .btnbody {  background: var(--color1);  }
 main.color1 .btn:hover .btn-text {  color: #1d1d1d;  }
+
+main.color1 .questionicon { color: var(--color1); }
 
 main.color2 ul#nav li.active,
 main.color1 div#_modal,
@@ -1762,6 +1767,7 @@ main.color2 .nav-block .btn-text {  color: var(--color2);  }
 main.color2 .btn:hover .btnbody {  background: var(--color2);  }
 main.color2 .btn:hover .btn-text {  color: #1d1d1d;  }
 
+main.color2 .questionicon { color: var(--color2); }
 
 main.color3 ul#nav li.active,
 main.color3 div#_modal,
@@ -1797,6 +1803,8 @@ main.color3 .nav-block .btn-text {  color: var(--color3);  }
 main.color3 .btn:hover .btnbody {  background: var(--color3);  }
 main.color3 .btn:hover .btn-text {  color: #1d1d1d;  }
 
+main.color3 .questionicon { color: var(--color3); }
+
 
 main.color4 ul#nav li.active,
 main.color4 div#abre-gaveta{  border-color: var(--color4);  }
@@ -1830,6 +1838,7 @@ main.color4 .nav-block .btn-text {  color: var(--color4);  }
 main.color4 .btn:hover .btnbody {  background: var(--color4);  }
 main.color4 .btn:hover .btn-text {  color: #1d1d1d;  }
 
+main.color4 .questionicon { color: var(--color4); }
 
 main.color5 ul#nav li.active,
 main.color5 div#abre-gaveta{  border-color: var(--color5);  }
@@ -1863,6 +1872,7 @@ main.color5 .nav-block .btn-text {  color: var(--color5);  }
 main.color5 .btn:hover .btnbody {  background: var(--color5);  }
 main.color5 .btn:hover .btn-text {  color: #1d1d1d;  }
 
+main.color5 .questionicon { color: var(--color5); }
 
 main.color6 ul#nav li.active,
 main.color6 div#abre-gaveta{  border-color: var(--color6);  }
@@ -1895,6 +1905,9 @@ main.color6 .btn:hover .btn-text {  color: #1d1d1d;  }
 
 main.color6 .btn-text{  color: #000;  }
 main.color6 .btn-text:hover{  color: var(--color6);  }
+
+main.color6 .questionicon { color: var(--color6); }
+
 
 main.color7 ul#nav li.active,
 main.color7 div#abre-gaveta{  border-color: var(--color7);  }
@@ -1929,7 +1942,7 @@ main.color7 .nav-block .btn-text {  color: var(--color7);  }
 main.color7 .btn:hover .btnbody {  background: var(--color7);  }
 main.color7 .btn:hover .btn-text {  color: #fff;  }
 
-
+main.color7 .questionicon { color: var(--color7); }
 
 /*
  * CUSTOM COLORS
