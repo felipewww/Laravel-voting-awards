@@ -1204,6 +1204,23 @@ div#indicados .button.share:hover span:last-child {
 
 @media screen and (max-width: 767px) {
 
+    ul#requl li {
+        padding: 7px 0;
+        list-style-type: disc;
+        list-style-position: inside;
+        line-height: 20px;
+    }
+
+    ul#requl {
+        padding: 0px 35px;
+    }
+
+    #clone_mobile .req {
+        color: var(--lightYellow);
+        margin-top: 45px;
+        font-size: 15px;
+    }
+
     div#indicados ul li .title{
         font-size: 15px;
     }
@@ -1915,7 +1932,7 @@ main.color7 div#abre-gaveta{  border-color: var(--color7);  }
 main.color7 div#category, main.color7 div#req li{  color: #ffffff;  }
 
 main.color7 span.btnbody,
-main.color7 form input{  color: #fff;  border-color: var(--color7);  }
+main.color7 form input{  color: #fff;  border-color: var(--color7) !important;  }
 
 main.color7 div#main-btn span.btnbody{  border-color: var(--color7);  background-color: var(--color7); color: #fff; }
 
@@ -1941,6 +1958,12 @@ main.color7 .btn-text{  color: #FFF;  }
 main.color7 .nav-block .btn-text {  color: var(--color7);  }
 main.color7 .btn:hover .btnbody {  background: var(--color7);  }
 main.color7 .btn:hover .btn-text {  color: #fff;  }
+
+@media screen and (max-width: 767px){
+    main.color7 .nav-block .btn-text {  color: #fff;  }
+    main.color7 .btn:hover .btnbody {  background: var(--color7);  }
+    main.color7 .btn:hover .btn-text {  color: #fff;  }
+}
 
 main.color7 .questionicon { color: var(--color7); }
 
