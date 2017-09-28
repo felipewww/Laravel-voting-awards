@@ -17,7 +17,7 @@ class CategoriesSeeder extends Seeder
             'Universidade',
             'Coworking',
             'Aceleradora',
-            'Impacto',
+            'Impacto|Social',
             'Mentor',
             'Corporate',
             'Heroina ou |Heroi do Ano',
