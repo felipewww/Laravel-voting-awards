@@ -65,7 +65,10 @@ class EllectionController extends Controller
         $vars->cats = Categories::all();
         $vars->info = json_encode($info, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
         $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
-        $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.Auth::user()->email);
+
+        $identifier = ( Auth::user()->email == null ) ? Auth::user()->fb_id : Auth::user()->email;
+        $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.$identifier);
+
         $vars->appStatus = $this->app->status;
         $vars->infoFinalists = json_encode($infoFinalistas);
         $vars->infoPreFinalists = json_encode($infoPreFinalistas);
@@ -212,7 +215,13 @@ class EllectionController extends Controller
         }
 
         $u_id = (int) $share_token[0];
-        $user = User::where('id', $u_id)->where('email', $share_token[1])->first();
+
+        //Some user can register from facebook without send email, so, get from fb_id
+        if( strpos( $share_token[1], '@' ) !== false ){
+            $user = User::where('id', $u_id)->where('email', $share_token[1])->first();
+        }else{
+            $user = User::where('id', $u_id)->where('fb_id', $share_token[1])->first();
+        }
 
         if (!$user) {
             return redirect('/');
