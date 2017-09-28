@@ -75,4 +75,25 @@ class Controller extends BaseController
     {
         return str_replace('|', " ", $name);
     }
+
+    public function cutReference($reference)
+    {
+        $res = new \stdClass();
+
+        $dots = '';
+
+        $res->status    = true;
+        $res->class     = '';
+        $res->reference = $reference;
+//        $res->real_reference = $reference;
+
+        if ( ( strlen($reference) > 120 ) )
+        {
+            $dots = '...';
+            $res->class = 'giantref';
+            $res->reference = substr($reference,0,120).$dots;
+        }
+
+        return $res; //substr($reference,0,120).$dots;
+    }
 }

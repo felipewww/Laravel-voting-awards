@@ -41,3 +41,11 @@ img.img-circle.userimg {
 [class*="col-"].label-spacer {
     margin-top: 25px;
 }
+
+.hiddenTooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -67,12 +67,16 @@ class NominatedsController extends Controller
     public function dataTablesAguardando()
     {
         $data = [];
+
+
         foreach (Nominateds::where('valid', 0)->get() as $reg)
         {
+            $ref = $this->cutReference($reg->reference);
+
             $newInfo = [
                 $reg->id,
                 $reg->name,
-                $reg->reference,
+                $ref->reference,
                 $this->categorieName($reg->Categorie->name),
                 $reg->User->name,
                 $reg->User->ip,
@@ -109,6 +113,16 @@ class NominatedsController extends Controller
                                     'title' => 'Anular'
                                 ],
                             ],
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => $ref->class,
+                                    'href' => '#',
+                                    'onload' => 'Script.tooltipReference()',
+                                    'data-ref' => $reg->reference,
+                                    'data-ref-col' => 2
+                                ]
+                            ]
                         ]
                 ]
             ];
@@ -153,10 +167,12 @@ class NominatedsController extends Controller
             $status = $this->nominatedStatus($reg->valid);
             $from = $this->getUserFrom($reg->User);
 
+            $ref = $this->cutReference($reg->reference);
+
             $newInfo = [
                 $reg->id,
                 $this->JSONparse($reg->User->name),
-                $reg->reference,
+                $ref->reference,
                 $reg->User->ip,
                 $status,
                 $from,
@@ -203,6 +219,16 @@ class NominatedsController extends Controller
                                     'data-keep' => 3
                                 ],
                             ],
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => $ref->class,
+                                    'href' => '#',
+                                    'onload' => 'Script.tooltipReference()',
+                                    'data-ref' => $reg->reference,
+                                    'data-ref-col' => 2
+                                ]
+                            ]
                         ]
                 ]
             ];

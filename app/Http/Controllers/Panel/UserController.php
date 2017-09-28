@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -18,6 +19,8 @@ class UserController extends Controller
 
     public function __construct()
     {
+//        $p = bcrypt('ABSawards17');
+//        dd($p);
         parent::__construct();
         $this->model = new User();
     }
@@ -30,7 +33,7 @@ class UserController extends Controller
 
         try{
             $nominated = Nominateds::where('id', $id)->first();
-//            dd($nominated);
+
             DB::beginTransaction();
 
             $nominated->user_id_delete = Auth::user()->id;
@@ -70,17 +73,23 @@ class UserController extends Controller
     //Indicados na primeira etapa
     public function dataTablesUserNominateds()
     {
+        //$2y$10$PWCXIB5VSd03rchd7g6UjuGx8mqJU2pKfwnIAa4F9KxLwyERsCY7a
+
+//        $p = bcrypt('S3nh4P4dr40');
+//        dd( $p );
         $data = [];
 //        dd($this->user);
         foreach ($this->user->Nominateds as $reg)
         {
             $status = $this->nominatedStatus($reg->valid);
 
+            $ref = $this->cutReference($reg->reference);
+
             $newInfo = [
                 $reg->id,
                 $this->JSONparse($reg->name),
                 $this->categorieName($reg->Categorie->name),
-                $reg->reference,
+                $ref->reference,
                 $status,
                 [
                     'rowActions' =>
@@ -117,6 +126,15 @@ class UserController extends Controller
                                     'data-jslistener-click' => 'Script._delete',
                                     'data-voteid' => $reg->id,
                                     'title' => 'Deletar'
+                                ]
+                            ],
+                            [
+                                'html' => '',
+                                'attributes' => [
+                                    'class' => $ref->class,
+                                    'href' => '#',
+                                    'data-ref' => $reg->reference,
+                                    'data-ref-col' => 3
                                 ]
                             ]
                         ]

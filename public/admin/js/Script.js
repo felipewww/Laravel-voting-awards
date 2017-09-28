@@ -13,6 +13,47 @@ Script = {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $('.giantref').each(function () {
+            var tdpos   = $(this).attr('data-ref-col');
+            var fullref = $(this).attr('data-ref');
+            var td = $(this).closest('tr').first().find('td')[tdpos];
+
+            var hiddenTooltip = document.createElement('div');
+            hiddenTooltip.setAttribute('class','hiddenTooltip');
+            hiddenTooltip.setAttribute('title', fullref);
+            td.appendChild(hiddenTooltip);
+            td.style.position = 'relative';
+
+            // $(td).attr('title', fullref);
+
+            $(hiddenTooltip).tooltip({
+                // show: null,
+                tooltipClass: "custom-tooltip-styling",
+                position: {
+                    at: "right+20 top-15",
+                },
+                using: function( position, feedback ) {
+                    console.log($(this));
+                    $( this ).css( position );
+                    $( '<div style="position: absolute; top: -50px">' )
+                        .addClass( "arrow2" )
+                        .addClass( feedback.vertical )
+                        .addClass( feedback.horizontal )
+                        .appendTo( this );
+                },
+            });
+
+            // console.log(td);
+            // console.log(tdpos);
+            // console.log(fullref);
+        })
+    },
+
+
+    referenceTooltip: function (td)
+    {
+
     },
 
     /*
