@@ -1,5 +1,66 @@
 $(document).ready(function () {
     Ellection.init();
+    $( function() {
+        $( "#reference-tooltip" ).tooltip({
+            appendToBody: true,
+            show:  {
+                effect: 'slideDown'
+            },
+            position: {
+                my: "center top",
+                at: "center bottom"
+            },
+            using: function( position, feedback ) {
+                $( this ).css( position );
+                $( "<div>" )
+                    .addClass( "arrow" )
+                    .addClass( feedback.vertical )
+                    .addClass( feedback.horizontal )
+                    .appendTo( this );
+            },
+            open: function( event, ui ) {
+                ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                setTimeout(function () {
+                    $( "#reference-tooltip" ).tooltip( "close" );
+
+                },3000);
+            },
+            close: function (e, o) {
+//                    $( "#reference-tooltip" ).bind( "click");
+            }
+        });
+    } );
+
+    $( function() {
+        $( ".ref-tooltip" ).tooltip({
+            show: null,
+            position: {
+                my: "center top",
+                at: "center bottom"
+            },
+            using: function( position, feedback ) {
+                $( this ).css( position );
+                $( "<div>" )
+                    .addClass( "arrow" )
+                    .addClass( feedback.vertical )
+                    .addClass( feedback.horizontal )
+                    .appendTo( this );
+            },
+            open: function( event, ui ) {
+                ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+            },
+        });
+    } );
+    if (Script.isMobile) {
+
+        $( "#reference-tooltip" ).on("shown.bs.tooltip", function() {
+            $('body').css('cursor', 'pointer');
+        });
+
+        $( "#reference-tooltip" ).on("hide.bs.tooltip", function() {
+            $('body').css('cursor', 'auto');
+        });
+    }
 });
 
 Ellection = {
