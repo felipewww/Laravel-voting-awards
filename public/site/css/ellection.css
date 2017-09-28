@@ -2016,6 +2016,92 @@ main.color7 .questionicon { color: var(--color7); }
 main.color7 span.btnbody:active{  border-color: var(--color7);  background-color: var(--color7); }
 main.color7 span.btnbody:active .btn-text { color: #000; }
 
+
+
+
+main.color9 ul#nav li.active,
+main.color9 div#_modal,
+main.color9 div#abre-gaveta{  border-color: var(--color9);  }
+
+main.color9 div#category{  color: var(--color9);  }
+
+main.color9 div#req li {  color: #fff;  }
+
+main.color9 span.btnbody,
+main.color9 form input{  color: var(--color9);  border-color: var(--color9);  }
+
+main.color9 div#main-btn span.btnbody{  border-color: var(--color9);  background-color: var(--color9);  }
+
+main.color9 #nav-icon1 span,
+main.color9 .bar,
+main.color9 div#req .bg,
+main.color9 div#main-btn .bar{ background-color: var(--color9);  }
+
+
+main.color9 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color9 div#mobile_req{
+    background-color: var(--color9);
+    color: #fff;
+}
+
+main.color9 .btn-text{  color: #000;  }
+main.color9 .btn-text:hover{  color: var(--color9);  }
+
+
+main.color9 .nav-block .btn-text {  color: var(--color9);  }
+main.color9 .btn:hover .btnbody {  background: var(--color9);  }
+main.color9 .btn:hover .btn-text {  color: #1d1d1d;  }
+
+main.color9 .questionicon { color: var(--color9); }
+
+main.color9 span.btnbody:active{  border-color: var(--color9);  background-color: var(--color9); }
+main.color9 span.btnbody:active .btn-text { color: #000; }
+
+
+main.color10 ul#nav li.active,
+main.color10 div#_modal,
+main.color10 div#abre-gaveta{  border-color: var(--color10);  }
+
+main.color10 div#category{  color: var(--color10);  }
+
+main.color10 div#req li {  color: #fff;  }
+
+main.color10 span.btnbody,
+main.color10 form input{  color: var(--color10);  border-color: var(--color10);  }
+
+main.color10 div#main-btn span.btnbody{  border-color: var(--color10);  background-color: var(--color10);  }
+
+main.color10 #nav-icon1 span,
+main.color10 .bar,
+main.color10 div#req .bg,
+main.color10 div#main-btn .bar{ background-color: var(--color10);  }
+
+
+main.color10 div#abre-gaveta:hover{
+    background-color: #1d1d1d;
+}
+
+main.color10 div#mobile_req{
+    background-color: var(--color10);
+    color: #fff;
+}
+
+main.color10 .btn-text{  color: #000;  }
+main.color10 .btn-text:hover{  color: var(--color10);  }
+
+
+main.color10 .nav-block .btn-text {  color: var(--color10);  }
+main.color10 .btn:hover .btnbody {  background: var(--color10);  }
+main.color10 .btn:hover .btn-text {  color: #1d1d1d;  }
+
+main.color10 .questionicon { color: var(--color10); }
+
+main.color10 span.btnbody:active{  border-color: var(--color10);  background-color: var(--color10); }
+main.color10 span.btnbody:active .btn-text { color: #000; }
+
 /*
  * CUSTOM COLORS
  */
