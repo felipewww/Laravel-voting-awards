@@ -67,7 +67,9 @@ class EllectionController extends Controller
         $vars->rand = rand(100,200); //forçar navegadores a limpar o cache
 
         $identifier = ( Auth::user()->email == null ) ? Auth::user()->fb_id : Auth::user()->email;
+
         $vars->share_token = Crypt::encrypt(Auth::user()->id.'|'.$identifier);
+//        $vars->share_token = Auth::user()->id.'|'.$identifier;
 
         $vars->appStatus = $this->app->status;
         $vars->infoFinalists = json_encode($infoFinalistas);
