@@ -29,6 +29,15 @@ $(document).ready(function () {
 //                    $( "#reference-tooltip" ).bind( "click");
             }
         });
+        if (Script.isMobile) {
+            $( "#reference-tooltip" ).on("shown.bs.tooltip", function() {
+                $('body').css('cursor', 'pointer');
+            });
+
+            $( "#reference-tooltip" ).on("hide.bs.tooltip", function() {
+                $('body').css('cursor', 'auto');
+            });
+        }
     } );
 
     $( function() {
@@ -51,16 +60,7 @@ $(document).ready(function () {
             },
         });
     } );
-    if (Script.isMobile) {
 
-        $( "#reference-tooltip" ).on("shown.bs.tooltip", function() {
-            $('body').css('cursor', 'pointer');
-        });
-
-        $( "#reference-tooltip" ).on("hide.bs.tooltip", function() {
-            $('body').css('cursor', 'auto');
-        });
-    }
 });
 
 Ellection = {
