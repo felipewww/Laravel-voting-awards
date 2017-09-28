@@ -106,7 +106,10 @@
 
         $( function() {
             $( "#reference-tooltip" ).tooltip({
-                show: null,
+                appendToBody: true,
+                show:  {
+                    effect: 'slideDown'
+                },
                 position: {
                     my: "center top",
                     at: "center bottom"
@@ -121,7 +124,14 @@
                 },
                 open: function( event, ui ) {
                     ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                    setTimeout(function () {
+                        $( "#reference-tooltip" ).tooltip( "close" );
+
+                    },3000);
                 },
+                close: function (e, o) {
+//                    $( "#reference-tooltip" ).bind( "click");
+                }
             });
         } );
 
@@ -145,6 +155,16 @@
                 },
             });
         } );
+//        if (isMobile.apple.device) {
+//
+//            $( "#reference-tooltip" ).on("shown.bs.tooltip", function() {
+//                $('body').css('cursor', 'pointer');
+//            });
+//
+//            $( "#reference-tooltip" ).on("hide.bs.tooltip", function() {
+//                $('body').css('cursor', 'auto');
+//            });
+//        }
     </script>
 
     <div id="logo"></div>

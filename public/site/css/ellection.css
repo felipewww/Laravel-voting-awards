@@ -1126,8 +1126,8 @@ div#indicados .button.share:hover span:last-child {
 
     div#hero {
         width: 25vw;
-        height: 18vh;
-        top: 0;
+        height: 16vh;
+        top: 0px;
         margin-left: -11.5vw;
     }
     div#category {
@@ -1223,6 +1223,13 @@ div#indicados .button.share:hover span:last-child {
 
     div#indicados ul li .title{
         font-size: 15px;
+    }
+
+    div#hero {
+        width: 25vw;
+        height: 16vh;
+        top: -10px;
+        margin-left: -12.5vw;
     }
 
     div#main-btn {
@@ -1489,6 +1496,7 @@ div#indicados .button.share:hover span:last-child {
         margin: 0;
         left: 0;
         position: initial;
+        text-align: center;
     }
     div#gaveta #footer .realiza-gaveta, div#gaveta #footer .apoio-gaveta{
         display: inline-block;
@@ -1529,6 +1537,15 @@ div#indicados .button.share:hover span:last-child {
     }
 }
 
+@media screen and (max-height: 500px) {
+    div#hero {
+        width: 25vw;
+        height: 15vh;
+        top: 0px;
+        margin-left: -12.5vw;
+    }
+
+}
 /*@media screen and (max-width: 639px){*/
     /*div#mobile_req {*/
         /*display: block;*/
