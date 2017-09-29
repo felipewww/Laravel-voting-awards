@@ -150,6 +150,16 @@ Ellection = {
         this.initialTextMargin = parseInt($(this.text).css('top'));
         this.reqUL = document.getElementById("requl");
 
+        //Evitar que o usuário perca o voto clicando em PROXIMO ou ANTERIOR
+        this.inputs.each(function () {
+            var ipt = $(this)[0];
+            console.log(ipt);
+
+            ipt.onchange = function () {
+                Ellection.avoidLoseVote = true;
+            }
+        });
+
         //Primeiro acesso, clicar no primeiro item para carregar tela e efeitos.
         if (this.start) {
             this.start = false;
@@ -254,6 +264,13 @@ Ellection = {
         });
 
         $(next).on('click', function () {
+            if(Ellection.avoidLoseVote){
+                var indicado = Ellection.inputs[0].value;
+                Script._modal('Clique em INDICAR para finalizar a indicação de "'+indicado+'" ou em próximo para ignorar esta indicação.', 10000);
+                Ellection.mainBtn.effect('shake');
+                Ellection.avoidLoseVote = false;
+                return false;
+            }
             if (!next.classList.contains('disabled')) {
                 var goto;
                 if (Ellection.currentPage == length - 1) {
@@ -314,6 +331,8 @@ Ellection = {
 
     _setPlaceholder: function ()
     {
+        Ellection.avoidLoseVote = false;
+
         var placeholder = ['Indicado','Referência'];
 
         this.inputs.each(function (i) {
@@ -335,7 +354,12 @@ Ellection = {
                     this.value = placeholder;
                 }
 
-            })
+            });
+
+            // input.addEventListener('change', function () {
+            //     // console.log('changed...');
+            //     Ellection.avoidLoseVote = true;
+            // })
         }
     },
 
@@ -706,6 +730,7 @@ Ellection = {
                     Script._modal('Indicação computada com sucesso!');
                     obj.db['nominated'] = { name: name, reference: ref };
                     _this.setAsBlocked(catid, obj);
+                    Ellection.avoidLoseVote = false;
                 }else{
                     Script._modal(data.message);
                 }

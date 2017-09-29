@@ -67,15 +67,18 @@ Script = {
         }
     },
 
-    _modal: function (text)
+    _modal: function (text, time)
     {
+        if (time == undefined) {
+            time = 5000;
+        }
         var $modal = $(this._modal_div);
         $modal.html(text);
         $modal.slideDown();
 
         setTimeout(function () {
             $modal.slideUp();
-        }, 5000)
+        }, time);
     },
 
     length: function (obj) {
