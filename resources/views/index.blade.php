@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" type="text/css" href="/site/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/site/css/style.css?123">
     <link rel="stylesheet" type="text/css" href="/js/jquery-ui-1.12.1.custom/jquery-ui.min.css">
     @yield('styles')
 
