@@ -303,8 +303,10 @@ div#content.text {
 div#category {
     font-family: 'The Frontman';
     color: var(--yellow);
-    font-size: 3vw;
-    line-height: 1.5em;
+    /*font-size: 3vw;*/
+    /*line-height: 1.5em;*/
+    font-size: 7vw;
+    line-height: 0.6em;
     position: absolute;
     left: -8vw;
     top: 5.4vh;
