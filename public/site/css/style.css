@@ -20,11 +20,11 @@
 
 @font-face {
     font-family: 'The Frontman';
-    src: url('./fonts/frontman/TheFrontman.eot');
-    src: url('./fonts/frontman/TheFrontman.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/frontman/TheFrontman.woff2') format('woff2'),
-    url('./fonts/frontman/TheFrontman.woff') format('woff'),
-    url('./fonts/frontman/TheFrontman.ttf') format('truetype');
+    src: url('./fonts/frontman/Frontboy2Regular.eot');
+    src: url('./fonts/frontman/Frontboy2Regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/frontman/Frontboy2Regular.woff2') format('woff2'),
+    url('./fonts/frontman/Frontboy2Regular.woff') format('woff'),
+    url('./fonts/frontman/Frontboy2Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
