@@ -300,9 +300,9 @@ Ellection = {
 
             $(this).toggleClass('open');
 
-            function asd() {
-                alert("asd");
-            }
+            // function asd() {
+            //     alert("asd");
+            // }
 
             // Ellection.gaveta.toggle( "slide" ,1000,'easeInExpo', function () {
 
