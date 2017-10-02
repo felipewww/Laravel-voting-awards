@@ -68,8 +68,8 @@ Pages = {
 
     5: {
         bgColor: "#289446",
-        mainBorderColor: "#c188ea",
-        colorClass: "color5",
+        mainBorderColor: "#b54357",
+        colorClass: "color9",
         logo: "startup_awards_white.png",
         styleHero: {
             width: '21vw',
@@ -103,6 +103,9 @@ Pages = {
         mainBorderColor: "#b8ff7e",
         colorClass: "color6",
         logo: "startup_awards_white.png",
+        styleHero: {
+            backgroundSize: '90%'
+        },
         requireds: {
             0: 'Ter pelo menos uma startup nacional como fornecedora',
             1: 'Ter pessoas dedicadas exclusivamente para o mercado de startup nacional'
@@ -123,9 +126,9 @@ Pages = {
     },
 
     9: {
-        bgColor: "#fe111b",
-        mainBorderColor: "#ffd300",
-        colorClass: "color4",
+        bgColor: "#ffd425",
+        mainBorderColor: "#ca2026",
+        colorClass: "color10",
         logo: "startup_awards.png",
         styleHero: {
             backgroundSize: '86%'
