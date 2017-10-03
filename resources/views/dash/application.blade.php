@@ -1,5 +1,24 @@
 @extends('dash.main')
 
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[name="status"]').on('change', function () {
+                $this = $(this);
+//                console.log($this.val());
+                if ( $this.val() == 'finished' )
+                {
+                    swal(
+                        'Atenção!',
+                        'Alterar para "Finalizada" fará com que todos vejam os vencedores de cada categoria. Tem certeza disso? Já é dia 28/10/2017?',
+                        'warning'
+                    )
+                }
+            });
+        });
+    </script>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">

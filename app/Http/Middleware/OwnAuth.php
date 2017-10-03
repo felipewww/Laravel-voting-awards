@@ -6,6 +6,7 @@ use App\Application;
 use App\User;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class OwnAuth
 {
@@ -18,6 +19,14 @@ class OwnAuth
      */
     public function handle($request, Closure $next)
     {
+        if(Application::Info()->status == 'waiting'){
+            Redirect::to('/finalistas')->send();
+        }
+
+        if(Application::Info()->status == 'finished'){
+            Redirect::to('/vencedores')->send();
+        }
+
         if (!Auth::check())
         {
             //Se a rota ja for "ENTRAR", nao redirecionar, apenas continua.
@@ -32,9 +41,6 @@ class OwnAuth
             if (Application::Info()->status == 'voting' && !Auth::user()->voteable)
             {
                 return redirect('/fim');
-//                return view('ellection_end');
-
-//                dd('Action not allowed');
             }
 
             //Se a rota ja for "INDICAÇÃO", nao redirecionar, apenas continua.

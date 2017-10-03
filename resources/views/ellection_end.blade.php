@@ -13,7 +13,7 @@
             <img id="logo" src="/site/media/images/{{env('APP_LOGO')}}">
             <div id="text">
                 <span class="yellow">O PERÍODO DE INDICAÇÃO TERMINOU.</span>
-                <span>Acesse o site dia 29 de outubro para conferir os finalistas de cada categoria</span>
+                <span>Acesse o site dia 20 de outubro para conferir os finalistas de cada categoria</span>
             </div>
         </div>
     </div>

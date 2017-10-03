@@ -77,7 +77,7 @@ class EllectionController extends Controller
 
         if($this->app->status == 'finished')
         {
-            dd('Aplicação finalizada! Fazer tela do fim.');
+            return EllectionController::fim();
         }
 //        dd(($this->app->status == 'voting' || $this->app->status == 'prevote'));
         if ( ($this->app->status == 'voting' || $this->app->status == 'prevote') && !Auth::user()->voteable)
@@ -136,6 +136,13 @@ class EllectionController extends Controller
 
             return view('ellection', ['v' => $vars ]);
         }
+    }
+
+    public function fim()
+    {
+//        return redirect('/fim');
+//        return dd('Aplicação finalizada! Fazer tela do fim.');
+//        return view('fim');
     }
 
     public function recebe(Request $request)
@@ -349,5 +356,38 @@ class EllectionController extends Controller
     public function end(Request $request)
     {
         return view('ellection_end');
+    }
+
+    public function finalistas(Request $request)
+    {
+        $info = [];
+
+        //Json para falar com JS
+        foreach (Categories::orderBy('position')->get() as $cat)
+        {
+            //$t = $user->Nominateds()->where('categorie_id', $cat->id)->first();
+            $t = Finalists::where('categorie_id', $cat->id)->get();
+//            dd($t);
+
+            $info[$cat->position] = [];
+            $info[$cat->position]['name']       = $cat->name;
+            $info[$cat->position]['icon']       = $cat->image_name;
+            $info[$cat->position]['id']         = $cat->id;
+            $info[$cat->position]['finalists']  = $t;
+
+//            if ($t) {
+//                $info[$cat->position]['nominated'] = [
+//                    'name' => $this->JSONparse($t->name),
+//                    'reference' => $this->JSONparse($t->reference)
+//                ];
+//            }
+        }
+
+        $v = new \stdClass();
+        $v->info = json_encode($info);
+
+//        dd($v->info);
+
+        return view('vote_end', ['v' => $v]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\AppStatus;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -61,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'OwnAuth' => \App\Http\Middleware\OwnAuth::class,
         'AdminAuth' => \App\Http\Middleware\AdminAuth::class,
+        'AppStatus' => AppStatus::class,
     ];
 }

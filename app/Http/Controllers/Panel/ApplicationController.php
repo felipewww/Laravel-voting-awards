@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Panel;
 use App\Application;
 use App\Categories;
 use App\Finalists;
+use App\Http\Controllers\WinnersController;
 use App\Library\DataTablesExtensions;
 use App\PreFinalists;
 use App\User;
+use App\Winners;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,6 +22,7 @@ class ApplicationController extends Controller
         'ellection' => 'Indicação',
         'prevote' => '10 finalistas',
         'voting' => 'Votação',
+        'waiting' => 'Votação Finalizada',
         'finished' => 'Finalizada'
     ];
 
@@ -47,6 +50,10 @@ class ApplicationController extends Controller
 
             case 'voting':
                 $go = $this->__toVoting();
+                break;
+
+            case 'finished':
+                $go = $this->__toFinished2();
                 break;
         }
 
@@ -109,6 +116,26 @@ class ApplicationController extends Controller
             {
                 $res['error'] = true;
                 $res['message'] = 'Cadastre os '.$required.' finalistas necessários antes de alterar o status.';
+            }
+        }
+
+        return $res;
+    }
+
+    protected function __toFinished2()
+    {
+        $res = [
+            'error'     => false,
+            'message'   => ''
+        ];
+
+        $categoriesCount = Categories::all()->count();
+
+        if (env('APP_ENV') == 'production')
+        {
+            if (Winners::all()->count() != $categoriesCount) {
+                $res['error'] = true;
+                $res['message'] = 'Antes de alterar, cadastre os '.$categoriesCount.' vencedores necessários.';
             }
         }
 

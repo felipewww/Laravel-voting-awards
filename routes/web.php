@@ -43,15 +43,26 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
     Route::get('/app', 'Panel\ApplicationController@index');
 });
 
-Route::get('/', 'LoginController@index');
-Route::get('/fim', 'EllectionController@end');
-Route::get('/registro', 'RegisterController@index');
-Route::post('/registro', 'RegisterController@save');
+Route::group(['middleware' => 'AppStatus'], function (){
+    Route::get('/', 'LoginController@index');
+    Route::get('/fim', 'EllectionController@end');
+    Route::get('/registro', 'RegisterController@index');
+    Route::post('/registro', 'RegisterController@save');
 
-Route::get('/login/{from}/{token}', 'LoginController@login');
-Route::get('/sobre', function (){
-    return view('sobre');
+    Route::get('/login/{from}/{token}', 'LoginController@login');
+    Route::get('/sobre', function (){
+        return view('sobre');
+    });
+
+    Route::post('/login', 'LoginController@login');
+    Route::any('/share/{catid}/{email_token}', 'EllectionController@share');
 });
+
+
+Route::get('/finalistas', 'EllectionController@finalistas');
+
+Route::get('/vencedores', 'WinnersController@index');
+Route::get('/vencedores/{cat_id}/share', 'WinnersController@_share');
 
 Route::get('/seguranca', function (){
     return view('seguranca');
@@ -60,9 +71,6 @@ Route::get('/seguranca', function (){
 Route::get('/regulamento', function (){
     return view('regulamento');
 });
-
-Route::post('/login', 'LoginController@login');
-Route::any('/share/{catid}/{email_token}', 'EllectionController@share');
 
 Route::group(['middleware' => 'OwnAuth', 'prefix' => 'indicacao'], function($request){
     Route::get('/', 'EllectionController@index');

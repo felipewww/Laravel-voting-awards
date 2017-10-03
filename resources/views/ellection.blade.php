@@ -25,13 +25,28 @@
         publicAppId = '{{ env("FB_APP_ID") }}';
     </script>
     @if($v->appStatus == 'voting')
-        <script type="text/javascript" src="/site/js/PreVote.js?{{ $v->rand }}"></script>
-        <link rel="stylesheet" type="text/css" href="/site/css/prevote.css?{{ $v->rand }}">
+        <script type="text/javascript" src="/site/js/Voting.js?{{ $v->rand }}"></script>
+        <link rel="stylesheet" type="text/css" href="/site/css/voting.css?{{ $v->rand }}">
     @endif
 
     @if($v->appStatus == 'prevote')
         <script type="text/javascript" src="/site/js/PreVote.js?{{ $v->rand }}"></script>
         <link rel="stylesheet" type="text/css" href="/site/css/prevote.css?{{ $v->rand }}">
+
+        <style>
+            @media screen and (max-width: 767px){
+                #mainform{
+                    height: 115px;
+                }
+
+                div#main-btn {
+                    clear: both;
+                    position: absolute;
+                    bottom: 70px;
+                    left: 10px;
+                }
+            }
+        </style>
     @endif
     <script type="text/javascript" src="/site/js/Pages.js?{{ $v->rand }}"></script>
     <script type="text/javascript" src="/site/js/Ellection.js?{{ $v->rand }}"></script>
@@ -155,21 +170,6 @@
                 </span>
             </div>
         </div>
-
-        <div id="req">
-            <div class="title">
-                <div class="bg"></div>
-                <div class="req">Requisitos da Categoria</div>
-            </div>
-            <ul id="requl">
-                <li>
-                    <span>Estar ativo</span>
-                </li>
-                <li>
-                    <span>Ter sido host de no mínimo 3 eventos</span>
-                </li>
-            </ul>
-        </div>
     @endif
 
     @if(\App\Application::Info()->status == 'prevote')
@@ -275,6 +275,21 @@
             </div>
         </div>
     @endif
+    <div id="req">
+        <div class="title">
+            <div class="bg"></div>
+            <div class="req">Requisitos da Categoria</div>
+        </div>
+        <ul id="requl">
+            <li>
+                <span>Estar ativo</span>
+            </li>
+            <li>
+                <span>Ter sido host de no mínimo 3 eventos</span>
+            </li>
+        </ul>
+    </div>
+
     <div id="mobile_req">
         <div>
             Requisitos da Categoria

@@ -1,0 +1,54 @@
+div#req .title .req {
+    text-align: center;
+    padding-left: 0;
+}
+
+div#publicInfo > div {
+    padding: 45px 0 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    border-bottom: 2px solid;
+}
+
+div#publicInfo {
+    position: absolute;
+    bottom: 20%;
+    /*width: 450px;*/
+    width: 40%;
+    right: -130px;
+}
+
+.nav-block {
+    bottom: -50px;
+}
+
+div#category {
+    top: 9.4vh;
+}
+
+div#content{
+    height: 35vh !important;
+}
+
+@media screen and (max-width: 767px){
+    div#content{
+        height: 50vh !important;
+    }
+
+    div#publicInfo {
+        position: initial;
+        bottom: 20%;
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    div#publicInfo > div {
+        padding: 25px 0 10px 20px;
+        font-size: 12px;
+    }
+
+    div#logo{
+        margin-top: -80px;
+        display: block;
+    }
+}
