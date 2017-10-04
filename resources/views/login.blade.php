@@ -2,6 +2,16 @@
 
 @section('scripts')
     <script type="text/javascript" src="/site/js/Login.js"></script>
+
+    @if( isset($isShare) )
+        <meta property="fb:app_id"        content="{{ env("FB_APP_ID") }}" />
+        <meta property="og:url"           content="{{ env('APP_URL') }}/{{$cat_id}}/{{$name}}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Startup Awards {{env("APP_YEAR")}}" />
+        <meta property="og:description"   content="Indiquei {{ $name }} para o Startup Awards {{env("APP_YEAR")}} na categoria {{ $cat_name }}, indique você também!" />
+        <meta property="og:image"         content="{{ env('APP_URL') }}/site/media/images/{{$image_name}}" />
+    @endif
+
 @endsection
 @section('styles')
     <link rel="stylesheet" type="text/css" href="/site/css/login.css">
