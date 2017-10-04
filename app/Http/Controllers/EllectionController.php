@@ -365,28 +365,22 @@ class EllectionController extends Controller
         //Json para falar com JS
         foreach (Categories::orderBy('position')->get() as $cat)
         {
-            //$t = $user->Nominateds()->where('categorie_id', $cat->id)->first();
-            $t = Finalists::where('categorie_id', $cat->id)->get();
-//            dd($t);
+            $finalists = new Finalists();
+
+            $t = $finalists->where('categorie_id', $cat->id)->get()->each(function ($item, $k){
+                $newName = $this->JSONparse($item->name);
+                $item->setNameAttribute($newName);
+            });
 
             $info[$cat->position] = [];
             $info[$cat->position]['name']       = $cat->name;
             $info[$cat->position]['icon']       = $cat->image_name;
             $info[$cat->position]['id']         = $cat->id;
             $info[$cat->position]['finalists']  = $t;
-
-//            if ($t) {
-//                $info[$cat->position]['nominated'] = [
-//                    'name' => $this->JSONparse($t->name),
-//                    'reference' => $this->JSONparse($t->reference)
-//                ];
-//            }
         }
 
         $v = new \stdClass();
         $v->info = json_encode($info);
-
-//        dd($v->info);
 
         return view('vote_end', ['v' => $v]);
     }

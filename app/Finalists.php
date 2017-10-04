@@ -15,4 +15,9 @@ class Finalists extends Model
     {
         return $this->hasMany(FinalistVotes::class, 'finalist_id');
     }
+
+    public function setNameAttribute($newname)
+    {
+        $this->attributes['name'] = $newname;
+    }
 }

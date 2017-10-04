@@ -4,6 +4,13 @@ $(document).ready(function () {
 });
 
 Script = {
+
+    clearJSON: function (json)
+    {
+        var njson = json.replace("'", "´");
+        return njson;
+    },
+
     init: function () {
         console.log(window.csrfToken);
         this._token = window.csrfToken;

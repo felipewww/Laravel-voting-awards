@@ -66,9 +66,9 @@ class Controller extends BaseController
 
     public function JSONparse($str)
     {
-//        $str = str_replace('\\', '/', $str);
         $str = str_replace('\\', '', $str);
         $str = str_replace('"', '', $str);
+        $str = str_replace("'", '', $str);
         return htmlspecialchars($str);
     }
 
@@ -81,12 +81,9 @@ class Controller extends BaseController
     {
         $res = new \stdClass();
 
-        $dots = '';
-
         $res->status    = true;
         $res->class     = '';
         $res->reference = $reference;
-//        $res->real_reference = $reference;
 
         if ( ( strlen($reference) > 120 ) )
         {
@@ -95,6 +92,6 @@ class Controller extends BaseController
             $res->reference = substr($reference,0,120).$dots;
         }
 
-        return $res; //substr($reference,0,120).$dots;
+        return $res;
     }
 }

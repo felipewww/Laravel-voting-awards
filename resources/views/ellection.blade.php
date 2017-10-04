@@ -17,9 +17,9 @@
 
     <script type="text/javascript">
         appStatus = '{{  $v->appStatus }}';
-        ellectionInfo = JSON.parse('<?= $v->info ?>');
-        finalistsInfo = JSON.parse('<?= $v->infoFinalists ?>');
-        PrefinalistsInfo = JSON.parse('<?= $v->infoPreFinalists ?>');
+        ellectionInfo = JSON.parse(Script.clearJSON('<?= $v->info ?>'));
+        finalistsInfo = JSON.parse(Script.clearJSON("<?= $v->infoFinalists ?>"));
+        PrefinalistsInfo = JSON.parse(Script.clearJSON('<?= $v->infoPreFinalists ?>'));
 
         shareToken = '{{ $v->share_token }}';
         publicAppId = '{{ env("FB_APP_ID") }}';
