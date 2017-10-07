@@ -12,7 +12,7 @@
                 serverSide: true,
                 order: [[ 1, "asc" ]],
                 "columnDefs": [
-                    { "orderable": false, "targets": [,3,4,5] }
+                    { "orderable": false, "targets": [2,4] }
                 ]
             });
 

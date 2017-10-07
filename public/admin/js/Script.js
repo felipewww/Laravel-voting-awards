@@ -118,6 +118,7 @@ Script = {
     * */
     _alterStatus: function (event, element, params, window)
     {
+        console.log(element);
         var id = element.getAttribute('data-voteid');
         var alterTo = element.getAttribute('data-alterto');
         var data = { vote: id, to: alterTo };

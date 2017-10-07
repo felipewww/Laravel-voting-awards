@@ -254,7 +254,7 @@ class UserController extends Controller
 
             ],
             'recordsTotal' => $Total,
-            "recordsFiltered" => $data->count(),
+            "recordsFiltered" => $Total,
         ];
 
         /**

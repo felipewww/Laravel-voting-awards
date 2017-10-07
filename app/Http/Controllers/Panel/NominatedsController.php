@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NominatedsController extends Controller
 {
@@ -40,14 +41,12 @@ class NominatedsController extends Controller
 
     public function __TreatCategorie($cat)
     {
-//        $str = 'asd';
         $str = $this->categorieName($cat->name);
         return $str;
     }
 
     public function AjaxAguardando(Request $request)
     {
-//        dd($request->all());
         $cols = [
             [
                 'show_name'     => 'ID',
@@ -55,7 +54,7 @@ class NominatedsController extends Controller
             ],
             [
                 'show_name'     => 'Indicado',
-                'name'          => 'name'
+                'name'          => 'nominateds.name'
             ],
             [
                 'show_name'     => 'Referência',
@@ -63,21 +62,21 @@ class NominatedsController extends Controller
             ],
             [
                 'show_name'     => 'Categoria',
-                'name'          => 'Categorie',
-                'treat_method'  => '__TreatCategorie',
-                'isRelation'    => true
+                'name'          => 'cat_name',
+//                'treat_method'  => '__TreatCategorie',
+//                'isRelation'    => true
             ],
             [
                 'show_name'     => 'Usuário',
-                'name'          => 'id'
+                'name'          => 'username',
             ],
             [
                 'show_name'     => 'IP',
-                'name'          => 'id'
+                'name'          => 'userip',
             ],
             [
                 'show_name'     => 'Ações',
-                'name'          => 'id'
+                'name'          => ['AguardandoActions']
             ],
         ];
 
@@ -109,15 +108,23 @@ class NominatedsController extends Controller
          * */
         $search = $request->search['value'];
 
-        $query = Nominateds::with('Categorie')->where('valid', 0);
-        $queryCols = ['nominateds.*'];
+        $query = Nominateds::with(['Categorie','User'])->where('valid', 0);
+        $queryCols = ['nominateds.*','categories.name AS cat_name', 'users.ip AS userip','users.name AS username'];
+
+//        $query->addSelect(DB::raw("nominateds.*, users.ip AS userip, users.name AS username, REPLACE(categories.name, '|', ' ') AS cat_name"));
+
+        $query->join('categories', 'categorie_id','categories.id');
+        $query->join('users', 'user_id','users.id');
 
         if ($search != '') {
-            $query->join('categories', 'categorie_id','categories.id');
+
 
             $query->where(function ($query) use ($search){
-                $query->orWhere('categories.name', 'like', '%'.$search.'%')
-                    ->orWhere('nominateds.name', 'like', '%'.$search.'%');
+                $query
+                    ->orWhere('categories.name', 'like', '%'.$search.'%')
+//                    ->orWhere('cat_name', 'like', '%'.$search.'%')
+                    ->orWhere('nominateds.name', 'like', '%'.$search.'%')
+                    ->orWhere('users.ip', 'like', '%'.$search.'%');
             });
 
             array_push($queryCols, 'categories.name as cat_name');
@@ -132,7 +139,7 @@ class NominatedsController extends Controller
 
         $data = $query->skip($request->start)->take($length)->get($queryCols);
 
-
+//dd($data);
         $arr = [
             'data' => [
 
@@ -154,7 +161,6 @@ class NominatedsController extends Controller
             );
 
             array_shift($methods);
-
 
             if (count($methods) > 0) {
                 return callRelation($val, $methods);
@@ -179,7 +185,6 @@ class NominatedsController extends Controller
                 if ( gettype($val) == 'object' ) {
                     $action = $col['treat_method'];
                     $val = $this->$action($val);
-//                    $val = $val->name;
                 }
 
                 array_push($u, $val);
@@ -222,83 +227,6 @@ class NominatedsController extends Controller
         }
 
         return json_encode($res);
-    }
-
-    public function dataTablesAguardando()
-    {
-        $data = [];
-
-        foreach (Nominateds::where('valid', 0)->get() as $reg)
-        {
-            $ref = $this->cutReference($reg->reference);
-
-            $newInfo = [
-                $reg->id,
-                $reg->name,
-                $ref->reference,
-                $this->categorieName($reg->Categorie->name),
-                $reg->User->name,
-                $reg->User->ip,
-                [
-                    'rowActions' =>
-                        [
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-custom btn-circle fa fa-eye m-l-10 has-tooltip',
-                                    'href' => '/panel/user/'.$reg->User->id,
-                                    'title' => 'Todos os votos'
-                                ],
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-success btn-circle fa fa-check m-l-10 has-tooltip',
-                                    'data-jslistener-click' => 'Script._alterStatus',
-                                    'href' => '#',
-                                    'data-voteid' => $reg->id,
-                                    'data-alterto' => 1,
-                                    'title' => 'Aprovar'
-                                ],
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-danger btn-circle fa fa-times m-l-10 has-tooltip',
-                                    'data-jslistener-click' => 'Script._alterStatus',
-                                    'href' => '#',
-                                    'data-voteid' => $reg->id,
-                                    'data-alterto' => 2,
-                                    'title' => 'Anular'
-                                ],
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => $ref->class,
-                                    'href' => '#',
-                                    'onload' => 'Script.tooltipReference()',
-                                    'data-ref' => $reg->reference,
-                                    'data-ref-col' => 2
-                                ]
-                            ]
-                        ]
-                ]
-            ];
-
-            array_push($data, $newInfo);
-        }
-
-        $this->data_info = $data;
-        $this->data_cols = [
-            ['title' => 'ID','width' => '30px'],
-            ['title' => 'Indicado'],
-            ['title' => 'Referência'],
-            ['title' => 'Categoria'],
-            ['title' => 'User'],
-            ['title' => 'IP'],
-            ['title' => 'Ações', 'width' => '100px'],
-        ];
     }
 
     public function users(Request $request, $nominated, $cat_id)
