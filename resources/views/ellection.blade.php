@@ -18,7 +18,9 @@
     <script type="text/javascript">
         appStatus = '{{  $v->appStatus }}';
         ellectionInfo = JSON.parse(Script.clearJSON('<?= $v->info ?>'));
-        finalistsInfo = JSON.parse(Script.clearJSON("<?= $v->infoFinalists ?>"));
+
+        finalistsInfo = JSON.parse(Script.clearJSON('<?= $v->infoFinalists ?>'));
+
         PrefinalistsInfo = JSON.parse(Script.clearJSON('<?= $v->infoPreFinalists ?>'));
 
         shareToken = '{{ $v->share_token }}';

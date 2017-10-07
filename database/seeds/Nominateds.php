@@ -39,7 +39,7 @@ class Nominateds extends Seeder
 
             $nominated->name            = $name[rand(0, count($name)-1)];
             $nominated->reference       = $faker->text(45);
-            $nominated->valid           = 1;
+            $nominated->valid           = 0;
             $nominated->user_id         = $userRandom->id;
             $nominated->categorie_id    = $cateRandom->id;
 

@@ -54,7 +54,7 @@ class Controller extends BaseController
     {
         if ($user->fb_id)
         {
-            $from = 'Facebook';
+            $from = 'facebook.com/'.$user->fb_id;
         }
         else
         {

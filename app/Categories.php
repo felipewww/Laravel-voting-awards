@@ -17,4 +17,9 @@ class Categories extends Model
     {
         return $this->hasMany(PreFinalists::class, 'categorie_id');
     }
+
+    public function Name()
+    {
+        return $this->name;
+    }
 }

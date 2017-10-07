@@ -158,64 +158,146 @@ class UserController extends Controller
     public function all(Request $request)
     {
         $this->vars->title = 'Participantes';
-        $this->methodConfigName = 'dataTablesAllUsers';
 
-        $this->dataTablesInit();
-
-        return view('dash.allusers', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
+        return view('dash.allusers', [ 'vars' => $this->vars ]);
     }
 
-    public function dataTablesAllUsers()
+    public function allServerSide(Request $request)
     {
-        $data = [];
-        foreach (User::all() as $reg)
-        {
-//            $status = $this->nominatedStatus($reg->valid);
-            $from = $this->getUserFrom($reg);
+        $cols = [
+            [
+                'show_name'     => 'ID',
+                'name'          => 'id'
+            ],
+            [
+                'show_name'     => 'Nome',
+                'name'          => 'name'
+            ],
+            [
+                'show_name'     => 'Indicações',
+                'name'          => ['Nominateds','count']
+            ],
+            [
+                'show_name'     => 'IP',
+                'name'          => 'ip'
+            ],
+            [
+                'show_name'     => 'Email',
+                'name'          => 'email'
+            ],
+            [
+                'show_name'     => 'From',
+                'name'          => ['RegisterFrom']
+            ],
+            [
+                'show_name'     => 'From',
+                'name'          => ['AllActions']
+            ],
+        ];
 
-            $newInfo = [
-                $reg->id,
-                $this->JSONparse($reg->name),
-                $reg->Nominateds()->count(),
-                $reg->ip,
-                $reg->email,
-                $from,
-                [
-                    'rowActions' =>
-                        [
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-success btn-circle fa fa-info m-l-10 has-tooltip',
-                                    'href' => '/panel/user/'.$reg->id,
-                                    'title' => 'Informações do usuário'
-                                ],
-                            ],
-                            [
-                                'html' => '',
-                                'attributes' => [
-                                    'class' => 'btn btn-custom btn-circle fa fa-facebook m-l-10 has-tooltip',
-                                    'href' => ($reg->fb_link) ? $reg->fb_link : 'javascript:return;',
-                                    'target' => '_blank'
-                                ],
-                            ],
-                        ]
-                ]
-            ];
 
-            array_push($data, $newInfo);
+        /*
+         * Array
+         * Items : Array
+         * */
+        $order_info         = $request->order[0];
+        $order_column       = $cols[$order_info['column']];
+        $order_orient       = $order_info['dir'];
+        $order_descending   = ( $order_orient == 'asc' ) ? true : false;
+
+        if ($request->draw == '1') {
+            $order_column = $cols[1];
         }
 
-        $this->data_info = $data;
-        $this->data_cols = [
-            ['title' => 'ID','width' => '30px'],
-            ['title' => 'Nome'],
-            ['title' => 'Total indicados'],
-            ['title' => 'IP'],
-            ['title' => 'email'],
-            ['title' => 'Via'],
-            ['title' => 'Ações', 'width' => '100px'],
+        $isRelationColumn = ( is_array($order_column['name']) ) ? true : false;
+
+
+        /*
+         * String
+         * */
+        $start      = $request->start;
+        $length     = $request->length;
+
+        /*
+         * @item value
+         * @item regex : false
+         * */
+        $search = $request->search['value'];
+
+        $query = User::with('Nominateds');
+
+        if ( $search != '' ) {
+            $query->where(function ($query) use ($search){
+                $query->orWhere('name', 'like', '%'.$search.'%')
+                    ->orWhere('ip', 'like', '%'.$search.'%')
+                    ->orWhere('email', 'like', '%'.$search.'%');
+            });
+        }
+
+        $sortRelation = function (){
+
+        };
+
+        if ($isRelationColumn) {
+            $sortRelation = function($user) {
+                return $user->Nominateds()->count();
+            };
+        }else{
+            $query->orderBy($order_column['name'], $order_orient);
+        }
+
+        $Total = $query->count();
+        $data = $query->skip($request->start)->take($length)->get()->sortBy($sortRelation,SORT_REGULAR, $order_descending);
+
+        $arr = [
+            'data' => [
+
+            ],
+            'recordsTotal' => $Total,
+            "recordsFiltered" => $data->count(),
         ];
+
+        /**
+         * Se for array, significa que são métodos que vem do relacionamento da model
+         * Necessário chamar um por um para interligar os relacionamentos e trazer o resultado final
+         */
+        function callRelation($model, Array $methods){
+            $method = $methods[0];
+
+            $val = call_user_func_array(
+                array($model, $method),
+                []
+            );
+
+            array_shift($methods);
+
+            if (count($methods) > 0) {
+                return callRelation($val, $methods);
+            }else{
+                return $val;
+            }
+        }
+
+        foreach ($data as $user)
+        {
+            $u = [];
+            foreach ($cols as $col)
+            {
+                $col_name = $col['name'];
+
+                /*
+                 * Se for array, significa que são métodos que vem do relacionamento da model
+                 * Necessário chamar um por um para interligar os relacionamentos e trazer o resultado final
+                */
+                $val = is_array($col_name) ? callRelation($user, $col_name) : $user[$col_name];
+                array_push($u, $val);
+
+            }
+            array_push($arr['data'], $u);
+        }
+
+        return json_encode($arr);
+
     }
 
     public function votes(Request $request, $id)

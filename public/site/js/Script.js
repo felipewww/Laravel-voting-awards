@@ -98,5 +98,11 @@ Script = {
     realCategorieName: function (name)
     {
         return name.replace('|', ' ');
+    },
+
+    clearJSON: function (json)
+    {
+        var njson = json.replace("'", "´");
+        return njson;
     }
 };

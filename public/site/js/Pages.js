@@ -60,7 +60,7 @@ Pages = {
         colorClass: "color4",
         logo: "startup_awards.png",
         requireds: {
-            0: 'Aceleração de no mínimo 3 (três)  batchs',
+            0: 'Aceleração de no mínimo 3 (três)  batches',
             1: 'Ter acelerado no mínimo 10 (dez) startups nos últimos 2 (dois) anos',
             2: 'Aceleradora tem que estar ativa'
         }
@@ -79,7 +79,7 @@ Pages = {
         requireds: {
             0: 'Projetos focados no público de baixa renda',
             1: 'Impacto social deve ser a atividade principal da startup',
-            2: 'Em que ser uma empresa e não uma ONG ter impactado pelo menos 100 pessoas nacionalmente'
+            2: 'TEm que ser uma empresa e não uma ONG ter impactado pelo menos 100 pessoas nacionalmente'
         }
     },
 

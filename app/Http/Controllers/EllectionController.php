@@ -29,7 +29,7 @@ class EllectionController extends Controller
         parent::__construct();
     }
 
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::user()->agreed == "0") {
             return redirect('/indicacao/termos');
@@ -216,7 +216,6 @@ class EllectionController extends Controller
     }
 
     public function share(Request $request, $catid, $share_token){
-
         try{
             $share_token = explode('|', Crypt::decrypt($share_token));
         }catch (\Exception $e){
@@ -243,12 +242,20 @@ class EllectionController extends Controller
             return redirect('/');
         };
 
-        return view('share', [
+        return view('login', [
             'image_name' => $cat->image_name,
             'cat_id' => $catid,
             'cat_name' => str_replace('|', " ", $cat->name),
-            'name' => $nom->name
+            'name' => $nom->name,
+            'isShare' => true
         ]);
+
+//        return view('share', [
+//            'image_name' => $cat->image_name,
+//            'cat_id' => $catid,
+//            'cat_name' => str_replace('|', " ", $cat->name),
+//            'name' => $nom->name
+//        ]);
     }
 
     public function prevote(Request $request)
