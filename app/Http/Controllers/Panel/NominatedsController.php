@@ -54,7 +54,7 @@ class NominatedsController extends Controller
             ],
             [
                 'show_name'     => 'Indicado',
-                'name'          => 'nominateds.name'
+                'name'          => 'name'
             ],
             [
                 'show_name'     => 'Referência',
