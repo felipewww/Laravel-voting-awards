@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($request){
 
+    Route::post('/users/all/ajax', 'Panel\UserController@AllServerSide');
+
     Route::get('/error', function (\Illuminate\Http\Request $request){
         return view('unable');
     });
@@ -16,7 +18,9 @@ Route::group(['middleware' => 'AdminAuth', 'prefix' => 'panel'], function($reque
     Route::get('/ips', 'Panel\IpsController@index');
     Route::get('/ips/byuser/{ip}', 'Panel\IpsController@byUser');
 
-    Route::get('/aguardando', 'Panel\NominatedsController@aguardando');
+    Route::get('/aguardando', 'Panel\NominatedsController@_aguardando');
+    Route::post('/aguardando/ajax', 'Panel\NominatedsController@AjaxAguardando');
+
     Route::get('/rejeitados', 'Panel\NominatedsController@rejeitados');
 
     Route::get('/users', 'Panel\UserController@all');

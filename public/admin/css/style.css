@@ -3,6 +3,11 @@ table.setDataTables td {
     border-bottom: 1px solid #edf1f5;
 }
 
+table.AjaxDataTables td {
+    padding: 10px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
 #side-menu > li > a.active{
     font-weight: normal;
     border-color: rgba(0,0,0,0);

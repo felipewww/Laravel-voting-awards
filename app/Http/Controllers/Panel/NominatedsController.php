@@ -31,6 +31,166 @@ class NominatedsController extends Controller
         return view('dash.nominateds', [ 'vars' => $this->vars, 'dataTables' => $this->dataTables ]);
     }
 
+    public function _aguardando()
+    {
+        $this->methodConfigName = 'dataTablesAguardando';
+        $this->vars->title = "Aguardando aprovação";
+        return view('dash.aguardando', [ 'vars' => $this->vars ]);
+    }
+
+    public function __TreatCategorie($cat)
+    {
+//        $str = 'asd';
+        $str = $this->categorieName($cat->name);
+        return $str;
+    }
+
+    public function AjaxAguardando(Request $request)
+    {
+//        dd($request->all());
+        $cols = [
+            [
+                'show_name'     => 'ID',
+                'name'          => 'id'
+            ],
+            [
+                'show_name'     => 'Indicado',
+                'name'          => 'name'
+            ],
+            [
+                'show_name'     => 'Referência',
+                'name'          => 'reference'
+            ],
+            [
+                'show_name'     => 'Categoria',
+                'name'          => 'Categorie',
+                'treat_method'  => '__TreatCategorie',
+                'isRelation'    => true
+            ],
+            [
+                'show_name'     => 'Usuário',
+                'name'          => 'id'
+            ],
+            [
+                'show_name'     => 'IP',
+                'name'          => 'id'
+            ],
+            [
+                'show_name'     => 'Ações',
+                'name'          => 'id'
+            ],
+        ];
+
+
+        /*
+         * Array
+         * Items : Array
+         * */
+        $order_info         = $request->order[0];
+        $order_column       = $cols[$order_info['column']];
+        $order_orient       = $order_info['dir'];
+        $order_descending   = ( $order_orient == 'asc' ) ? false : true;
+
+        if ($request->draw == '1') {
+            $order_column = $cols[1];
+        }
+
+        $isRelationColumn = ( isset($order_column['isRelation']) ) ? $order_column['isRelation'] : false;
+
+        /*
+         * String
+         * */
+        $start      = $request->start;
+        $length     = $request->length;
+
+        /*
+         * @item value
+         * @item regex : false
+         * */
+        $search = $request->search['value'];
+
+        $query = Nominateds::with('Categorie')->where('valid', 0);
+        $queryCols = ['nominateds.*'];
+
+        if ($search != '') {
+            $query->join('categories', 'categorie_id','categories.id');
+
+            $query->where(function ($query) use ($search){
+                $query->orWhere('categories.name', 'like', '%'.$search.'%')
+                    ->orWhere('nominateds.name', 'like', '%'.$search.'%');
+            });
+
+            array_push($queryCols, 'categories.name as cat_name');
+        }
+
+        $Total = $query->count();
+
+        /**
+         * FALTA FAZER O ORDER BY POR COLUNA DE RELACIONAMENTO
+         **/
+        $query->orderBy($order_column['name'], $order_orient);
+
+        $data = $query->skip($request->start)->take($length)->get($queryCols);
+
+
+        $arr = [
+            'data' => [
+
+            ],
+            'recordsTotal' => $Total,
+            "recordsFiltered" => $Total,
+        ];
+
+        /**
+         * Se for array, significa que são métodos que vem do relacionamento da model
+         * Necessário chamar um por um para interligar os relacionamentos e trazer o resultado final
+         */
+        function callRelation($model, Array $methods){
+            $method = $methods[0];
+
+            $val = call_user_func_array(
+                array($model, $method),
+                []
+            );
+
+            array_shift($methods);
+
+
+            if (count($methods) > 0) {
+                return callRelation($val, $methods);
+            }else{
+                return $val;
+            }
+        }
+
+        foreach ($data as $user)
+        {
+            $u = [];
+            foreach ($cols as $col)
+            {
+                $col_name = $col['name'];
+
+                /*
+                 * Se for array, significa que são métodos que vem do relacionamento da model
+                 * Necessário chamar um por um para interligar os relacionamentos e trazer o resultado final
+                */
+                $val = is_array($col_name) ? callRelation($user, $col_name) : $user[$col_name];
+
+                if ( gettype($val) == 'object' ) {
+                    $action = $col['treat_method'];
+                    $val = $this->$action($val);
+//                    $val = $val->name;
+                }
+
+                array_push($u, $val);
+
+            }
+            array_push($arr['data'], $u);
+        }
+
+        return json_encode($arr);
+    }
+
     public function alterStatus(Request $request)
     {
         $res = [
@@ -67,7 +227,6 @@ class NominatedsController extends Controller
     public function dataTablesAguardando()
     {
         $data = [];
-
 
         foreach (Nominateds::where('valid', 0)->get() as $reg)
         {
